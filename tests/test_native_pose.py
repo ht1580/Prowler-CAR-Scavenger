@@ -61,6 +61,14 @@ class NativePose(unittest.TestCase):
                 cache[i] = mul(world(bones[i]["parent"]), m) if bones[i]["parent"] >= 0 else m
             return cache[i]
 
+        # TF2 arm rig: the elbow is a pure hinge about local Y in shoulderMid space (stock CAR, every frame);
+        # 0.1.16 twisted it up to 88 deg about the upper arm -> wrung sleeves / stretched hands in game
+        for side in "lr":
+            with self.subTest(elbow=side):
+                e = local.get(names.index(f"def_{side}_elbow"))
+                if e is not None:
+                    self.assertGreater(matrix(e)[1][1], 0.9995, "elbow must only bend about its hinge (local Y)")
+
         cam = world(names.index("jx_c_camera"))
         for side in "lr":
             with self.subTest(shoulder=side):

@@ -26,10 +26,16 @@ class CompiledAnimation(unittest.TestCase):
                 self.assertEqual(bool(self.stock.i(sa + 12) & 4), bool(self.built.i(ba + 12) & 4),
                                  "A delta overlay compiled as an absolute pose moves the whole rig")
 
-    def test_no_extra_sequences_or_pose_parameters(self):
-        # the drum turns inside the stock fire (attack) deltas, so the tables are exactly the stock CAR's
-        self.assertEqual([n for _, n in self.built.table(192, 232, 4)], [n for _, n in self.stock.table(192, 232, 4)])
-        self.assertEqual(self.built.poseparams(), self.stock.poseparams())
+    def test_only_the_spin_layer_is_appended(self):
+        # stock sequences / pose parameters keep their indices; the script-driven drum spin adds exactly one
+        # autoplay delta layer and one pose parameter, both at the end
+        stock_seq = [n for _, n in self.stock.table(192, 232, 4)]
+        self.assertEqual([n for _, n in self.built.table(192, 232, 4)], stock_seq + ["prowler_spin_layer"])
+        self.assertEqual(self.built.poseparams(), self.stock.poseparams() + ["prowler_spin"])
+        spin = self.built.sequences()[-1]
+        self.assertTrue(spin["delta"] and spin["autoplay"] and spin["looping"])
+        self.assertEqual(len(spin["anims"]), 8)
+        self.assertNotIn("#INVALID", " ".join(spin["anims"]), "MDLShit must keep every blend index valid")
 
     def test_embedded_payload_is_inside_declared_mdl_length(self):
         world_name = "w_car101_conv.mdl" if self.built_path.stem.endswith("_conv") else "w_car101.mdl"

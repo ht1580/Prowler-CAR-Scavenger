@@ -37,10 +37,11 @@ ANIMOUT = OUT + r"\anims"
 
 BODY_MAT = r"models\Weapons_R2\prowler_car\prowler_scavenger"
 GLOW_MAT = r"models\Weapons_R2\prowler_car\prowler_coil_glow"
-SPIN_BONES = {                     # bone -> (world axis = gun forward, turns per shot; see fire_spin)
+SPIN_KEYS = 8
+SPIN_BONES = {                     # bone -> (world axis = gun forward, turns per pose-parameter cycle)
     "def_c_reactive_spinner_coils": (Vector((0, 0, 1)), 1.0),
-    "def_c_reactive_spinner_1": (Vector((0, 0, 1)), -2.0),
-    "def_c_reactive_spinner_2": (Vector((0, 0, 1)), 2.0),
+    "def_c_reactive_spinner_1": (Vector((0, 0, 1)), -1.0),
+    "def_c_reactive_spinner_2": (Vector((0, 0, 1)), 1.0),
 }
 report = {}
 
@@ -302,21 +303,18 @@ def spin_delta(bone, axis_world, angle):
     return Quaternion(axis_local, angle).to_matrix().to_4x4()
 
 
-def fire_spin(f):
-    """Per-shot drum turn, part of the fire (attack) deltas like a bolt or revolver cylinder: whole turns
-    at 120 deg per frame (slerp-safe), ending on the rest pose. The CAR re-triggers attack_seq every
-    2.1 frames (14.1 rps) with fadein 0.05, so the previous shot's layer is still fading out; a whole
-    turn makes that fading layer only ever carry the drum forward (a 120/180 deg symmetric step would
-    twitch backwards during the crossfade)."""
-    ch = {}
-    for b, (ax, turns) in SPIN_BONES.items():
-        if b in idx:
-            steps = round(abs(turns) * 3)
-            ch[b] = spin_delta(b, ax, math.copysign(2 * math.pi / 3, turns) * min(f, steps))
-    return ch
-
-
-report["spin"] = {b: {"turns_per_shot": t, "frames": round(abs(t) * 3)} for b, (ax, t) in SPIN_BONES.items()}
+# Drum spin = script-driven looping pose parameter "prowler_spin" (0..1 = one turn) blending these keys in an
+# autoplay delta layer. Not in the fire deltas: a delta can't accumulate rotation over shots, so 0.1.14-0.1.16
+# had to spin whole turns per shot (14 turns/s coils, 28 rings) -> strobing, "flying" drum in game.
+# 8 keys over 0..360 deg (key 7 == key 0, seamless wrap; MDLShit corrupted the 9th index of a 9-key blend).
+spin_files = []
+for k in range(SPIN_KEYS):
+    frac = k / (SPIN_KEYS - 1)
+    ch = {b: spin_delta(b, ax, turns * 2 * math.pi * frac) for b, (ax, turns) in SPIN_BONES.items() if b in idx}
+    fn = f"prowler_spin_{k}.smd"
+    write_smd(ANIMOUT + "\\" + fn, nodes, [delta_pose(ch)])
+    spin_files.append(fn)
+report["spin_keys"] = spin_files
 
 
 def fire_kick(nframes):
@@ -510,7 +508,7 @@ for late, full_seq in LATE.items():
     write_smd(ANIMOUT + "\\" + late + ".smd", nodes, fr)
     anim_report.append({"anim": late, "slicedFrom": full_seq, "start": start, "frames": n_out})
 
-# fire deltas: copy CAR deltas onto the new skeleton, add spring/bolt kick and the per-shot drum turn
+# fire deltas: copy CAR deltas onto the new skeleton, add spring/bolt kick (the drum is the spin layer's)
 for att in ("attack_anim", "attack_ads_anim", "attack_slide_anim", "attack_onehanded_anim", "attack_onehanded_ads_anim"):
     cn, cf, _ = read_smd(CARA + "\\" + att + ".smd")
     names = {i: nm for i, (nm, p) in cn.items()}
@@ -518,12 +516,10 @@ for att in ("attack_anim", "attack_ads_anim", "attack_slide_anim", "attack_oneha
     frames = []
     for f, fr in enumerate(cf):
         car_by = {names[i]: m for i, m in fr.items()}
-        spin = fire_spin(f)
-        frames.append([spin[final_order[k]] if final_order[k] in spin
-                       else kick[f][k] if final_order[k] in ("def_c_bolt",) or final_order[k].startswith("def_c_reactive_spring")
+        frames.append([kick[f][k] if final_order[k] in ("def_c_bolt",) or final_order[k].startswith("def_c_reactive_spring")
                        else car_by.get(final_order[k], Matrix.Identity(4)) for k in range(len(final_order))])
     write_smd(ANIMOUT + "\\" + att + ".smd", nodes, frames)
-    anim_report.append({"anim": att, "delta": True, "added": "spring+bolt kick, drum turn"})
+    anim_report.append({"anim": att, "delta": True, "added": "spring+bolt kick"})
 
 report["anims"] = anim_report
 json.dump(report, open(OUT + r"\build_report.json", "w"), indent=1)

@@ -129,9 +129,22 @@ for name in delta_anims:
     qc, changed = re.subn(pattern, lambda match: match.group(1) + '"anims\\' + rebased + '"' + match.group(2) + '\n\tsubtract "ref" 0', qc, flags=re.M)
     assert changed == 1, f"delta $animation declaration missing: {name}"
 
-# 6) drum spin lives in the fire (attack) deltas (build_view fire_spin), like a bolt: no extra pose
-#    parameter, layer sequence or script -> the sequence/poseparam tables stay exactly the stock CAR's
-assert "prowler_spin" not in qc
+# 6) drum spin: script-driven looping pose parameter + autoplay delta layer, both APPENDED after the stock
+#    entries (stock sequence / pose-parameter indices unchanged; HK560: new sequences only at the end).
+#    Not in the fire deltas: per-shot whole turns strobed in game (0.1.14-0.1.16).
+spin = [absolute_delta_source(filename) for filename in rep["spin_keys"]]
+assert '$poseparameter "ads_blend" 0 1 loop 0' in qc
+qc = qc.replace('$poseparameter "ads_blend" 0 1 loop 0',
+                '$poseparameter "ads_blend" 0 1 loop 0\n$poseparameter "prowler_spin" 0 1 loop 1')
+spin_bones = {"def_c_reactive_spinner_coils", "def_c_reactive_spinner_1", "def_c_reactive_spinner_2"}
+weights = '\n$weightlist "prowler_spin_only" {\n' + "\n".join(
+    f'\t"{name}" {1 if name in spin_bones else 0}' for name in order) + '\n}\n\n'
+first_animation = qc.index("$animation ")
+qc = qc[:first_animation] + weights + qc[first_animation:]
+spin_seq = ['$sequence "prowler_spin_layer" {'] + [f'\t"anims\\{f}"' for f in spin] + [
+    '\tblend "prowler_spin" 0 1', f"\tblendwidth {len(spin)}", '\tweightlist "prowler_spin_only"',
+    '\tsubtract "ref" 0', "\tdelta", "\tautoplay", "\tfps 30", "\tloop", "}", ""]
+qc = qc.rstrip("\n") + "\n\n" + "\n".join(spin_seq) + "\n"
 
 # ---- re-emit $animation/$sequence blocks in the stock MDL's anim-desc order -------------------------
 # Crowbar writes all $animation blocks first, so inline-sequence anims (@ref, @reload_seq, ...) would land at
@@ -207,4 +220,4 @@ qc = qc.replace('$modelname "weapons/car101/ptpov_car101.mdl"',
                 '$modelname "weapons/car101/ptpov_car101.mdl"\n$maxverts 65000')
 open(OUT + r"\ptpov_car101.qc", "w", encoding="ascii", errors="replace", newline="\n").write(qc)
 print("GEN_QC_OK", len(order), "bones")
-print("DELTA_SOURCES_OK", len(delta_anims), "stock delta animations")
+print("DELTA_SOURCES_OK", len(delta_anims), "stock delta animations and", len(spin), "spinner keys")
