@@ -1,12 +1,11 @@
 {
 	"Name": "Prowler.CAR.Scavenger",
-	"Description": "Apex Prowler reactive skin (Scavenger, full evolution) on the CAR: native Prowler first-person animations, coil drum that turns one chamber per shot (client script + pose parameter), emissive coils and the full-auto Prowler fire sound. Minimal weapon script pins stock model paths and the stock sound routing; crosshair/FOV/ADS/UI and gameplay inherit stock values.",
+	"Description": "Apex Prowler reactive skin (Scavenger, full evolution) on the CAR: native Prowler first-person animations on the stock CAR skeleton, coil drum that turns one chamber per shot (client script + pose parameter) and the full-auto Prowler fire sound. No glow effects. Minimal weapon script pins stock model paths and the stock sound routing; crosshair/FOV/ADS/UI and gameplay inherit stock values.",
 	"Version": "0.1.0",
 	"LoadPriority": 0,
 	"RequiredOnClient": false,
 	"ConVars": [
-		{ "Name": "prowler_car_spin", "DefaultValue": "1", "Flags": 128, "HelpString": "Prowler CAR coil drum turns one chamber per shot" },
-		{ "Name": "prowler_car_fx", "DefaultValue": "1", "Flags": 128, "HelpString": "Electric crackle on the Prowler CAR coils while firing" }
+		{ "Name": "prowler_car_spin", "DefaultValue": "1", "Flags": 128, "HelpString": "Prowler CAR coil drum turns one chamber per shot" }
 	],
 	"Scripts": [
 		{

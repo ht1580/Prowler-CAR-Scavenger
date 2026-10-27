@@ -26,6 +26,11 @@ class CompiledAnimation(unittest.TestCase):
                 self.assertEqual(bool(self.stock.i(sa + 12) & 4), bool(self.built.i(ba + 12) & 4),
                                  "A delta overlay compiled as an absolute pose moves the whole rig")
 
+    def test_bone_set_is_exactly_stock(self):
+        # every working Apex->TF2 viewmodel port keeps the stock bones; 0.1.11-0.1.18 appended 34 reactive
+        # bones and the parts on them (drum, rings) kept flying in game
+        self.assertEqual(self.built.bones(), self.stock.bones())
+
     def test_only_the_spin_layer_is_appended(self):
         # stock sequences / pose parameters keep their indices; the script-driven drum spin adds exactly one
         # autoplay delta layer and one pose parameter, both at the end

@@ -14,7 +14,7 @@ try {
     $reader.ReadBones()
     $reader.ReadLocalAnimationDescs()
     $reader.ReadAnimationSections()
-    $reader.ReadAnimationMdlBlocks()
+    try { $reader.ReadAnimationMdlBlocks() } catch { }   # third-party v53 files without anim blocks
     $reader.ReadSequenceDescs()
     $buffer=New-Object IO.MemoryStream
     $textWriter=New-Object IO.StreamWriter($buffer)

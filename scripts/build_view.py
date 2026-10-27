@@ -36,13 +36,15 @@ OUT = ROOT + r"\build\view"
 ANIMOUT = OUT + r"\anims"
 
 BODY_MAT = r"models\Weapons_R2\prowler_car\prowler_scavenger"
-GLOW_MAT = r"models\Weapons_R2\prowler_car\prowler_coil_glow"
+# Stock skeleton only (0.1.19): every working Apex->TF2 viewmodel port checked (Nachos Apex CAR, Echo reactive
+# R99) keeps the stock bone set exactly (85 / 88, nothing added) and binds all Apex parts to stock bones.
+# 0.1.11-0.1.18 appended 34 reactive bones; in game the parts on them (drum, rings) kept "flying".
+# The coil drum rides the stock fire-moving bone def_c_bolt, re-seated on the drum axis; every other
+# reactive part is rigid on def_c_base.
+DRUM_BONE = "def_c_bolt"
+DRUM_SRC = "def_c_reactive_spinner_coils"
 SPIN_KEYS = 8
-SPIN_BONES = {                     # bone -> (world axis = gun forward, turns per pose-parameter cycle)
-    "def_c_reactive_spinner_coils": (Vector((0, 0, 1)), 1.0),
-    "def_c_reactive_spinner_1": (Vector((0, 0, 1)), -1.0),
-    "def_c_reactive_spinner_2": (Vector((0, 0, 1)), 1.0),
-}
+SPIN_BONES = {DRUM_BONE: (Vector((0, 0, 1)), 1.0)}   # bone -> (world axis = gun forward, turns per pose-parameter cycle)
 report = {}
 
 
@@ -126,15 +128,9 @@ bpy.ops.import_scene.cast(filepath=CAST)
 cast_arm = [o for o in bpy.data.objects if o.type == "ARMATURE"][0]
 cast_heads = {b.name: (cast_arm.matrix_world @ b.head_local) for b in cast_arm.data.bones}
 
-# extra bones appended after the CAR skeleton (keeps CAR indices -> stock RUI parents stay valid)
-extra = [n for n in [rea_n[i][0] for i in sorted(rea_n)] if n not in car_order and
-         (n.startswith("def_c_reactive") or "reactive" in n or n in ("def_c_bolt_end",))]
-final_order = car_order + extra
+final_order = list(car_order)                       # exactly the stock 85 bones, stock order
 final_parent = dict(car_parent)
-for n in extra:
-    p = rea_parent[n]
-    final_parent[n] = p if p in final_order else "def_c_base"
-report["extra_bones"] = extra
+report["extra_bones"] = []
 
 # proscreen relocation: put the pro-screen on the tank counter ("0000") on the player-facing side
 # (the counter window itself carries the ammo RUI, see rui_fix.py; pro screen goes on the tank's front half)
@@ -164,7 +160,10 @@ for n in final_order:
         rest_g[n] = prw_rest_g["def_c_magazine"].copy()
     else:
         rest_g[n] = car_rest_g[n].copy()
+# the drum bone sits on the coil drum's axis (the reactive rig's spinner pivot), not on the Apex bolt
+rest_g[DRUM_BONE] = rea_rest_g[DRUM_SRC].copy()
 CAR_ONLY = [n for n in final_order if (n not in prw_rest_g and n not in rea_rest_g) or n in OPTIC_BONES]
+RIGID = (DRUM_BONE,)                                  # never driven by the Apex animation (held on the gun)
 report["car_only_bones"] = CAR_ONLY
 idx = {n: i for i, n in enumerate(final_order)}
 nodes = [(n, idx[final_parent[n]] if final_parent[n] else -1) for n in final_order]
@@ -221,6 +220,10 @@ def mesh_tris(obj, matname, bone_map, offset=Vector((0, 0, 0)), normal_push=0.0,
 
 
 def bone_map(name):
+    if name == DRUM_SRC:
+        return DRUM_BONE
+    if name in ("def_c_bolt", "def_c_bolt_end"):          # the Apex bolt parts stay put; def_c_bolt is the drum
+        return "def_c_base"
     while name not in idx:
         name = rea_parent.get(name) or "def_c_base"
     return name
@@ -236,30 +239,7 @@ write_smd(OUT + r"\prowler_body.smd", nodes, [rest_local], mesh_tris(body, BODY_
 write_smd(OUT + r"\prowler_magazine.smd", nodes, [rest_local], mesh_tris(clip, BODY_MAT, lambda n: "def_c_magazine"))
 write_smd(OUT + r"\prowler_sight_on.smd", nodes, [rest_local], mesh_tris(irons, BODY_MAT, lambda n: "ja_ads_attachment"))
 
-# glow overlay: body faces whose UVs land on lit ILM texels (hot coil wire)
-img = bpy.data.images.load(ILM)
-W, H = img.size
-px = list(img.pixels)
-
-
-def ilm_at(u, v):
-    x = min(W - 1, max(0, int(u % 1.0 * W)))
-    y = min(H - 1, max(0, int(v % 1.0 * H)))
-    k = (y * W + x) * 4
-    return max(px[k], px[k + 1], px[k + 2])
-
-
-def glow_filter(me, lt):
-    uv = me.uv_layers.active.data
-    pts = [uv[li].uv for li in lt.loops]
-    c = (sum(p.x for p in pts) / 3, sum(p.y for p in pts) / 3)
-    return max([ilm_at(c[0], c[1])] + [ilm_at(p.x, p.y) for p in pts]) > 0.20
-
-
-glow = mesh_tris(body, GLOW_MAT, bone_map, normal_push=0.004, face_filter=glow_filter)
-write_smd(OUT + r"\prowler_glow.smd", nodes, [rest_local], glow)
-report["glow_tris"] = len(glow)
-report["glow_bones"] = sorted({final_order[l[0]] for _, vs in glow for (_, _, _, ls) in vs for l in ls})
+# no glow (0.1.19): no coil glow overlay, and build_rpak.py writes no material self-illumination
 
 
 # stock TF2 optics / proscreen, re-skinned onto the new skeleton and shifted
@@ -315,22 +295,6 @@ for k in range(SPIN_KEYS):
     write_smd(ANIMOUT + "\\" + fn, nodes, [delta_pose(ch)])
     spin_files.append(fn)
 report["spin_keys"] = spin_files
-
-
-def fire_kick(nframes):
-    """Per-shot spring compression + bolt kick, as delta frames (returns to zero)."""
-    springs = [n for n in final_order if n.startswith("def_c_reactive_spring_")]
-    frames = []
-    for f in range(nframes):
-        a = 1.0 if f == 1 else (0.6 if f == 2 else (0.25 if f == 3 else 0.0))
-        ch = {}
-        for s in springs[1:]:
-            ch[s] = Matrix.Translation(-0.35 * a * rest_local_by[s].to_translation())
-        if "def_c_bolt" in idx:
-            back = rest_g["def_c_base"].to_3x3().inverted() @ Vector((0, 0, -0.45 * a))
-            ch["def_c_bolt"] = Matrix.Translation(back)
-        frames.append(delta_pose(ch))
-    return frames
 
 
 report["DELTA"] = list(DELTA)
@@ -452,7 +416,7 @@ def retarget(key, n_out, warp):
         g = by_name(n_p, globals_(n_p, loc))
         gm = {}
         for n in final_order:
-            if n in g and n not in CAR_ONLY:
+            if n in g and n not in CAR_ONLY and n not in RIGID:
                 gm[n] = g[n]
             else:
                 p = final_parent[n]
@@ -508,21 +472,21 @@ for late, full_seq in LATE.items():
     write_smd(ANIMOUT + "\\" + late + ".smd", nodes, fr)
     anim_report.append({"anim": late, "slicedFrom": full_seq, "start": start, "frames": n_out})
 
-# fire deltas: copy CAR deltas onto the new skeleton, add spring/bolt kick (the drum is the spin layer's)
+# fire deltas: the stock CAR deltas, except the stock bolt kick (def_c_bolt is the drum: it only turns,
+# through the spin layer)
 for att in ("attack_anim", "attack_ads_anim", "attack_slide_anim", "attack_onehanded_anim", "attack_onehanded_ads_anim"):
     cn, cf, _ = read_smd(CARA + "\\" + att + ".smd")
     names = {i: nm for i, (nm, p) in cn.items()}
-    kick = fire_kick(len(cf))
     frames = []
     for f, fr in enumerate(cf):
         car_by = {names[i]: m for i, m in fr.items()}
-        frames.append([kick[f][k] if final_order[k] in ("def_c_bolt",) or final_order[k].startswith("def_c_reactive_spring")
-                       else car_by.get(final_order[k], Matrix.Identity(4)) for k in range(len(final_order))])
+        frames.append([Matrix.Identity(4) if final_order[k] in RIGID else car_by.get(final_order[k], Matrix.Identity(4))
+                       for k in range(len(final_order))])
     write_smd(ANIMOUT + "\\" + att + ".smd", nodes, frames)
-    anim_report.append({"anim": att, "delta": True, "added": "spring+bolt kick"})
+    anim_report.append({"anim": att, "delta": True, "added": "stock CAR fire delta, no bolt kick"})
 
 report["anims"] = anim_report
 json.dump(report, open(OUT + r"\build_report.json", "w"), indent=1)
-print("BUILD_VIEW_OK", len(anim_report), "anims", report["glow_tris"], "glow tris")
+print("BUILD_VIEW_OK", len(anim_report), "anims,", len(final_order), "bones (stock set)")
 
 

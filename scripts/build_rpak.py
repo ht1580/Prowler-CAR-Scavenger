@@ -16,7 +16,7 @@ TEXDIR = "texture/models/Weapons_R2/prowler_car"
 R = ROOT / "repak"
 ASSETS = R / "assets" / TEXDIR
 STAGE = R / "png"
-EMISSIVE_TINT = [2.2, 0.75, 0.22]       # Apex reactive L2 (emissiveIntensity 2) hot-coil orange
+EMISSIVE_TINT = [0.0, 0.0, 0.0]         # glow removed on request (0.1.19); was [2.2, 0.75, 0.22] hot-coil orange
 
 # suffix: (format, srgb)
 SPEC = {

@@ -51,7 +51,7 @@ if len(a) > 1:
         nb = d[o + 15]
         p = Vector(struct.unpack_from("<3f", d, o + 16))
         for j in range(nb):
-            if w[j] > 0.5 and "spinner" in names[bid[j]]:
+            if w[j] > 0.5 and ("spinner" in names[bid[j]] or names[bid[j]] == "def_c_bolt"):
                 acc.setdefault(names[bid[j]], []).append(P2B[bid[j]] @ p)
     for nm, pts in acc.items():
         c = sum(pts, Vector()) / len(pts)

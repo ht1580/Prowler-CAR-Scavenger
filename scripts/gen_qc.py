@@ -74,7 +74,7 @@ qc = qc.replace('studio "v_car101_magazine.smd"', 'studio "prowler_magazine.smd"
 # (official/vanilla servers run the stock CAR and network indices to the client)
 last_att = qc.rfind("\n$attachment ")
 eol = qc.index("\n", last_att + 1)
-qc = qc[:eol] + '\n$attachment "FX_spinner_coils" "def_c_reactive_spinner_coils" 0 0 0 rotate 0 0 0' + qc[eol:]
+qc = qc[:eol] + '\n$attachment "FX_spinner_coils" "def_c_bolt" 0 0 0 rotate 0 0 0' + qc[eol:]   # drum = def_c_bolt
 
 # 2) skin families: every family -> the Prowler material (camo/elite/prime indexes stay valid)
 qc = re.sub(r'\{ "models\\Weapons_R2\\car_smg\\CAR_smg[^"]*"\s*\}', '{ "' + BODY_MAT.replace("\\", "\\\\") + '" }', qc)
@@ -136,7 +136,7 @@ spin = [absolute_delta_source(filename) for filename in rep["spin_keys"]]
 assert '$poseparameter "ads_blend" 0 1 loop 0' in qc
 qc = qc.replace('$poseparameter "ads_blend" 0 1 loop 0',
                 '$poseparameter "ads_blend" 0 1 loop 0\n$poseparameter "prowler_spin" 0 1 loop 1')
-spin_bones = {"def_c_reactive_spinner_coils", "def_c_reactive_spinner_1", "def_c_reactive_spinner_2"}
+spin_bones = {"def_c_bolt"}                      # the coil drum rides the stock bolt bone (stock skeleton only)
 weights = '\n$weightlist "prowler_spin_only" {\n' + "\n".join(
     f'\t"{name}" {1 if name in spin_bones else 0}' for name in order) + '\n}\n\n'
 first_animation = qc.index("$animation ")

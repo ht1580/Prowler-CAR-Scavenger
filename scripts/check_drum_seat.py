@@ -9,7 +9,7 @@ import sys
 
 import numpy as np
 
-PARTS = ("def_c_reactive_spinner_coils", "def_c_reactive_spinner_1", "def_c_reactive_spinner_2")
+PARTS = ("def_c_bolt",)          # 0.1.19: the coil drum rides the stock bolt bone; the rings are rigid on the base
 
 
 def mat(pos, rot):
