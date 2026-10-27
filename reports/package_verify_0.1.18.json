@@ -1,0 +1,321 @@
+{
+  "archive": "D:\\TitanfallMods\\01_最新安装包\\Prowler.CAR.Scavenger-0.1.18.zip",
+  "sha256": "B84500B298E28F24001F96642109204FCDFD6EDF4DBD5B30F0726BBE7D313554",
+  "bytes": 25099612,
+  "files": [
+    {
+      "path": "Prowler.CAR.Scavenger/audio/car_lowammo_shot1.json",
+      "bytes": 88,
+      "sha256": "2d9e88a338f472bab271da1b26db0db46220d7b95de148595177c771a61a0468"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/car_lowammo_shot1/1.wav",
+      "bytes": 396348,
+      "sha256": "11606d5db4b0039334819dbe7b7485917058b1b7274d06a9732e9a0d6fa86735"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_firstshot_1p.json",
+      "bytes": 128,
+      "sha256": "1191fbf44e0bcb81ba6f58ecc7615d33ac5efd7e23aab542e011d197c7d4377c"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_firstshot_1p/1.wav",
+      "bytes": 277396,
+      "sha256": "869ee9661b420f7b7dc10be91c9bacf371a89e36c99ddc18b1290bb3078cc50b"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loop_1p.json",
+      "bytes": 89,
+      "sha256": "adc01600e79c832b69725721f2fd997be17ab7c409a9bfd289e09b21e879f9ef"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loop_1p/1.wav",
+      "bytes": 762596,
+      "sha256": "cd5aa53c3b55478f6ec793de44e349edd94dfd3c4b45bff20f9088ced1e0eeba"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loop_3p.json",
+      "bytes": 248,
+      "sha256": "b597d5088198d14b584f6247b283129dc346273236a6063721163216e53a126b"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loop_3p/1.wav",
+      "bytes": 762596,
+      "sha256": "39214025bbb62d643438eddfc7476db8aebf234c041aaceb59a9397b182ddfc5"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loop_3p_npc_a.json",
+      "bytes": 150,
+      "sha256": "c366448e1e28623639c618e8e031f4acad19a9f1fec5fe8d1c8850d1188572e2"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loop_3p_npc_a/1.wav",
+      "bytes": 762596,
+      "sha256": "65e08270fa3d90b467c2f0745861a8ef81f9d2530a9dcb960b71819261163601"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loopend_1p.json",
+      "bytes": 156,
+      "sha256": "4bd047e34be18b92e49336c3a0ec6d3cd132de742ff9def5d06fef939d045fd3"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loopend_1p/1.wav",
+      "bytes": 422444,
+      "sha256": "400d1bcbcfaba21c85ea88d8e92cf3407652db3d988148571e69be3231265368"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loopend_3p.json",
+      "bytes": 196,
+      "sha256": "0d64ff52174bb74934893884369560f4255ab7bdbf9073097fd7c867abf16777"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loopend_3p/1.wav",
+      "bytes": 480044,
+      "sha256": "1c3e4ea3a65dc70032e0ccd3e082ba5a65e2b07335ab275e07c96b74a97a3ac9"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loopend_npc.json",
+      "bytes": 126,
+      "sha256": "1893e51b6e1079f63055cc34618602cf98fe72e7ebbb024eed667d3cd7c55612"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_loopend_npc/1.wav",
+      "bytes": 480044,
+      "sha256": "8bfaab5dc8ad70e4a736d3d1f9ff66e5fffa8f0446b091968ae55340cb940fad"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_secondshot_1p.json",
+      "bytes": 362,
+      "sha256": "738e9ee6cc534100e4f788be6a637780e523423c2aab0d39e5533b618e51d027"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_secondshot_1p/1.wav",
+      "bytes": 9644,
+      "sha256": "2e24c1d0451ca760de2bdf1b013eda70fda646da5e85585e9c448a64d14cf1b4"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_secondshot_3p.json",
+      "bytes": 1128,
+      "sha256": "84bc96c18030eca00f5c61dd5d7a44bdb88f2bb5d7a5c106b94b14e6b6099106"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_secondshot_3p/1.wav",
+      "bytes": 9644,
+      "sha256": "2e24c1d0451ca760de2bdf1b013eda70fda646da5e85585e9c448a64d14cf1b4"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_secondshot_npc.json",
+      "bytes": 279,
+      "sha256": "c3241e115381143430a9b8ffd0814eed421510b1059d61070d6ec3ed188d52f9"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/audio/weapon_car_secondshot_npc/1.wav",
+      "bytes": 9644,
+      "sha256": "2e24c1d0451ca760de2bdf1b013eda70fda646da5e85585e9c448a64d14cf1b4"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/keyvalues/scripts/weapons/mp_weapon_car.txt",
+      "bytes": 1231,
+      "sha256": "702216632b67e6678186901221a4337efc2ecd7cfeb31c353b41ab39d83edd1e"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/mod.json",
+      "bytes": 928,
+      "sha256": "d0a6ed20a0b36e411b8efa4cbcfcd7c0ffffee96f89de3dfe31940d97c7c30fc"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/mod/models/weapons/car101/ptpov_car101.mdl",
+      "bytes": 3593698,
+      "sha256": "04649136410331a3e746f0944b5e2e0b5171fd3800842fd054d0264d8fee8d0a"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/mod/models/weapons/car101/w_car101.mdl",
+      "bytes": 1821639,
+      "sha256": "3ccbefda5d9feaf79f6548c700f421e6a161dd9f4e7b0409f1ea2b69d7b733ad"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/mod/scripts/vscripts/prowler_car/cl_prowler_car.nut",
+      "bytes": 2625,
+      "sha256": "d9497732e2ab890097d622b6133f09e738edf4a1114a683ca7b00ac977ddc8b9"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/paks/prowler_car.rpak",
+      "bytes": 615026,
+      "sha256": "245b2e6ecc40f2be233926ad836a81d6c3ed04577f9d8d0737a86c4d14236365"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/paks/prowler_car.starpak",
+      "bytes": 38568056,
+      "sha256": "74422b5818bead7763d99671bf56c2299d995ff3dd2f02451425fc45e8a63468"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/paks/rpak.json",
+      "bytes": 55,
+      "sha256": "1c1dfd38862d5e89f336a121d0bdec765b5a8204f3eb79e99950463038d016bd"
+    },
+    {
+      "path": "Prowler.CAR.Scavenger/README-中文.md",
+      "bytes": 2025,
+      "sha256": "211afe3c10c565a37a627698dda321d7a1eb6a1d02d846beb9a8d40f4d1b582d"
+    }
+  ],
+  "audio": {
+    "car_lowammo_shot1": {
+      "seconds": 2.0640833333333335,
+      "peak": 0.5011749626148259,
+      "rms": 0.044340363608454676,
+      "ids": [
+        "car_lowammo_shot1"
+      ]
+    },
+    "weapon_car_firstshot_1p": {
+      "seconds": 1.4445416666666666,
+      "peak": 0.5011749626148259,
+      "rms": 0.036050426201854266,
+      "ids": [
+        "weapon_car_firstshot_1p",
+        "weapon_car_firstshot_1p_int"
+      ]
+    },
+    "weapon_car_loop_1p": {
+      "seconds": 3.971625,
+      "peak": 0.5011749626148259,
+      "rms": 0.12580930201721785,
+      "ids": [
+        "weapon_car_loop_1p"
+      ]
+    },
+    "weapon_car_loop_3p": {
+      "seconds": 3.971625,
+      "peak": 0.5011749626148259,
+      "rms": 0.14008415521838988,
+      "ids": [
+        "weapon_car_loop_3p",
+        "weapon_car_loop_3p_BU1",
+        "weapon_car_loop_3p_enemy",
+        "weapon_car_loop_3p_enemy_BU",
+        "weapon_car_loop_3p_enemy_BU1",
+        "weapon_car_loop_3p_OLD2"
+      ]
+    },
+    "weapon_car_loop_3p_npc_a": {
+      "seconds": 3.971625,
+      "peak": 0.5011749626148259,
+      "rms": 0.12811690966366873,
+      "ids": [
+        "weapon_car_loop_3p_npc_a",
+        "weapon_car_loop_3p_npc",
+        "weapon_car_loop_npc"
+      ]
+    },
+    "weapon_car_loopend_1p": {
+      "seconds": 2.2,
+      "peak": 0.1825922421948912,
+      "rms": 0.017622861305553884,
+      "ids": [
+        "weapon_car_loopend_1p",
+        "weapon_car_loopend_1p_int",
+        "weapon_car_loopend_1p_OLD"
+      ]
+    },
+    "weapon_car_loopend_3p": {
+      "seconds": 2.5,
+      "peak": 0.11487166966765343,
+      "rms": 0.010490768952271313,
+      "ids": [
+        "weapon_car_loopend_3p",
+        "weapon_car_loopend_3p_enemy",
+        "weapon_car_loopend_3p_int",
+        "weapon_car_loopend_3p_int_enemy"
+      ]
+    },
+    "weapon_car_loopend_npc": {
+      "seconds": 2.5,
+      "peak": 0.18063905758842738,
+      "rms": 0.015351042477233082,
+      "ids": [
+        "weapon_car_loopend_npc",
+        "weapon_car_loopend_npc_int"
+      ]
+    },
+    "weapon_car_secondshot_1p": {
+      "seconds": 0.05,
+      "peak": 0.0,
+      "rms": 0.0,
+      "ids": [
+        "weapon_car_secondshot_1p",
+        "weapon_car_secondshot_1p_BU",
+        "weapon_car_secondshot_1p_intlg",
+        "weapon_car_secondshot_1p_intlg_BU",
+        "weapon_car_secondshot_1p_intmed",
+        "weapon_car_secondshot_1p_intmed_BU",
+        "weapon_car_secondshot_1p_intsm",
+        "weapon_car_secondshot_1p_intsm_BU"
+      ]
+    },
+    "weapon_car_secondshot_3p": {
+      "seconds": 0.05,
+      "peak": 0.0,
+      "rms": 0.0,
+      "ids": [
+        "weapon_car_secondshot_3p",
+        "weapon_car_secondshot_3p_BU1",
+        "weapon_car_secondshot_3p_OLD2",
+        "weapon_car_secondshot_3p_enemy",
+        "weapon_car_secondshot_3p_enemy_BU",
+        "weapon_car_secondshot_3p_enemy_BU1",
+        "weapon_car_secondshot_3p_enemy_OLD2",
+        "weapon_car_secondshot_3p_enemy_intlg",
+        "weapon_car_secondshot_3p_enemy_intlg_BU1",
+        "weapon_car_secondshot_3p_enemy_intlg_OLD2",
+        "weapon_car_secondshot_3p_enemy_intmed",
+        "weapon_car_secondshot_3p_enemy_intmed_BU1",
+        "weapon_car_secondshot_3p_enemy_intmed_OLD2",
+        "weapon_car_secondshot_3p_enemy_intsm",
+        "weapon_car_secondshot_3p_enemy_intsm_BU1",
+        "weapon_car_secondshot_3p_enemy_intsm_OLD2",
+        "weapon_car_secondshot_3p_int",
+        "weapon_car_secondshot_3p_int_enemy",
+        "weapon_car_secondshot_3p_intlg",
+        "weapon_car_secondshot_3p_intlg_OLD2",
+        "weapon_car_secondshot_3p_intmed",
+        "weapon_car_secondshot_3p_intmed_OLD2",
+        "weapon_car_secondshot_3p_intsm",
+        "weapon_car_secondshot_3p_intsm_OLD2",
+        "weapon_car_firstshot_3p_BU1",
+        "weapon_car_firstshot_3p_enemy"
+      ]
+    },
+    "weapon_car_secondshot_npc": {
+      "seconds": 0.05,
+      "peak": 0.0,
+      "rms": 0.0,
+      "ids": [
+        "weapon_car_secondshot_npc",
+        "weapon_car_secondshot1_npc",
+        "weapon_car_secondshot_npc_intlg",
+        "weapon_car_secondshot_npc_intmed",
+        "weapon_car_secondshot_npc_intsm",
+        "weapon_car_firstshot_npc_BU1"
+      ]
+    }
+  },
+  "game_tested": false,
+  "version": "0.1.18",
+  "file_count": 31,
+  "zip_crc_ok": true,
+  "stage_matches_zip": true,
+  "text_bom_free": true,
+  "build_gates": {
+    "world_anim.log": "ja_c_propGun   stock [0.0, 0.0, 0.0, 1.57079542, 9.5e-07, -9.5e-07]  built [0.0, 0.0, 0.0, 1.570795, 1e-06, -1e-06]  frames differing: 0\r\nweapon_bone    stock [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  built [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  frames differing: 0\r\ndef_c_base     stock [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  built [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  frames differing: 0\r\nframes stock 24 built 24\r\nWORLD_ANIM_OK\r\n",
+    "rui_fix.log": "RUI_FIX_OK {\"models/weapons/attachments/pro_screen_rui_upper\": {\"bone\": \"def_c_proscreen\", \"scaled\": 0.65}, \"models/weapons/attachments/car_smg_rui_lower\": {\"bone\": \"def_c_sight_on\", \"vertices\": 4, \"action\": \"counter\"}, \"models/weapons/attachments/car_smg_rui_upper\": {\"bone\": \"def_c_sight_on\", \"vertices\": 21, \"action\": \"collapsed\"}}\r\n",
+    "seq_fix.log": "appended prowler_spin_layer: flags 0x40001d -> 0x1d\r\npatched 97 of 97 stock sequences; mismatches after patch: []\r\nSEQ_FIX_OK\r\n",
+    "mdl_integrity.log": "MDL_INTEGRITY_OK [{\"path\": \"D:\\\\TitanfallMods\\\\35_ProwlerCAR\\\\build\\\\sfm_game\\\\models\\\\weapons\\\\car101\\\\ptpov_car101_conv.mdl\", \"old_length\": 468592, \"file_length\": 3593698, \"changed\": true}, {\"path\": \"D:\\\\TitanfallMods\\\\35_ProwlerCAR\\\\build\\\\sfm_game\\\\models\\\\weapons\\\\car101\\\\w_car101_conv.mdl\", \"old_length\": 14332, \"file_length\": 1821639, \"changed\": true}]\r\n",
+    "ptpov_car101-compare.log": "bones                    stock  85 built 119  OK  appended 34: ['def_c_bolt_end', 'def_c_reactive_power_switch', 'def_c_reactive_wheel_1']\r\nbodyparts                stock   7 built   7  OK\r\nattachments(+bone)       stock  30 built  31  OK  appended 1: [('FX_spinner_coils', 'def_c_reactive_spinner_coils')]\r\nposeparams               stock   3 built   4  OK  appended 1: ['prowler_spin']\r\nanim descs (order)       stock 124 built 132  OK  appended 8: ['@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer']\r\nsequences (full)         stock  97 built  98  OK  appended 1: [('prowler_spin_layer', '', (8, 1), ('@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer'), True, True, True)]\r\nseq anim INDICES         stock  97 built  98  OK  appended 1: [('prowler_spin_layer', (124, 125, 126, 127, 128, 129, 130, 131))]\r\ninvalid anim refs        none\r\nskin families            stock 9 built 9  OK\r\nDEEP_COMPARE_OK\r\n",
+    "w_car101-compare.log": "bones                    stock  14 built  14  OK\r\nbodyparts                stock   6 built   6  OK\r\nattachments(+bone)       stock  24 built  24  OK\r\nposeparams               stock   0 built   0  OK\r\nanim descs (order)       stock   4 built   4  OK\r\nsequences (full)         stock   4 built   4  OK\r\nseq anim INDICES         stock   4 built   4  OK\r\ninvalid anim refs        none\r\nskin families            stock 9 built 9  OK\r\nDEEP_COMPARE_OK\r\n",
+    "regressions.log": "python.exe : test_animation_delta_semantics_match_original_indices (test_model_animation.CompiledAnimation.test_animati\r\non_delta_semantics_match_original_indices) ... ok\r\nAt D:\\TitanfallMods\\35_ProwlerCAR\\scripts\\build_all.ps1:110 char:1\r\n+ & $BlenderPython -m unittest discover -s tests -v *> \"$Log\\regression ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (test_animation_...indices) ... ok:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\ntest_embedded_payload_is_inside_declared_mdl_length (test_model_animation.CompiledAnimation.test_embedded_payload_is_in\r\nside_declared_mdl_length) ... ok\r\ntest_only_the_spin_layer_is_appended (test_model_animation.CompiledAnimation.test_only_the_spin_layer_is_appended) ... \r\nok\r\ntest_delta_layers_do_not_move_the_entire_viewmodel (test_native_pose.NativePose.test_delta_layers_do_not_move_the_entir\r\ne_viewmodel) ... ok\r\ntest_shoulders_stay_behind_the_eye (test_native_pose.NativePose.test_shoulders_stay_behind_the_eye) ... ok\r\ntest_burst_start_keeps_headroom (test_release_fixes.ReleaseFixes.test_burst_start_keeps_headroom) ... ok\r\ntest_every_override_id_is_a_real_lowercase_bank_event (test_release_fixes.ReleaseFixes.test_every_override_id_is_a_real\r\n_lowercase_bank_event) ... ok\r\ntest_loops_are_seamless (test_release_fixes.ReleaseFixes.test_loops_are_seamless) ... ok\r\ntest_samples_are_clean_pcm16_and_audible (test_release_fixes.ReleaseFixes.test_samples_are_clean_pcm16_and_audible) ...\r\n ok\r\ntest_weapon_routes_the_stock_loop_to_overridden_events (test_release_fixes.ReleaseFixes.test_weapon_routes_the_stock_lo\r\nop_to_overridden_events) ... ok\r\ntest_grip_hand_and_timing_match_the_original (test_world_fit.WorldFit.test_grip_hand_and_timing_match_the_original) ...\r\n ok\r\ntest_world_gun_is_not_deformed (test_world_fit.WorldFit.test_world_gun_is_not_deformed) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.369s\r\n\r\nOK\r\n",
+    "native-view.log": "NATIVE_POSES_OK bones=119 animations=132 poses=31\r\n",
+    "native-world.log": "NATIVE_POSES_OK bones=14 animations=4 poses=12\r\n"
+  },
+  "status": "PACKAGE_OK; game validation pending"
+}

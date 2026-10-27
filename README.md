@@ -20,10 +20,13 @@ A Titanfall 2 Northstar mod that ports the Apex Legends Prowler reactive skin "S
 
 | 目录 | 内容 |
 |---|---|
-| `mod_src/` | 模组本体源文件：`mod.json`、武器 keyvalues、客户端脚本、音频覆盖定义（WAV 由 `build_audio.py` 生成，见 Release 包） |
-| `scripts/` | 完整构建链：Blender 生成视角/世界模型 SMD 与 QC → StudioMDL → MDLShit（v53 + RUI）→ 序列/索引修正 → RePak；以及原生姿态解码、转鼓检查、Blender 绑定工程与渲染 |
-| `tests/` | 回归测试（音频事件名与路由、动画序列表、原生姿态根骨、第三人称握持） |
-| `docs/` | 版本说明、交接说明、预览图 |
+| `mod_src/` | 模组本体源文件：`mod.json`、武器 keyvalues、音频覆盖定义（WAV 由 `build_audio.py` 生成，见 Release 包） |
+| `scripts/` | 完整构建链：Blender 生成视角/世界模型 SMD 与 QC → 手臂重定向 → StudioMDL → MDLShit（v53 + RUI）→ 序列/索引修正 → RePak；以及原生姿态解码、转鼓/骨骼核查、真实手臂模拟、原版武器对照工具 |
+| `tests/` | 回归测试（音频事件名与路由、骨骼与序列表、原生姿态根骨、肩膀与肘部、第三人称握持） |
+| `docs/` | [过程记录](docs/过程记录.md)（全过程时间线）、[版本说明](docs/版本说明.md)、交接说明、[经验总结](docs/经验总结-lessons.md)、各版 Release 说明（`docs/releases/`）、全部预览和模拟图（`docs/previews/`） |
+| `logs/` | 最新一次（0.1.20）完整构建日志 |
+| `reports/` | 打包校验和分析报告 |
+| `tools/scratch/` | 排查过程中的临时分析脚本 |
 
 构建入口是 `scripts/build_all.ps1 -Version x.y.z`。脚本里的工具和素材路径（Blender、SFM StudioMDL、MDLShit、解包的 Apex/TF2 资源）是作者本机路径，仓库不包含任何解包的游戏原始素材，需要自行准备。
 

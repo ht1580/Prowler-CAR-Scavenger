@@ -1,0 +1,3 @@
+CHAIN def_c_bolt def_c_bolt <- def_c_base <- weapon_bone <- ja_c_propGun <- def_c_spineC <- def_c_spineB <- def_c_spineA <- def_c_hip <- jx_c_delta
+poses 351  misaligned part-poses 0
+DRUM_SEAT_OK

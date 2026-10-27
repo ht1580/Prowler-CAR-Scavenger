@@ -1,0 +1,2175 @@
+Source MDL v49 --> v53 converter
+Copyright 2022 MasterLiberty and headassbtw
+Do not distribute
+Compiled on Sep 10 2026, using MinGW v16.1.0
+  [DEBUG]  | MDL Version: 49
+  [DEBUG]  | Conversion started
+  [INFO]   | Bone Read: jx_c_delta : 0
+  [INFO]   | Bone Read: jx_c_pov : 1
+  [INFO]   | Bone Read: jx_c_camera : 2
+  [INFO]   | Bone Read: def_c_hip : 3
+  [INFO]   | Bone Read: jx_c_start : 4
+  [INFO]   | Bone Read: def_c_spineA : 5
+  [INFO]   | Bone Read: def_c_spineB : 6
+  [INFO]   | Bone Read: def_c_spineC : 7
+  [INFO]   | Bone Read: ja_c_propGun : 8
+  [INFO]   | Bone Read: def_c_neckA : 9
+  [INFO]   | Bone Read: jx_c_neckB : 10
+  [INFO]   | Bone Read: def_c_neckB : 11
+  [INFO]   | Bone Read: def_c_head : 12
+  [INFO]   | Bone Read: def_l_clav : 13
+  [INFO]   | Bone Read: def_l_shoulder : 14
+  [INFO]   | Bone Read: def_l_shoulderTwist : 15
+  [INFO]   | Bone Read: def_l_elbowB : 16
+  [INFO]   | Bone Read: def_l_shoulderMid : 17
+  [INFO]   | Bone Read: def_l_elbow : 18
+  [INFO]   | Bone Read: def_l_forearm : 19
+  [INFO]   | Bone Read: def_l_wrist : 20
+  [INFO]   | Bone Read: def_l_finIndexA : 21
+  [INFO]   | Bone Read: def_l_finIndexB : 22
+  [INFO]   | Bone Read: def_l_finIndexC : 23
+  [INFO]   | Bone Read: def_l_finMidA : 24
+  [INFO]   | Bone Read: def_l_finMidB : 25
+  [INFO]   | Bone Read: def_l_finMidC : 26
+  [INFO]   | Bone Read: def_l_finThumbA : 27
+  [INFO]   | Bone Read: def_l_finThumbB : 28
+  [INFO]   | Bone Read: def_l_finThumbC : 29
+  [INFO]   | Bone Read: def_l_finRingCarpal : 30
+  [INFO]   | Bone Read: def_l_finRingA : 31
+  [INFO]   | Bone Read: def_l_finRingB : 32
+  [INFO]   | Bone Read: def_l_finRingC : 33
+  [INFO]   | Bone Read: def_l_finPinkyA : 34
+  [INFO]   | Bone Read: def_l_finPinkyB : 35
+  [INFO]   | Bone Read: def_l_finPinkyC : 36
+  [INFO]   | Bone Read: def_r_clav : 37
+  [INFO]   | Bone Read: def_r_shoulder : 38
+  [INFO]   | Bone Read: def_r_shoulderTwist : 39
+  [INFO]   | Bone Read: def_r_elbowB : 40
+  [INFO]   | Bone Read: def_r_shoulderMid : 41
+  [INFO]   | Bone Read: def_r_elbow : 42
+  [INFO]   | Bone Read: def_r_forearm : 43
+  [INFO]   | Bone Read: def_r_wrist : 44
+  [INFO]   | Bone Read: def_r_finIndexA : 45
+  [INFO]   | Bone Read: def_r_finIndexB : 46
+  [INFO]   | Bone Read: def_r_finIndexC : 47
+  [INFO]   | Bone Read: def_r_finMidA : 48
+  [INFO]   | Bone Read: def_r_finMidB : 49
+  [INFO]   | Bone Read: def_r_finMidC : 50
+  [INFO]   | Bone Read: def_r_finThumbA : 51
+  [INFO]   | Bone Read: def_r_finThumbB : 52
+  [INFO]   | Bone Read: def_r_finThumbC : 53
+  [INFO]   | Bone Read: def_r_finRingCarpal : 54
+  [INFO]   | Bone Read: def_r_finRingA : 55
+  [INFO]   | Bone Read: def_r_finRingB : 56
+  [INFO]   | Bone Read: def_r_finRingC : 57
+  [INFO]   | Bone Read: def_r_finPinkyA : 58
+  [INFO]   | Bone Read: def_r_finPinkyB : 59
+  [INFO]   | Bone Read: def_r_finPinkyC : 60
+  [INFO]   | Bone Read: def_l_thigh : 61
+  [INFO]   | Bone Read: def_l_knee : 62
+  [INFO]   | Bone Read: def_l_ankle : 63
+  [INFO]   | Bone Read: def_l_ball : 64
+  [INFO]   | Bone Read: def_l_kneeB : 65
+  [INFO]   | Bone Read: def_r_thigh : 66
+  [INFO]   | Bone Read: def_r_knee : 67
+  [INFO]   | Bone Read: def_r_ankle : 68
+  [INFO]   | Bone Read: def_r_ball : 69
+  [INFO]   | Bone Read: def_r_kneeB : 70
+  [INFO]   | Bone Read: ja_l_propHand : 71
+  [INFO]   | Bone Read: ja_r_propHand : 72
+  [INFO]   | Bone Read: weapon_bone : 73
+  [INFO]   | Bone Read: def_c_proscreen : 74
+  [INFO]   | Bone Read: ja_ads_attachment : 75
+  [INFO]   | Bone Read: def_c_acgs : 76
+  [INFO]   | Bone Read: def_c_base : 77
+  [INFO]   | Bone Read: def_c_cro : 78
+  [INFO]   | Bone Read: def_c_bolt : 79
+  [INFO]   | Bone Read: def_c_sight_on : 80
+  [INFO]   | Bone Read: muzzle_flash : 81
+  [INFO]   | Bone Read: def_c_holo : 82
+  [INFO]   | Bone Read: def_c_magazine : 83
+  [INFO]   | Bone Read: def_c_magazine1 : 84
+  [INFO]   | Attachment Read: CAMERA_BASE : 0
+  [INFO]   | Attachment Read: CAMERA : 1
+  [INFO]   | Attachment Read: L_HAND : 2
+  [INFO]   | Attachment Read: R_HAND : 3
+  [INFO]   | Attachment Read: SWAY_ROTATE : 4
+  [INFO]   | Attachment Read: SWAY_ROTATE_ZOOMED : 5
+  [INFO]   | Attachment Read: L_BACKHAND : 6
+  [INFO]   | Attachment Read: __illumPosition : 7
+  [INFO]   | Attachment Read: muzzle_flash : 8
+  [INFO]   | Attachment Read: shell : 9
+  [INFO]   | Attachment Read: shell_fp : 10
+  [INFO]   | Attachment Read: l_hand_ik : 11
+  [INFO]   | Attachment Read: r_hand_ik : 12
+  [INFO]   | Attachment Read: holo : 13
+  [INFO]   | Attachment Read: acgs : 14
+  [INFO]   | Attachment Read: cro : 15
+  [INFO]   | Attachment Read: HOLO_FRONT : 16
+  [INFO]   | Attachment Read: HOLO_REAR : 17
+  [INFO]   | Attachment Read: ACGS_FRONT : 18
+  [INFO]   | Attachment Read: ACGS_REAR : 19
+  [INFO]   | Attachment Read: SCR_BL_ACGS : 20
+  [INFO]   | Attachment Read: SCR_TR_ACGS : 21
+  [INFO]   | Attachment Read: CRO_FRONT : 22
+  [INFO]   | Attachment Read: CRO_REAR : 23
+  [INFO]   | Attachment Read: SCR_BL_CRO : 24
+  [INFO]   | Attachment Read: SCR_TR_CRO : 25
+  [INFO]   | Attachment Read: proscreen : 26
+  [INFO]   | Attachment Read: sight_on : 27
+  [INFO]   | Attachment Read: flyout : 28
+  [INFO]   | Attachment Read: MENU_ROTATE : 29
+  [INFO]   | HitboxSet Read: emptyhitboxset : 0
+  [INFO]   | BoneTable Read: 85
+  [INFO]   | AnimDesc Read: @ref : 0
+  [INFO]   | AnimDesc Read: ads_in_anim : 1
+  [INFO]   | AnimDesc Read: ads_out_anim : 2
+  [INFO]   | AnimDesc Read: ads_in_anim_alt1 : 3
+  [INFO]   | AnimDesc Read: ads_out_anim_alt1 : 4
+  [INFO]   | AnimDesc Read: ads_in_anim_alt2 : 5
+  [INFO]   | AnimDesc Read: ads_out_anim_alt2 : 6
+  [INFO]   | AnimDesc Read: ads_in_anim_alt3 : 7
+  [INFO]   | AnimDesc Read: ads_out_anim_alt3 : 8
+  [INFO]   | AnimDesc Read: ads_in_slide_anim : 9
+  [INFO]   | AnimDesc Read: ads_out_slide_anim : 10
+  [INFO]   | AnimDesc Read: ads_in_slide_hcog_anim : 11
+  [INFO]   | AnimDesc Read: ads_out_slide_hcog_anim : 12
+  [INFO]   | AnimDesc Read: ads_in_slide_holo_anim : 13
+  [INFO]   | AnimDesc Read: ads_out_slide_holo_anim : 14
+  [INFO]   | AnimDesc Read: ads_in_slide_aog_anim : 15
+  [INFO]   | AnimDesc Read: ads_out_slide_aog_anim : 16
+  [INFO]   | AnimDesc Read: ads_in_onehanded_anim : 17
+  [INFO]   | AnimDesc Read: ads_out_onehanded_anim : 18
+  [INFO]   | AnimDesc Read: ads_in_onehanded_anim_alt1 : 19
+  [INFO]   | AnimDesc Read: ads_out_onehanded_anim_alt1 : 20
+  [INFO]   | AnimDesc Read: ads_in_onehanded_anim_alt2 : 21
+  [INFO]   | AnimDesc Read: ads_out_onehanded_anim_alt2 : 22
+  [INFO]   | AnimDesc Read: ads_in_onehanded_anim_alt3 : 23
+  [INFO]   | AnimDesc Read: ads_out_onehanded_anim_alt3 : 24
+  [INFO]   | AnimDesc Read: run_anim_static : 25
+  [INFO]   | AnimDesc Read: run_anim : 26
+  [INFO]   | AnimDesc Read: run_anim_layer : 27
+  [INFO]   | AnimDesc Read: walk_anim_static : 28
+  [INFO]   | AnimDesc Read: walk_anim : 29
+  [INFO]   | AnimDesc Read: walk_ads_anim : 30
+  [INFO]   | AnimDesc Read: walk_anim_nocam : 31
+  [INFO]   | AnimDesc Read: idle_anim_autoplay : 32
+  [INFO]   | AnimDesc Read: idle_ads_anim_autoplay : 33
+  [INFO]   | AnimDesc Read: idle_anim : 34
+  [INFO]   | AnimDesc Read: idle_ads_anim : 35
+  [INFO]   | AnimDesc Read: idle_ads_anim_alt1 : 36
+  [INFO]   | AnimDesc Read: idle_ads_anim_alt2 : 37
+  [INFO]   | AnimDesc Read: idle_ads_anim_alt3 : 38
+  [INFO]   | AnimDesc Read: idle_onehanded_anim : 39
+  [INFO]   | AnimDesc Read: idle_onehanded_ads_anim : 40
+  [INFO]   | AnimDesc Read: idle_onehanded_ads_anim_alt1 : 41
+  [INFO]   | AnimDesc Read: idle_onehanded_ads_anim_alt2 : 42
+  [INFO]   | AnimDesc Read: idle_onehanded_ads_anim_alt3 : 43
+  [INFO]   | AnimDesc Read: idle_check_anim : 44
+  [INFO]   | AnimDesc Read: idle_check_ads_anim : 45
+  [INFO]   | AnimDesc Read: idle_check_anim_nod : 46
+  [INFO]   | AnimDesc Read: attack_anim : 47
+  [INFO]   | AnimDesc Read: attack_ads_anim : 48
+  [INFO]   | AnimDesc Read: attack_ads_anim_alt1 : 49
+  [INFO]   | AnimDesc Read: attack_ads_anim_alt2 : 50
+  [INFO]   | AnimDesc Read: attack_ads_anim_alt3 : 51
+  [INFO]   | AnimDesc Read: attack_slide_anim : 52
+  [INFO]   | AnimDesc Read: attack_onehanded_anim : 53
+  [INFO]   | AnimDesc Read: attack_onehanded_ads_anim : 54
+  [INFO]   | AnimDesc Read: attack_onehanded_ads_anim_alt1 : 55
+  [INFO]   | AnimDesc Read: attack_onehanded_ads_anim_alt2 : 56
+  [INFO]   | AnimDesc Read: attack_onehanded_ads_anim_alt3 : 57
+  [INFO]   | AnimDesc Read: @reload_seq : 58
+  [INFO]   | AnimDesc Read: reload_late1_anim : 59
+  [INFO]   | AnimDesc Read: @reload_empty_seq : 60
+  [INFO]   | AnimDesc Read: reload_empty_late1_anim : 61
+  [INFO]   | AnimDesc Read: reload_empty_late2_anim : 62
+  [INFO]   | AnimDesc Read: @reload_onehanded_seq : 63
+  [INFO]   | AnimDesc Read: reload_onehanded_late1_anim : 64
+  [INFO]   | AnimDesc Read: @reload_empty_onehanded_seq : 65
+  [INFO]   | AnimDesc Read: reload_empty_onehanded_late1_anim : 66
+  [INFO]   | AnimDesc Read: reload_empty_onehanded_late2_anim : 67
+  [INFO]   | AnimDesc Read: @reload_crouch_seq : 68
+  [INFO]   | AnimDesc Read: reload_late1_crouch_anim : 69
+  [INFO]   | AnimDesc Read: @reload_empty_crouch_seq : 70
+  [INFO]   | AnimDesc Read: reload_empty_late1_crouch_anim : 71
+  [INFO]   | AnimDesc Read: reload_empty_late2_crouch_anim : 72
+  [INFO]   | AnimDesc Read: @reload_onehanded_crouch_seq : 73
+  [INFO]   | AnimDesc Read: reload_onehanded_late1_crouch_anim : 74
+  [INFO]   | AnimDesc Read: @reload_empty_onehanded_crouch_seq : 75
+  [INFO]   | AnimDesc Read: reload_empty_onehanded_late1_crouch_anim : 76
+  [INFO]   | AnimDesc Read: reload_empty_onehanded_late2_crouch_anim : 77
+  [INFO]   | AnimDesc Read: switch_to_onehanded_anim : 78
+  [INFO]   | AnimDesc Read: switch_to_twohanded_anim : 79
+  [INFO]   | AnimDesc Read: switch_to_jump_anim : 80
+  [INFO]   | AnimDesc Read: switch_to_land_anim : 81
+  [INFO]   | AnimDesc Read: switch_to_jump_crouch_anim : 82
+  [INFO]   | AnimDesc Read: switch_to_land_crouch_anim : 83
+  [INFO]   | AnimDesc Read: switch_to_jump_ads_anim : 84
+  [INFO]   | AnimDesc Read: switch_to_land_ads_anim : 85
+  [INFO]   | AnimDesc Read: iron_anim : 86
+  [INFO]   | AnimDesc Read: holo_anim : 87
+  [INFO]   | AnimDesc Read: hcog_anim : 88
+  [INFO]   | AnimDesc Read: aog_anim : 89
+  [INFO]   | AnimDesc Read: iron_anim_nod : 90
+  [INFO]   | AnimDesc Read: @drawfirst_seq : 91
+  [INFO]   | AnimDesc Read: @drawfirst_crouch_seq : 92
+  [INFO]   | AnimDesc Read: @draw_seq : 93
+  [INFO]   | AnimDesc Read: @drawfirst_onehanded_seq : 94
+  [INFO]   | AnimDesc Read: @draw_onehanded_seq : 95
+  [INFO]   | AnimDesc Read: @draw_crouch_seq : 96
+  [INFO]   | AnimDesc Read: @draw_onehanded_crouch_seq : 97
+  [INFO]   | AnimDesc Read: @holster_seq : 98
+  [INFO]   | AnimDesc Read: @holster_onehanded_seq : 99
+  [INFO]   | AnimDesc Read: @raise_seq : 100
+  [INFO]   | AnimDesc Read: @raise_onehanded_seq : 101
+  [INFO]   | AnimDesc Read: @raise_frommelee_seq : 102
+  [INFO]   | AnimDesc Read: @raise_crouch_seq : 103
+  [INFO]   | AnimDesc Read: @raise_onehanded_crouch_seq : 104
+  [INFO]   | AnimDesc Read: @raise_frommelee_crouch_seq : 105
+  [INFO]   | AnimDesc Read: @raise_frommelee_sliding_seq : 106
+  [INFO]   | AnimDesc Read: @lower_seq : 107
+  [INFO]   | AnimDesc Read: @lower_onehanded_seq : 108
+  [INFO]   | AnimDesc Read: @sprint_seq : 109
+  [INFO]   | AnimDesc Read: @sprintraise_seq : 110
+  [INFO]   | AnimDesc Read: @sprintraise_seq_regrip : 111
+  [INFO]   | AnimDesc Read: @sprintraise_seq_air : 112
+  [INFO]   | AnimDesc Read: @sprintdraw_seq : 113
+  [INFO]   | AnimDesc Read: @sprintholster_seq : 114
+  [INFO]   | AnimDesc Read: @sprint_onehanded_seq : 115
+  [INFO]   | AnimDesc Read: @sprintraise_onehanded_seq : 116
+  [INFO]   | AnimDesc Read: @sprintdraw_onehanded_seq : 117
+  [INFO]   | AnimDesc Read: @sprintholster_onehanded_seq : 118
+  [INFO]   | AnimDesc Read: sprintraise_onehanded_slide_anim : 119
+  [INFO]   | AnimDesc Read: optic_anim_layer : 120
+  [INFO]   | AnimDesc Read: optic_anim_layer_ads : 121
+  [INFO]   | AnimDesc Read: wind_loop_anim_layer : 122
+  [INFO]   | AnimDesc Read: wind_loop_ads_anim_layer : 123
+  [INFO]   | AnimDesc Read: @fire_layer : 124
+  [INFO]   | Anim Read: 0
+  [INFO]   | Anim Read: 1
+  [INFO]   | Anim Read: 2
+  [INFO]   | Anim Read: 3
+  [INFO]   | Anim Read: 4
+  [INFO]   | Anim Read: 5
+  [INFO]   | Anim Read: 6
+  [INFO]   | Anim Read: 7
+  [INFO]   | Anim Read: 8
+  [INFO]   | Anim Read: 9
+  [INFO]   | Anim Read: 10
+  [INFO]   | Anim Read: 11
+  [INFO]   | Anim Read: 12
+  [INFO]   | Anim Read: 13
+  [INFO]   | Anim Read: 14
+  [INFO]   | Anim Read: 15
+  [INFO]   | Anim Read: 16
+  [INFO]   | Anim Read: 17
+  [INFO]   | Anim Read: 18
+  [INFO]   | Anim Read: 19
+  [INFO]   | Anim Read: 20
+  [INFO]   | Anim Read: 21
+  [INFO]   | Anim Read: 22
+  [INFO]   | Anim Read: 23
+  [INFO]   | Anim Read: 24
+  [INFO]   | Anim Read: 25
+  [INFO]   | Anim Read: 26
+  [INFO]   | Anim Read: 27
+  [INFO]   | Anim Read: 28
+  [INFO]   | Anim Read: 29
+  [INFO]   | Anim Read: 30
+  [INFO]   | Anim Read: 31
+  [INFO]   | Anim Read: 32
+  [INFO]   | Anim Read: 33
+  [INFO]   | Anim Read: 34
+  [INFO]   | Anim Read: 35
+  [INFO]   | Anim Read: 36
+  [INFO]   | Anim Read: 37
+  [INFO]   | Anim Read: 38
+  [INFO]   | Anim Read: 39
+  [INFO]   | Anim Read: 40
+  [INFO]   | Anim Read: 41
+  [INFO]   | Anim Read: 42
+  [INFO]   | Anim Read: 43
+  [INFO]   | Anim Read: 44
+  [INFO]   | Anim Read: 45
+  [INFO]   | Anim Read: 46
+  [INFO]   | Anim Read: 47
+  [INFO]   | Anim Read: 48
+  [INFO]   | Anim Read: 49
+  [INFO]   | Anim Read: 50
+  [INFO]   | Anim Read: 51
+  [INFO]   | Anim Read: 52
+  [INFO]   | Anim Read: 53
+  [INFO]   | Anim Read: 54
+  [INFO]   | Anim Read: 55
+  [INFO]   | Anim Read: 56
+  [INFO]   | Anim Read: 57
+  [INFO]   | Anim Read: 58
+  [INFO]   | Anim Read: 59
+  [INFO]   | Anim Read: 60
+  [INFO]   | Anim Read: 61
+  [INFO]   | Anim Read: 62
+  [INFO]   | Anim Read: 63
+  [INFO]   | Anim Read: 64
+  [INFO]   | Anim Read: 65
+  [INFO]   | Anim Read: 66
+  [INFO]   | Anim Read: 67
+  [INFO]   | Anim Read: 68
+  [INFO]   | Anim Read: 69
+  [INFO]   | Anim Read: 70
+  [INFO]   | Anim Read: 71
+  [INFO]   | Anim Read: 72
+  [INFO]   | Anim Read: 73
+  [INFO]   | Anim Read: 74
+  [INFO]   | Anim Read: 75
+  [INFO]   | Anim Read: 76
+  [INFO]   | Anim Read: 77
+  [INFO]   | Anim Read: 78
+  [INFO]   | Anim Read: 79
+  [INFO]   | Anim Read: 80
+  [INFO]   | Anim Read: 81
+  [INFO]   | Anim Read: 82
+  [INFO]   | Anim Read: 83
+  [INFO]   | Anim Read: 84
+  [INFO]   | Anim Read: 85
+  [INFO]   | Anim Read: 86
+  [INFO]   | Anim Read: 87
+  [INFO]   | Anim Read: 88
+  [INFO]   | Anim Read: 89
+  [INFO]   | Anim Read: 90
+  [INFO]   | Anim Read: 91
+  [INFO]   | Anim Read: 92
+  [INFO]   | Anim Read: 93
+  [INFO]   | Anim Read: 94
+  [INFO]   | Anim Read: 95
+  [INFO]   | Anim Read: 96
+  [INFO]   | Anim Read: 97
+  [INFO]   | Anim Read: 98
+  [INFO]   | Anim Read: 99
+  [INFO]   | Anim Read: 100
+  [INFO]   | Anim Read: 101
+  [INFO]   | Anim Read: 102
+  [INFO]   | Anim Read: 103
+  [INFO]   | Anim Read: 104
+  [INFO]   | Anim Read: 105
+  [INFO]   | Anim Read: 106
+  [INFO]   | Anim Read: 107
+  [INFO]   | Anim Read: 108
+  [INFO]   | Anim Read: 109
+  [INFO]   | Anim Read: 110
+  [INFO]   | Anim Read: 111
+  [INFO]   | Anim Read: 112
+  [INFO]   | Anim Read: 113
+  [INFO]   | Anim Read: 114
+  [INFO]   | Anim Read: 115
+  [INFO]   | Anim Read: 116
+  [INFO]   | Anim Read: 117
+  [INFO]   | Anim Read: 118
+  [INFO]   | Anim Read: 119
+  [INFO]   | Anim Read: 120
+  [INFO]   | Anim Read: 121
+  [INFO]   | Anim Read: 122
+  [INFO]   | Anim Read: 123
+  [INFO]   | Anim Read: 124
+  [INFO]   | Seq Read: ref :  : 0
+  [INFO]   | Seq Read: walk_seq :  : 1
+  [INFO]   | Seq Read: walk_seq_nocam :  : 2
+  [INFO]   | Seq Read: attack_onehanded_slide_manual_seq : ACT_VM_ONEHANDED_PRIMARYATTACK : 3
+  [INFO]   | Seq Read: attack_onehanded_crouch_manual_seq : ACT_VM_PRIMARYATTACK : 4
+  [INFO]   | Seq Read: attack_onehanded_slide_manual_seq_alt1 : ACT_VM_ONEHANDED_PRIMARYATTACK_ALT1 : 5
+  [INFO]   | Seq Read: attack_onehanded_crouch_manual_seq_alt1 : ACT_VM_PRIMARYATTACK_ALT1 : 6
+  [INFO]   | Seq Read: reload_seq : ACT_VM_RELOAD : 7
+  [INFO]   | Seq Read: reload_late1_seq : ACT_VM_RELOAD_LATE1 : 8
+  [INFO]   | Seq Read: reload_empty_seq : ACT_VM_RELOADEMPTY : 9
+  [INFO]   | Seq Read: reload_empty_late1_seq : ACT_VM_RELOADEMPTY_LATE1 : 10
+  [INFO]   | Seq Read: reload_empty_late2_seq : ACT_VM_RELOADEMPTY_LATE2 : 11
+  [INFO]   | Seq Read: reload_onehanded_seq : ACT_VM_ONEHANDED_RELOAD : 12
+  [INFO]   | Seq Read: reload_onehanded_late1_seq : ACT_VM_ONEHANDED_RELOAD_LATE1 : 13
+  [INFO]   | Seq Read: reload_empty_onehanded_seq : ACT_VM_ONEHANDED_RELOADEMPTY : 14
+  [INFO]   | Seq Read: reload_empty_onehanded_late1_seq : ACT_VM_ONEHANDED_RELOADEMPTY_LATE1 : 15
+  [INFO]   | Seq Read: reload_empty_onehanded_late2_seq : ACT_VM_ONEHANDED_RELOADEMPTY_LATE2 : 16
+  [INFO]   | Seq Read: reload_crouch_seq : ACT_VM_RELOAD : 17
+  [INFO]   | Seq Read: reload_late1_crouch_seq : ACT_VM_RELOAD_LATE1 : 18
+  [INFO]   | Seq Read: reload_empty_crouch_seq : ACT_VM_RELOADEMPTY : 19
+  [INFO]   | Seq Read: reload_empty_late1_crouch_seq : ACT_VM_RELOADEMPTY_LATE1 : 20
+  [INFO]   | Seq Read: reload_empty_late2_crouch_seq : ACT_VM_RELOADEMPTY_LATE2 : 21
+  [INFO]   | Seq Read: reload_onehanded_crouch_seq : ACT_VM_ONEHANDED_RELOAD : 22
+  [INFO]   | Seq Read: reload_onehanded_late1_crouch_seq : ACT_VM_ONEHANDED_RELOAD_LATE1 : 23
+  [INFO]   | Seq Read: reload_empty_onehanded_crouch_seq : ACT_VM_ONEHANDED_RELOADEMPTY : 24
+  [INFO]   | Seq Read: reload_empty_onehanded_late1_crouch_seq : ACT_VM_ONEHANDED_RELOADEMPTY_LATE1 : 25
+  [INFO]   | Seq Read: reload_empty_onehanded_late2_crouch_seq : ACT_VM_ONEHANDED_RELOADEMPTY_LATE2 : 26
+  [INFO]   | Seq Read: drawfirst_seq : ACT_VM_DRAWFIRST : 27
+  [INFO]   | Seq Read: drawfirst_crouch_seq : ACT_VM_DRAWFIRST : 28
+  [INFO]   | Seq Read: draw_seq : ACT_VM_DRAW : 29
+  [INFO]   | Seq Read: drawfirst_onehanded_seq : ACT_VM_ONEHANDED_DRAWFIRST : 30
+  [INFO]   | Seq Read: draw_onehanded_seq : ACT_VM_ONEHANDED_DRAW : 31
+  [INFO]   | Seq Read: draw_crouch_seq : ACT_VM_DRAW : 32
+  [INFO]   | Seq Read: draw_onehanded_crouch_seq : ACT_VM_ONEHANDED_DRAW : 33
+  [INFO]   | Seq Read: holster_seq : ACT_VM_HOLSTER : 34
+  [INFO]   | Seq Read: holster_onehanded_seq : ACT_VM_ONEHANDED_HOLSTER : 35
+  [INFO]   | Seq Read: raise_seq : ACT_VM_RAISE : 36
+  [INFO]   | Seq Read: raise_onehanded_seq : ACT_VM_ONEHANDED_RAISE : 37
+  [INFO]   | Seq Read: raise_frommelee_seq : ACT_VM_RAISE_FROM_MELEE : 38
+  [INFO]   | Seq Read: raise_crouch_seq : ACT_VM_RAISE : 39
+  [INFO]   | Seq Read: raise_onehanded_crouch_seq : ACT_VM_ONEHANDED_RAISE : 40
+  [INFO]   | Seq Read: raise_frommelee_crouch_seq : ACT_VM_RAISE_FROM_MELEE : 41
+  [INFO]   | Seq Read: raise_frommelee_sliding_seq : ACT_VM_RAISE_FROM_MELEE : 42
+  [INFO]   | Seq Read: lower_seq : ACT_VM_LOWER : 43
+  [INFO]   | Seq Read: lower_onehanded_seq : ACT_VM_ONEHANDED_LOWER : 44
+  [INFO]   | Seq Read: sprint_seq : ACT_VM_SPRINT : 45
+  [INFO]   | Seq Read: sprintraise_seq : ACT_VM_RAISE_FROM_SPRINT : 46
+  [INFO]   | Seq Read: sprintraise_seq_regrip : ACT_VM_RAISE_FROM_SPRINT : 47
+  [INFO]   | Seq Read: sprintraise_seq_air : ACT_VM_RAISE_FROM_SPRINT : 48
+  [INFO]   | Seq Read: sprintdraw_seq : ACT_VM_DRAW_TO_SPRINT : 49
+  [INFO]   | Seq Read: sprintholster_seq : ACT_VM_HOLSTER_FROM_SPRINT : 50
+  [INFO]   | Seq Read: sprint_onehanded_seq : ACT_VM_ONEHANDED_SPRINT : 51
+  [INFO]   | Seq Read: sprintraise_onehanded_seq : ACT_VM_ONEHANDED_RAISE_FROM_SPRINT : 52
+  [INFO]   | Seq Read: sprintdraw_onehanded_seq : ACT_VM_ONEHANDED_DRAW_TO_SPRINT : 53
+  [INFO]   | Seq Read: sprintholster_onehanded_seq : ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT : 54
+  [INFO]   | Seq Read: sprintraise_onehanded_seq_slide : ACT_VM_ONEHANDED_RAISE_FROM_SPRINT : 55
+  [INFO]   | Seq Read: ads_in_seq : ACT_VM_ADS_IN : 56
+  [INFO]   | Seq Read: ads_in_crouch_seq : ACT_VM_ADS_IN : 57
+  [INFO]   | Seq Read: ads_in_seq_air : ACT_VM_ADS_IN : 58
+  [INFO]   | Seq Read: ads_out_seq : ACT_VM_ADS_OUT : 59
+  [INFO]   | Seq Read: ads_out_crouch_seq : ACT_VM_ADS_OUT : 60
+  [INFO]   | Seq Read: ads_out_seq_air : ACT_VM_ADS_OUT : 61
+  [INFO]   | Seq Read: ads_in_onehanded_seq : ACT_VM_ONEHANDED_ADS_IN : 62
+  [INFO]   | Seq Read: ads_in_onehanded_seq_sliding : ACT_VM_ONEHANDED_ADS_IN : 63
+  [INFO]   | Seq Read: ads_in_onehanded_seq_air : ACT_VM_ONEHANDED_ADS_IN : 64
+  [INFO]   | Seq Read: ads_out_onehanded_seq : ACT_VM_ONEHANDED_ADS_OUT : 65
+  [INFO]   | Seq Read: ads_out_onehanded_seq_sliding : ACT_VM_ONEHANDED_ADS_OUT : 66
+  [INFO]   | Seq Read: ads_out_onehanded_seq_wallrun : ACT_VM_ONEHANDED_ADS_OUT : 67
+  [INFO]   | Seq Read: run_layer :  : 68
+  [INFO]   | Seq Read: run_layer_reload :  : 69
+  [INFO]   | Seq Read: optic_layer :  : 70
+  [INFO]   | Seq Read: wind_loop_layer :  : 71
+  [INFO]   | Seq Read: wind_loop_ads_layer :  : 72
+  [INFO]   | Seq Read: idle_seq_autoplay :  : 73
+  [INFO]   | Seq Read: idle_seq : ACT_VM_IDLE : 74
+  [INFO]   | Seq Read: idle_seq_air : ACT_VM_IDLE : 75
+  [INFO]   | Seq Read: idle_seq_crouch_air : ACT_VM_IDLE : 76
+  [INFO]   | Seq Read: idle_seq_crouch : ACT_VM_IDLE : 77
+  [INFO]   | Seq Read: idle_onehanded_seq : ACT_VM_ONEHANDED_IDLE : 78
+  [INFO]   | Seq Read: idle_onehanded_seq_air : ACT_VM_ONEHANDED_IDLE : 79
+  [INFO]   | Seq Read: attack_seq : ACT_VM_PRIMARYATTACK : 80
+  [INFO]   | Seq Read: attack_seq_regrip : ACT_VM_PRIMARYATTACK : 81
+  [INFO]   | Seq Read: attack_onehanded_seq : ACT_VM_ONEHANDED_PRIMARYATTACK : 82
+  [INFO]   | Seq Read: attack_onehanded_slide_seq : ACT_VM_ONEHANDED_PRIMARYATTACK : 83
+  [INFO]   | Seq Read: idle_check_seq : ACT_TRANSITION : 84
+  [INFO]   | Seq Read: crouch2idle_seq : ACT_TRANSITION : 85
+  [INFO]   | Seq Read: regrip : ACT_TRANSITION : 86
+  [INFO]   | Seq Read: regrip_02 : ACT_TRANSITION : 87
+  [INFO]   | Seq Read: switch_to_jump_iron : ACT_TRANSITION : 88
+  [INFO]   | Seq Read: switch_to_land_iron : ACT_TRANSITION : 89
+  [INFO]   | Seq Read: idle_check_crouch_seq : ACT_TRANSITION : 90
+  [INFO]   | Seq Read: switch_to_jump_iron_crouch : ACT_TRANSITION : 91
+  [INFO]   | Seq Read: switch_to_land_iron_crouch : ACT_TRANSITION : 92
+  [INFO]   | Seq Read: switch_to_onehanded : ACT_TRANSITION : 93
+  [INFO]   | Seq Read: switch_to_twohanded : ACT_TRANSITION : 94
+  [INFO]   | Seq Read: switch_to_onehanded_jump : ACT_TRANSITION : 95
+  [INFO]   | Seq Read: switch_to_onehanded_land : ACT_TRANSITION : 96
+  [INFO]   | Seq Read: fire_layer :  : 97
+  [INFO]   | Weightlist Read: 0
+  [INFO]   | BlendGroup Read: 0
+  [INFO]   | Weightlist Read: 1
+  [INFO]   | BlendGroup Read: 1
+  [INFO]   | Posekey Read: 1
+  [INFO]   | Weightlist Read: 2
+  [INFO]   | BlendGroup Read: 2
+  [INFO]   | Posekey Read: 2
+  [INFO]   | Weightlist Read: 3
+  [INFO]   | BlendGroup Read: 3
+  [INFO]   | Posekey Read: 3
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 4
+  [INFO]   | BlendGroup Read: 4
+  [INFO]   | Posekey Read: 4
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 5
+  [INFO]   | BlendGroup Read: 5
+  [INFO]   | Posekey Read: 5
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 6
+  [INFO]   | BlendGroup Read: 6
+  [INFO]   | Posekey Read: 6
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 7
+  [INFO]   | BlendGroup Read: 7
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 8
+  [INFO]   | Weightlist Read: 8
+  [INFO]   | BlendGroup Read: 8
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 6
+  [INFO]   | Weightlist Read: 9
+  [INFO]   | BlendGroup Read: 9
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 8
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 9
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 10
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 11
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 12
+  [INFO]   | Weightlist Read: 10
+  [INFO]   | BlendGroup Read: 10
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 5
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 8
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 9
+  [INFO]   | Weightlist Read: 11
+  [INFO]   | BlendGroup Read: 11
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 5
+  [INFO]   | Weightlist Read: 12
+  [INFO]   | BlendGroup Read: 12
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 8
+  [INFO]   | Weightlist Read: 13
+  [INFO]   | BlendGroup Read: 13
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 6
+  [INFO]   | Weightlist Read: 14
+  [INFO]   | BlendGroup Read: 14
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 8
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 9
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 10
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 11
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 12
+  [INFO]   | Weightlist Read: 15
+  [INFO]   | BlendGroup Read: 15
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 5
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 8
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 9
+  [INFO]   | Weightlist Read: 16
+  [INFO]   | BlendGroup Read: 16
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 5
+  [INFO]   | Weightlist Read: 17
+  [INFO]   | BlendGroup Read: 17
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 8
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 18
+  [INFO]   | BlendGroup Read: 18
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 6
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 19
+  [INFO]   | BlendGroup Read: 19
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 8
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 9
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 10
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 11
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 12
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 20
+  [INFO]   | BlendGroup Read: 20
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 5
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 8
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 9
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 21
+  [INFO]   | BlendGroup Read: 21
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 5
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 22
+  [INFO]   | BlendGroup Read: 22
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 8
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 23
+  [INFO]   | BlendGroup Read: 23
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagHandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 5
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 6
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 24
+  [INFO]   | BlendGroup Read: 24
+  [INFO]   | Event Read: Weapon_Car_Reload_MagGrab : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_1 : 1
+  [INFO]   | Event Read: Weapon_Car_Reload_MagPull : AE_CL_PLAYSOUND : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 5
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 8
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 9
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 10
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 11
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 12
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 25
+  [INFO]   | BlendGroup Read: 25
+  [INFO]   | Event Read:  : AE_WPN_CLIPBODYGROUP_SHOW : 0
+  [INFO]   | Event Read: Weapon_Car_Reload_MagInsert : AE_CL_PLAYSOUND : 1
+  [INFO]   | Event Read:  : AE_WPN_RELOAD_MILESTONE_2 : 2
+  [INFO]   | Event Read: reload_pilot_large : AE_WPN_RUMBLE : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 5
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 6
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 7
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 8
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 9
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 26
+  [INFO]   | BlendGroup Read: 26
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltBack : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read: reload_pilot_small : AE_WPN_RUMBLE : 1
+  [INFO]   | Event Read:  : AE_WPN_FILLAMMO : 2
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_BoltFront : AE_CL_PLAYSOUND : 3
+  [INFO]   | Event Read: Weapon_Car_EmptyReload_HandRest : AE_CL_PLAYSOUND : 4
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 5
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 27
+  [INFO]   | BlendGroup Read: 27
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_FirstDraw : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | Weightlist Read: 28
+  [INFO]   | BlendGroup Read: 28
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_FirstDraw : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 29
+  [INFO]   | BlendGroup Read: 29
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | Weightlist Read: 30
+  [INFO]   | BlendGroup Read: 30
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | Weightlist Read: 31
+  [INFO]   | BlendGroup Read: 31
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | Weightlist Read: 32
+  [INFO]   | BlendGroup Read: 32
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 33
+  [INFO]   | BlendGroup Read: 33
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 34
+  [INFO]   | BlendGroup Read: 34
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_UnEquip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 35
+  [INFO]   | BlendGroup Read: 35
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_UnEquip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 36
+  [INFO]   | BlendGroup Read: 36
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | Weightlist Read: 37
+  [INFO]   | BlendGroup Read: 37
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | Weightlist Read: 38
+  [INFO]   | BlendGroup Read: 38
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 1
+  [INFO]   | Weightlist Read: 39
+  [INFO]   | BlendGroup Read: 39
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 40
+  [INFO]   | BlendGroup Read: 40
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 1
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 41
+  [INFO]   | BlendGroup Read: 41
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 1
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 42
+  [INFO]   | BlendGroup Read: 42
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 1
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 43
+  [INFO]   | BlendGroup Read: 43
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_UnEquip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 44
+  [INFO]   | BlendGroup Read: 44
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: Weapon_Car_UnEquip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 45
+  [INFO]   | BlendGroup Read: 45
+  [INFO]   | Weightlist Read: 46
+  [INFO]   | BlendGroup Read: 46
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: weapon_car_raise : AE_CL_PLAYSOUND : 1
+  [INFO]   | Weightlist Read: 47
+  [INFO]   | BlendGroup Read: 47
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: weapon_car_raise : AE_CL_PLAYSOUND : 1
+  [INFO]   | Weightlist Read: 48
+  [INFO]   | BlendGroup Read: 48
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: weapon_car_raise : AE_CL_PLAYSOUND : 1
+  [INFO]   | ActMod Read: air : 0
+  [INFO]   | Weightlist Read: 49
+  [INFO]   | BlendGroup Read: 49
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 50
+  [INFO]   | BlendGroup Read: 50
+  [INFO]   | Event Read: Weapon_Car_UnEquip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 51
+  [INFO]   | BlendGroup Read: 51
+  [INFO]   | Weightlist Read: 52
+  [INFO]   | BlendGroup Read: 52
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: weapon_car_raise : AE_CL_PLAYSOUND : 1
+  [INFO]   | Weightlist Read: 53
+  [INFO]   | BlendGroup Read: 53
+  [INFO]   | Event Read: Weapon_Car_Equip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 54
+  [INFO]   | BlendGroup Read: 54
+  [INFO]   | Event Read: Weapon_Car_UnEquip : AE_CL_PLAYSOUND : 0
+  [INFO]   | Weightlist Read: 55
+  [INFO]   | BlendGroup Read: 55
+  [INFO]   | Event Read:  : AE_WPN_READYTOFIRE : 0
+  [INFO]   | Event Read: weapon_car_raise : AE_CL_PLAYSOUND : 1
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 56
+  [INFO]   | BlendGroup Read: 56
+  [INFO]   | Weightlist Read: 57
+  [INFO]   | BlendGroup Read: 57
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 58
+  [INFO]   | BlendGroup Read: 58
+  [INFO]   | ActMod Read: air : 0
+  [INFO]   | Weightlist Read: 59
+  [INFO]   | BlendGroup Read: 59
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Weightlist Read: 60
+  [INFO]   | BlendGroup Read: 60
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 61
+  [INFO]   | BlendGroup Read: 61
+  [INFO]   | ActMod Read: air : 0
+  [INFO]   | ActMod Read: crouch : 1
+  [INFO]   | Weightlist Read: 62
+  [INFO]   | BlendGroup Read: 62
+  [INFO]   | Weightlist Read: 63
+  [INFO]   | BlendGroup Read: 63
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 64
+  [INFO]   | BlendGroup Read: 64
+  [INFO]   | ActMod Read: air : 0
+  [INFO]   | Weightlist Read: 65
+  [INFO]   | BlendGroup Read: 65
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Weightlist Read: 66
+  [INFO]   | BlendGroup Read: 66
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | ActMod Read: wallrun : 1
+  [INFO]   | Weightlist Read: 67
+  [INFO]   | BlendGroup Read: 67
+  [INFO]   | ActMod Read: wallrun : 0
+  [INFO]   | ActMod Read: sliding : 1
+  [INFO]   | Weightlist Read: 68
+  [INFO]   | BlendGroup Read: 68
+  [INFO]   | Posekey Read: 68
+  [INFO]   | Weightlist Read: 69
+  [INFO]   | BlendGroup Read: 69
+  [INFO]   | Weightlist Read: 70
+  [INFO]   | BlendGroup Read: 70
+  [INFO]   | Posekey Read: 70
+  [INFO]   | Weightlist Read: 71
+  [INFO]   | BlendGroup Read: 71
+  [INFO]   | Weightlist Read: 72
+  [INFO]   | BlendGroup Read: 72
+  [INFO]   | Weightlist Read: 73
+  [INFO]   | BlendGroup Read: 73
+  [INFO]   | Posekey Read: 73
+  [INFO]   | Weightlist Read: 74
+  [INFO]   | BlendGroup Read: 74
+  [INFO]   | Posekey Read: 74
+  [INFO]   | Weightlist Read: 75
+  [INFO]   | BlendGroup Read: 75
+  [INFO]   | Posekey Read: 75
+  [INFO]   | ActMod Read: air : 0
+  [INFO]   | ActMod Read: crouch : 1
+  [INFO]   | Weightlist Read: 76
+  [INFO]   | BlendGroup Read: 76
+  [INFO]   | Posekey Read: 76
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | Weightlist Read: 77
+  [INFO]   | BlendGroup Read: 77
+  [INFO]   | Posekey Read: 77
+  [INFO]   | ActMod Read: crouch : 0
+  [INFO]   | ActMod Read: air : 1
+  [INFO]   | Weightlist Read: 78
+  [INFO]   | BlendGroup Read: 78
+  [INFO]   | Posekey Read: 78
+  [INFO]   | Weightlist Read: 79
+  [INFO]   | BlendGroup Read: 79
+  [INFO]   | Posekey Read: 79
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | ActMod Read: air : 1
+  [INFO]   | Weightlist Read: 80
+  [INFO]   | BlendGroup Read: 80
+  [INFO]   | Posekey Read: 80
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read: ammo_update : AE_CL_VSCRIPT_CALLBACK : 2
+  [INFO]   | Weightlist Read: 81
+  [INFO]   | BlendGroup Read: 81
+  [INFO]   | Posekey Read: 81
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read: ammo_update : AE_CL_VSCRIPT_CALLBACK : 2
+  [INFO]   | Weightlist Read: 82
+  [INFO]   | BlendGroup Read: 82
+  [INFO]   | Posekey Read: 82
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read: ammo_update : AE_CL_VSCRIPT_CALLBACK : 2
+  [INFO]   | Weightlist Read: 83
+  [INFO]   | BlendGroup Read: 83
+  [INFO]   | Posekey Read: 83
+  [INFO]   | Autolayer Read: 0
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read: ammo_update : AE_CL_VSCRIPT_CALLBACK : 2
+  [INFO]   | ActMod Read: sliding : 0
+  [INFO]   | Weightlist Read: 84
+  [INFO]   | BlendGroup Read: 84
+  [INFO]   | Posekey Read: 84
+  [INFO]   | Weightlist Read: 85
+  [INFO]   | BlendGroup Read: 85
+  [INFO]   | Posekey Read: 85
+  [INFO]   | Weightlist Read: 86
+  [INFO]   | BlendGroup Read: 86
+  [INFO]   | Posekey Read: 86
+  [INFO]   | Weightlist Read: 87
+  [INFO]   | BlendGroup Read: 87
+  [INFO]   | Posekey Read: 87
+  [INFO]   | Weightlist Read: 88
+  [INFO]   | BlendGroup Read: 88
+  [INFO]   | Posekey Read: 88
+  [INFO]   | Weightlist Read: 89
+  [INFO]   | BlendGroup Read: 89
+  [INFO]   | Posekey Read: 89
+  [INFO]   | Weightlist Read: 90
+  [INFO]   | BlendGroup Read: 90
+  [INFO]   | Posekey Read: 90
+  [INFO]   | Weightlist Read: 91
+  [INFO]   | BlendGroup Read: 91
+  [INFO]   | Posekey Read: 91
+  [INFO]   | Weightlist Read: 92
+  [INFO]   | BlendGroup Read: 92
+  [INFO]   | Posekey Read: 92
+  [INFO]   | Weightlist Read: 93
+  [INFO]   | BlendGroup Read: 93
+  [INFO]   | Weightlist Read: 94
+  [INFO]   | BlendGroup Read: 94
+  [INFO]   | Weightlist Read: 95
+  [INFO]   | BlendGroup Read: 95
+  [INFO]   | Weightlist Read: 96
+  [INFO]   | BlendGroup Read: 96
+  [INFO]   | Weightlist Read: 97
+  [INFO]   | BlendGroup Read: 97
+  [INFO]   | NodeName Read: twohanded : 0
+  [INFO]   | NodeName Read: onehanded : 1
+  [INFO]   | NodeName Read: fire : 2
+  [INFO]   | NodeName Read: jump : 3
+  [INFO]   | NodeName Read: land_crouch : 4
+  [INFO]   | NodeName Read: land : 5
+  [INFO]   | NodeName Read: jump_crouch : 6
+  [INFO]   | NodeName Read: crouch : 7
+  [INFO]   | Node Read: 0
+  [INFO]   | Node Read: 1
+  [INFO]   | Node Read: 2
+  [INFO]   | Node Read: 3
+  [INFO]   | Node Read: 4
+  [INFO]   | Node Read: 5
+  [INFO]   | Node Read: 6
+  [INFO]   | Node Read: 7
+  [INFO]   | Bodypart Read: car101_body : 0
+  [INFO]   | Bodypart Read: sight_holo : 1
+  [INFO]   | Bodypart Read: sight_acgs : 2
+  [INFO]   | Bodypart Read: sight_cro : 3
+  [INFO]   | Bodypart Read: proscreen : 4
+  [INFO]   | Bodypart Read: car101_sight_on : 5
+  [INFO]   | Bodypart Read: car101_magazine : 6
+  [INFO]   | Model Read: prowler_body.smd : 0
+  [INFO]   | Model Read:  : 1
+  [INFO]   | Model Read: v_holo.smd : 2
+  [INFO]   | Model Read:  : 3
+  [INFO]   | Model Read: v_acgs.smd : 4
+  [INFO]   | Model Read:  : 5
+  [INFO]   | Model Read: v_cro.smd : 6
+  [INFO]   | Model Read:  : 7
+  [INFO]   | Model Read: v_proscreen.smd : 8
+  [INFO]   | Model Read:  : 9
+  [INFO]   | Model Read: prowler_sight_on.smd : 10
+  [INFO]   | Model Read: prowler_magazine.smd : 11
+  [INFO]   | Model Read:  : 12
+  [INFO]   | PoseParamDesc Read: sprintfrac : 0
+  [INFO]   | PoseParamDesc Read: velocity : 1
+  [INFO]   | PoseParamDesc Read: ads_blend : 2
+  [INFO]   | MeshMat Read: models\Weapons_R2\prowler_car\prowler_scavenger : 0
+  [INFO]   | Mesh Read: 0
+  [INFO]   | MeshMat Read: models\Weapons_R2\attachments\holo_reflex_sight_magnifier : 1
+  [INFO]   | Mesh Read: 1
+  [INFO]   | MeshMat Read: models\weapons\attachments\acgs_sight : 2
+  [INFO]   | Mesh Read: 2
+  [INFO]   | MeshMat Read: models\Weapons_R2\attachments\charge_rifle_optic : 3
+  [INFO]   | Mesh Read: 3
+  [INFO]   | MeshMat Read: models\weapons\attachments\rifle_scope_lens : 4
+  [INFO]   | Mesh Read: 4
+  [INFO]   | MeshMat Read: models\Weapons_R2\attachments\pro_screen : 5
+  [INFO]   | Mesh Read: 5
+  [INFO]   | MeshMat Read: models\Weapons_R2\prowler_car\prowler_scavenger : 6
+  [INFO]   | Mesh Read: 6
+  [INFO]   | MeshMat Read: models\Weapons_R2\prowler_car\prowler_scavenger : 7
+  [INFO]   | Mesh Read: 7
+  [INFO]   | Texture Read: models\Weapons_R2\prowler_car\prowler_scavenger : 0
+  [INFO]   | Texture Read: models\Weapons_R2\attachments\holo_reflex_sight_magnifier : 1
+  [INFO]   | Texture Read: models\weapons\attachments\acgs_sight : 2
+  [INFO]   | Texture Read: models\Weapons_R2\attachments\charge_rifle_optic : 3
+  [INFO]   | Texture Read: models\weapons\attachments\rifle_scope_lens : 4
+  [INFO]   | Texture Read: models\Weapons_R2\attachments\pro_screen : 5
+  [INFO]   | CdTexture Read:  : 0
+  [INFO]   | SkinGroup Read: 0
+  [INFO]   | SkinGroup Read: 1
+  [INFO]   | SkinGroup Read: 2
+  [INFO]   | SkinGroup Read: 3
+  [INFO]   | SkinGroup Read: 4
+  [INFO]   | SkinGroup Read: 5
+  [INFO]   | SkinGroup Read: 6
+  [INFO]   | SkinGroup Read: 7
+  [INFO]   | SkinGroup Read: 8
+  [INFO]   | LinearBone Read: 85
+  [INFO]   | String Table Size: 7839
+  [INFO]   | MdlName: weapons/car101/ptpov_car101.mdl
+  [INFO]   | SurfacePropName: default
+  [INFO]   | BoneName: jx_c_delta
+  [INFO]   | BoneName: jx_c_pov
+  [INFO]   | BoneName: jx_c_camera
+  [INFO]   | BoneName: def_c_hip
+  [INFO]   | BoneName: jx_c_start
+  [INFO]   | BoneName: def_c_spineA
+  [INFO]   | BoneName: def_c_spineB
+  [INFO]   | BoneName: def_c_spineC
+  [INFO]   | BoneName: ja_c_propGun
+  [INFO]   | BoneName: def_c_neckA
+  [INFO]   | BoneName: jx_c_neckB
+  [INFO]   | BoneName: def_c_neckB
+  [INFO]   | BoneName: def_c_head
+  [INFO]   | BoneName: def_l_clav
+  [INFO]   | BoneName: def_l_shoulder
+  [INFO]   | BoneName: def_l_shoulderTwist
+  [INFO]   | BoneName: def_l_elbowB
+  [INFO]   | BoneName: def_l_shoulderMid
+  [INFO]   | BoneName: def_l_elbow
+  [INFO]   | BoneName: def_l_forearm
+  [INFO]   | BoneName: def_l_wrist
+  [INFO]   | BoneName: def_l_finIndexA
+  [INFO]   | BoneName: def_l_finIndexB
+  [INFO]   | BoneName: def_l_finIndexC
+  [INFO]   | BoneName: def_l_finMidA
+  [INFO]   | BoneName: def_l_finMidB
+  [INFO]   | BoneName: def_l_finMidC
+  [INFO]   | BoneName: def_l_finThumbA
+  [INFO]   | BoneName: def_l_finThumbB
+  [INFO]   | BoneName: def_l_finThumbC
+  [INFO]   | BoneName: def_l_finRingCarpal
+  [INFO]   | BoneName: def_l_finRingA
+  [INFO]   | BoneName: def_l_finRingB
+  [INFO]   | BoneName: def_l_finRingC
+  [INFO]   | BoneName: def_l_finPinkyA
+  [INFO]   | BoneName: def_l_finPinkyB
+  [INFO]   | BoneName: def_l_finPinkyC
+  [INFO]   | BoneName: def_r_clav
+  [INFO]   | BoneName: def_r_shoulder
+  [INFO]   | BoneName: def_r_shoulderTwist
+  [INFO]   | BoneName: def_r_elbowB
+  [INFO]   | BoneName: def_r_shoulderMid
+  [INFO]   | BoneName: def_r_elbow
+  [INFO]   | BoneName: def_r_forearm
+  [INFO]   | BoneName: def_r_wrist
+  [INFO]   | BoneName: def_r_finIndexA
+  [INFO]   | BoneName: def_r_finIndexB
+  [INFO]   | BoneName: def_r_finIndexC
+  [INFO]   | BoneName: def_r_finMidA
+  [INFO]   | BoneName: def_r_finMidB
+  [INFO]   | BoneName: def_r_finMidC
+  [INFO]   | BoneName: def_r_finThumbA
+  [INFO]   | BoneName: def_r_finThumbB
+  [INFO]   | BoneName: def_r_finThumbC
+  [INFO]   | BoneName: def_r_finRingCarpal
+  [INFO]   | BoneName: def_r_finRingA
+  [INFO]   | BoneName: def_r_finRingB
+  [INFO]   | BoneName: def_r_finRingC
+  [INFO]   | BoneName: def_r_finPinkyA
+  [INFO]   | BoneName: def_r_finPinkyB
+  [INFO]   | BoneName: def_r_finPinkyC
+  [INFO]   | BoneName: def_l_thigh
+  [INFO]   | BoneName: def_l_knee
+  [INFO]   | BoneName: def_l_ankle
+  [INFO]   | BoneName: def_l_ball
+  [INFO]   | BoneName: def_l_kneeB
+  [INFO]   | BoneName: def_r_thigh
+  [INFO]   | BoneName: def_r_knee
+  [INFO]   | BoneName: def_r_ankle
+  [INFO]   | BoneName: def_r_ball
+  [INFO]   | BoneName: def_r_kneeB
+  [INFO]   | BoneName: ja_l_propHand
+  [INFO]   | BoneName: ja_r_propHand
+  [INFO]   | BoneName: weapon_bone
+  [INFO]   | BoneName: def_c_proscreen
+  [INFO]   | BoneName: ja_ads_attachment
+  [INFO]   | BoneName: def_c_acgs
+  [INFO]   | BoneName: def_c_base
+  [INFO]   | BoneName: def_c_cro
+  [INFO]   | BoneName: def_c_bolt
+  [INFO]   | BoneName: def_c_sight_on
+  [INFO]   | BoneName: muzzle_flash
+  [INFO]   | BoneName: def_c_holo
+  [INFO]   | BoneName: def_c_magazine
+  [INFO]   | BoneName: def_c_magazine1
+  [INFO]   | AttachmentName: CAMERA_BASE
+  [INFO]   | AttachmentName: CAMERA
+  [INFO]   | AttachmentName: L_HAND
+  [INFO]   | AttachmentName: R_HAND
+  [INFO]   | AttachmentName: SWAY_ROTATE
+  [INFO]   | AttachmentName: SWAY_ROTATE_ZOOMED
+  [INFO]   | AttachmentName: L_BACKHAND
+  [INFO]   | AttachmentName: __illumPosition
+  [INFO]   | AttachmentReusedName: muzzle_flash
+  [INFO]   | AttachmentName: shell
+  [INFO]   | AttachmentName: shell_fp
+  [INFO]   | AttachmentName: l_hand_ik
+  [INFO]   | AttachmentName: r_hand_ik
+  [INFO]   | AttachmentName: holo
+  [INFO]   | AttachmentName: acgs
+  [INFO]   | AttachmentName: cro
+  [INFO]   | AttachmentName: HOLO_FRONT
+  [INFO]   | AttachmentName: HOLO_REAR
+  [INFO]   | AttachmentName: ACGS_FRONT
+  [INFO]   | AttachmentName: ACGS_REAR
+  [INFO]   | AttachmentName: SCR_BL_ACGS
+  [INFO]   | AttachmentName: SCR_TR_ACGS
+  [INFO]   | AttachmentName: CRO_FRONT
+  [INFO]   | AttachmentName: CRO_REAR
+  [INFO]   | AttachmentName: SCR_BL_CRO
+  [INFO]   | AttachmentName: SCR_TR_CRO
+  [INFO]   | AttachmentName: proscreen
+  [INFO]   | AttachmentName: sight_on
+  [INFO]   | AttachmentName: flyout
+  [INFO]   | AttachmentName: MENU_ROTATE
+  [INFO]   | HitboxSetName: emptyhitboxset
+  [INFO]   | AnimDescName: @ref
+  [INFO]   | AnimDescName: ads_in_anim
+  [INFO]   | AnimDescName: ads_out_anim
+  [INFO]   | AnimDescName: ads_in_anim_alt1
+  [INFO]   | AnimDescName: ads_out_anim_alt1
+  [INFO]   | AnimDescName: ads_in_anim_alt2
+  [INFO]   | AnimDescName: ads_out_anim_alt2
+  [INFO]   | AnimDescName: ads_in_anim_alt3
+  [INFO]   | AnimDescName: ads_out_anim_alt3
+  [INFO]   | AnimDescName: ads_in_slide_anim
+  [INFO]   | AnimDescName: ads_out_slide_anim
+  [INFO]   | AnimDescName: ads_in_slide_hcog_anim
+  [INFO]   | AnimDescName: ads_out_slide_hcog_anim
+  [INFO]   | AnimDescName: ads_in_slide_holo_anim
+  [INFO]   | AnimDescName: ads_out_slide_holo_anim
+  [INFO]   | AnimDescName: ads_in_slide_aog_anim
+  [INFO]   | AnimDescName: ads_out_slide_aog_anim
+  [INFO]   | AnimDescName: ads_in_onehanded_anim
+  [INFO]   | AnimDescName: ads_out_onehanded_anim
+  [INFO]   | AnimDescName: ads_in_onehanded_anim_alt1
+  [INFO]   | AnimDescName: ads_out_onehanded_anim_alt1
+  [INFO]   | AnimDescName: ads_in_onehanded_anim_alt2
+  [INFO]   | AnimDescName: ads_out_onehanded_anim_alt2
+  [INFO]   | AnimDescName: ads_in_onehanded_anim_alt3
+  [INFO]   | AnimDescName: ads_out_onehanded_anim_alt3
+  [INFO]   | AnimDescName: run_anim_static
+  [INFO]   | AnimDescName: run_anim
+  [INFO]   | AnimDescName: run_anim_layer
+  [INFO]   | AnimDescName: walk_anim_static
+  [INFO]   | AnimDescName: walk_anim
+  [INFO]   | AnimDescName: walk_ads_anim
+  [INFO]   | AnimDescName: walk_anim_nocam
+  [INFO]   | AnimDescName: idle_anim_autoplay
+  [INFO]   | AnimDescName: idle_ads_anim_autoplay
+  [INFO]   | AnimDescName: idle_anim
+  [INFO]   | AnimDescName: idle_ads_anim
+  [INFO]   | AnimDescName: idle_ads_anim_alt1
+  [INFO]   | AnimDescName: idle_ads_anim_alt2
+  [INFO]   | AnimDescName: idle_ads_anim_alt3
+  [INFO]   | AnimDescName: idle_onehanded_anim
+  [INFO]   | AnimDescName: idle_onehanded_ads_anim
+  [INFO]   | AnimDescName: idle_onehanded_ads_anim_alt1
+  [INFO]   | AnimDescName: idle_onehanded_ads_anim_alt2
+  [INFO]   | AnimDescName: idle_onehanded_ads_anim_alt3
+  [INFO]   | AnimDescName: idle_check_anim
+  [INFO]   | AnimDescName: idle_check_ads_anim
+  [INFO]   | AnimDescName: idle_check_anim_nod
+  [INFO]   | AnimDescName: attack_anim
+  [INFO]   | AnimDescName: attack_ads_anim
+  [INFO]   | AnimDescName: attack_ads_anim_alt1
+  [INFO]   | AnimDescName: attack_ads_anim_alt2
+  [INFO]   | AnimDescName: attack_ads_anim_alt3
+  [INFO]   | AnimDescName: attack_slide_anim
+  [INFO]   | AnimDescName: attack_onehanded_anim
+  [INFO]   | AnimDescName: attack_onehanded_ads_anim
+  [INFO]   | AnimDescName: attack_onehanded_ads_anim_alt1
+  [INFO]   | AnimDescName: attack_onehanded_ads_anim_alt2
+  [INFO]   | AnimDescName: attack_onehanded_ads_anim_alt3
+  [INFO]   | AnimDescName: @reload_seq
+  [INFO]   | AnimDescName: reload_late1_anim
+  [INFO]   | AnimDescName: @reload_empty_seq
+  [INFO]   | AnimDescName: reload_empty_late1_anim
+  [INFO]   | AnimDescName: reload_empty_late2_anim
+  [INFO]   | AnimDescName: @reload_onehanded_seq
+  [INFO]   | AnimDescName: reload_onehanded_late1_anim
+  [INFO]   | AnimDescName: @reload_empty_onehanded_seq
+  [INFO]   | AnimDescName: reload_empty_onehanded_late1_anim
+  [INFO]   | AnimDescName: reload_empty_onehanded_late2_anim
+  [INFO]   | AnimDescName: @reload_crouch_seq
+  [INFO]   | AnimDescName: reload_late1_crouch_anim
+  [INFO]   | AnimDescName: @reload_empty_crouch_seq
+  [INFO]   | AnimDescName: reload_empty_late1_crouch_anim
+  [INFO]   | AnimDescName: reload_empty_late2_crouch_anim
+  [INFO]   | AnimDescName: @reload_onehanded_crouch_seq
+  [INFO]   | AnimDescName: reload_onehanded_late1_crouch_anim
+  [INFO]   | AnimDescName: @reload_empty_onehanded_crouch_seq
+  [INFO]   | AnimDescName: reload_empty_onehanded_late1_crouch_anim
+  [INFO]   | AnimDescName: reload_empty_onehanded_late2_crouch_anim
+  [INFO]   | AnimDescName: switch_to_onehanded_anim
+  [INFO]   | AnimDescName: switch_to_twohanded_anim
+  [INFO]   | AnimDescName: switch_to_jump_anim
+  [INFO]   | AnimDescName: switch_to_land_anim
+  [INFO]   | AnimDescName: switch_to_jump_crouch_anim
+  [INFO]   | AnimDescName: switch_to_land_crouch_anim
+  [INFO]   | AnimDescName: switch_to_jump_ads_anim
+  [INFO]   | AnimDescName: switch_to_land_ads_anim
+  [INFO]   | AnimDescName: iron_anim
+  [INFO]   | AnimDescName: holo_anim
+  [INFO]   | AnimDescName: hcog_anim
+  [INFO]   | AnimDescName: aog_anim
+  [INFO]   | AnimDescName: iron_anim_nod
+  [INFO]   | AnimDescName: @drawfirst_seq
+  [INFO]   | AnimDescName: @drawfirst_crouch_seq
+  [INFO]   | AnimDescName: @draw_seq
+  [INFO]   | AnimDescName: @drawfirst_onehanded_seq
+  [INFO]   | AnimDescName: @draw_onehanded_seq
+  [INFO]   | AnimDescName: @draw_crouch_seq
+  [INFO]   | AnimDescName: @draw_onehanded_crouch_seq
+  [INFO]   | AnimDescName: @holster_seq
+  [INFO]   | AnimDescName: @holster_onehanded_seq
+  [INFO]   | AnimDescName: @raise_seq
+  [INFO]   | AnimDescName: @raise_onehanded_seq
+  [INFO]   | AnimDescName: @raise_frommelee_seq
+  [INFO]   | AnimDescName: @raise_crouch_seq
+  [INFO]   | AnimDescName: @raise_onehanded_crouch_seq
+  [INFO]   | AnimDescName: @raise_frommelee_crouch_seq
+  [INFO]   | AnimDescName: @raise_frommelee_sliding_seq
+  [INFO]   | AnimDescName: @lower_seq
+  [INFO]   | AnimDescName: @lower_onehanded_seq
+  [INFO]   | AnimDescName: @sprint_seq
+  [INFO]   | AnimDescName: @sprintraise_seq
+  [INFO]   | AnimDescName: @sprintraise_seq_regrip
+  [INFO]   | AnimDescName: @sprintraise_seq_air
+  [INFO]   | AnimDescName: @sprintdraw_seq
+  [INFO]   | AnimDescName: @sprintholster_seq
+  [INFO]   | AnimDescName: @sprint_onehanded_seq
+  [INFO]   | AnimDescName: @sprintraise_onehanded_seq
+  [INFO]   | AnimDescName: @sprintdraw_onehanded_seq
+  [INFO]   | AnimDescName: @sprintholster_onehanded_seq
+  [INFO]   | AnimDescName: sprintraise_onehanded_slide_anim
+  [INFO]   | AnimDescName: optic_anim_layer
+  [INFO]   | AnimDescName: optic_anim_layer_ads
+  [INFO]   | AnimDescName: wind_loop_anim_layer
+  [INFO]   | AnimDescName: wind_loop_ads_anim_layer
+  [INFO]   | AnimDescName: @fire_layer
+  [INFO]   | SeqName: ref
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: walk_seq
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: walk_seq_nocam
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: attack_onehanded_slide_manual_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_PRIMARYATTACK
+  [INFO]   | eventName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | actModName: sliding
+  [INFO]   | SeqName: attack_onehanded_crouch_manual_seq
+  [INFO]   | SeqActivity: ACT_VM_PRIMARYATTACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | actModName: crouch
+  [INFO]   | SeqName: attack_onehanded_slide_manual_seq_alt1
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_PRIMARYATTACK_ALT1
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: attack_onehanded_crouch_manual_seq_alt1
+  [INFO]   | SeqActivity: ACT_VM_PRIMARYATTACK_ALT1
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: reload_seq
+  [INFO]   | SeqActivity: ACT_VM_RELOAD
+  [INFO]   | eventName: AE_CL_PLAYSOUND
+  [INFO]   | eventName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_late1_seq
+  [INFO]   | SeqActivity: ACT_VM_RELOAD_LATE1
+  [INFO]   | eventName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_empty_seq
+  [INFO]   | SeqActivity: ACT_VM_RELOADEMPTY
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_empty_late1_seq
+  [INFO]   | SeqActivity: ACT_VM_RELOADEMPTY_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_empty_late2_seq
+  [INFO]   | SeqActivity: ACT_VM_RELOADEMPTY_LATE2
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RELOAD
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_onehanded_late1_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RELOAD_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_empty_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RELOADEMPTY
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_empty_onehanded_late1_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RELOADEMPTY_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_empty_onehanded_late2_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RELOADEMPTY_LATE2
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: reload_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RELOAD
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: reload_late1_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RELOAD_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: reload_empty_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RELOADEMPTY
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: reload_empty_late1_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RELOADEMPTY_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: reload_empty_late2_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RELOADEMPTY_LATE2
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: reload_onehanded_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RELOAD
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: reload_onehanded_late1_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RELOAD_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: reload_empty_onehanded_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RELOADEMPTY
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_1
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: reload_empty_onehanded_late1_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RELOADEMPTY_LATE1
+  [INFO]   | eventNameReusedName: AE_WPN_CLIPBODYGROUP_SHOW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RELOAD_MILESTONE_2
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: reload_empty_onehanded_late2_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RELOADEMPTY_LATE2
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_RUMBLE
+  [INFO]   | eventNameReusedName: AE_WPN_FILLAMMO
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: drawfirst_seq
+  [INFO]   | SeqActivity: ACT_VM_DRAWFIRST
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: drawfirst_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_DRAWFIRST
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: draw_seq
+  [INFO]   | SeqActivity: ACT_VM_DRAW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: drawfirst_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_DRAWFIRST
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: draw_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_DRAW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: draw_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_DRAW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: draw_onehanded_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_DRAW
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: holster_seq
+  [INFO]   | SeqActivity: ACT_VM_HOLSTER
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: holster_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_HOLSTER
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: raise_seq
+  [INFO]   | SeqActivity: ACT_VM_RAISE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: raise_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RAISE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | SeqName: raise_frommelee_seq
+  [INFO]   | SeqActivity: ACT_VM_RAISE_FROM_MELEE
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: raise_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RAISE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: raise_onehanded_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RAISE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: raise_frommelee_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RAISE_FROM_MELEE
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: raise_frommelee_sliding_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_RAISE_FROM_MELEE
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: lower_seq
+  [INFO]   | SeqActivity: ACT_VM_LOWER
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: lower_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_LOWER
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprint_seq
+  [INFO]   | SeqActivity: ACT_VM_SPRINT
+  [INFO]   | SeqName: sprintraise_seq
+  [INFO]   | SeqActivity: ACT_VM_RAISE_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprintraise_seq_regrip
+  [INFO]   | SeqActivityReusedName: ACT_VM_RAISE_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprintraise_seq_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_RAISE_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | actModName: air
+  [INFO]   | SeqName: sprintdraw_seq
+  [INFO]   | SeqActivity: ACT_VM_DRAW_TO_SPRINT
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprintholster_seq
+  [INFO]   | SeqActivity: ACT_VM_HOLSTER_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprint_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_SPRINT
+  [INFO]   | SeqName: sprintraise_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_RAISE_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprintdraw_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_DRAW_TO_SPRINT
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprintholster_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | SeqName: sprintraise_onehanded_seq_slide
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_RAISE_FROM_SPRINT
+  [INFO]   | eventNameReusedName: AE_WPN_READYTOFIRE
+  [INFO]   | eventNameReusedName: AE_CL_PLAYSOUND
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: ads_in_seq
+  [INFO]   | SeqActivity: ACT_VM_ADS_IN
+  [INFO]   | SeqName: ads_in_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ADS_IN
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: ads_in_seq_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_ADS_IN
+  [INFO]   | actModReusedName: air
+  [INFO]   | SeqName: ads_out_seq
+  [INFO]   | SeqActivity: ACT_VM_ADS_OUT
+  [INFO]   | SeqName: ads_out_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ADS_OUT
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: ads_out_seq_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_ADS_OUT
+  [INFO]   | actModReusedName: air
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: ads_in_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_ADS_IN
+  [INFO]   | SeqName: ads_in_onehanded_seq_sliding
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_ADS_IN
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: ads_in_onehanded_seq_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_ADS_IN
+  [INFO]   | actModReusedName: air
+  [INFO]   | SeqName: ads_out_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_ADS_OUT
+  [INFO]   | SeqName: ads_out_onehanded_seq_sliding
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_ADS_OUT
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | actModName: wallrun
+  [INFO]   | SeqName: ads_out_onehanded_seq_wallrun
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_ADS_OUT
+  [INFO]   | actModReusedName: wallrun
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: run_layer
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: run_layer_reload
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: optic_layer
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: wind_loop_layer
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: wind_loop_ads_layer
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: idle_seq_autoplay
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: idle_seq
+  [INFO]   | SeqActivity: ACT_VM_IDLE
+  [INFO]   | SeqName: idle_seq_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_IDLE
+  [INFO]   | actModReusedName: air
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: idle_seq_crouch_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_IDLE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | SeqName: idle_seq_crouch
+  [INFO]   | SeqActivityReusedName: ACT_VM_IDLE
+  [INFO]   | actModReusedName: crouch
+  [INFO]   | actModReusedName: air
+  [INFO]   | SeqName: idle_onehanded_seq
+  [INFO]   | SeqActivity: ACT_VM_ONEHANDED_IDLE
+  [INFO]   | SeqName: idle_onehanded_seq_air
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_IDLE
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | actModReusedName: air
+  [INFO]   | SeqName: attack_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_PRIMARYATTACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | SeqName: attack_seq_regrip
+  [INFO]   | SeqActivityReusedName: ACT_VM_PRIMARYATTACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | SeqName: attack_onehanded_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_PRIMARYATTACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | SeqName: attack_onehanded_slide_seq
+  [INFO]   | SeqActivityReusedName: ACT_VM_ONEHANDED_PRIMARYATTACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | actModReusedName: sliding
+  [INFO]   | SeqName: idle_check_seq
+  [INFO]   | SeqActivity: ACT_TRANSITION
+  [INFO]   | SeqName: crouch2idle_seq
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: regrip
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: regrip_02
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_jump_iron
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_land_iron
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: idle_check_crouch_seq
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_jump_iron_crouch
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_land_iron_crouch
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_onehanded
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_twohanded
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_onehanded_jump
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: switch_to_onehanded_land
+  [INFO]   | SeqActivityReusedName: ACT_TRANSITION
+  [INFO]   | SeqName: fire_layer
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | NodeName: twohanded
+  [INFO]   | NodeName: onehanded
+  [INFO]   | NodeName: fire
+  [INFO]   | NodeName: jump
+  [INFO]   | NodeName: land_crouch
+  [INFO]   | NodeName: land
+  [INFO]   | NodeName: jump_crouch
+  [INFO]   | NodeReusedName: crouch
+  [INFO]   | BodyPartName: car101_body
+  [INFO]   | BodyPartName: sight_holo
+  [INFO]   | BodyPartName: sight_acgs
+  [INFO]   | BodyPartName: sight_cro
+  [INFO]   | BodyPartReusedName: proscreen
+  [INFO]   | BodyPartName: car101_sight_on
+  [INFO]   | BodyPartName: car101_magazine
+  [INFO]   | PoseParamName: sprintfrac
+  [INFO]   | PoseParamName: velocity
+  [INFO]   | PoseParamName: ads_blend
+  [INFO]   | TextureName: models\Weapons_R2\prowler_car\prowler_scavenger
+  [INFO]   | TextureName: models\Weapons_R2\attachments\holo_reflex_sight_magnifier
+  [INFO]   | TextureName: models\weapons\attachments\acgs_sight
+  [INFO]   | TextureName: models\Weapons_R2\attachments\charge_rifle_optic
+  [INFO]   | TextureName: models\weapons\attachments\rifle_scope_lens
+  [INFO]   | TextureName: models\Weapons_R2\attachments\pro_screen
+  [INFO]   | CdMaterialName: Empty
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\stock\stock_car101.rui" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.mdl" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.vtx" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.vvd" closed
+  [NOTICE] | RuiSize 5461
+  [INFO]   | No Exta Struct Data Detected
+  [NOTICE] | Updated hitbox set 1 of 1
+  [NOTICE] | Converted animation 1 of 125
+  [NOTICE] | Converted animation 2 of 125
+  [NOTICE] | Converted animation 3 of 125
+  [NOTICE] | Converted animation 4 of 125
+  [NOTICE] | Converted animation 5 of 125
+  [NOTICE] | Converted animation 6 of 125
+  [NOTICE] | Converted animation 7 of 125
+  [NOTICE] | Converted animation 8 of 125
+  [NOTICE] | Converted animation 9 of 125
+  [NOTICE] | Converted animation 10 of 125
+  [NOTICE] | Converted animation 11 of 125
+  [NOTICE] | Converted animation 12 of 125
+  [NOTICE] | Converted animation 13 of 125
+  [NOTICE] | Converted animation 14 of 125
+  [NOTICE] | Converted animation 15 of 125
+  [NOTICE] | Converted animation 16 of 125
+  [NOTICE] | Converted animation 17 of 125
+  [NOTICE] | Converted animation 18 of 125
+  [NOTICE] | Converted animation 19 of 125
+  [NOTICE] | Converted animation 20 of 125
+  [NOTICE] | Converted animation 21 of 125
+  [NOTICE] | Converted animation 22 of 125
+  [NOTICE] | Converted animation 23 of 125
+  [NOTICE] | Converted animation 24 of 125
+  [NOTICE] | Converted animation 25 of 125
+  [NOTICE] | Converted animation 26 of 125
+  [NOTICE] | Converted animation 27 of 125
+  [NOTICE] | Converted animation 28 of 125
+  [NOTICE] | Converted animation 29 of 125
+  [NOTICE] | Converted animation 30 of 125
+  [NOTICE] | Converted animation 31 of 125
+  [NOTICE] | Converted animation 32 of 125
+  [NOTICE] | Converted animation 33 of 125
+  [NOTICE] | Converted animation 34 of 125
+  [NOTICE] | Converted animation 35 of 125
+  [NOTICE] | Converted animation 36 of 125
+  [NOTICE] | Converted animation 37 of 125
+  [NOTICE] | Converted animation 38 of 125
+  [NOTICE] | Converted animation 39 of 125
+  [NOTICE] | Converted animation 40 of 125
+  [NOTICE] | Converted animation 41 of 125
+  [NOTICE] | Converted animation 42 of 125
+  [NOTICE] | Converted animation 43 of 125
+  [NOTICE] | Converted animation 44 of 125
+  [NOTICE] | Converted animation 45 of 125
+  [NOTICE] | Converted animation 46 of 125
+  [NOTICE] | Converted animation 47 of 125
+  [NOTICE] | Converted animation 48 of 125
+  [NOTICE] | Converted animation 49 of 125
+  [NOTICE] | Converted animation 50 of 125
+  [NOTICE] | Converted animation 51 of 125
+  [NOTICE] | Converted animation 52 of 125
+  [NOTICE] | Converted animation 53 of 125
+  [NOTICE] | Converted animation 54 of 125
+  [NOTICE] | Converted animation 55 of 125
+  [NOTICE] | Converted animation 56 of 125
+  [NOTICE] | Converted animation 57 of 125
+  [NOTICE] | Converted animation 58 of 125
+  [NOTICE] | Converted animation 59 of 125
+  [NOTICE] | Converted animation 60 of 125
+  [NOTICE] | Converted animation 61 of 125
+  [NOTICE] | Converted animation 62 of 125
+  [NOTICE] | Converted animation 63 of 125
+  [NOTICE] | Converted animation 64 of 125
+  [NOTICE] | Converted animation 65 of 125
+  [NOTICE] | Converted animation 66 of 125
+  [NOTICE] | Converted animation 67 of 125
+  [NOTICE] | Converted animation 68 of 125
+  [NOTICE] | Converted animation 69 of 125
+  [NOTICE] | Converted animation 70 of 125
+  [NOTICE] | Converted animation 71 of 125
+  [NOTICE] | Converted animation 72 of 125
+  [NOTICE] | Converted animation 73 of 125
+  [NOTICE] | Converted animation 74 of 125
+  [NOTICE] | Converted animation 75 of 125
+  [NOTICE] | Converted animation 76 of 125
+  [NOTICE] | Converted animation 77 of 125
+  [NOTICE] | Converted animation 78 of 125
+  [NOTICE] | Converted animation 79 of 125
+  [NOTICE] | Converted animation 80 of 125
+  [NOTICE] | Converted animation 81 of 125
+  [NOTICE] | Converted animation 82 of 125
+  [NOTICE] | Converted animation 83 of 125
+  [NOTICE] | Converted animation 84 of 125
+  [NOTICE] | Converted animation 85 of 125
+  [NOTICE] | Converted animation 86 of 125
+  [NOTICE] | Converted animation 87 of 125
+  [NOTICE] | Converted animation 88 of 125
+  [NOTICE] | Converted animation 89 of 125
+  [NOTICE] | Converted animation 90 of 125
+  [NOTICE] | Converted animation 91 of 125
+  [NOTICE] | Converted animation 92 of 125
+  [NOTICE] | Converted animation 93 of 125
+  [NOTICE] | Converted animation 94 of 125
+  [NOTICE] | Converted animation 95 of 125
+  [NOTICE] | Converted animation 96 of 125
+  [NOTICE] | Converted animation 97 of 125
+  [NOTICE] | Converted animation 98 of 125
+  [NOTICE] | Converted animation 99 of 125
+  [NOTICE] | Converted animation 100 of 125
+  [NOTICE] | Converted animation 101 of 125
+  [NOTICE] | Converted animation 102 of 125
+  [NOTICE] | Converted animation 103 of 125
+  [NOTICE] | Converted animation 104 of 125
+  [NOTICE] | Converted animation 105 of 125
+  [NOTICE] | Converted animation 106 of 125
+  [NOTICE] | Converted animation 107 of 125
+  [NOTICE] | Converted animation 108 of 125
+  [NOTICE] | Converted animation 109 of 125
+  [NOTICE] | Converted animation 110 of 125
+  [NOTICE] | Converted animation 111 of 125
+  [NOTICE] | Converted animation 112 of 125
+  [NOTICE] | Converted animation 113 of 125
+  [NOTICE] | Converted animation 114 of 125
+  [NOTICE] | Converted animation 115 of 125
+  [NOTICE] | Converted animation 116 of 125
+  [NOTICE] | Converted animation 117 of 125
+  [NOTICE] | Converted animation 118 of 125
+  [NOTICE] | Converted animation 119 of 125
+  [NOTICE] | Converted animation 120 of 125
+  [NOTICE] | Converted animation 121 of 125
+  [NOTICE] | Converted animation 122 of 125
+  [NOTICE] | Converted animation 123 of 125
+  [NOTICE] | Converted animation 124 of 125
+  [NOTICE] | Converted animation 125 of 125
+  [INFO]   | Finished animations
+  [NOTICE] | Converted sequence 1 of 98
+  [NOTICE] | Converted sequence 2 of 98
+  [NOTICE] | Converted sequence 3 of 98
+  [NOTICE] | Converted sequence 4 of 98
+  [NOTICE] | Converted sequence 5 of 98
+  [NOTICE] | Converted sequence 6 of 98
+  [NOTICE] | Converted sequence 7 of 98
+  [NOTICE] | Converted sequence 8 of 98
+  [NOTICE] | Converted sequence 9 of 98
+  [NOTICE] | Converted sequence 10 of 98
+  [NOTICE] | Converted sequence 11 of 98
+  [NOTICE] | Converted sequence 12 of 98
+  [NOTICE] | Converted sequence 13 of 98
+  [NOTICE] | Converted sequence 14 of 98
+  [NOTICE] | Converted sequence 15 of 98
+  [NOTICE] | Converted sequence 16 of 98
+  [NOTICE] | Converted sequence 17 of 98
+  [NOTICE] | Converted sequence 18 of 98
+  [NOTICE] | Converted sequence 19 of 98
+  [NOTICE] | Converted sequence 20 of 98
+  [NOTICE] | Converted sequence 21 of 98
+  [NOTICE] | Converted sequence 22 of 98
+  [NOTICE] | Converted sequence 23 of 98
+  [NOTICE] | Converted sequence 24 of 98
+  [NOTICE] | Converted sequence 25 of 98
+  [NOTICE] | Converted sequence 26 of 98
+  [NOTICE] | Converted sequence 27 of 98
+  [NOTICE] | Converted sequence 28 of 98
+  [NOTICE] | Converted sequence 29 of 98
+  [NOTICE] | Converted sequence 30 of 98
+  [NOTICE] | Converted sequence 31 of 98
+  [NOTICE] | Converted sequence 32 of 98
+  [NOTICE] | Converted sequence 33 of 98
+  [NOTICE] | Converted sequence 34 of 98
+  [NOTICE] | Converted sequence 35 of 98
+  [NOTICE] | Converted sequence 36 of 98
+  [NOTICE] | Converted sequence 37 of 98
+  [NOTICE] | Converted sequence 38 of 98
+  [NOTICE] | Converted sequence 39 of 98
+  [NOTICE] | Converted sequence 40 of 98
+  [NOTICE] | Converted sequence 41 of 98
+  [NOTICE] | Converted sequence 42 of 98
+  [NOTICE] | Converted sequence 43 of 98
+  [NOTICE] | Converted sequence 44 of 98
+  [NOTICE] | Converted sequence 45 of 98
+  [NOTICE] | Converted sequence 46 of 98
+  [NOTICE] | Converted sequence 47 of 98
+  [NOTICE] | Converted sequence 48 of 98
+  [NOTICE] | Converted sequence 49 of 98
+  [NOTICE] | Converted sequence 50 of 98
+  [NOTICE] | Converted sequence 51 of 98
+  [NOTICE] | Converted sequence 52 of 98
+  [NOTICE] | Converted sequence 53 of 98
+  [NOTICE] | Converted sequence 54 of 98
+  [NOTICE] | Converted sequence 55 of 98
+  [NOTICE] | Converted sequence 56 of 98
+  [NOTICE] | Converted sequence 57 of 98
+  [NOTICE] | Converted sequence 58 of 98
+  [NOTICE] | Converted sequence 59 of 98
+  [NOTICE] | Converted sequence 60 of 98
+  [NOTICE] | Converted sequence 61 of 98
+  [NOTICE] | Converted sequence 62 of 98
+  [NOTICE] | Converted sequence 63 of 98
+  [NOTICE] | Converted sequence 64 of 98
+  [NOTICE] | Converted sequence 65 of 98
+  [NOTICE] | Converted sequence 66 of 98
+  [NOTICE] | Converted sequence 67 of 98
+  [NOTICE] | Converted sequence 68 of 98
+  [NOTICE] | Converted sequence 69 of 98
+  [NOTICE] | Converted sequence 70 of 98
+  [NOTICE] | Converted sequence 71 of 98
+  [NOTICE] | Converted sequence 72 of 98
+  [NOTICE] | Converted sequence 73 of 98
+  [NOTICE] | Converted sequence 74 of 98
+  [NOTICE] | Converted sequence 75 of 98
+  [NOTICE] | Converted sequence 76 of 98
+  [NOTICE] | Converted sequence 77 of 98
+  [NOTICE] | Converted sequence 78 of 98
+  [NOTICE] | Converted sequence 79 of 98
+  [NOTICE] | Converted sequence 80 of 98
+  [NOTICE] | Converted sequence 81 of 98
+  [NOTICE] | Converted sequence 82 of 98
+  [NOTICE] | Converted sequence 83 of 98
+  [NOTICE] | Converted sequence 84 of 98
+  [NOTICE] | Converted sequence 85 of 98
+  [NOTICE] | Converted sequence 86 of 98
+  [NOTICE] | Converted sequence 87 of 98
+  [NOTICE] | Converted sequence 88 of 98
+  [NOTICE] | Converted sequence 89 of 98
+  [NOTICE] | Converted sequence 90 of 98
+  [NOTICE] | Converted sequence 91 of 98
+  [NOTICE] | Converted sequence 92 of 98
+  [NOTICE] | Converted sequence 93 of 98
+  [NOTICE] | Converted sequence 94 of 98
+  [NOTICE] | Converted sequence 95 of 98
+  [NOTICE] | Converted sequence 96 of 98
+  [NOTICE] | Converted sequence 97 of 98
+  [NOTICE] | Converted sequence 98 of 98
+  [NOTICE] | Updated node name 1 of 8
+  [NOTICE] | Updated node name 2 of 8
+  [NOTICE] | Updated node name 3 of 8
+  [NOTICE] | Updated node name 4 of 8
+  [NOTICE] | Updated node name 5 of 8
+  [NOTICE] | Updated node name 6 of 8
+  [NOTICE] | Updated node name 7 of 8
+  [NOTICE] | Updated node name 8 of 8
+  [NOTICE] | Updated node 1 of 8
+  [NOTICE] | Updated node 2 of 8
+  [NOTICE] | Updated node 3 of 8
+  [NOTICE] | Updated node 4 of 8
+  [NOTICE] | Updated node 5 of 8
+  [NOTICE] | Updated node 6 of 8
+  [NOTICE] | Updated node 7 of 8
+  [NOTICE] | Updated node 8 of 8
+  [INFO]   | Finished sequences
+  [NOTICE] | Converted body part 1 of 7
+  [NOTICE] | Converted body part 2 of 7
+  [NOTICE] | Converted body part 3 of 7
+  [NOTICE] | Converted body part 4 of 7
+  [NOTICE] | Converted body part 5 of 7
+  [NOTICE] | Converted body part 6 of 7
+  [NOTICE] | Converted body part 7 of 7
+  [INFO]   | Finished body parts
+  [NOTICE] | Updated model struct 1 of 13
+  [NOTICE] | Updated model struct 2 of 13
+  [NOTICE] | Updated model struct 3 of 13
+  [NOTICE] | Updated model struct 4 of 13
+  [NOTICE] | Updated model struct 5 of 13
+  [NOTICE] | Updated model struct 6 of 13
+  [NOTICE] | Updated model struct 7 of 13
+  [NOTICE] | Updated model struct 8 of 13
+  [NOTICE] | Updated model struct 9 of 13
+  [NOTICE] | Updated model struct 10 of 13
+  [NOTICE] | Updated model struct 11 of 13
+  [NOTICE] | Updated model struct 12 of 13
+  [NOTICE] | Updated model struct 13 of 13
+  [INFO]   | Finished model structs
+  [NOTICE] | Updated mesh struct 1 of 8
+  [NOTICE] | Updated mesh struct 2 of 8
+  [NOTICE] | Updated mesh struct 3 of 8
+  [NOTICE] | Updated mesh struct 4 of 8
+  [NOTICE] | Updated mesh struct 5 of 8
+  [NOTICE] | Updated mesh struct 6 of 8
+  [NOTICE] | Updated mesh struct 7 of 8
+  [NOTICE] | Updated mesh struct 8 of 8
+  [INFO]   | Finished mesh structs
+  [NOTICE] | Updating PoseParameter 1 of 3
+  [NOTICE] | Updating PoseParameter 2 of 3
+  [NOTICE] | Updating PoseParameter 3 of 3
+  [INFO]   | Finished Updating PoseParameters
+writing rui at [537935]...
+  [INFO]   | done
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\stock\stock_car101.rui" closed
+  [NOTICE] | Converted texture 1 of 6
+  [NOTICE] | Converted texture 2 of 6
+  [NOTICE] | Converted texture 3 of 6
+  [NOTICE] | Converted texture 4 of 6
+  [NOTICE] | Converted texture 5 of 6
+  [NOTICE] | Converted texture 6 of 6
+  [INFO]   | Finished textures
+  [NOTICE] | Converted texture 1 of 1
+  [INFO]   | Finished cd textures
+  [NOTICE] | Converted skin group 1 of 9
+  [NOTICE] | Converted skin group 2 of 9
+  [NOTICE] | Converted skin group 3 of 9
+  [NOTICE] | Converted skin group 4 of 9
+  [NOTICE] | Converted skin group 5 of 9
+  [NOTICE] | Converted skin group 6 of 9
+  [NOTICE] | Converted skin group 7 of 9
+  [NOTICE] | Converted skin group 8 of 9
+  [NOTICE] | Converted skin group 9 of 9
+  [INFO]   | Finished skin groups
+  [INFO]   | Stream Size: 7839
+  [INFO]   | String Table StartPos: 554437
+  [INFO]   | String Table EndPos: 562275
+  [INFO]   | String Table Size: 7838
+  [INFO]   | String Table Padding Size: 1
+  [NOTICE] | Wrote Rest of File
+  [INFO]   | writing vtx at [562276]...
+  [INFO]   | done
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.vtx" closed
+  [INFO]   | writing vvd at [1163582]...
+  [INFO]   | done
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.vvd" closed
+  [INFO]   | Finished!
+  [INFO]   | BinaryWriter for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101_conv.mdl" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.mdl" closed
+  [INFO]   | BinaryWriter for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101_conv.mdl" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\ptpov_car101.mdl" closed

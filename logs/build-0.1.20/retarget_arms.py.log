@@ -1,0 +1,83 @@
+RIG l: hinge (0.0, -1.0, 0.0) elbowB = 0.500*bend + 20.5 deg (max fit error 0.00 deg over 205 stock frames)
+RIG r: hinge (-0.0, -1.0, -0.0) elbowB = 0.500*bend + 20.5 deg (max fit error 0.00 deg over 205 stock frames)
+RETARGET ads_in_anim.smd                          frames   16 max reach 0.970 max body shift  1.07 max wrist twist   0.8
+RETARGET ads_in_anim_alt1.smd                     frames   16 max reach 0.970 max body shift  1.07 max wrist twist   0.8
+RETARGET ads_in_anim_alt2.smd                     frames   16 max reach 0.970 max body shift  1.07 max wrist twist   0.8
+RETARGET ads_in_anim_alt3.smd                     frames   16 max reach 0.970 max body shift  1.07 max wrist twist   0.8
+RETARGET ads_in_onehanded_anim.smd                frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET ads_in_onehanded_anim_alt1.smd           frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET ads_in_onehanded_anim_alt2.smd           frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET ads_in_onehanded_anim_alt3.smd           frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET ads_in_slide_anim.smd                    frames   12 max reach 0.970 max body shift  1.69 max wrist twist   0.7
+RETARGET ads_in_slide_aog_anim.smd                frames   12 max reach 0.970 max body shift  1.69 max wrist twist   0.7
+RETARGET ads_in_slide_hcog_anim.smd               frames   12 max reach 0.970 max body shift  1.69 max wrist twist   0.7
+RETARGET ads_in_slide_holo_anim.smd               frames   12 max reach 0.970 max body shift  1.69 max wrist twist   0.7
+RETARGET ads_out_anim.smd                         frames   16 max reach 0.970 max body shift  2.17 max wrist twist   0.8
+RETARGET ads_out_anim_alt1.smd                    frames   16 max reach 0.970 max body shift  2.17 max wrist twist   0.8
+RETARGET ads_out_anim_alt2.smd                    frames   16 max reach 0.970 max body shift  2.17 max wrist twist   0.8
+RETARGET ads_out_anim_alt3.smd                    frames   16 max reach 0.970 max body shift  2.17 max wrist twist   0.8
+RETARGET ads_out_onehanded_anim.smd               frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET ads_out_onehanded_anim_alt1.smd          frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET ads_out_onehanded_anim_alt2.smd          frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET ads_out_onehanded_anim_alt3.smd          frames   16 max reach 0.878 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET ads_out_slide_anim.smd                   frames   16 max reach 0.970 max body shift  1.51 max wrist twist   0.9
+RETARGET ads_out_slide_aog_anim.smd               frames   16 max reach 0.970 max body shift  1.51 max wrist twist   0.9
+RETARGET ads_out_slide_hcog_anim.smd              frames   16 max reach 0.970 max body shift  1.51 max wrist twist   0.9
+RETARGET ads_out_slide_holo_anim.smd              frames   16 max reach 0.970 max body shift  1.51 max wrist twist   0.9
+RETARGET draw_crouch_seq.smd                      frames   26 max reach 0.970 max body shift  2.44 max wrist twist   0.8
+RETARGET draw_onehanded_crouch_seq.smd            frames   26 max reach 0.950 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET draw_onehanded_seq.smd                   frames   26 max reach 0.950 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET draw_seq.smd                             frames   26 max reach 0.970 max body shift  2.40 max wrist twist   0.8
+RETARGET drawfirst_crouch_seq.smd                 frames   35 max reach 0.970 max body shift  4.33 max wrist twist  41.6  off-screen push def_l_wrist:1.00
+RETARGET drawfirst_onehanded_seq.smd              frames   45 max reach 0.970 max body shift  4.96 max wrist twist   1.6  off-screen push def_l_wrist:1.00
+RETARGET drawfirst_seq.smd                        frames   35 max reach 0.970 max body shift  4.33 max wrist twist  19.1  off-screen push def_l_wrist:1.00
+RETARGET holster_onehanded_seq.smd                frames   16 max reach 0.920 max body shift  0.00 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET holster_seq.smd                          frames   16 max reach 0.970 max body shift  1.07 max wrist twist  53.6  off-screen push def_l_wrist:1.00
+RETARGET idle_check_anim_nod.smd                  frames   29 max reach 0.970 max body shift  1.08 max wrist twist   0.9
+RETARGET iron_anim_nod.smd                        frames  191 max reach 0.970 max body shift  1.09 max wrist twist   0.9
+RETARGET lower_onehanded_seq.smd                  frames   11 max reach 0.879 max body shift  0.00 max wrist twist  31.1  off-screen push def_l_wrist:1.00
+RETARGET lower_seq.smd                            frames   11 max reach 0.970 max body shift  1.06 max wrist twist  28.4  off-screen push def_l_wrist:1.00
+RETARGET raise_crouch_seq.smd                     frames   11 max reach 0.970 max body shift  2.42 max wrist twist   0.8
+RETARGET raise_frommelee_crouch_seq.smd           frames   11 max reach 0.970 max body shift  2.42 max wrist twist   0.8
+RETARGET raise_frommelee_seq.smd                  frames   11 max reach 0.970 max body shift  2.16 max wrist twist   0.7
+RETARGET raise_frommelee_sliding_seq.smd          frames   11 max reach 0.970 max body shift  2.16 max wrist twist   0.7
+RETARGET raise_onehanded_crouch_seq.smd           frames   11 max reach 0.970 max body shift  0.19 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET raise_onehanded_seq.smd                  frames   11 max reach 0.970 max body shift  0.19 max wrist twist   0.7  off-screen push def_l_wrist:1.00
+RETARGET raise_seq.smd                            frames   11 max reach 0.970 max body shift  2.16 max wrist twist   0.7
+RETARGET reload_crouch_seq.smd                    frames   61 max reach 0.970 max body shift  1.27 max wrist twist  58.6  off-screen push def_l_wrist:1.00, def_c_magazine:1.00
+RETARGET reload_empty_crouch_seq.smd              frames   81 max reach 0.970 max body shift  1.26 max wrist twist  60.5  off-screen push def_l_wrist:1.00, def_c_magazine:1.00
+RETARGET reload_empty_late1_anim.smd              frames   47 max reach 0.970 max body shift  1.09 max wrist twist  49.3  off-screen push def_l_wrist:1.00, def_c_magazine:1.00
+RETARGET reload_empty_late1_crouch_anim.smd       frames   47 max reach 0.970 max body shift  1.26 max wrist twist  49.3  off-screen push def_l_wrist:1.00, def_c_magazine:1.00
+RETARGET reload_empty_late2_anim.smd              frames   26 max reach 0.970 max body shift  1.09 max wrist twist  20.9  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_late2_crouch_anim.smd       frames   26 max reach 0.970 max body shift  1.26 max wrist twist  23.3  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_onehanded_crouch_seq.smd    frames   81 max reach 0.961 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_onehanded_late1_anim.smd    frames   47 max reach 0.947 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_onehanded_late1_crouch_anim.smd frames   47 max reach 0.947 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_onehanded_late2_anim.smd    frames   26 max reach 0.893 max body shift  0.00 max wrist twist   0.5  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_onehanded_late2_crouch_anim.smd frames   26 max reach 0.893 max body shift  0.00 max wrist twist   0.5  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_onehanded_seq.smd           frames   81 max reach 0.961 max body shift  0.00 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET reload_empty_seq.smd                     frames   81 max reach 0.970 max body shift  1.09 max wrist twist  60.5  off-screen push def_l_wrist:1.00, def_c_magazine:1.00
+RETARGET reload_late1_anim.smd                    frames   27 max reach 0.970 max body shift  1.09 max wrist twist  17.5  off-screen push def_l_wrist:1.00
+RETARGET reload_late1_crouch_anim.smd             frames   27 max reach 0.970 max body shift  1.27 max wrist twist   7.9  off-screen push def_l_wrist:1.00
+RETARGET reload_onehanded_crouch_seq.smd          frames   61 max reach 0.970 max body shift  2.10 max wrist twist   4.1  off-screen push def_l_wrist:1.00
+RETARGET reload_onehanded_late1_anim.smd          frames   27 max reach 0.970 max body shift  2.10 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET reload_onehanded_late1_crouch_anim.smd   frames   27 max reach 0.970 max body shift  2.10 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET reload_onehanded_seq.smd                 frames   61 max reach 0.970 max body shift  2.10 max wrist twist   4.1  off-screen push def_l_wrist:1.00
+RETARGET reload_seq.smd                           frames   61 max reach 0.970 max body shift  1.09 max wrist twist  58.6  off-screen push def_l_wrist:1.00, def_c_magazine:1.00
+RETARGET sprint_onehanded_seq.smd                 frames   21 max reach 0.970 max body shift  0.58 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET sprint_seq.smd                           frames   21 max reach 0.926 max body shift  0.00 max wrist twist  50.3  off-screen push def_l_wrist:1.00
+RETARGET sprintdraw_onehanded_seq.smd             frames   11 max reach 0.834 max body shift  0.00 max wrist twist  15.4  off-screen push def_l_wrist:1.00
+RETARGET sprintdraw_seq.smd                       frames   11 max reach 0.834 max body shift  0.00 max wrist twist  15.4  off-screen push def_l_wrist:1.00
+RETARGET sprintholster_onehanded_seq.smd          frames   11 max reach 0.833 max body shift  0.00 max wrist twist  69.9  off-screen push def_l_wrist:1.00
+RETARGET sprintholster_seq.smd                    frames   11 max reach 0.833 max body shift  0.00 max wrist twist  69.9  off-screen push def_l_wrist:1.00
+RETARGET sprintraise_onehanded_seq.smd            frames   11 max reach 0.970 max body shift  1.32 max wrist twist   0.8  off-screen push def_l_wrist:1.00
+RETARGET sprintraise_onehanded_slide_anim.smd     frames   14 max reach 0.970 max body shift  1.21 max wrist twist   0.9  off-screen push def_l_wrist:1.00
+RETARGET sprintraise_seq.smd                      frames   11 max reach 0.970 max body shift  2.51 max wrist twist  35.1  off-screen push def_l_wrist:1.00
+RETARGET sprintraise_seq_air.smd                  frames   22 max reach 0.970 max body shift  2.22 max wrist twist  34.5  off-screen push def_l_wrist:1.00, def_r_wrist:0.00
+RETARGET sprintraise_seq_regrip.smd               frames   11 max reach 0.970 max body shift  2.51 max wrist twist  35.1  off-screen push def_l_wrist:1.00
+RETARGET switch_to_onehanded_anim.smd             frames   16 max reach 0.970 max body shift  1.34 max wrist twist   0.9  off-screen push def_l_wrist:1.00
+RETARGET switch_to_twohanded_anim.smd             frames   16 max reach 0.970 max body shift  1.31 max wrist twist  10.0  off-screen push def_l_wrist:1.00
+RETARGET_OK 77 animations
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:37:16)
+
+Blender quit

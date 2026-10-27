@@ -1,0 +1,10 @@
+bones                    stock  85 built  85  OK
+bodyparts                stock   7 built   7  OK
+attachments(+bone)       stock  30 built  30  OK
+poseparams               stock   3 built   3  OK
+anim descs (order)       stock 124 built 125  OK  appended 1: ['@fire_layer']
+sequences (full)         stock  97 built  98  OK  appended 1: [('fire_layer', '', (1, 1), ('@fire_layer',), True, True, False)]
+seq anim INDICES         stock  97 built  98  OK  appended 1: [('fire_layer', (124,))]
+invalid anim refs        none
+skin families            stock 9 built 9  OK
+DEEP_COMPARE_OK

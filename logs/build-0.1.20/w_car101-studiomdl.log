@@ -1,0 +1,113 @@
+qdir:    "d:\titanfallmods\35_prowlercar\build\world\"
+gamedir: "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\"
+g_path:  "w_car101.qc"
+Building binary model files...
+Working on "w_car101.qc"
+SMD MODEL prowler_w_body_lod0.smd
+SMD MODEL stock_w_holo.smd
+SMD MODEL stock_w_acgs.smd
+SMD MODEL stock_w_cro.smd
+SMD MODEL stock_w_proscreen.smd
+SMD MODEL prowler_w_sight_on.smd
+SMD MODEL world_idle.smd
+SMD MODEL prowler_w_body_lod1.smd
+SMD MODEL prowler_w_body_lod2.smd
+SMD MODEL prowler_w_body_lod3.smd
+Processing LOD for material: models\Weapons_R2\prowler_car\prowler_scavenger
+Lod 1: vertexes: 4525 (973 new)
+Lod 2: vertexes: 4920 (395 new)
+Lod 3: vertexes: 4990 (70 new)
+Processing LOD for material: models\Weapons_R2\attachments\holo_reflex_sight_magnifier
+Processing LOD for material: models\weapons\attachments\acgs_sight
+Processing LOD for material: models\Weapons_R2\attachments\charge_rifle_optic
+Processing LOD for material: models\weapons\attachments\rifle_scope_lens
+Processing LOD for material: models\Weapons_R2\attachments\pro_screen
+Processing LOD for material: models\Weapons_R2\prowler_car\prowler_scavenger
+---------------------
+writing D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/w_car101.mdl:
+bones         6332 bytes (14)
+   animation       x       y       ips    angle
+animations     468 bytes (4 anims) (96 frames) [0:03]
+sequences     1640 bytes (4 seq) 
+ik/pose       1724 bytes
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+textures       496 bytes
+keyvalues        0 bytes
+bone transforms     1968 bytes
+bone flex driver       0 bytes
+collision        0 bytes
+total        14332
+---------------------
+writing D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/w_car101.vvd:
+vertices    239520 bytes (4990 vertices)
+vertices    184896 bytes (3852 vertices)
+vertices    114672 bytes (2389 vertices)
+vertices    168912 bytes (3519 vertices)
+vertices     36432 bytes (759 vertices)
+vertices     17376 bytes (362 vertices)
+tangents     79840 bytes (4990 vertices)
+tangents     61632 bytes (3852 vertices)
+tangents     38224 bytes (2389 vertices)
+tangents     56304 bytes (3519 vertices)
+tangents     12144 bytes (759 vertices)
+tangents      5792 bytes (362 vertices)
+total      1015808 bytes
+---------------------
+Generating optimized mesh "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/w_car101.sw.vtx":
+body parts:        48 bytes
+models:           616 bytes
+model LODs:       528 bytes
+meshes:           252 bytes
+strip groups:     924 bytes
+strips:           980 bytes
+verts:         446229 bytes
+indices:       341574 bytes
+bone changes:      32 bytes
+everything:    790691 bytes
+---------------------
+Generating optimized mesh "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/w_car101.dx80.vtx":
+body parts:        48 bytes
+models:           616 bytes
+model LODs:       528 bytes
+meshes:           252 bytes
+strip groups:     924 bytes
+strips:           980 bytes
+verts:         446229 bytes
+indices:       341574 bytes
+bone changes:     256 bytes
+everything:    790915 bytes
+---------------------
+Generating optimized mesh "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/w_car101.dx90.vtx":
+body parts:        48 bytes
+models:           616 bytes
+model LODs:       528 bytes
+meshes:           252 bytes
+strip groups:     924 bytes
+strips:           980 bytes
+verts:         446229 bytes
+indices:       341574 bytes
+bone changes:     256 bytes
+everything:    790915 bytes
+
+Completed "w_car101.qc"

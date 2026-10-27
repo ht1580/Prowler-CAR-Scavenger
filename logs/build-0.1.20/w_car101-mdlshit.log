@@ -1,0 +1,296 @@
+Source MDL v49 --> v53 converter
+Copyright 2022 MasterLiberty and headassbtw
+Do not distribute
+Compiled on Sep 10 2026, using MinGW v16.1.0
+  [DEBUG]  | MDL Version: 49
+  [DEBUG]  | Conversion started
+  [INFO]   | Bone Read: ja_c_propGun : 0
+  [INFO]   | Bone Read: weapon_bone : 1
+  [INFO]   | Bone Read: def_c_proscreen : 2
+  [INFO]   | Bone Read: ja_ads_attachment : 3
+  [INFO]   | Bone Read: def_c_acgs : 4
+  [INFO]   | Bone Read: def_c_base : 5
+  [INFO]   | Bone Read: def_c_cro : 6
+  [INFO]   | Bone Read: def_c_sight_on : 7
+  [INFO]   | Bone Read: muzzle_flash : 8
+  [INFO]   | Bone Read: def_c_holo : 9
+  [INFO]   | Bone Read: shell : 10
+  [INFO]   | Bone Read: shell_fp : 11
+  [INFO]   | Bone Read: l_hand_ik : 12
+  [INFO]   | Bone Read: r_hand_ik : 13
+  [INFO]   | Attachment Read: CAMERA_BASE : 0
+  [INFO]   | Attachment Read: CAMERA : 1
+  [INFO]   | Attachment Read: L_HAND : 2
+  [INFO]   | Attachment Read: R_HAND : 3
+  [INFO]   | Attachment Read: SWAY_ROTATE : 4
+  [INFO]   | Attachment Read: SWAY_ROTATE_ZOOMED : 5
+  [INFO]   | Attachment Read: muzzle_flash : 6
+  [INFO]   | Attachment Read: shell : 7
+  [INFO]   | Attachment Read: shell_fp : 8
+  [INFO]   | Attachment Read: l_hand_ik : 9
+  [INFO]   | Attachment Read: r_hand_ik : 10
+  [INFO]   | Attachment Read: holo : 11
+  [INFO]   | Attachment Read: acgs : 12
+  [INFO]   | Attachment Read: cro : 13
+  [INFO]   | Attachment Read: HOLO_FRONT : 14
+  [INFO]   | Attachment Read: HOLO_REAR : 15
+  [INFO]   | Attachment Read: ACGS_FRONT : 16
+  [INFO]   | Attachment Read: ACGS_REAR : 17
+  [INFO]   | Attachment Read: SCR_BL_ACGS : 18
+  [INFO]   | Attachment Read: SCR_TR_ACGS : 19
+  [INFO]   | Attachment Read: CRO_FRONT : 20
+  [INFO]   | Attachment Read: CRO_REAR : 21
+  [INFO]   | Attachment Read: proscreen : 22
+  [INFO]   | Attachment Read: sight_on : 23
+  [INFO]   | HitboxSet Read: default : 0
+  [INFO]   | Hitbox Read:  : 0
+  [INFO]   | Hitbox Read:  : 1
+  [INFO]   | Hitbox Read:  : 2
+  [INFO]   | Hitbox Read:  : 3
+  [INFO]   | Hitbox Read:  : 4
+  [INFO]   | Hitbox Read:  : 5
+  [INFO]   | BoneTable Read: 14
+  [INFO]   | AnimDesc Read: @idle_seq : 0
+  [INFO]   | AnimDesc Read: @attack_seq : 1
+  [INFO]   | AnimDesc Read: @attack_seq_alt1 : 2
+  [INFO]   | AnimDesc Read: @attack_seq_alt2 : 3
+  [INFO]   | Anim Read: 0
+  [INFO]   | Anim Read: 1
+  [INFO]   | Anim Read: 2
+  [INFO]   | Anim Read: 3
+  [INFO]   | Seq Read: idle_seq : ACT_VM_IDLE : 0
+  [INFO]   | Seq Read: attack_seq : ACT_RANGE_ATTACK_SMG1 : 1
+  [INFO]   | Seq Read: attack_seq_alt1 : ACT_RANGE_ATTACK_SMG1 : 2
+  [INFO]   | Seq Read: attack_seq_alt2 : ACT_RANGE_ATTACK_SMG1 : 3
+  [INFO]   | Weightlist Read: 0
+  [INFO]   | BlendGroup Read: 0
+  [INFO]   | Weightlist Read: 1
+  [INFO]   | BlendGroup Read: 1
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read:  :  : 2
+  [INFO]   | Weightlist Read: 2
+  [INFO]   | BlendGroup Read: 2
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read:  :  : 2
+  [INFO]   | Weightlist Read: 3
+  [INFO]   | BlendGroup Read: 3
+  [INFO]   | Event Read: muzzle_flash : AE_CL_VSCRIPT_CALLBACK : 0
+  [INFO]   | Event Read: shell_eject : AE_CL_VSCRIPT_CALLBACK : 1
+  [INFO]   | Event Read:  :  : 2
+  [INFO]   | Bodypart Read: car101 : 0
+  [INFO]   | Bodypart Read: sight_holo : 1
+  [INFO]   | Bodypart Read: sight_acgs : 2
+  [INFO]   | Bodypart Read: sight_cro : 3
+  [INFO]   | Bodypart Read: proscreen : 4
+  [INFO]   | Bodypart Read: car101_sight_on : 5
+  [INFO]   | Model Read: prowler_w_body_lod0.smd : 0
+  [INFO]   | Model Read:  : 1
+  [INFO]   | Model Read: stock_w_holo.smd : 2
+  [INFO]   | Model Read:  : 3
+  [INFO]   | Model Read: stock_w_acgs.smd : 4
+  [INFO]   | Model Read:  : 5
+  [INFO]   | Model Read: stock_w_cro.smd : 6
+  [INFO]   | Model Read:  : 7
+  [INFO]   | Model Read: stock_w_proscreen.smd : 8
+  [INFO]   | Model Read:  : 9
+  [INFO]   | Model Read: prowler_w_sight_on.smd : 10
+  [INFO]   | MeshMat Read: models\Weapons_R2\prowler_car\prowler_scavenger : 0
+  [INFO]   | Mesh Read: 0
+  [INFO]   | MeshMat Read: models\Weapons_R2\attachments\holo_reflex_sight_magnifier : 1
+  [INFO]   | Mesh Read: 1
+  [INFO]   | MeshMat Read: models\weapons\attachments\acgs_sight : 2
+  [INFO]   | Mesh Read: 2
+  [INFO]   | MeshMat Read: models\Weapons_R2\attachments\charge_rifle_optic : 3
+  [INFO]   | Mesh Read: 3
+  [INFO]   | MeshMat Read: models\weapons\attachments\rifle_scope_lens : 4
+  [INFO]   | Mesh Read: 4
+  [INFO]   | MeshMat Read: models\Weapons_R2\attachments\pro_screen : 5
+  [INFO]   | Mesh Read: 5
+  [INFO]   | MeshMat Read: models\Weapons_R2\prowler_car\prowler_scavenger : 6
+  [INFO]   | Mesh Read: 6
+  [INFO]   | Texture Read: models\Weapons_R2\prowler_car\prowler_scavenger : 0
+  [INFO]   | Texture Read: models\Weapons_R2\attachments\holo_reflex_sight_magnifier : 1
+  [INFO]   | Texture Read: models\weapons\attachments\acgs_sight : 2
+  [INFO]   | Texture Read: models\Weapons_R2\attachments\charge_rifle_optic : 3
+  [INFO]   | Texture Read: models\weapons\attachments\rifle_scope_lens : 4
+  [INFO]   | Texture Read: models\Weapons_R2\attachments\pro_screen : 5
+  [INFO]   | CdTexture Read:  : 0
+  [INFO]   | SkinGroup Read: 0
+  [INFO]   | SkinGroup Read: 1
+  [INFO]   | SkinGroup Read: 2
+  [INFO]   | SkinGroup Read: 3
+  [INFO]   | SkinGroup Read: 4
+  [INFO]   | SkinGroup Read: 5
+  [INFO]   | SkinGroup Read: 6
+  [INFO]   | SkinGroup Read: 7
+  [INFO]   | SkinGroup Read: 8
+  [INFO]   | LinearBone Read: 14
+  [INFO]   | String Table Size: 891
+  [INFO]   | MdlName: weapons/car101/w_car101.mdl
+  [INFO]   | SurfacePropName: Wpn_SMG
+  [INFO]   | BoneName: ja_c_propGun
+  [INFO]   | BoneName: weapon_bone
+  [INFO]   | BoneName: def_c_proscreen
+  [INFO]   | BoneName: ja_ads_attachment
+  [INFO]   | BoneName: def_c_acgs
+  [INFO]   | BoneName: def_c_base
+  [INFO]   | BoneName: def_c_cro
+  [INFO]   | BoneName: def_c_sight_on
+  [INFO]   | BoneName: muzzle_flash
+  [INFO]   | BoneName: def_c_holo
+  [INFO]   | BoneName: shell
+  [INFO]   | BoneName: shell_fp
+  [INFO]   | BoneName: l_hand_ik
+  [INFO]   | BoneName: r_hand_ik
+  [INFO]   | AttachmentName: CAMERA_BASE
+  [INFO]   | AttachmentName: CAMERA
+  [INFO]   | AttachmentName: L_HAND
+  [INFO]   | AttachmentName: R_HAND
+  [INFO]   | AttachmentName: SWAY_ROTATE
+  [INFO]   | AttachmentName: SWAY_ROTATE_ZOOMED
+  [INFO]   | AttachmentReusedName: muzzle_flash
+  [INFO]   | AttachmentReusedName: shell
+  [INFO]   | AttachmentReusedName: shell_fp
+  [INFO]   | AttachmentReusedName: l_hand_ik
+  [INFO]   | AttachmentReusedName: r_hand_ik
+  [INFO]   | AttachmentName: holo
+  [INFO]   | AttachmentName: acgs
+  [INFO]   | AttachmentName: cro
+  [INFO]   | AttachmentName: HOLO_FRONT
+  [INFO]   | AttachmentName: HOLO_REAR
+  [INFO]   | AttachmentName: ACGS_FRONT
+  [INFO]   | AttachmentName: ACGS_REAR
+  [INFO]   | AttachmentName: SCR_BL_ACGS
+  [INFO]   | AttachmentName: SCR_TR_ACGS
+  [INFO]   | AttachmentName: CRO_FRONT
+  [INFO]   | AttachmentName: CRO_REAR
+  [INFO]   | AttachmentName: proscreen
+  [INFO]   | AttachmentName: sight_on
+  [INFO]   | HitboxSetName: default
+  [INFO]   | AnimDescName: @idle_seq
+  [INFO]   | AnimDescName: @attack_seq
+  [INFO]   | AnimDescName: @attack_seq_alt1
+  [INFO]   | AnimDescName: @attack_seq_alt2
+  [INFO]   | SeqName: idle_seq
+  [INFO]   | SeqActivity: ACT_VM_IDLE
+  [INFO]   | SeqName: attack_seq
+  [INFO]   | SeqActivity: ACT_RANGE_ATTACK_SMG1
+  [INFO]   | eventName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: attack_seq_alt1
+  [INFO]   | SeqActivityReusedName: ACT_RANGE_ATTACK_SMG1
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | SeqName: attack_seq_alt2
+  [INFO]   | SeqActivityReusedName: ACT_RANGE_ATTACK_SMG1
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | eventNameReusedName: AE_CL_VSCRIPT_CALLBACK
+  [INFO]   | SeqActivity: Empty
+  [INFO]   | BodyPartName: car101
+  [INFO]   | BodyPartName: sight_holo
+  [INFO]   | BodyPartName: sight_acgs
+  [INFO]   | BodyPartName: sight_cro
+  [INFO]   | BodyPartReusedName: proscreen
+  [INFO]   | BodyPartName: car101_sight_on
+  [INFO]   | HitboxName: Empty
+  [INFO]   | HitboxName: Empty
+  [INFO]   | HitboxName: Empty
+  [INFO]   | HitboxName: Empty
+  [INFO]   | HitboxName: Empty
+  [INFO]   | HitboxName: Empty
+  [INFO]   | TextureName: models\Weapons_R2\prowler_car\prowler_scavenger
+  [INFO]   | TextureName: models\Weapons_R2\attachments\holo_reflex_sight_magnifier
+  [INFO]   | TextureName: models\weapons\attachments\acgs_sight
+  [INFO]   | TextureName: models\Weapons_R2\attachments\charge_rifle_optic
+  [INFO]   | TextureName: models\weapons\attachments\rifle_scope_lens
+  [INFO]   | TextureName: models\Weapons_R2\attachments\pro_screen
+  [INFO]   | CdMaterialName: Empty
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.mdl" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.vtx" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.vvd" closed
+  [NOTICE] | RuiSize 0
+  [INFO]   | No Exta Struct Data Detected
+  [NOTICE] | Updated hitbox set 1 of 1
+  [NOTICE] | Updated hitboxes 1 of 6
+  [NOTICE] | Updated hitboxes 2 of 6
+  [NOTICE] | Updated hitboxes 3 of 6
+  [NOTICE] | Updated hitboxes 4 of 6
+  [NOTICE] | Updated hitboxes 5 of 6
+  [NOTICE] | Updated hitboxes 6 of 6
+  [NOTICE] | Converted animation 1 of 4
+  [NOTICE] | Converted animation 2 of 4
+  [NOTICE] | Converted animation 3 of 4
+  [NOTICE] | Converted animation 4 of 4
+  [INFO]   | Finished animations
+  [NOTICE] | Converted sequence 1 of 4
+  [NOTICE] | Converted sequence 2 of 4
+  [NOTICE] | Converted sequence 3 of 4
+  [NOTICE] | Converted sequence 4 of 4
+  [INFO]   | Finished sequences
+  [NOTICE] | Converted body part 1 of 6
+  [NOTICE] | Converted body part 2 of 6
+  [NOTICE] | Converted body part 3 of 6
+  [NOTICE] | Converted body part 4 of 6
+  [NOTICE] | Converted body part 5 of 6
+  [NOTICE] | Converted body part 6 of 6
+  [INFO]   | Finished body parts
+  [NOTICE] | Updated model struct 1 of 11
+  [NOTICE] | Updated model struct 2 of 11
+  [NOTICE] | Updated model struct 3 of 11
+  [NOTICE] | Updated model struct 4 of 11
+  [NOTICE] | Updated model struct 5 of 11
+  [NOTICE] | Updated model struct 6 of 11
+  [NOTICE] | Updated model struct 7 of 11
+  [NOTICE] | Updated model struct 8 of 11
+  [NOTICE] | Updated model struct 9 of 11
+  [NOTICE] | Updated model struct 10 of 11
+  [NOTICE] | Updated model struct 11 of 11
+  [INFO]   | Finished model structs
+  [NOTICE] | Updated mesh struct 1 of 7
+  [NOTICE] | Updated mesh struct 2 of 7
+  [NOTICE] | Updated mesh struct 3 of 7
+  [NOTICE] | Updated mesh struct 4 of 7
+  [NOTICE] | Updated mesh struct 5 of 7
+  [NOTICE] | Updated mesh struct 6 of 7
+  [NOTICE] | Updated mesh struct 7 of 7
+  [INFO]   | Finished mesh structs
+  [NOTICE] | Converted texture 1 of 6
+  [NOTICE] | Converted texture 2 of 6
+  [NOTICE] | Converted texture 3 of 6
+  [NOTICE] | Converted texture 4 of 6
+  [NOTICE] | Converted texture 5 of 6
+  [NOTICE] | Converted texture 6 of 6
+  [INFO]   | Finished textures
+  [NOTICE] | Converted texture 1 of 1
+  [INFO]   | Finished cd textures
+  [NOTICE] | Converted skin group 1 of 9
+  [NOTICE] | Converted skin group 2 of 9
+  [NOTICE] | Converted skin group 3 of 9
+  [NOTICE] | Converted skin group 4 of 9
+  [NOTICE] | Converted skin group 5 of 9
+  [NOTICE] | Converted skin group 6 of 9
+  [NOTICE] | Converted skin group 7 of 9
+  [NOTICE] | Converted skin group 8 of 9
+  [NOTICE] | Converted skin group 9 of 9
+  [INFO]   | Finished skin groups
+  [INFO]   | Stream Size: 891
+  [INFO]   | String Table StartPos: 13897
+  [INFO]   | String Table EndPos: 14786
+  [INFO]   | String Table Size: 889
+  [INFO]   | String Table Padding Size: 2
+  [NOTICE] | Wrote Rest of File
+  [INFO]   | writing vtx at [14788]...
+  [INFO]   | done
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.vtx" closed
+  [INFO]   | writing vvd at [805703]...
+  [INFO]   | done
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.vvd" closed
+  [INFO]   | Finished!
+  [INFO]   | BinaryWriter for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101_conv.mdl" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.mdl" closed
+  [INFO]   | BinaryWriter for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101_conv.mdl" closed
+  [INFO]   | BinaryReader for file "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models\weapons\car101\w_car101.mdl" closed

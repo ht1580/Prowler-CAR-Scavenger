@@ -1,0 +1,10 @@
+bones                    stock  14 built  14  OK
+bodyparts                stock   6 built   6  OK
+attachments(+bone)       stock  24 built  24  OK
+poseparams               stock   0 built   0  OK
+anim descs (order)       stock   4 built   4  OK
+sequences (full)         stock   4 built   4  OK
+seq anim INDICES         stock   4 built   4  OK
+invalid anim refs        none
+skin families            stock 9 built 9  OK
+DEEP_COMPARE_OK

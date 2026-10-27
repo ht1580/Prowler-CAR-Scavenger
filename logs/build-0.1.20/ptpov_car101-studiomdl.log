@@ -1,0 +1,240 @@
+qdir:    "d:\titanfallmods\35_prowlercar\build\view\"
+gamedir: "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\"
+g_path:  "ptpov_car101.qc"
+Building binary model files...
+Working on "ptpov_car101.qc"
+SMD MODEL prowler_body.smd
+SMD MODEL v_holo.smd
+SMD MODEL v_acgs.smd
+SMD MODEL v_cro.smd
+SMD MODEL v_proscreen.smd
+SMD MODEL prowler_sight_on.smd
+SMD MODEL prowler_magazine.smd
+SMD MODEL anims\ref.smd
+SMD MODEL anims\ads_in_anim.smd
+SMD MODEL anims\ads_out_anim.smd
+SMD MODEL anims\ads_in_anim_alt1.smd
+SMD MODEL anims\ads_out_anim_alt1.smd
+SMD MODEL anims\ads_in_anim_alt2.smd
+SMD MODEL anims\ads_out_anim_alt2.smd
+SMD MODEL anims\ads_in_anim_alt3.smd
+SMD MODEL anims\ads_out_anim_alt3.smd
+SMD MODEL anims\ads_in_slide_anim.smd
+SMD MODEL anims\ads_out_slide_anim.smd
+SMD MODEL anims\ads_in_slide_hcog_anim.smd
+SMD MODEL anims\ads_out_slide_hcog_anim.smd
+SMD MODEL anims\ads_in_slide_holo_anim.smd
+SMD MODEL anims\ads_out_slide_holo_anim.smd
+SMD MODEL anims\ads_in_slide_aog_anim.smd
+SMD MODEL anims\ads_out_slide_aog_anim.smd
+SMD MODEL anims\ads_in_onehanded_anim.smd
+SMD MODEL anims\ads_out_onehanded_anim.smd
+SMD MODEL anims\ads_in_onehanded_anim_alt1.smd
+SMD MODEL anims\ads_out_onehanded_anim_alt1.smd
+SMD MODEL anims\ads_in_onehanded_anim_alt2.smd
+SMD MODEL anims\ads_out_onehanded_anim_alt2.smd
+SMD MODEL anims\ads_in_onehanded_anim_alt3.smd
+SMD MODEL anims\ads_out_onehanded_anim_alt3.smd
+SMD MODEL anims\delta_absolute\run_anim_static.smd
+SMD MODEL anims\delta_absolute\run_anim.smd
+SMD MODEL anims\delta_absolute\run_anim_layer.smd
+SMD MODEL anims\delta_absolute\walk_anim_static.smd
+SMD MODEL anims\delta_absolute\walk_anim.smd
+SMD MODEL anims\delta_absolute\walk_ads_anim.smd
+SMD MODEL anims\delta_absolute\walk_anim_nocam.smd
+SMD MODEL anims\delta_absolute\idle_anim_autoplay.smd
+SMD MODEL anims\delta_absolute\idle_ads_anim_autoplay.smd
+SMD MODEL anims\idle_anim.smd
+SMD MODEL anims\idle_ads_anim.smd
+SMD MODEL anims\idle_ads_anim_alt1.smd
+SMD MODEL anims\idle_ads_anim_alt2.smd
+SMD MODEL anims\idle_ads_anim_alt3.smd
+SMD MODEL anims\idle_onehanded_anim.smd
+SMD MODEL anims\idle_onehanded_ads_anim.smd
+SMD MODEL anims\idle_onehanded_ads_anim_alt1.smd
+SMD MODEL anims\idle_onehanded_ads_anim_alt2.smd
+SMD MODEL anims\idle_onehanded_ads_anim_alt3.smd
+SMD MODEL anims\delta_absolute\idle_check_anim.smd
+SMD MODEL anims\delta_absolute\idle_check_ads_anim.smd
+SMD MODEL anims\idle_check_anim_nod.smd
+SMD MODEL anims\delta_absolute\attack_anim.smd
+SMD MODEL anims\delta_absolute\attack_ads_anim.smd
+SMD MODEL anims\delta_absolute\attack_ads_anim_alt1.smd
+SMD MODEL anims\delta_absolute\attack_ads_anim_alt2.smd
+SMD MODEL anims\delta_absolute\attack_ads_anim_alt3.smd
+SMD MODEL anims\delta_absolute\attack_slide_anim.smd
+SMD MODEL anims\delta_absolute\attack_onehanded_anim.smd
+SMD MODEL anims\delta_absolute\attack_onehanded_ads_anim.smd
+SMD MODEL anims\delta_absolute\attack_onehanded_ads_anim_alt1.smd
+SMD MODEL anims\delta_absolute\attack_onehanded_ads_anim_alt2.smd
+SMD MODEL anims\delta_absolute\attack_onehanded_ads_anim_alt3.smd
+SMD MODEL anims\reload_seq.smd
+SMD MODEL anims\reload_late1_anim.smd
+SMD MODEL anims\reload_empty_seq.smd
+SMD MODEL anims\reload_empty_late1_anim.smd
+SMD MODEL anims\reload_empty_late2_anim.smd
+SMD MODEL anims\reload_onehanded_seq.smd
+SMD MODEL anims\reload_onehanded_late1_anim.smd
+SMD MODEL anims\reload_empty_onehanded_seq.smd
+SMD MODEL anims\reload_empty_onehanded_late1_anim.smd
+SMD MODEL anims\reload_empty_onehanded_late2_anim.smd
+SMD MODEL anims\reload_crouch_seq.smd
+SMD MODEL anims\reload_late1_crouch_anim.smd
+SMD MODEL anims\reload_empty_crouch_seq.smd
+SMD MODEL anims\reload_empty_late1_crouch_anim.smd
+SMD MODEL anims\reload_empty_late2_crouch_anim.smd
+SMD MODEL anims\reload_onehanded_crouch_seq.smd
+SMD MODEL anims\reload_onehanded_late1_crouch_anim.smd
+SMD MODEL anims\reload_empty_onehanded_crouch_seq.smd
+SMD MODEL anims\reload_empty_onehanded_late1_crouch_anim.smd
+SMD MODEL anims\reload_empty_onehanded_late2_crouch_anim.smd
+SMD MODEL anims\switch_to_onehanded_anim.smd
+SMD MODEL anims\switch_to_twohanded_anim.smd
+SMD MODEL anims\delta_absolute\switch_to_jump_anim.smd
+SMD MODEL anims\delta_absolute\switch_to_land_anim.smd
+SMD MODEL anims\delta_absolute\switch_to_jump_crouch_anim.smd
+SMD MODEL anims\delta_absolute\switch_to_land_crouch_anim.smd
+SMD MODEL anims\delta_absolute\switch_to_jump_ads_anim.smd
+SMD MODEL anims\delta_absolute\switch_to_land_ads_anim.smd
+SMD MODEL anims\delta_absolute\iron_anim.smd
+SMD MODEL anims\delta_absolute\holo_anim.smd
+SMD MODEL anims\delta_absolute\hcog_anim.smd
+SMD MODEL anims\delta_absolute\aog_anim.smd
+SMD MODEL anims\iron_anim_nod.smd
+SMD MODEL anims\drawfirst_seq.smd
+SMD MODEL anims\drawfirst_crouch_seq.smd
+SMD MODEL anims\draw_seq.smd
+SMD MODEL anims\drawfirst_onehanded_seq.smd
+SMD MODEL anims\draw_onehanded_seq.smd
+SMD MODEL anims\draw_crouch_seq.smd
+SMD MODEL anims\draw_onehanded_crouch_seq.smd
+SMD MODEL anims\holster_seq.smd
+SMD MODEL anims\holster_onehanded_seq.smd
+SMD MODEL anims\raise_seq.smd
+SMD MODEL anims\raise_onehanded_seq.smd
+SMD MODEL anims\raise_frommelee_seq.smd
+SMD MODEL anims\raise_crouch_seq.smd
+SMD MODEL anims\raise_onehanded_crouch_seq.smd
+SMD MODEL anims\raise_frommelee_crouch_seq.smd
+SMD MODEL anims\raise_frommelee_sliding_seq.smd
+SMD MODEL anims\lower_seq.smd
+SMD MODEL anims\lower_onehanded_seq.smd
+SMD MODEL anims\sprint_seq.smd
+SMD MODEL anims\sprintraise_seq.smd
+SMD MODEL anims\sprintraise_seq_regrip.smd
+SMD MODEL anims\sprintraise_seq_air.smd
+SMD MODEL anims\sprintdraw_seq.smd
+SMD MODEL anims\sprintholster_seq.smd
+SMD MODEL anims\sprint_onehanded_seq.smd
+SMD MODEL anims\sprintraise_onehanded_seq.smd
+SMD MODEL anims\sprintdraw_onehanded_seq.smd
+SMD MODEL anims\sprintholster_onehanded_seq.smd
+SMD MODEL anims\sprintraise_onehanded_slide_anim.smd
+SMD MODEL anims\delta_absolute\optic_anim_layer.smd
+SMD MODEL anims\optic_anim_layer_ads.smd
+SMD MODEL anims\wind_loop_anim_layer.smd
+SMD MODEL anims\wind_loop_ads_anim_layer.smd
+SMD MODEL anims\delta_absolute\fire_anim_layer.smd
+Processing LOD for material: models\Weapons_R2\prowler_car\prowler_scavenger
+Processing LOD for material: models\Weapons_R2\attachments\holo_reflex_sight_magnifier
+Processing LOD for material: models\weapons\attachments\acgs_sight
+Processing LOD for material: models\Weapons_R2\attachments\charge_rifle_optic
+Processing LOD for material: models\weapons\attachments\rifle_scope_lens
+Processing LOD for material: models\Weapons_R2\attachments\pro_screen
+Processing LOD for material: models\Weapons_R2\prowler_car\prowler_scavenger
+Processing LOD for material: models\Weapons_R2\prowler_car\prowler_scavenger
+---------------------
+writing D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/ptpov_car101.mdl:
+Found attachment 7 30
+bones        21884 bytes (85)
+   animation       x       y       ips    angle
+animations  362696 bytes (125 anims) (4207 frames) [2:19]
+sequences    44244 bytes (98 seq) 
+ik/pose       2096 bytes
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+textures       496 bytes
+keyvalues        0 bytes
+bone transforms    11624 bytes
+bone flex driver       0 bytes
+collision        0 bytes
+total       451808
+---------------------
+writing D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/ptpov_car101.vvd:
+vertices   1119072 bytes (23314 vertices)
+vertices    184896 bytes (3852 vertices)
+vertices    114672 bytes (2389 vertices)
+vertices    168912 bytes (3519 vertices)
+vertices     36432 bytes (759 vertices)
+vertices     91200 bytes (1900 vertices)
+vertices     92976 bytes (1937 vertices)
+tangents    373024 bytes (23314 vertices)
+tangents     61632 bytes (3852 vertices)
+tangents     38224 bytes (2389 vertices)
+tangents     56304 bytes (3519 vertices)
+tangents     12144 bytes (759 vertices)
+tangents     30400 bytes (1900 vertices)
+tangents     30992 bytes (1937 vertices)
+total      2410944 bytes
+---------------------
+Generating optimized mesh "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/ptpov_car101.sw.vtx":
+body parts:        56 bytes
+models:           260 bytes
+model LODs:       156 bytes
+meshes:            72 bytes
+strip groups:     264 bytes
+strips:           280 bytes
+verts:         339030 bytes
+indices:       261228 bytes
+bone changes:       8 bytes
+everything:    601234 bytes
+---------------------
+Generating optimized mesh "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/ptpov_car101.dx80.vtx":
+body parts:        56 bytes
+models:           260 bytes
+model LODs:       156 bytes
+meshes:            72 bytes
+strip groups:     264 bytes
+strips:           280 bytes
+verts:         339030 bytes
+indices:       261228 bytes
+bone changes:      80 bytes
+everything:    601306 bytes
+---------------------
+Generating optimized mesh "D:\TitanfallMods\35_ProwlerCAR\build\sfm_game\models/weapons/car101/ptpov_car101.dx90.vtx":
+body parts:        56 bytes
+models:           260 bytes
+model LODs:       156 bytes
+meshes:            72 bytes
+strip groups:     264 bytes
+strips:           280 bytes
+verts:         339030 bytes
+indices:       261228 bytes
+bone changes:      80 bytes
+everything:    601306 bytes
+
+Completed "ptpov_car101.qc"

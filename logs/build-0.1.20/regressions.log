@@ -1,0 +1,32 @@
+python.exe : test_animation_delta_semantics_match_original_indices (test_model_animation.CompiledAnimation.test_animati
+on_delta_semantics_match_original_indices) ... ok
+At D:\TitanfallMods\35_ProwlerCAR\scripts\build_all.ps1:110 char:1
++ & $BlenderPython -m unittest discover -s tests -v *> "$Log\regression ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_animation_...indices) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_bone_set_is_exactly_stock (test_model_animation.CompiledAnimation.test_bone_set_is_exactly_stock) ... ok
+test_embedded_payload_is_inside_declared_mdl_length (test_model_animation.CompiledAnimation.test_embedded_payload_is_in
+side_declared_mdl_length) ... ok
+test_only_the_stock_style_fire_layer_is_appended (test_model_animation.CompiledAnimation.test_only_the_stock_style_fire
+_layer_is_appended) ... ok
+test_delta_layers_do_not_move_the_entire_viewmodel (test_native_pose.NativePose.test_delta_layers_do_not_move_the_entir
+e_viewmodel) ... ok
+test_shoulders_stay_behind_the_eye (test_native_pose.NativePose.test_shoulders_stay_behind_the_eye) ... ok
+test_burst_start_keeps_headroom (test_release_fixes.ReleaseFixes.test_burst_start_keeps_headroom) ... ok
+test_every_override_id_is_a_real_lowercase_bank_event (test_release_fixes.ReleaseFixes.test_every_override_id_is_a_real
+_lowercase_bank_event) ... ok
+test_loops_are_seamless (test_release_fixes.ReleaseFixes.test_loops_are_seamless) ... ok
+test_samples_are_clean_pcm16_and_audible (test_release_fixes.ReleaseFixes.test_samples_are_clean_pcm16_and_audible) ...
+ ok
+test_weapon_routes_the_stock_loop_to_overridden_events (test_release_fixes.ReleaseFixes.test_weapon_routes_the_stock_lo
+op_to_overridden_events) ... ok
+test_grip_hand_and_timing_match_the_original (test_world_fit.WorldFit.test_grip_hand_and_timing_match_the_original) ...
+ ok
+test_world_gun_is_not_deformed (test_world_fit.WorldFit.test_world_gun_is_not_deformed) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.263s
+
+OK

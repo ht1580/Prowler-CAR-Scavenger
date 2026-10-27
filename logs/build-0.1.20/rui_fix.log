@@ -1,0 +1,1 @@
+RUI_FIX_OK {"models/weapons/attachments/pro_screen_rui_upper": {"bone": "def_c_proscreen", "scaled": 0.65}, "models/weapons/attachments/car_smg_rui_lower": {"bone": "def_c_sight_on", "vertices": 4, "action": "counter"}, "models/weapons/attachments/car_smg_rui_upper": {"bone": "def_c_sight_on", "vertices": 21, "action": "collapsed"}}

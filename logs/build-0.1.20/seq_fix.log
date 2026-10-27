@@ -1,0 +1,3 @@
+appended fire_layer: flags 0x15 -> 0x15
+patched 97 of 97 stock sequences; mismatches after patch: []
+SEQ_FIX_OK

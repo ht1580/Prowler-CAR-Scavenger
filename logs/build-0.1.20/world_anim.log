@@ -1,0 +1,5 @@
+ja_c_propGun   stock [0.0, 0.0, 0.0, 1.57079542, 9.5e-07, -9.5e-07]  built [0.0, 0.0, 0.0, 1.570795, 1e-06, -1e-06]  frames differing: 0
+weapon_bone    stock [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  built [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  frames differing: 0
+def_c_base     stock [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  built [0.0, 0.0, 0.0, 0.0, -0.0, 0.0]  frames differing: 0
+frames stock 24 built 24
+WORLD_ANIM_OK

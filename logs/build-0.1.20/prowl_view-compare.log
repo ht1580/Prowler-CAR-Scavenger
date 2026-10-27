@@ -1,0 +1,10 @@
+bones                    stock  85 built 119  OK  appended 34: ['def_c_bolt_end', 'def_c_reactive_power_switch', 'def_c_reactive_wheel_1']
+bodyparts                stock   7 built   7  OK
+attachments(+bone)       stock  30 built  31  OK  appended 1: [('FX_spinner_coils', 'def_c_reactive_spinner_coils')]
+poseparams               stock   3 built   4  OK  appended 1: ['prowler_spin']
+anim descs (order)       stock 124 built 132  OK  appended 8: ['@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer']
+sequences (full)         stock  97 built  98  OK  appended 1: [('prowler_spin_layer', '', (8, 1), ('@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer', '@prowler_spin_layer'), True, True, True)]
+seq anim INDICES         stock  97 built  98  OK  appended 1: [('prowler_spin_layer', (124, 125, 126, 127, 128, 129, 130, 131))]
+invalid anim refs        none
+skin families            stock 9 built 9  OK
+DEEP_COMPARE_OK

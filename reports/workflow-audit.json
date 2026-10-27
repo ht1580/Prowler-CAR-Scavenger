@@ -1,0 +1,40 @@
+{
+  "name": "Prowler.CAR.Scavenger",
+  "version": "0.1.0",
+  "scope": "delivery inventory and configuration only",
+  "runtimeStatus": "NOT_TESTED",
+  "releaseAcceptance": "PENDING",
+  "loadPriority": 0,
+  "ui": {
+    "ammo": "NOT_VERIFIED",
+    "proScreen": "NOT_VERIFIED"
+  },
+  "pcfFiles": [],
+  "emissiveMaterialFiles": [],
+  "issues": [],
+  "sha256": {
+    "mod.json": "53a7d11f1e5fdab4efe97ed03088c156ec52311f0acb1c123a13576b0a869cc8",
+    "audio/car_LowAmmo_Shot1.json": "55c5fd86a579a890daa345375fb028512a5cc1e00c78f9b6e719ecac7e591262",
+    "audio/Weapon_Car_FirstShot_1P.json": "99ba8c6cdc341ae703728f2d3b653c26ff0c64347d6c054aa7f214fecaab37b8",
+    "audio/Weapon_Car_LoopEnd_1P.json": "4df0aec985db0f740129a5d50ffd32b1a2692fc53d1fec897ba3d1de5303bf51",
+    "audio/Weapon_Car_LoopEnd_3P.json": "4b8bf5c3c9fd9d42e374f7d70ad70242abb35035610f1271b32b7cc0b79b85e7",
+    "audio/Weapon_Car_LoopEnd_NPC.json": "fc8682e73bf4b5eddc932f49143c996eb602ae2f9b2de06d3c0050792bb073cd",
+    "audio/Weapon_Car_Loop_1P.json": "27ec03ec3eba9394a02ce81a2d07faec7f8b8dccd721070542d6f34f769f6a45",
+    "audio/Weapon_Car_Loop_3P.json": "dc6eb0a17bf65343d5377275b3d5c717ae67623dc87a40ea982fc7159ee36f94",
+    "audio/Weapon_Car_Loop_3P_NPC_A.json": "6cc4babb71c00a5a0c46877292ad54143bafe3abc17677a1d5637ccb67049d31",
+    "paks/prowler_car.rpak": "9b260fd2ab23f5f3255b35c198adbdd8c6442361c9c3c803f3b46639a848d1dc",
+    "paks/prowler_car.starpak": "74422b5818bead7763d99671bf56c2299d995ff3dd2f02451425fc45e8a63468",
+    "paks/rpak.json": "1c1dfd38862d5e89f336a121d0bdec765b5a8204f3eb79e99950463038d016bd",
+    "audio/car_LowAmmo_Shot1/1.wav": "5a3dcd35178386df418100dc50449c7eccf133c4cecda9878dbc554f3967b9f8",
+    "audio/Weapon_Car_FirstShot_1P/1.wav": "8522a2b3d9399f609dc5f7f3fc4d685a189fba62912a04cc63d5fccd6186334e",
+    "audio/Weapon_Car_LoopEnd_1P/1.wav": "400d1bcbcfaba21c85ea88d8e92cf3407652db3d988148571e69be3231265368",
+    "audio/Weapon_Car_LoopEnd_3P/1.wav": "1c3e4ea3a65dc70032e0ccd3e082ba5a65e2b07335ab275e07c96b74a97a3ac9",
+    "audio/Weapon_Car_LoopEnd_NPC/1.wav": "8bfaab5dc8ad70e4a736d3d1f9ff66e5fffa8f0446b091968ae55340cb940fad",
+    "audio/Weapon_Car_Loop_1P/1.wav": "c85000b3e510df7f4af53a9eda415f45144879af7f5040ec681a6be6cc9945db",
+    "audio/Weapon_Car_Loop_3P/1.wav": "2722fe6041e9246fd6a649967bf0ec79e33d92e1f8c20a761712737f2b4dcaca",
+    "audio/Weapon_Car_Loop_3P_NPC_A/1.wav": "b0378319f4145a0ed6581049cc69fd78cf007f3a4ae942a59ff3c8d3bcecaa4e",
+    "mod/models/weapons/car101/ptpov_car101.mdl": "fc0909837eacf640edbaebe7ca29e230aa0206858c21a8501c7ae204dcc847fe",
+    "mod/models/weapons/car101/w_car101.mdl": "b785174a3e2d0c0a6792dec43f046d915dcf694f6685355c2c3886f57d9d020d",
+    "mod/scripts/vscripts/prowler_car/cl_prowler_car.nut": "91963d8e541d2688b3b935906334bd3e291e4bbe7b1de61b794ed2a7a2db9532"
+  }
+}

@@ -1,0 +1,10 @@
+BAC registered
+Info: Cast has been loaded
+Info: Cast has been loaded
+Info: Cast has been loaded
+Info: Cast has been loaded
+BUILD_WORLD_OK {'lod0': 3224, 'lod1': 1650, 'lod2': 409, 'lod3': 34, 'world_anim_root_euler': [1.57079542, 9.5e-07, -9.5e-07], 'proscreen_shift': [0.2616420090198517, -0.06653714179992676, -26.180530548095703], 'world_frames': 24, 'grip_T_translation': [-0.0757276862859726, -0.279606431722641, -0.23466631770133972], 'grip_T_euler_deg': [-5.603137147883498, -6.347979949043967, 3.3639127759042964], 'r_hand_ik': [-2.7660505771636963, -0.9207919836044312, 5.776978492736816]}
+BAC unregistered
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:37:16)
+
+Blender quit

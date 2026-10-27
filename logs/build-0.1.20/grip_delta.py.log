@@ -1,0 +1,9 @@
+ja_r_propHand  CAR pos( -0.35,  0.61, -0.47) rot[92.4, 76.3, -3.4]   PRW pos( -0.25,  0.92, -0.12) rot[127.9, 81.7, 28.4]
+ja_l_propHand  CAR pos(  1.01,  1.15,  7.57) rot[-20.9, -107.4, -76.7]   PRW pos(  0.20,  1.04,  4.31) rot[5.3, -122.2, -97.9]
+def_r_wrist    CAR pos( -0.68,  0.35, -2.34) rot[92.4, 76.3, -3.4]   PRW pos( -0.80,  0.86, -1.96) rot[127.9, 81.7, 28.4]
+def_l_wrist    CAR pos(  1.81,  0.26,  6.07) rot[-20.9, -107.4, -76.7]   PRW pos(  0.80, -0.18,  2.96) rot[5.3, -122.2, -97.9]
+T (apply to Prowler world mesh in def_c_base space): move (-0.076,-0.280,-0.235) rotXYZ (-5.60,-6.35,3.36) deg
+GRIP_OK
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:37:16)
+
+Blender quit
