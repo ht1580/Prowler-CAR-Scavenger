@@ -50,4 +50,20 @@ def per_frame(deg_per_frame, total):
 
 curve("0.1.16: 120 deg/frame to 360 (coils)", per_frame(120, 360))
 curve("0.1.16: 120 deg/frame to 720 (spinner_1/2)", per_frame(120, 720))
+
+
+def index_back(step, frames):
+    """Softball-style indexing: start one chamber ahead (+step, invisible for a symmetric part), ease to 0."""
+    def f(fr):
+        x = min(1.0, fr / frames)
+        return -step * (1 - (1 - x) ** 2)          # angle relative to the jump: 0 .. -step
+    return f
+
+
+def visual(fn, step):
+    return lambda fr: step + fn(fr)               # delta actually stored: +step easing to 0
+
+
+for fr_n in (2, 3, 4, 6, 9):
+    curve(f"softball-style 120 deg index, ease {fr_n} frames", visual(index_back(120, fr_n), 120))
 print("SIM_FIRE_BLEND_OK")

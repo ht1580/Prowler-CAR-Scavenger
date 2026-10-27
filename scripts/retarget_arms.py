@@ -250,7 +250,7 @@ def retarget_frame(nodes, local, prev, pushed):
 report = []
 for fn in sorted(os.listdir(ANIMS)):
     name = fn[:-4]
-    if not fn.endswith(".smd") or name == "ref" or name in DELTA or name.startswith("prowler_spin"):
+    if not fn.endswith(".smd") or name == "ref" or name in DELTA or name.startswith(("prowler_spin", "fire_anim_layer")):
         continue
     path = os.path.join(ANIMS, fn)
     stock_path = os.path.join(STOCK_ANIMS, fn)

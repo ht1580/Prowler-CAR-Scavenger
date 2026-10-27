@@ -43,8 +43,7 @@ BODY_MAT = r"models\Weapons_R2\prowler_car\prowler_scavenger"
 # reactive part is rigid on def_c_base.
 DRUM_BONE = "def_c_bolt"
 DRUM_SRC = "def_c_reactive_spinner_coils"
-SPIN_KEYS = 8
-SPIN_BONES = {DRUM_BONE: (Vector((0, 0, 1)), 1.0)}   # bone -> (world axis = gun forward, turns per pose-parameter cycle)
+SPIN_BONES = {DRUM_BONE: (Vector((0, 0, 1)), 1.0)}   # bone -> (world axis = gun forward, direction)
 report = {}
 
 
@@ -283,18 +282,18 @@ def spin_delta(bone, axis_world, angle):
     return Quaternion(axis_local, angle).to_matrix().to_4x4()
 
 
-# Drum spin = script-driven looping pose parameter "prowler_spin" (0..1 = one turn) blending these keys in an
-# autoplay delta layer. Not in the fire deltas: a delta can't accumulate rotation over shots, so 0.1.14-0.1.16
-# had to spin whole turns per shot (14 turns/s coils, 28 rings) -> strobing, "flying" drum in game.
-# 8 keys over 0..360 deg (key 7 == key 0, seamless wrap; MDLShit corrupted the 9th index of a 9-key blend).
-spin_files = []
-for k in range(SPIN_KEYS):
-    frac = k / (SPIN_KEYS - 1)
-    ch = {b: spin_delta(b, ax, turns * 2 * math.pi * frac) for b, (ax, turns) in SPIN_BONES.items() if b in idx}
-    fn = f"prowler_spin_{k}.smd"
-    write_smd(ANIMOUT + "\\" + fn, nodes, [delta_pose(ch)])
-    spin_files.append(fn)
-report["spin_keys"] = spin_files
+# Drum spin the stock way (0.1.20): the L-STAR's spinners turn in "fire_layer", a looping delta sequence with
+# no activity that the engine plays by name while the weapon fires (like wind_loop_layer / run_layer).
+# 0.1.17-0.1.19 drove it with a client script + pose parameter + autoplay blend layer instead: the drum flew
+# whenever it turned. One full turn per loop in 45 deg steps, like the L-STAR's fire layer: StudioMDL forces a
+# looping animation's last frame to equal its first (a 0..120 deg sawtooth compiled as 0, 40, 80, 0 and
+# jerked back), and 360 == 0 makes that forced frame the true end of the turn; every step, the wrap
+# included, is +45 deg (always the short way for slerp).
+FIRE_LAYER_FRAMES = 9                     # 0, 45, ..., 315, 360 (== 0) deg
+fire_layer = [delta_pose({b: spin_delta(b, ax, turns * 2 * math.pi * k / (FIRE_LAYER_FRAMES - 1))
+                          for b, (ax, turns) in SPIN_BONES.items() if b in idx}) for k in range(FIRE_LAYER_FRAMES)]
+write_smd(ANIMOUT + r"\fire_anim_layer.smd", nodes, fire_layer)
+report["fire_layer"] = {"file": "fire_anim_layer.smd", "frames": FIRE_LAYER_FRAMES, "deg_per_loop": 360}
 
 
 report["DELTA"] = list(DELTA)

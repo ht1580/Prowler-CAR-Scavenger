@@ -68,13 +68,7 @@ def definebone(n):
 qc = qc.replace('studio "v_car101.smd"', 'studio "prowler_body.smd"')
 qc = qc.replace('studio "v_car101_sight_on.smd"', 'studio "prowler_sight_on.smd"')
 qc = qc.replace('studio "v_car101_magazine.smd"', 'studio "prowler_magazine.smd"')
-# coil glow is native material emission (RePak selfillumtint + ILM slot); no overlay mesh / VMT needed.
-# attachment for the client-side electric crackle on the spinning coil drum
-# appended AFTER the last stock attachment: attachment/sequence indices must match the stock model
-# (official/vanilla servers run the stock CAR and network indices to the client)
-last_att = qc.rfind("\n$attachment ")
-eol = qc.index("\n", last_att + 1)
-qc = qc[:eol] + '\n$attachment "FX_spinner_coils" "def_c_bolt" 0 0 0 rotate 0 0 0' + qc[eol:]   # drum = def_c_bolt
+# no glow, no client script (0.1.20): the attachment table stays exactly the stock CAR's
 
 # 2) skin families: every family -> the Prowler material (camo/elite/prime indexes stay valid)
 qc = re.sub(r'\{ "models\\Weapons_R2\\car_smg\\CAR_smg[^"]*"\s*\}', '{ "' + BODY_MAT.replace("\\", "\\\\") + '" }', qc)
@@ -129,22 +123,21 @@ for name in delta_anims:
     qc, changed = re.subn(pattern, lambda match: match.group(1) + '"anims\\' + rebased + '"' + match.group(2) + '\n\tsubtract "ref" 0', qc, flags=re.M)
     assert changed == 1, f"delta $animation declaration missing: {name}"
 
-# 6) drum spin: script-driven looping pose parameter + autoplay delta layer, both APPENDED after the stock
-#    entries (stock sequence / pose-parameter indices unchanged; HK560: new sequences only at the end).
-#    Not in the fire deltas: per-shot whole turns strobed in game (0.1.14-0.1.16).
-spin = [absolute_delta_source(filename) for filename in rep["spin_keys"]]
-assert '$poseparameter "ads_blend" 0 1 loop 0' in qc
-qc = qc.replace('$poseparameter "ads_blend" 0 1 loop 0',
-                '$poseparameter "ads_blend" 0 1 loop 0\n$poseparameter "prowler_spin" 0 1 loop 1')
-spin_bones = {"def_c_bolt"}                      # the coil drum rides the stock bolt bone (stock skeleton only)
-weights = '\n$weightlist "prowler_spin_only" {\n' + "\n".join(
+# 6) drum spin the stock L-STAR way: "fire_layer" = looping delta sequence, no activity, which the engine
+#    plays by name while firing (L-STAR: flags loop|delta|realtime, nothing in script or other sequences
+#    references it). APPENDED after the stock sequences (stock indices unchanged; HK560: new sequences only at
+#    the end). No pose parameter, no autoplay layer, no client script: 0.1.17-0.1.19 drove the drum that way
+#    and it flew whenever it turned.
+fire_src = absolute_delta_source(rep["fire_layer"]["file"])
+spin_bones = {"def_c_bolt"}                      # the coil drum rides the stock bolt bone
+weights = '\n$weightlist "drum_only" {\n' + "\n".join(
     f'\t"{name}" {1 if name in spin_bones else 0}' for name in order) + '\n}\n\n'
 first_animation = qc.index("$animation ")
 qc = qc[:first_animation] + weights + qc[first_animation:]
-spin_seq = ['$sequence "prowler_spin_layer" {'] + [f'\t"anims\\{f}"' for f in spin] + [
-    '\tblend "prowler_spin" 0 1', f"\tblendwidth {len(spin)}", '\tweightlist "prowler_spin_only"',
-    '\tsubtract "ref" 0', "\tdelta", "\tautoplay", "\tfps 30", "\tloop", "}", ""]
-qc = qc.rstrip("\n") + "\n\n" + "\n".join(spin_seq) + "\n"
+fire_seq = ['$sequence "fire_layer" {', f'\t"anims\\{fire_src}"', '\tweightlist "drum_only"', '\tsubtract "ref" 0',
+            "\tdelta", "\tfadein 0.1", "\tfadeout 0.2", "\tfps 16", "\tloop", "}", ""]   # 8 steps @16 fps = 2 turns/s; flags = L-STAR's 0x15
+qc = qc.rstrip("\n") + "\n\n" + "\n".join(fire_seq) + "\n"
+spin = [fire_src]
 
 # ---- re-emit $animation/$sequence blocks in the stock MDL's anim-desc order -------------------------
 # Crowbar writes all $animation blocks first, so inline-sequence anims (@ref, @reload_seq, ...) would land at
@@ -220,4 +213,4 @@ qc = qc.replace('$modelname "weapons/car101/ptpov_car101.mdl"',
                 '$modelname "weapons/car101/ptpov_car101.mdl"\n$maxverts 65000')
 open(OUT + r"\ptpov_car101.qc", "w", encoding="ascii", errors="replace", newline="\n").write(qc)
 print("GEN_QC_OK", len(order), "bones")
-print("DELTA_SOURCES_OK", len(delta_anims), "stock delta animations and", len(spin), "spinner keys")
+print("DELTA_SOURCES_OK", len(delta_anims), "stock delta animations and", len(spin), "fire layer")
