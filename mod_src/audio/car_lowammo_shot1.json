@@ -1,0 +1,6 @@
+{
+ "EventId": [
+  "car_lowammo_shot1"
+ ],
+ "AudioSelectionStrategy": "sequential"
+}

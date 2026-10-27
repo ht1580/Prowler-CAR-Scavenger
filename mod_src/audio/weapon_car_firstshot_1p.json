@@ -1,0 +1,7 @@
+{
+ "EventId": [
+  "weapon_car_firstshot_1p",
+  "weapon_car_firstshot_1p_int"
+ ],
+ "AudioSelectionStrategy": "sequential"
+}

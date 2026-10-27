@@ -1,0 +1,24 @@
+// Stock model paths plus the stock CAR fire-sound routing, written out so no other mod can re-route it.
+// The Prowler sounds replace these events through audio/*.json (lowercase Miles bank names).
+// Crosshair / FOV / ADS / UI and gameplay inherit stock values.
+WeaponData
+{
+	"viewmodel"			"models/weapons/car101/ptpov_car101.mdl"
+	"playermodel"		"models/weapons/car101/w_car101.mdl"
+	"holstermodel"		"models/weapons/car101/w_car101.mdl"
+
+	"fire_sound_2_player_1p"					"weapon_car_secondshot_1p"
+	"fire_sound_2_player_3p"					"weapon_car_secondshot_3p"
+	"fire_sound_2_npc"							"weapon_car_secondshot_npc"
+	"looping_sounds"							"1"
+	"burst_or_looping_fire_sound_start_1p"		"weapon_car_firstshot_1p"
+	"burst_or_looping_fire_sound_middle_1p"		"weapon_car_loop_1p"
+	"burst_or_looping_fire_sound_end_1p"		"weapon_car_loopend_1p"
+	"burst_or_looping_fire_sound_start_3p"		""
+	"burst_or_looping_fire_sound_middle_3p"		"weapon_car_loop_3p"
+	"burst_or_looping_fire_sound_end_3p"		"weapon_car_loopend_3p"
+	"burst_or_looping_fire_sound_start_npc"		""
+	"burst_or_looping_fire_sound_middle_npc"	"weapon_car_loop_3p_npc_a"
+	"burst_or_looping_fire_sound_end_npc"		"weapon_car_loopend_npc"
+	"low_ammo_sound_name_1"						"car_lowammo_shot1"
+}

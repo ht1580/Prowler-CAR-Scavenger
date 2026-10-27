@@ -1,0 +1,11 @@
+{
+ "EventId": [
+  "weapon_car_loop_3p",
+  "weapon_car_loop_3p_BU1",
+  "weapon_car_loop_3p_enemy",
+  "weapon_car_loop_3p_enemy_BU",
+  "weapon_car_loop_3p_enemy_BU1",
+  "weapon_car_loop_3p_OLD2"
+ ],
+ "AudioSelectionStrategy": "sequential"
+}

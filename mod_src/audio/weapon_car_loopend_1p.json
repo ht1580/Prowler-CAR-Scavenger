@@ -1,0 +1,8 @@
+{
+ "EventId": [
+  "weapon_car_loopend_1p",
+  "weapon_car_loopend_1p_int",
+  "weapon_car_loopend_1p_OLD"
+ ],
+ "AudioSelectionStrategy": "sequential"
+}

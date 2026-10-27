@@ -1,0 +1,11 @@
+{
+ "EventId": [
+  "weapon_car_secondshot_npc",
+  "weapon_car_secondshot1_npc",
+  "weapon_car_secondshot_npc_intlg",
+  "weapon_car_secondshot_npc_intmed",
+  "weapon_car_secondshot_npc_intsm",
+  "weapon_car_firstshot_npc_BU1"
+ ],
+ "AudioSelectionStrategy": "sequential"
+}

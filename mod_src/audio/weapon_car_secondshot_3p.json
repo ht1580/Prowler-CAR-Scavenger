@@ -1,0 +1,31 @@
+{
+ "EventId": [
+  "weapon_car_secondshot_3p",
+  "weapon_car_secondshot_3p_BU1",
+  "weapon_car_secondshot_3p_OLD2",
+  "weapon_car_secondshot_3p_enemy",
+  "weapon_car_secondshot_3p_enemy_BU",
+  "weapon_car_secondshot_3p_enemy_BU1",
+  "weapon_car_secondshot_3p_enemy_OLD2",
+  "weapon_car_secondshot_3p_enemy_intlg",
+  "weapon_car_secondshot_3p_enemy_intlg_BU1",
+  "weapon_car_secondshot_3p_enemy_intlg_OLD2",
+  "weapon_car_secondshot_3p_enemy_intmed",
+  "weapon_car_secondshot_3p_enemy_intmed_BU1",
+  "weapon_car_secondshot_3p_enemy_intmed_OLD2",
+  "weapon_car_secondshot_3p_enemy_intsm",
+  "weapon_car_secondshot_3p_enemy_intsm_BU1",
+  "weapon_car_secondshot_3p_enemy_intsm_OLD2",
+  "weapon_car_secondshot_3p_int",
+  "weapon_car_secondshot_3p_int_enemy",
+  "weapon_car_secondshot_3p_intlg",
+  "weapon_car_secondshot_3p_intlg_OLD2",
+  "weapon_car_secondshot_3p_intmed",
+  "weapon_car_secondshot_3p_intmed_OLD2",
+  "weapon_car_secondshot_3p_intsm",
+  "weapon_car_secondshot_3p_intsm_OLD2",
+  "weapon_car_firstshot_3p_BU1",
+  "weapon_car_firstshot_3p_enemy"
+ ],
+ "AudioSelectionStrategy": "sequential"
+}
