@@ -4,13 +4,13 @@ Titanfall 2 / Northstar 模组：把 Apex Legends 猎兽（Prowler）的进化�
 
 A Titanfall 2 Northstar mod that ports the Apex Legends Prowler reactive skin "Scavenger" onto the CAR SMG, with native first-person animations, a coil drum that turns on every shot, emissive coils and the full-auto Prowler fire sound.
 
-> 当前版本 **0.1.17**：已构建并通过数据核对，第一人称已用游戏真实手臂模型在 Blender 中模拟，**尚未游戏内实测**。下载见 [Releases](../../releases)。
+> 当前版本 **0.1.18**：已构建并通过数据核对，第一人称已用游戏真实手臂模型在 Blender 中模拟，**尚未游戏内实测**。下载见 [Releases](../../releases)。
 
 ![第一人称腰射侧视](docs/previews/fp_hip_side.png)
 
 ## 安装
 
-1. 从 Releases 下载 `Prowler.CAR.Scavenger-0.1.17.zip`。
+1. 从 Releases 下载 `Prowler.CAR.Scavenger-0.1.18.zip`。
 2. 解压出 `Prowler.CAR.Scavenger` 文件夹，放进当前启动 profile 的 `mods` 目录，例如 `Titanfall2\R2Vanilla\mods\Prowler.CAR.Scavenger\mod.json`。
 3. 只替换 CAR 的模型、材质和声音；准星、FOV、开镜和 UI 沿用原版数值。`LoadPriority` 为 0，`RequiredOnClient` 为 false。
 

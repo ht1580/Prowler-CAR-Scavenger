@@ -30,6 +30,14 @@ STOCK_ANIMS = ROOT + r"\stock\view\ptpov_car101_anims"
 BODY = ("def_c_hip", "def_c_spineA", "def_c_spineB", "def_c_spineC", "def_c_neckA", "jx_c_neckB", "def_c_neckB",
         "def_c_head", "def_l_clav", "def_r_clav")
 REACH = 0.97
+# Viewmodel frames (half angles, 16:9). Apex draws viewmodels at 70 deg (4:3): +-42.9 h / +-27.7 v; its reload
+# swaps the magazine and fetches the new one just outside that (mag 44 deg h then teleports to -47 deg v, left
+# hand 45 deg h). TF2 draws the viewmodel with the player FOV, up to 110 deg (4:3): +-62.2 h / +-46.9 v, so
+# those off-screen moves showed up ("extra hand", "flying magazine"). Anything that has left the gun AND
+# Apex keeps outside its frame is pushed outward until it is outside TF2's widest frame as well.
+APEX_FRAME = (42.9, 27.7)
+TF2_FRAME = (62.2, 46.9)
+OFFSCREEN = ("def_l_wrist", "def_r_wrist", "def_c_magazine")
 
 stock_mdl = Mdl(ROOT + r"\stock\models\weapons\car101\ptpov_car101.mdl")
 DELTA = {name for row, name in stock_mdl.table(184, 92, 4) if stock_mdl.i(row + 12) & 4}
@@ -77,6 +85,11 @@ def measure_rig():
 
 RIG = measure_rig()
 
+# where each off-screen candidate sits on the gun in the hip pose (gun space), from the Prowler draw end
+_hn, _hf, _ = read_smd(ANIMS + r"\draw_seq.smd")
+_hg = by_name(_hn, globals_(_hn, _hf[-1]))
+HOME = {nm: _hg["def_c_base"].inverted() @ _hg[nm].translation for nm in OFFSCREEN}
+
 
 def write_smd(path, nodes, frames, tail):
     out = ["version 1", "nodes"] + [f'{i} "{nodes[i][0]}" {nodes[i][1]}' for i in sorted(nodes)] + ["end", "skeleton"]
@@ -91,10 +104,42 @@ def write_smd(path, nodes, frames, tail):
     open(path, "w", encoding="ascii", newline="\n").write("\n".join(out + tail) + "\n")
 
 
-def retarget_frame(nodes, local, prev):
+def smoothstep(x):
+    x = min(1.0, max(0.0, x))
+    return x * x * (3 - 2 * x)
+
+
+def keep_offscreen(G, idx, pushed):
+    """Push hands / magazine that Apex hides just outside its frame out of TF2's frame (in place in G)."""
+    cam = G[idx["jx_c_camera"]]
+    ci = cam.inverted()
+    base_i = G[idx["def_c_base"]].inverted()
+    for nm in OFFSCREEN:
+        if nm not in idx:
+            continue
+        i = idx[nm]
+        p = ci @ G[i].translation
+        if p.z <= 0.05:
+            continue                                   # already behind the eye
+        h, v = math.atan2(p.x, p.z), math.atan2(p.y, p.z)
+        o = max(abs(math.degrees(h)) / APEX_FRAME[0], abs(math.degrees(v)) / APEX_FRAME[1])
+        away = ((base_i @ G[i].translation) - HOME[nm]).length          # off its place on the gun
+        w = smoothstep((o - 0.97) / 0.08) * smoothstep((away - 3.0) / 3.0)
+        if w <= 0:
+            continue
+        t = max(abs(math.degrees(h)) / TF2_FRAME[0], abs(math.degrees(v)) / TF2_FRAME[1])
+        s = 1 + (max(1.0, 1.08 / t) - 1) * w
+        h2, v2 = max(-1.48, min(1.48, h * s)), max(-1.48, min(1.48, v * s))
+        d = Vector((math.tan(h2), math.tan(v2), 1.0)).normalized() * p.length
+        G[i] = Matrix.Translation(cam @ d - G[i].translation) @ G[i]
+        pushed[nm] = max(pushed.get(nm, 0.0), w)
+
+
+def retarget_frame(nodes, local, prev, pushed):
     idx = {nm: i for i, (nm, _) in nodes.items()}
     par = {i: p for i, (_, p) in nodes.items()}
     G = globals_(nodes, local)
+    keep_offscreen(G, idx, pushed)
     L = dict(local)
     for nm in BODY:
         if nm in idx and nm in stock_local:
@@ -190,12 +235,16 @@ def retarget_frame(nodes, local, prev):
         L[fo] = Matrix.Translation(r["fo"]) @ Matrix.Rotation(0.5 * tw, 4, tx)
         L[wr] = Matrix.Translation(r["wr"]) @ L_wr.to_quaternion().to_matrix().to_4x4()   # exact rig length
         stats[s] = (reach, hi, math.degrees(tw), math.degrees(best))
-    # gun keeps its world pose under the new spine
+    # gun keeps its world pose under the new spine; the magazine follows its (possibly pushed) world pose
     pg = idx["ja_c_propGun"]
     Gtmp = globals_(nodes, L)
     L[pg] = Gtmp[par[pg]].inverted() @ G[pg]
+    Gtmp = globals_(nodes, L)
+    for nm in ("def_c_magazine", "def_c_magazine1"):
+        if nm in idx:
+            L[idx[nm]] = Gtmp[par[idx[nm]]].inverted() @ G[idx["def_c_magazine"]]
     Gn = globals_(nodes, L)
-    return L, Gn, stats
+    return L, Gn, stats, G
 
 
 report = []
@@ -213,27 +262,29 @@ for fn in sorted(os.listdir(ANIMS)):
         continue
     raw = open(path, encoding="utf-8-sig").read().splitlines()
     tail = raw[raw.index("end", raw.index("skeleton")) + 1:]
-    out_frames, worst, err, shift, twist = [], 0.0, 0.0, 0.0, 0.0
-    prev = {}
+    out_frames, worst, err, shift, twist, err_at = [], 0.0, 0.0, 0.0, 0.0, ""
+    prev, pushed = {}, {}
     for fi, local in enumerate(frames):
         try:
-            new_local, Gn, st = retarget_frame(nodes, local, prev)
+            new_local, Gn, st, G = retarget_frame(nodes, local, prev, pushed)
         except AssertionError as e:
             raise AssertionError(f"{fn} frame {fi}: {e}") from None
-        # invariants: gun and hands unchanged in world space
-        G = globals_(nodes, local)
+        # invariants: gun and hands where the retarget put them (hands only moved when pushed off screen)
         chk = globals_(nodes, new_local)
         idx = {nm: i for i, (nm, _) in nodes.items()}
-        for nm in ("def_c_base", "def_l_wrist", "def_r_wrist", "def_l_finIndexC", "def_r_finIndexC", "jx_c_camera"):
+        for nm in ("def_c_base", "def_l_wrist", "def_r_wrist", "def_c_magazine", "jx_c_camera"):
             if nm in idx:
-                err = max(err, (chk[idx[nm]].translation - G[idx[nm]].translation).length)
+                e_ = (chk[idx[nm]].translation - G[idx[nm]].translation).length
+                if e_ > err:
+                    err, err_at = e_, f"{nm} frame {fi}"
         worst = max([worst] + [v[0] for v in st.values()])
         shift = max([shift] + [v[1] for v in st.values()])
         twist = max([twist] + [abs(v[2]) for v in st.values()])
         out_frames.append(new_local)
-    assert err < 0.03, f"{fn}: gun/hand moved by {err}"
+    assert err < 0.03, f"{fn}: {err_at} off its target by {err:.3f}"
     assert worst <= REACH + 1e-3, f"{fn}: arm cannot reach the hand (reach {worst:.3f})"
     write_smd(path, nodes, out_frames, tail)
     report.append((fn, len(frames), worst))
-    print(f"RETARGET {fn:40s} frames {len(frames):4d} max reach {worst:5.3f} max body shift {shift:5.2f} max wrist twist {twist:5.1f}")
+    print(f"RETARGET {fn:40s} frames {len(frames):4d} max reach {worst:5.3f} max body shift {shift:5.2f} max wrist twist {twist:5.1f}"
+          + (f"  off-screen push {', '.join(f'{k}:{v:.2f}' for k, v in pushed.items())}" if pushed else ""))
 print(f"RETARGET_OK {len(report)} animations")
