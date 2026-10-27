@@ -85,7 +85,11 @@ def verify(archive, stage):
         report["zip_crc_ok"] = report["stage_matches_zip"] = report["text_bom_free"] = True
     # Stage is project/release/version/modname; preserve useful gate evidence in the report.
     logs = Path(__file__).resolve().parents[1] / "build/logs"
-    report["build_gates"] = {name: (logs / name).read_text(encoding="utf-8-sig") for name in (
+    def log_text(p):      # PowerShell 5.1 "*>" writes UTF-16LE with a BOM
+        raw = p.read_bytes()
+        return raw.decode("utf-16") if raw[:2] in (b"\xff\xfe", b"\xfe\xff") else raw.decode("utf-8-sig", "replace")
+
+    report["build_gates"] = {name: log_text(logs / name) for name in (
         "world_anim.log", "rui_fix.log", "seq_fix.log", "mdl_integrity.log", "ptpov_car101-compare.log", "w_car101-compare.log", "regressions.log", "native-view.log", "native-world.log")}
     report["status"] = "PACKAGE_OK; game validation pending"
     return report

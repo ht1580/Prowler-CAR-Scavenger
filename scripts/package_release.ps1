@@ -1,4 +1,4 @@
-param([string]$Version = '0.1.12')
+﻿param([string]$Version = '0.1.12')
 $ErrorActionPreference = 'Stop'
 if ($Version -notmatch '^\d+\.\d+\.\d+$') { throw 'Version must be x.y.z' }
 $project = 'D:\TitanfallMods\35_ProwlerCAR'
@@ -9,7 +9,7 @@ if (-not (Test-Path -LiteralPath "$stage\mod.json")) { throw 'Staged mod.json mi
 if (Test-Path -LiteralPath $archive) { throw "Refusing to overwrite $archive" }
 $manifest = Get-Content -LiteralPath "$stage\mod.json" -Raw | ConvertFrom-Json
 if ($manifest.Version -ne $Version -or $manifest.LoadPriority -ne 0) { throw 'Staged manifest mismatch' }
-Add-Type -AssemblyName System.IO.Compression.FileSystem
+Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
 $zip = [IO.Compression.ZipFile]::Open($archive, [IO.Compression.ZipArchiveMode]::Create)
 try {
     foreach ($file in (Get-ChildItem -LiteralPath $stage -Recurse -File | Sort-Object FullName)) {

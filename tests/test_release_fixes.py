@@ -86,6 +86,17 @@ class ReleaseFixes(unittest.TestCase):
                 self.assertGreater(float(np.sqrt(np.mean(s ** 2))), 0.005)
                 self.assertLessEqual(float(np.max(np.abs(s))), 0.9801)
 
+    def test_burst_start_keeps_headroom(self):
+        # a burst starts FirstShot and the loop together; 0.1.15 had both at -0.2 dBFS and distorted in game
+        _, _, _, first = pcm(MOD / "audio/weapon_car_firstshot_1p/1.wav")
+        _, _, _, loop = pcm(MOD / "audio/weapon_car_loop_1p/1.wav")
+        for stem in AUDIBLE:
+            with self.subTest(event=stem):
+                _, _, _, s = pcm(MOD / "audio" / stem / "1.wav")
+                self.assertLessEqual(float(np.max(np.abs(s))), 0.502, "every sample peaks at -6 dBFS or lower")
+        n = min(len(first), len(loop))
+        self.assertLess(float(np.max(np.abs(first[:n] + loop[:n]))), 1.0, "first shot + loop must not clip")
+
     def test_loops_are_seamless(self):
         for stem in ("weapon_car_loop_1p", "weapon_car_loop_3p", "weapon_car_loop_3p_npc_a"):
             with self.subTest(event=stem):

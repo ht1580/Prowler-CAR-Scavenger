@@ -135,10 +135,16 @@ for old in list(OUT.glob("*.json")):
         old.unlink()
 
 
+HEADROOM = 10 ** (-6 / 20)       # -6 dBFS: the burst start plays FirstShot and the loop on top of each other,
+                                 # and the game mixes on top; 0.1.15 shipped both at -0.2 dBFS and distorted
+
+
 def write(event, a, name="1.wav"):
+    # clean linear gain only (no saturation/limiting: that is distortion too); FirstShot and the loop both
+    # peak near full scale before this, so the same -6 dB keeps the hand-off balance between them
     peak = float(np.max(np.abs(a))) or 1.0
-    if peak > 0.98:
-        a = a * (0.98 / peak)
+    if peak > HEADROOM:
+        a = a * (HEADROOM / peak)
     pcm = (np.clip(a, -1, 1) * 32767).astype("<i2")
     d = OUT / event                                   # sample folder = definition file stem
     d.mkdir(parents=True, exist_ok=True)
@@ -148,7 +154,7 @@ def write(event, a, name="1.wav"):
         w.setframerate(SR)
         w.writeframes(pcm.tobytes())
     (OUT / f"{event}.json").write_text(json.dumps({"EventId": EVENTS[event], "AudioSelectionStrategy": "sequential"}, indent=1))
-    REPORT[event] = {"seconds": round(len(a) / SR, 3), "peak": round(min(peak, 0.98), 3), "ids": len(EVENTS[event])}
+    REPORT[event] = {"seconds": round(len(a) / SR, 3), "peak": round(min(peak, HEADROOM), 3), "ids": len(EVENTS[event])}
 
 
 loop1p = src("Wpn_ProwlerPDW_1p_WpnFire_Loop_Close_C_v1_01")      # quiet centre layer of the 1p loop

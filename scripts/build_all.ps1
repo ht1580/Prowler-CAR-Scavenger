@@ -45,6 +45,8 @@ function Run-Blender($script, [switch]$Factory) {
 # 1) sources
 Copy-Item "$P\stock\view\ptpov_car101_anims\*.smd" "$P\build\view\anims\" -Force
 Run-Blender "$P\scripts\build_view.py"
+# Apex body -> TF2 pilot arms (stock body, IK elbows, gun + hands unchanged); must run before gen_qc
+Run-Blender "$P\scripts\retarget_arms.py" -Factory
 Run-Blender "$P\scripts\gen_qc.py" -Factory
 Run-Blender "$P\scripts\grip_delta.py" -Factory
 Run-Blender "$P\scripts\build_world.py"
