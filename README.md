@@ -2,24 +2,32 @@
 
 Titanfall 2 / Northstar 模组：将 Apex Legends 猎兽进化皮 Scavenger 移植到 CAR，包含模型、原生第一人称动作、机构运动、贴图与声音。
 
-当前版本：**0.2.0 预发布版，从原始资源独立重建。离线检查通过，实机视觉验收尚未完成。**
+当前版本：**0.2.1 预发布版，从原始资源独立重建。离线检查通过，实机视觉验收尚未完成。**
 
-- [下载安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.0/Prowler.CAR.Scavenger-0.2.0.zip)
-- [下载完整源码与生成的 SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.0/Prowler-Rebuild-Source-0.2.0.zip)
-- [发布页及全部附件](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/tag/v0.2.0)
+- [下载安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.1/Prowler.CAR.Scavenger-0.2.1.zip)
+- [下载完整源码与生成的 SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.1/Prowler-Rebuild-Source-0.2.1.zip)
+- [发布页及全部附件](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/tag/v0.2.1)
 - [重建记录与验收边界](rebuild-zero/verification/重建记录.md)
 
 ![离线握持预览，非实机截图](rebuild-zero/verification/visual-check.png)
 
 ## 安装
 
-1. 下载 `Prowler.CAR.Scavenger-0.2.0.zip`。
+1. 下载 `Prowler.CAR.Scavenger-0.2.1.zip`。
 2. 退出游戏，备份已有同名模组，再将压缩包内的 `Prowler.CAR.Scavenger` 文件夹放入当前启动 profile 的 `mods` 目录。例如 `Titanfall2/R2Vanilla/mods/Prowler.CAR.Scavenger/mod.json`。
 3. 避免同时启用其他替换 CAR 模型、材质或相同声音事件的模组。
 
 本包只替换资源与武器模型路径，不修改用户 CFG、存档、武器数值或 FOV。Northstar/R2Vanilla 的实际兼容性与画面效果仍须在所用环境中确认。
 
-## 0.2.0 重建内容
+## 0.2.1 视角修正
+
+0.2.0 有已确认的参考姿态错误：编译器 +90° 根骨转换进入 `subtract(ref)`，导致待机层带有 -90° 根骨旋转，枪模整体离开固定游戏视野。现已修正参考根骨基准，固定原版相机并叠加解码待机层重现和核对；不靠修改游戏 FOV 或单独前推手腕解决。
+
+ProScreen 从后部立管移到原生机匣侧面，外壳与 RUI 共用安装骨骼和缩放。新增 4 项位置检查，加原有 8 项检查，共 12 项通过。0.2.0 请更新到 0.2.1；新版仍待实机复测。
+
+![固定游戏视角的旧版/新版对照，非实机截图](rebuild-zero/verification/placement-comparison.png)
+
+## 0.2.1 重建内容
 
 - 生产入口为 [`rebuild-zero/src/rebuild.ps1`](rebuild-zero/src/rebuild.ps1)，配置与工具要求见 [构建说明](rebuild-zero/README.md)。原始游戏资源及工具二进制需自行准备；本机路径需按环境修改。
 - 第一人称保留原版 CAR 的 85 根兼容骨，追加 33 根有实际权重或必要父级用途的原生机构骨，共 118 根；转鼓使用独立原生枢轴。
@@ -28,7 +36,7 @@ Titanfall 2 / Northstar 模组：将 Apex Legends 猎兽进化皮 Scavenger 移�
 - 第三人称保留原版 14 根骨骼及 4 个序列，修正重建瞄具的三角面朝向；没有追加独立世界反应皮机构动画。
 - 重新构建材质和音频；不发光。声音事件按实际音频库匹配。
 
-8 项离线回归检查通过；成品开火与待机共 1,772 次原生双手/枪身姿态对照，最大位置误差约 0.006605 单位。详见 [验证数据](rebuild-zero/verification)。离线预览使用真实 TF2 手臂几何，**不是游戏截图**。
+12 项离线回归检查通过（8 项原有检查与 4 项位置检查）；成品开火与待机共 1,772 次原生双手/枪身姿态对照，最大位置误差约 0.006605 单位。详见 [验证数据](rebuild-zero/verification)。离线预览使用真实 TF2 手臂几何，**不是游戏截图**。
 
 ## 实机验证状态
 
@@ -36,7 +44,7 @@ Titanfall 2 / Northstar 模组：将 Apex Legends 猎兽进化皮 Scavenger 移�
 
 ## 仓库结构
 
-`rebuild-zero/` 是 0.2.0 独立工程与核查资料。完整生成的 SMD/QC 随 Release 源码附件提供。根目录原有 `scripts/`、`mod_src/`、`tests/`、`docs/` 等保留为 0.1.x 历史工程，不是 0.2.0 构建入口。
+`rebuild-zero/` 是 0.2.1 独立工程与核查资料。完整生成的 SMD/QC 随 Release 源码附件提供。根目录原有 `scripts/`、`mod_src/`、`tests/`、`docs/` 等保留为 0.1.x 历史工程，不是 0.2.1 构建入口。
 
 ## 致谢
 

@@ -45,7 +45,13 @@ ads=clip('ads_in_0');ga=globals_(ads.order,ads.parent,ads.sample(ads.end))
 _,_,cf,_=smd(STOCK/'view/ptpov_car101_anims/ads_in_anim.smd');gc=globals_(so,sp,cf[-1])
 opticShift=ag['def_c_base'].to_3x3()@((ga['def_c_base'].inverted()@ga['jx_c_camera']).translation-(gc['def_c_base'].inverted()@gc['jx_c_camera']).translation)
 for n in OPTICS:restG[n]=Matrix.Translation(opticShift)@stockG[n]
-restG['def_c_proscreen']=Matrix.Translation(Vector((.75,46.60,-.20)))@stockG['def_c_proscreen'].to_quaternion().to_matrix().to_4x4()
+# Mount on the native receiver side (measured source surface x=0.772), not the rear
+# vertical pipe. Derive the bone origin from the original housing's backing plane.
+proscreenScale=.65
+_,_,_,proscreenTriangles=smd(STOCK/'view/v_proscreen.smd')
+proscreenOffsets=[stockG['def_c_proscreen'].inverted()@v[0] for _,vs in proscreenTriangles for v in vs]
+proscreenOrigin=Vector((.772+.010-proscreenScale*min(v.x for v in proscreenOffsets),46.10,4.50))
+restG['def_c_proscreen']=Matrix.Translation(proscreenOrigin)@stockG['def_c_proscreen'].to_quaternion().to_matrix().to_4x4()
 restL=locals_(order,parent,restG)
 def mapped(n):
  while n not in order:n=ap[n]
@@ -78,9 +84,15 @@ for m in mesh.Meshes():
 for name in ('v_holo.smd','v_acgs.smd','v_cro.smd','v_proscreen.smd'):
  _,_,_,tris=smd(STOCK/'view'/name)
  if name!='v_proscreen.smd':tris=[(m,[(p+opticShift,n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
- else:tris=[(m,[(restG['def_c_proscreen'].translation+(p-stockG['def_c_proscreen'].translation)*.65,n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
+ else:tris=[(m,[(restG['def_c_proscreen']@((stockG['def_c_proscreen'].inverted()@p)*proscreenScale),n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
  write_smd(OUT/name,order,parent,[restL],tris)
-write_smd(OUT/'ref.smd',order,parent,[restL]);write_smd(ANIM/'ref.smd',order,parent,[restL])
+# StudioMDL adds +90 degrees about world Z to absolute animation roots. The compiled
+# subtract reference must match the explicit $definebone bind, not acquire that rotation.
+# Mesh bind SMDs above stay in model space; compensate only the reference animation root.
+referenceL={n:M.copy() for n,M in restL.items()}
+for n in order:
+ if parent[n] is None:referenceL[n]=Matrix.Rotation(-math.pi/2,4,'Z')@referenceL[n]
+write_smd(OUT/'ref.smd',order,parent,[referenceL]);write_smd(ANIM/'ref.smd',order,parent,[referenceL])
 fit=ArmFit(order,parent)
 stats=dict(source_kind='native Apex CAST',absolute_frames=0,max_hand_gun_position_error=0.,max_magazine_hand_position_error=0.,native_reactive_keys=0,max_reactive_matrix_error=0.,unused_added_bones=[n for n,c in meshconsumers.items() if not c],independent_offscreen_push=False,clips=[],extra_bones=extra)
 
@@ -127,7 +139,7 @@ for row,descriptor in stock['table'](184,92,4):
  fit.swivel={}
  name=descriptor.removeprefix('@');_,_,oldframes,_=smd(STOCK/'view/ptpov_car101_anims'/(name+'.smd'))
  flags=stock['i'](row+12);isdelta=bool(flags&4);noanim=bool(flags&0x20);frames=[];source=select(descriptor)
- if name=='ref':frames=[restL]
+ if name=='ref':frames=[referenceL]
  elif name.startswith('attack_'):
   oh='onehanded' in name;ads='ads' in name
   use=('fire_onehanded_1' if ads else 'fire_onehanded_0') if oh else ('fire_optic_reactive_3' if ads else 'fire_reactive_3');c=clip(use,True)
@@ -220,7 +232,7 @@ for n in sequenceorder[len(emitted):]:out.append(S[n])
 qc=qc[:start]+'\n\n'.join(out)+qc[end:]
 qc=qc.replace('$modelname "weapons/car101/ptpov_car101.mdl"','$modelname "weapons/car101/ptpov_car101.mdl"\n$maxverts 65000')
 (OUT/'ptpov_car101.qc').write_text(qc,encoding='ascii',errors='replace')
-(BUILD/'rig.json').write_text(json.dumps(dict(order=order,parent=parent,rest_local={n:[list(r) for r in restL[n]] for n in order},rest_global={n:[list(r) for r in restG[n]] for n in order},extra=extra,mesh_consumers=meshconsumers,optic_shift=list(opticShift),animations=payload),indent=2))
+(BUILD/'rig.json').write_text(json.dumps(dict(order=order,parent=parent,rest_local={n:[list(r) for r in restL[n]] for n in order},rest_global={n:[list(r) for r in restG[n]] for n in order},extra=extra,mesh_consumers=meshconsumers,optic_shift=list(opticShift),proscreen_scale=proscreenScale,proscreen_mount=list(proscreenOrigin),animations=payload),indent=2))
 stats['clips']=verification
 (BUILD/'source-verification.json').write_text(json.dumps(stats,indent=2))
 print('VIEW_GENERATION_OK',len(order),stats['absolute_frames'],stats['max_hand_gun_position_error'],stats['max_magazine_hand_position_error'],flush=True)

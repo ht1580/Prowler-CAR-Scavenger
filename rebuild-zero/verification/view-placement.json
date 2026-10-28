@@ -1,0 +1,43 @@
+{
+  "version": "0.2.1",
+  "root_angle_before_deg": 90.00002299504568,
+  "root_angle_after_deg": 0.0,
+  "idle_frames": 722,
+  "artifact_tests_passed": 8,
+  "placement_tests_passed": 4,
+  "proscreen_scale": 0.65,
+  "proscreen_mount": [
+    0.9475510716438293,
+    46.099998474121094,
+    4.5
+  ],
+  "receiver_surface_x": 0.772,
+  "backing_clearance": 0.01,
+  "fixed_eye_projection": {
+    "before": {
+      "Weapon": {
+        "70": 0.0,
+        "90": 0.0,
+        "100": 0.0
+      },
+      "ProScreen": {
+        "70": 0.0,
+        "90": 0.0,
+        "100": 0.0
+      }
+    },
+    "after": {
+      "Weapon": {
+        "70": 0.8395698291101945,
+        "90": 0.911645550972304,
+        "100": 0.9373158515026517
+      },
+      "ProScreen": {
+        "70": 0.37417654808959155,
+        "90": 1.0,
+        "100": 1.0
+      }
+    }
+  },
+  "game_tested": false
+}

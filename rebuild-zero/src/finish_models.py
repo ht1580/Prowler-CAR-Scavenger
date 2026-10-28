@@ -14,7 +14,7 @@ for mesh in doc['meshes']:
    struct.pack_into('<3f',data,v['offset']+4,*(q[i]-origin[i] for i in range(3)))
   report.append(name)
  elif name.endswith('pro_screen_rui_upper'):
-  for v in verts:struct.pack_into('<3f',data,v['offset']+4,*(x*.65 for x in v['position']))
+  for v in verts:struct.pack_into('<3f',data,v['offset']+4,*(x*rig['proscreen_scale'] for x in v['position']))
 model.write_bytes(data)
 tool=ROOT/'src/tools'
 for name in ('ptpov_car101','w_car101'):

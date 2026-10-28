@@ -2,8 +2,9 @@
 import json,hashlib,csv,collections,zipfile,shutil
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
-ROOT=Path(__file__).resolve().parents[1];TASK=ROOT.parents[1];OUT=TASK/'outputs/prowler-zero';BUILD=ROOT/'build';OUT.mkdir(exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1];TASK=ROOT.parents[1];BUILD=ROOT/'build'
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
+cfg=read(ROOT/'src/config.json');VERSION=cfg['version'];OUT=TASK/'outputs'/('prowler-zero' if VERSION=='0.2.0' else 'prowler-zero-'+VERSION);OUT.mkdir(exist_ok=True)
 cfg=read(ROOT/'src/config.json');rig=read(BUILD/'rig.json');inv=read(ROOT/'inventory.json');source=read(BUILD/'source-verification.json');compiled=read(BUILD/'compiled-verification.json');grip=read(BUILD/'native-firing-grip.json');package=read(OUT/'package-verification.json');cleanup=read(ROOT/'cleanup-verification.json')
 import sys
 sys.path.insert(0,str(ROOT/'src/tools'));from mdl_mesh import read_mdl_mesh
@@ -19,7 +20,7 @@ assert all(r['vertex_influences']>0 for r in rows if r['added'])
 with (OUT/'bone-audit.csv').open('w',encoding='utf-8-sig',newline='') as f:
  writer=csv.DictWriter(f,fieldnames=rows[0]);writer.writeheader();writer.writerows(rows)
 font=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',23);small=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',18)
-sheet=Image.new('RGB',(1440,960),(16,21,29));draw=ImageDraw.Draw(sheet);draw.text((22,14),'0.2.0 从零重建：成品模型 + 真实 TF2 手臂',font=font,fill='white');draw.text((22,53),'离线蒙皮核查，非实机截图；灰色手臂用于观察握持关系。',font=small,fill=(180,195,215))
+sheet=Image.new('RGB',(1440,960),(16,21,29));draw=ImageDraw.Draw(sheet);draw.text((22,14),f'{VERSION} 固定游戏视角：成品模型 + 真实 TF2 手臂',font=font,fill='white');draw.text((22,53),'离线检查，非实机截图；灰色手臂、蓝色 ProScreen 为检查材质。',font=small,fill=(180,195,215))
 for i,(name,label) in enumerate([('normal_hip_025','普通持枪'),('ads_015','开镜'),('reload_030','换弹：手与弹匣保持同一原生运动'),('fire_002','原生开火动作')]):
  im=Image.open(ROOT/'renders'/(name+'.png')).convert('RGB').resize((720,405));x=(i%2)*720;y=92+(i//2)*432;sheet.paste(im,(x,y));draw.text((x+16,y+405),label,font=small,fill='white')
 sheet.save(OUT/'visual-check.png')
@@ -33,7 +34,7 @@ shutil.copy2(ROOT/'cleanup-verification.json',OUT/'cleanup-verification.json')
 runtime=dict(game_visual_verified=False,resources_loaded_in_initial_candidate=True,successful_holding_capture=False,baseline_training_error='Undefined variable SaveRecordedAnimation, sp/_gauntlet.gnut line 1033',local_mp_reached_verifiable_scene=False,desktop_capture_usable=False,temporary_game_processes_stopped=True,production_profile_modified=False,user_data_hashes_preserved=cleanup['all_hashes_match'])
 (OUT/'runtime-verification.json').write_text(json.dumps(runtime,indent=2),encoding='utf-8')
 evidence=OUT/'verification-logs';evidence.mkdir(exist_ok=True)
-for name in ('final-rebuild.log','final-tests.log','firing-grip-before.log','firing-idle-grip.log','vtx-palette-check.log','winding-regression-before.log'):
+for name in ('placement-regression-before.log','proscreen-regression-before.log','placement-regression-after.log','compiled-021.log','grip-021.log','fixed-eye-render.log'):
  p=ROOT/name
  if p.exists():shutil.copy2(p,evidence/name)
 excerpts=[]
@@ -52,15 +53,27 @@ for name in sorted(used):
 for p in paths:provenance.append(dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),bytes=p.stat().st_size))
 (OUT/'input-provenance.json').write_text(json.dumps(provenance,indent=2),encoding='utf-8')
 readme=(ROOT/'README.md').read_text(encoding='utf-8')
-report=f'''# 从零重建 0.2.0 交付记录
+report=f'''# 从零重建 {VERSION} 交付记录
 
 已生成独立新工程、安装候选包、完整生成的 SMD/QC 和检查资料。**实机视觉验收未完成，不能将本版标记为最终验收通过。**
 
-[安装包](Prowler.CAR.Scavenger-0.2.0.zip) · [完整重建源码](Prowler-Rebuild-Source-0.2.0.zip) · [离线画面核查](visual-check.png) · [原生机构动作 GIF](native-drum.gif)
+[安装包](Prowler.CAR.Scavenger-{VERSION}.zip) · [完整重建源码](Prowler-Rebuild-Source-{VERSION}.zip) · [离线画面核查](visual-check.png) · [原生机构动作 GIF](native-drum.gif)
 
 安装包 {package['bytes']:,} 字节，{package['files']} 个文件。SHA256：`{package['sha256']}`。
 
 本轮没有改写旧工程或实际 R2Vanilla 的模组目录。测试仅使用独立 D: profile，临时进程已经停止。原设置、CFG、视频配置和存档共 4 个文件的哈希与备份完全一致，无需还原。
+
+## 0.2.1 修正：整体视角与 ProScreen
+
+用户实机报告 0.2.0 枪模位于视野外、ProScreen 没有对上。现已离线重现：固定原版相机后，旧版实际待机叠加把枪模整体旋出画面；旧预览跟随动画相机，掩盖了问题。
+
+根因是参考动画被编译器多转了 +90°，使 `subtract(ref)` 的待机根骨产生 -90° 偏移。现在仅补偿参考动画根骨，转换后参考与绑定一致，待机根骨与相机均为零偏移；原始绝对动作、手枪相对关系和游戏 FOV 不靠手工前推修补。
+
+ProScreen 外壳从后部立管移到机匣侧面，依据原生侧表面 x=0.772 与外壳背面推导骨骼安装位置，留 0.01 单位间隙；外壳和 RUI 仍使用同一骨骼及 0.65 缩放。新增 4 项位置回归与原有 8 项检查通过，共 12 项。
+
+[固定相机前后对照](placement-comparison.png) 包含真正解码的待机层；[ProScreen 侧面核对](proscreen-side-mount.png) 中蓝色为外壳、粉色为 RUI 的检查材质，不是实机外观。旧版在 70/90/100° 水平 FOV 扫描中枪模均不可见，修正后枪模进入画面。新版 ProScreen 外壳在 90/100° 完整进入画面；70° 会有部分外壳被画面边界裁切。
+
+以上是离线重现与修正证据，0.2.1 尚未实机复测。安装时完整替换旧同名模组，确保游戏加载新版 MDL。
 
 ## 与旧版的区别
 
@@ -111,7 +124,7 @@ report=f'''# 从零重建 0.2.0 交付记录
 参考成品仅用于机制对照：[HK560 马洛里安](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[Nachos Apex CAR](https://thunderstore.io/c/northstar/p/NachosChipeados/Apex_Legends_Car/)、[Echo 反应皮 R99](https://thunderstore.io/c/northstar/p/Echo_XI/Apex_Reactive_R99_Model/)。本轮未复制这些参考作品的模型、材质或音频。
 '''
 (OUT/'重建记录.md').write_text(report,encoding='utf-8');(OUT/'BUILD_README.md').write_text(readme,encoding='utf-8')
-archive=OUT/'Prowler-Rebuild-Source-0.2.0.zip'
+archive=OUT/f'Prowler-Rebuild-Source-{VERSION}.zip'
 include=[ROOT/'README.md',ROOT/'inventory.json',ROOT/'reactive-motion.json',ROOT/'stock-world.json']
 include += [p for p in (ROOT/'src').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']
 include += [p for folder in ('view','world') for p in (BUILD/folder).rglob('*') if p.is_file() and p.suffix in ('.smd','.qc')]

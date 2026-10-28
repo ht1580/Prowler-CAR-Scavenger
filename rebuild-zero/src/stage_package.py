@@ -1,7 +1,7 @@
 """Stage only this independent rebuild and validate the exact install ZIP bytes."""
 import json,hashlib,struct,shutil,zipfile,sys
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];TASK=ROOT.parents[1];CFG=json.loads((ROOT/'src/config.json').read_text(encoding='utf-8'));BUILD=ROOT/'build';STAGE=BUILD/'stage'/CFG['mod_name'];OUT=TASK/'outputs/prowler-zero';OUT.mkdir(exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1];TASK=ROOT.parents[1];CFG=json.loads((ROOT/'src/config.json').read_text(encoding='utf-8'));BUILD=ROOT/'build';STAGE=BUILD/'stage'/CFG['mod_name'];OUT=TASK/'outputs'/('prowler-zero' if CFG['version']=='0.2.0' else 'prowler-zero-'+CFG['version']);OUT.mkdir(exist_ok=True)
 compiled=BUILD/'compiler_game/models/weapons/car101';models=STAGE/'mod/models/weapons/car101';models.mkdir(parents=True,exist_ok=True)
 for name in ('ptpov_car101','w_car101'):shutil.copy2(compiled/(name+'_conv.mdl'),models/(name+'.mdl'))
 paks=STAGE/'paks';paks.mkdir(exist_ok=True)

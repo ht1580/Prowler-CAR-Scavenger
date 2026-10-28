@@ -43,6 +43,7 @@ foreach($world in @(@{path="$taskRoot\build\compiler_game\models\weapons\car101\
 }
 BlenderStep 'verify_compiled.py'
 BlenderStep 'verify_firing_grip.py'
+BlenderStep 'test_view_placement.py'
 PythonStep 'stage_package.py' -Arguments @('--stage-only')
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
