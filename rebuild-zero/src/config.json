@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "mod_name": "Prowler.CAR.Scavenger",
+  "stock_root": "D:/TitanfallMods/35_ProwlerCAR/stock",
+  "cast_parser": "C:/Users/q1551/AppData/Roaming/Blender Foundation/Blender/5.2/scripts/addons/io_scene_cast/cast.py",
+  "original_export": "../../unpack-bone-compare",
+  "blender": "E:/SteamLibrary/steamapps/common/Blender/blender.exe",
+  "studio_mdl": "E:/SteamLibrary/steamapps/common/SourceFilmmaker/game/bin/studiomdl.exe",
+  "mdl_converter": "D:/CodexStorage/Projects/2026-09-08/w-3/work/mdlshit_source/bin/Windows/mdlshit.exe",
+  "tools_root": "D:/CodexStorage/Projects/2026-09-08/w-3/TitanfallModWorkbench",
+  "texture_source": "D:/Apex_猎兽进化皮_v21_scavenger/02_贴图_Textures/基础色_base",
+  "audio_source": "D:/TitanfallMods/35_ProwlerCAR/audio_raw/apex",
+  "game_root": "E:/SteamLibrary/steamapps/common/Titanfall2"
+}

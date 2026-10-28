@@ -1,0 +1,247 @@
+[
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_cast\\mdl\\techart\\mshop\\weapons\\class\\smg\\prowler\\prowler_react_v21_scavenger_v_LOD0.cast",
+    "sha256": "1c7146386b7149c25be44eb43228fa0f7382b1dba3ac4a40b4aba421ba1013a8",
+    "bytes": 2709013
+  },
+  {
+    "path": "D:\\Apex_\u730e\u517d\u8fdb\u5316\u76ae_v21_scavenger\\01_\u6a21\u578b_Models\\prowler_react_v21_scavenger_w_LOD0.cast",
+    "sha256": "78b04baebc641513a7604d218a690cd3a63032c322d358e8de8e747fbe24e398",
+    "bytes": 527619
+  },
+  {
+    "path": "D:\\TitanfallMods\\35_ProwlerCAR\\stock\\models\\weapons\\car101\\ptpov_car101.mdl",
+    "sha256": "d9386226cbce474856b23c462992ef3312c8e61c6749eac4560022e7305c5e72",
+    "bytes": 3075975
+  },
+  {
+    "path": "D:\\TitanfallMods\\35_ProwlerCAR\\stock\\models\\weapons\\car101\\w_car101.mdl",
+    "sha256": "cf6b56f8c9d9f3563d81821469f9afe2c5134d3d7b66a151e8a050e2cff8f007",
+    "bytes": 739889
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\ads_in_0.cast",
+    "sha256": "87c1794ad59eb60d4eda6a00edd654fe28eef44c4a127401a342396a9535e3a3",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\ads_in_onehanded_0.cast",
+    "sha256": "bbb40c1cd87d29b2dc6682beec61bc905b94bb2681dd92d371569e59b0cbd6d2",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\ads_out_0.cast",
+    "sha256": "ea261a21f47e106f378a780581e35b762ddbe93a2f1a3270cff03343656ccf70",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\ads_out_onehanded_0.cast",
+    "sha256": "26f5b9f96dbe4479378fa1696d4d5e52af764487cdc812dadc02d5136de5f829",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\crouch_to_idle_0.cast",
+    "sha256": "b53ee9abf2e79652bc92883e69c44336f27ecb924cfac5e6105c1f05d5fbf365",
+    "bytes": 152499
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\draw_0.cast",
+    "sha256": "125c62e038f892e8588d50228118bf8a452ab8316fb6cc82ef595b1c1200bd4b",
+    "bytes": 94563
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\draw_onehanded_0.cast",
+    "sha256": "67d78946881ab7ed9cfbfcd3648d9607ca9f2be80bd8f11ce62739e15a0ee9fc",
+    "bytes": 117411
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\drawfirst_0.cast",
+    "sha256": "fa18c710fca2ac9663fe1168f8441159751853a8441ad325cc5c98d1f1d5ace6",
+    "bytes": 205539
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\drawfirst_onehanded_0.cast",
+    "sha256": "57d0754a74f706b75f83b13cf6f563555be52888b3f0dddec0d33d0e9ce89c6e",
+    "bytes": 205539
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_react_v21_scavenger_v_animRig\\fire_onehanded_0.cast",
+    "sha256": "2ee695595258a579a5fc87fd19360fcb2a07cb7e353cce5eb0e27021668cf0bb",
+    "bytes": 119488
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_react_v21_scavenger_v_animRig\\fire_onehanded_1.cast",
+    "sha256": "ae00642f8c0e750881b8b25a99cbc4fc12cfc24e6681882fa0e05cd4b2999e9a",
+    "bytes": 112256
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_react_v21_scavenger_v_animRig\\fire_optic_reactive_3.cast",
+    "sha256": "a363bc9524aef14fe7d81b92f2dcf5e8d121f8e8b6542ca464076bf7b024efda",
+    "bytes": 112256
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_react_v21_scavenger_v_animRig\\fire_reactive_3.cast",
+    "sha256": "759a2fe799ef9b65744a7b33cdde93105705b1fc9bb33ddb2544dd3fb6a07c53",
+    "bytes": 112256
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\holster_0.cast",
+    "sha256": "897202b7918be117c2276fb1ef43fc54a0f19218404349a13270802a77c7acb4",
+    "bytes": 94563
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\holster_onehanded_0.cast",
+    "sha256": "47a3bf4f9c421948353a1580c402f8a42d18a86d86a2ec1439b1a3156eb979e6",
+    "bytes": 94563
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\idle_0.cast",
+    "sha256": "9da000be55142d9f39d94c0b81ff7c3039fa5eabd840ec5ee8019ac3490009e6",
+    "bytes": 681267
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\idle_1.cast",
+    "sha256": "b5c1303f421502af3bddccf9651c3d54b6086c38096a3704374520b687d1a5ec",
+    "bytes": 681267
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_react_v21_scavenger_v_animRig\\idle_reactive_layer_3.cast",
+    "sha256": "663f3185bf4814e3a41431ac75b414357fb88fa2d794b7764d504d7282b1900a",
+    "bytes": 1533796
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\lower_0.cast",
+    "sha256": "b4dfea3d4b62ad5655ea3a0dad05f1bf677da460bda88f22943ed489eb635657",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\lower_onehanded_0.cast",
+    "sha256": "6680967a0c8fd5b8daf63ca8bb44b4d4a2213ca610959a337f15acac88f1f5dc",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\raise_0.cast",
+    "sha256": "b00b1782b89809dd1fc9642973fcfbf810daeff95251625fe2bed852ef79c1db",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\raise_onehanded_0.cast",
+    "sha256": "686b9261acb51b63cf5e941c76d6d5cb9c8cfd1591957b6531dca0e8161c45f2",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_0.cast",
+    "sha256": "db3aea732a58b535f3daf3eae1cef1516e424b2ea0d486b5eaeedec3083ff533",
+    "bytes": 313251
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_1.cast",
+    "sha256": "8d28d7eee172d20dc36003e12dcb636b7252b6c020ee07d1ff4aedef083fa512",
+    "bytes": 313251
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_0.cast",
+    "sha256": "c8f3473cd1f6c79970a84c34b57df05ef3fe02c6890a4e1f0180f5ecdc3bb2f4",
+    "bytes": 381795
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_1.cast",
+    "sha256": "2be833ec42a1af1ec71416afbd69f91b1a6f7b43dd9dfeb03cbe2e9e875f428d",
+    "bytes": 381795
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_late1_0.cast",
+    "sha256": "543921366aeb934d58cc4666cdef2b2feab655bd7ad11e9288e9015a1c9d8a8c",
+    "bytes": 283875
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_late1_1.cast",
+    "sha256": "14927904f90946951f6826ec4df0c860c781ca3d463f529b2eac154894ed9f92",
+    "bytes": 283875
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_late1_onehanded_0.cast",
+    "sha256": "c5dbbe255cfd997d8f6e930dc1fbb6498dd8006dafc970a263323552effc50d4",
+    "bytes": 283875
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_late2_0.cast",
+    "sha256": "1a0f2efd519a304fb860f297aaf50e0f4a004b1c7f43ab1772074e6f094c223a",
+    "bytes": 182691
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_late2_1.cast",
+    "sha256": "288d08e711d03aecea099580d6b8c91aa82d636e8cd6b97958cf4faa30887582",
+    "bytes": 182691
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_late2_onehanded_0.cast",
+    "sha256": "79feddce0f2c2b3b72ff6198be2665b5637240f9c67488ece666d349c8aeea48",
+    "bytes": 182691
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_empty_onehanded_0.cast",
+    "sha256": "b39e31fca5bd47b72a3cd051c18371fed5a4529dcab597cb54ac1fd0d2a5858c",
+    "bytes": 394851
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_late1_0.cast",
+    "sha256": "788bb9789434db25d7f7d8f8182d3cbdf013d86f534d3584c3a40f22f33ce6b5",
+    "bytes": 290403
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_late1_1.cast",
+    "sha256": "6080e25713a0096ca1dc7ab81f06d8b757ffbbf383130095913b052407e2d172",
+    "bytes": 290403
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_late1_onehanded_0.cast",
+    "sha256": "caa95dbe3fd5d3bfb2c2ef6a75bab455a229078573e5b2ea5edb66ff8d1cf30f",
+    "bytes": 228387
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\reload_onehanded_0.cast",
+    "sha256": "6edd9569fa41ef5f395e6f7f9c1a2bb2228b547608093b7b045d737a49bd3f00",
+    "bytes": 313251
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\sprint_0.cast",
+    "sha256": "45c811800af4fc4a68a1c01258cc339637c6bb451efded68b66c8f54cad5bd83",
+    "bytes": 120675
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\sprint_onehanded_0.cast",
+    "sha256": "08667242c3bbc1aeba0deea590f4902b8e04b103ea2678966748bb84231341ac",
+    "bytes": 120675
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\sprintdraw_0.cast",
+    "sha256": "f1351e363fc40a72e814cd5fc54c0d1ec6eba38c8599036c338e5e59d72690b1",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\sprintholster_0.cast",
+    "sha256": "c3552a37b55c3394e93f564899db422411f6859aabbbaf8fe3d026e5a7ecb542",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\sprintraise_0.cast",
+    "sha256": "d9b2d9384113952752b35853c70900bc688e95bc3439dac7caf5eeaf1a12f939",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\sprintraise_onehanded_0.cast",
+    "sha256": "bf980d929b457ff26f83576f5fc5373b54202726da17b97167b04eb61672d231",
+    "bytes": 88035
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\switch_to_onehanded_0.cast",
+    "sha256": "b798712867dd6d33847485ddf2af37ae8e629c92d016454d6d2cb38b2000ad0e",
+    "bytes": 104355
+  },
+  {
+    "path": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\unpack-bone-compare\\apex_animations\\animrig\\techart\\mshop\\weapons\\class\\smg\\prowler\\anims_prowler_base_v_animRig\\switch_to_twohanded_0.cast",
+    "sha256": "043188de1851499bcfc4affccf3e43333f00c6e5869a903331bb99b122e1c425",
+    "bytes": 104355
+  }
+]

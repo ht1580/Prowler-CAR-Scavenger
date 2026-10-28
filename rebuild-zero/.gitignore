@@ -1,0 +1,8 @@
+build/
+renders/
+references/
+test-profile/
+userdata-before-runtime/
+*.log
+__pycache__/
+*.pyc

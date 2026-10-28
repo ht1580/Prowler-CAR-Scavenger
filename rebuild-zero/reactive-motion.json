@@ -1,0 +1,330 @@
+{
+  "idle_reactive_layer_3": {
+    "def_c_bolt_end": {
+      "degrees": 2.274239431400698,
+      "position": 0.0
+    },
+    "def_c_reactive_power_switch": {
+      "degrees": 3.3179711088959727,
+      "position": 0.0
+    },
+    "def_c_reactive_wheel_1": {
+      "degrees": 179.99468096887938,
+      "position": 0.0
+    },
+    "def_c_reactive_wheel_2": {
+      "degrees": 179.99451353674468,
+      "position": 0.0
+    },
+    "def_c_reactive_wheel_3": {
+      "degrees": 179.9948062579864,
+      "position": 0.0
+    },
+    "def_c_reactive_wheel_4": {
+      "degrees": 179.99462770965414,
+      "position": 0.0
+    },
+    "def_c_reactive_spinner_coils": {
+      "degrees": 179.99495484284026,
+      "position": 0.0
+    },
+    "def_c_reactive_tube_top": {
+      "degrees": 2.5149305013664907,
+      "position": 0.0
+    },
+    "def_c_reactive_tank_nut_lower": {
+      "degrees": 10.21198548366882,
+      "position": 0.0
+    },
+    "def_c_reactive_tank_nut_upper": {
+      "degrees": 13.084582813333459,
+      "position": 0.0
+    },
+    "def_c_reactive_top_nut": {
+      "degrees": 9.759100651765259,
+      "position": 0.16406750679016113
+    },
+    "def_c_reactive_front_nut": {
+      "degrees": 14.390410185168225,
+      "position": 0.0
+    },
+    "def_c_reactive_wingnut": {
+      "degrees": 26.543778157391948,
+      "position": 0.0
+    },
+    "def_l_reactive_top_fitting": {
+      "degrees": 10.21198548366882,
+      "position": 0.0
+    },
+    "def_r_reactive_top_fitting": {
+      "degrees": 10.21198548366882,
+      "position": 0.0
+    },
+    "def_c_reactive_mag_release": {
+      "degrees": 3.032319306990134,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_bottom": {
+      "degrees": 60.94744828174473,
+      "position": 0.04833602102007717
+    },
+    "def_l_reactive_tube_top": {
+      "degrees": 22.209299727039774,
+      "position": 0.024580669269198552
+    },
+    "def_r_reactive_tube_top": {
+      "degrees": 42.58576857506274,
+      "position": 0.05110636797326151
+    },
+    "def_r_reactive_tube_bottom": {
+      "degrees": 31.59365786607866,
+      "position": 0.02457968331873417
+    },
+    "def_c_reactive_barrel": {
+      "degrees": 0.0,
+      "position": 0.34376049041748047
+    },
+    "def_c_reactive_spinner_1": {
+      "degrees": 179.99468096887938,
+      "position": 0.0
+    },
+    "def_c_reactive_spinner_2": {
+      "degrees": 179.9948062579864,
+      "position": 0.0
+    },
+    "def_c_reactive_spring_2": {
+      "degrees": 0.01757468621204567,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_3": {
+      "degrees": 0.04661246642866244,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_4": {
+      "degrees": 0.09322492659112128,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_5": {
+      "degrees": 0.1087624108924464,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_6": {
+      "degrees": 0.03234469283817892,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_7": {
+      "degrees": 0.062149953582834726,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_8": {
+      "degrees": 0.09322492659112128,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_9": {
+      "degrees": 0.09322492659112128,
+      "position": 0.03515732288360596
+    },
+    "def_c_reactive_spring_10": {
+      "degrees": 0.04789168434297728,
+      "position": 0.03515732288360596
+    }
+  },
+  "fire_reactive_3": {
+    "def_c_reactive_spinner_coils": {
+      "degrees": 179.64292637337974,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_bottom": {
+      "degrees": 11.600880976838567,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_top": {
+      "degrees": 23.74201394760108,
+      "position": 0.0
+    },
+    "def_r_reactive_tube_top": {
+      "degrees": 24.95964539533107,
+      "position": 0.0
+    },
+    "def_r_reactive_tube_bottom": {
+      "degrees": 22.322114015796984,
+      "position": 0.0
+    },
+    "def_c_reactive_barrel": {
+      "degrees": 0.0,
+      "position": 0.843775749206543
+    },
+    "def_c_reactive_spinner_1": {
+      "degrees": 165.33829674561073,
+      "position": 0.0
+    },
+    "def_c_reactive_spring_2": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_3": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_4": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_5": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_6": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_7": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_8": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_9": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_10": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    }
+  },
+  "fire_optic_reactive_3": {
+    "def_c_reactive_spinner_coils": {
+      "degrees": 179.64292637337974,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_bottom": {
+      "degrees": 11.600880976838567,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_top": {
+      "degrees": 23.74201394760108,
+      "position": 0.0
+    },
+    "def_r_reactive_tube_top": {
+      "degrees": 24.95964539533107,
+      "position": 0.0
+    },
+    "def_r_reactive_tube_bottom": {
+      "degrees": 22.322114015796984,
+      "position": 0.0
+    },
+    "def_c_reactive_barrel": {
+      "degrees": 0.0,
+      "position": 0.843775749206543
+    },
+    "def_c_reactive_spinner_1": {
+      "degrees": 165.33829674561073,
+      "position": 0.0
+    },
+    "def_c_reactive_spring_2": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_3": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_4": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_5": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_6": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_7": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_8": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_9": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_10": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    }
+  },
+  "fire_onehanded_1": {
+    "def_c_reactive_spinner_coils": {
+      "degrees": 179.64292637337974,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_bottom": {
+      "degrees": 11.600880976838567,
+      "position": 0.0
+    },
+    "def_l_reactive_tube_top": {
+      "degrees": 23.74201394760108,
+      "position": 0.0
+    },
+    "def_r_reactive_tube_top": {
+      "degrees": 24.95964539533107,
+      "position": 0.0
+    },
+    "def_r_reactive_tube_bottom": {
+      "degrees": 22.322114015796984,
+      "position": 0.0
+    },
+    "def_c_reactive_barrel": {
+      "degrees": 0.0,
+      "position": 0.843775749206543
+    },
+    "def_c_reactive_spinner_1": {
+      "degrees": 165.33829674561073,
+      "position": 0.0
+    },
+    "def_c_reactive_spring_2": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_3": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_4": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_5": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_6": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_7": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_8": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_9": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    },
+    "def_c_reactive_spring_10": {
+      "degrees": 0.0,
+      "position": 0.09375286102294922
+    }
+  }
+}

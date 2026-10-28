@@ -1,0 +1,11 @@
+{
+  "game_visual_verified": false,
+  "resources_loaded_in_initial_candidate": true,
+  "successful_holding_capture": false,
+  "baseline_training_error": "Undefined variable SaveRecordedAnimation, sp/_gauntlet.gnut line 1033",
+  "local_mp_reached_verifiable_scene": false,
+  "desktop_capture_usable": false,
+  "temporary_game_processes_stopped": true,
+  "production_profile_modified": false,
+  "user_data_hashes_preserved": true
+}
