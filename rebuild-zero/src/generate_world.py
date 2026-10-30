@@ -3,6 +3,7 @@ import sys,json,struct,math
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
+from screen_mount import box_triangles
 # This reader is an extraction tool: it reads the ORIGINAL stock VVD/VTX, never an old mod model.
 sys.path.insert(0,str(ROOT/'src/tools'))
 from mdl_mesh import read_mdl_mesh
@@ -70,6 +71,11 @@ for bp,(r,name) in enumerate(stockParts):
     else:position=transform@Vector(stockMesh['vertices'][v])
     vs.append((position,(transform.to_3x3()@normals[v]).normalized(),stockMesh['uv'][v],w))
    tris.append((textures[materialIndex],vs))
+  if name=='proscreen':
+   transform=base@T@viewBase.inverted()
+   for box in rig['proscreen_brackets']:
+    for triangle in box_triangles(box):
+     tris.append((textures[part['materials'][0]],[(transform@p,(transform.to_3x3()@n).normalized(),uv,w) for p,n,uv,w in triangle]))
   write_smd(OUT/file,order,parent,[L],tris);lines.append(f' studio "{file}"')
  lines.append('}');groups.extend(lines)
 qc=['$modelname "weapons/car101/w_car101.mdl"','$maxverts 65000','$surfaceprop "weapon"','$contents "solid"','$cdmaterials ""',*groups]

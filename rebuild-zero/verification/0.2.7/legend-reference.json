@@ -1,0 +1,33 @@
+{
+  "wraith": {
+    "setFile": "settings/player/mp/pilot_survival_closer.rpak",
+    "character_settings_sha256": "529a9d4a79f7ffe6eaee609c1a83b10ccc93b8f7f5e9ae22ffac1c7e48cae485",
+    "player_settings_sha256": "f2a926a176c37ed6d2fa12b37b863d81a0b2cd408a5a560399ac489c4dab6a60",
+    "relevant_settings": {
+      "bodyModel": "mdl/humans/class/light/pilot_light_wraith.rmdl",
+      "armsModel": "mdl/weapons/arms/pov_pilot_light_wraith.rmdl",
+      "bodyModelRigWeight": "light",
+      "viewmodelfov": 70.0,
+      "viewmodelDuckOffset": -0.751,
+      "sprintViewOffset": -6.0,
+      "sprintStartDuration": 0.8,
+      "sprintEndDuration": 0.15
+    }
+  },
+  "bangalore": {
+    "setFile": "settings/player/mp/pilot_survival_firesupport.rpak",
+    "character_settings_sha256": "3331d620e2fef1c8d7f14a750637e823d6bbe0f7396cd7e58240b73894ef1a50",
+    "player_settings_sha256": "37572c6dab007e846134271a6a1b0bdbe50d58b31a85c9947860bf8887a4a8d1",
+    "relevant_settings": {
+      "bodyModel": "mdl/techart/mshop/characters/legends/bangalore/pilot_medium_bangalore.rmdl",
+      "armsModel": "mdl/techart/mshop/characters/legends/bangalore/pov_pilot_medium_bangalore.rmdl",
+      "bodyModelRigWeight": "medium",
+      "viewmodelfov": 70.0,
+      "viewmodelDuckOffset": -0.751,
+      "sprintViewOffset": -6.0,
+      "sprintStartDuration": 0.8,
+      "sprintEndDuration": 0.15
+    }
+  },
+  "selection_boundary": "Original raised single-hand sprint_althand_anim_0 chosen to follow the requested visual reference. Exported character/player settings do not alone establish the full native first-person selection graph."
+}

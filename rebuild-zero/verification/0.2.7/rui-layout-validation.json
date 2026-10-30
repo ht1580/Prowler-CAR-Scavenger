@@ -1,0 +1,58 @@
+{
+  "file": "D:\\CodexStorage\\Workspaces\\2026-10-27\\https-github-com-ht1580-prowler-car\\work\\rebuild-zero\\build\\prowler_car101.rui",
+  "bytes": 5458,
+  "sha256": "fec5f697f81c84f1dfe316af93834a17be86402b0bbe551b380eed93a83704ab",
+  "model_sha256": "63f3a47e1707251e53b2ae526b318fc5896cca0eea78cb4d335fd655871275a0",
+  "meshes": [
+    {
+      "name": "models/weapons/attachments/holo_rui_upper",
+      "parents": [
+        "def_c_holo"
+      ],
+      "vertices": 28,
+      "faces": 12
+    },
+    {
+      "name": "models/weapons/attachments/acgs_rui_upper",
+      "parents": [
+        "def_c_acgs"
+      ],
+      "vertices": 70,
+      "faces": 28
+    },
+    {
+      "name": "models/weapons/attachments/cro_rui_upper",
+      "parents": [
+        "def_c_cro"
+      ],
+      "vertices": 23,
+      "faces": 14
+    },
+    {
+      "name": "models/weapons/attachments/pro_screen_rui_upper",
+      "parents": [
+        "def_c_proscreen"
+      ],
+      "vertices": 8,
+      "faces": 2
+    },
+    {
+      "name": "models/weapons/attachments/car_smg_rui_lower",
+      "parents": [
+        "def_c_base"
+      ],
+      "vertices": 4,
+      "faces": 1
+    },
+    {
+      "name": "models/weapons/attachments/car_smg_rui_upper",
+      "parents": [
+        "def_c_sight_on"
+      ],
+      "vertices": 21,
+      "faces": 7
+    }
+  ],
+  "edit_source": "src/assets/prowler_ammo_panel.json",
+  "uv": "Unmodified original TF2 per-face data"
+}

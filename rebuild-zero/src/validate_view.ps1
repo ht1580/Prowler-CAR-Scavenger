@@ -10,7 +10,8 @@ function BlenderStep([string]$name){
  if($LASTEXITCODE -ne 0){Get-Content "$root\reference-structure\023-final-$name.log" -Tail 20;throw "Failed $name"}
 }
 BlenderStep 'generate_view.py'
-& "$PSScriptRoot\compile_models.ps1" -ViewOnly *> "$root\reference-structure\023-final-compile.log"
+BlenderStep 'generate_world.py'
+& "$PSScriptRoot\compile_models.ps1" *> "$root\reference-structure\023-final-compile.log"
 if($LASTEXITCODE -ne 0){throw 'Compile failed'}
 & $python "$PSScriptRoot\finish_models.py" >> "$root\reference-structure\023-final-compile.log"
 if($LASTEXITCODE -ne 0){throw 'Finish failed'}
@@ -20,6 +21,8 @@ if($LASTEXITCODE -ne 0){throw 'Native RUI surface regression'}
 if($LASTEXITCODE -ne 0){throw 'Repeated finish changed model bytes'}
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot\tools\mdl_engine_dump.ps1" -ModelPath "$root\build\compiler_game\models\weapons\car101\ptpov_car101_conv.mdl" -OutputPath "$root\build\engine-view.json"
 if($LASTEXITCODE -ne 0){throw 'Bone dump failed'}
+& $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot\tools\decode_native_pose.ps1" -ModelPath "$root\build\compiler_game\models\weapons\car101\w_car101_conv.mdl" -OutputPath "$root\build\native-world.json" -Names '*'
+if($LASTEXITCODE -ne 0){throw 'World decode failed'}
 & $python "$PSScriptRoot\test_delta_defaults.py"
 if($LASTEXITCODE -ne 0){throw 'Delta defaults regression'}
 foreach($job in @(@{file='native-all.json';names='*';all=$false},@{file='native-idle.json';names='*_autoplay';all=$true},@{file='native-fire.json';names='attack_*';all=$true},@{file='native-view.json';names='@*';all=$false})){
@@ -31,6 +34,7 @@ foreach($job in @(@{file='native-all.json';names='*';all=$false},@{file='native-
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot\tools\decode_native_pose.ps1" -ModelPath "$root\build\compiler_game\models\weapons\car101\ptpov_car101_conv.mdl" -OutputPath "$root\build\native-reload.json" -Names '*reload*' -AllFrames
 if($LASTEXITCODE -ne 0){throw 'Reload decoding failed'}
 foreach($script in 'verify_compiled.py','verify_firing_grip.py','test_view_placement.py','test_sprint_visibility.py','test_world_screen.py','test_reload_timing.py','test_compiled_reload.py'){BlenderStep $script}
+BlenderStep 'test_refinements.py'
 & $python "$PSScriptRoot\test_audio_policy.py"
 if($LASTEXITCODE -ne 0){throw 'Audio event policy failed'}
 & $python "$PSScriptRoot\audit_animation_order.py"

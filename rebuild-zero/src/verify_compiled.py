@@ -9,7 +9,7 @@ from mdl_mesh import read_mdl_mesh
 rig=json.loads((BUILD/'rig.json').read_text());order=rig['order'];parent=rig['parent'];rest={n:Matrix(v) for n,v in rig['rest_global'].items()}
 modelpath=BUILD/'compiler_game/models/weapons/car101/ptpov_car101_conv.mdl';m=mdldump(modelpath);stock=mdldump(STOCK/'models/weapons/car101/ptpov_car101.mdl')
 def names(model,off,stride,rel=0):return [n for _,n in model['table'](off,stride,rel)]
-result=dict(stock_sequences=names(m,192,232,4)==names(stock,192,232,4),stock_anim_order=names(m,184,92,4)==names(stock,184,92,4)+list(EXTRA_ANIMS),stock_attachment_names=names(m,244,92)==names(stock,244,92),bone_order=names(m,160,244)==order)
+result=dict(stock_sequences=names(m,192,232,4)==names(stock,192,232,4)+['prowler_drum_autoplay'],stock_anim_order=names(m,184,92,4)==names(stock,184,92,4)+list(EXTRA_ANIMS),stock_attachment_names=names(m,244,92)==names(stock,244,92),bone_order=names(m,160,244)==order)
 from mdl_lib import Mdl
 validate_motion_contract(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'),Mdl(modelpath))
 result['explicit_crouch_hold_contract']=True
@@ -25,7 +25,7 @@ for pose in decoded['poses']:
  assert rig['animations'][pose['name']]['delta']
  for n in rig['extra']:
   if n not in raw:continue
-  v=loc.get(n,dict(pos=[0,0,0],rot=[0,0,0]));expected=raw[n];actual=matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion())
+  v=loc.get(n,dict(pos=[0,0,0],rot=[0,0,0]));expected=Matrix.Identity(4) if n in ('def_c_reactive_spinner_coils','def_c_reactive_spinner_1','def_c_reactive_spinner_2') else raw[n];actual=matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion())
   maxpos=max(maxpos,(actual.translation-expected.translation).length)
   q=actual.to_quaternion().rotation_difference(expected.to_quaternion());maxangle=max(maxangle,math.degrees(2*math.atan2(Vector((q.x,q.y,q.z)).length,abs(q.w))));keys+=1
 spinshift=0.

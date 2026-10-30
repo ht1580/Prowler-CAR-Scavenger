@@ -1,0 +1,125 @@
+{
+  "periods_seconds": {
+    "close": 0.083,
+    "centre": 0.083,
+    "mechanical": 0.091,
+    "mid": 0.083
+  },
+  "rate": 14.1,
+  "original_low_ammo_warning": true,
+  "stop_events_use_tail": true,
+  "overrides": {
+    "first": {
+      "events": [
+        "weapon_car_firstshot_1p",
+        "weapon_car_firstshot_1p_int"
+      ],
+      "seconds": 1.4445416666666666,
+      "peak": 0.20000000298023224,
+      "rms": 0.014046971686184406
+    },
+    "silent": {
+      "events": [
+        "weapon_car_firstshot_3p_BU1",
+        "weapon_car_firstshot_3p_enemy",
+        "weapon_car_firstshot_npc_BU1",
+        "weapon_car_firstshotsuppressed_1p",
+        "weapon_car_firstshotsuppressed_3p",
+        "weapon_car_firstshotsuppressed_3p_enemy",
+        "weapon_car_secondshot1_npc",
+        "weapon_car_secondshot_1p",
+        "weapon_car_secondshot_1p_BU",
+        "weapon_car_secondshot_1p_intlg",
+        "weapon_car_secondshot_1p_intlg_BU",
+        "weapon_car_secondshot_1p_intmed",
+        "weapon_car_secondshot_1p_intmed_BU",
+        "weapon_car_secondshot_1p_intsm",
+        "weapon_car_secondshot_1p_intsm_BU",
+        "weapon_car_secondshot_3p",
+        "weapon_car_secondshot_3p_BU1",
+        "weapon_car_secondshot_3p_OLD2",
+        "weapon_car_secondshot_3p_enemy",
+        "weapon_car_secondshot_3p_enemy_BU",
+        "weapon_car_secondshot_3p_enemy_BU1",
+        "weapon_car_secondshot_3p_enemy_OLD2",
+        "weapon_car_secondshot_3p_enemy_intlg",
+        "weapon_car_secondshot_3p_enemy_intlg_BU1",
+        "weapon_car_secondshot_3p_enemy_intlg_OLD2",
+        "weapon_car_secondshot_3p_enemy_intmed",
+        "weapon_car_secondshot_3p_enemy_intmed_BU1",
+        "weapon_car_secondshot_3p_enemy_intmed_OLD2",
+        "weapon_car_secondshot_3p_enemy_intsm",
+        "weapon_car_secondshot_3p_enemy_intsm_BU1",
+        "weapon_car_secondshot_3p_enemy_intsm_OLD2",
+        "weapon_car_secondshot_3p_int",
+        "weapon_car_secondshot_3p_int_enemy",
+        "weapon_car_secondshot_3p_intlg",
+        "weapon_car_secondshot_3p_intlg_OLD2",
+        "weapon_car_secondshot_3p_intmed",
+        "weapon_car_secondshot_3p_intmed_OLD2",
+        "weapon_car_secondshot_3p_intsm",
+        "weapon_car_secondshot_3p_intsm_OLD2",
+        "weapon_car_secondshot_npc",
+        "weapon_car_secondshot_npc_intlg",
+        "weapon_car_secondshot_npc_intmed",
+        "weapon_car_secondshot_npc_intsm"
+      ],
+      "seconds": 0.05,
+      "peak": 0.0,
+      "rms": 0.0
+    },
+    "loop1p": {
+      "events": [
+        "weapon_car_loop_1p",
+        "weapon_car_loopsuppressed_1p"
+      ],
+      "seconds": 3.971625,
+      "peak": 0.19999998807907104,
+      "rms": 0.046236079186201096
+    },
+    "loop3p": {
+      "events": [
+        "weapon_car_loop_3p",
+        "weapon_car_loop_3p_BU1",
+        "weapon_car_loop_3p_OLD2",
+        "weapon_car_loop_3p_enemy",
+        "weapon_car_loop_3p_enemy_BU",
+        "weapon_car_loop_3p_enemy_BU1",
+        "weapon_car_loopsuppressed_3p",
+        "weapon_car_loopsuppressed_3p_enemy"
+      ],
+      "seconds": 3.971625,
+      "peak": 0.20000000298023224,
+      "rms": 0.04577561467885971
+    },
+    "loopnpc": {
+      "events": [
+        "weapon_car_loop_3p_npc",
+        "weapon_car_loop_3p_npc_a",
+        "weapon_car_loop_npc"
+      ],
+      "seconds": 3.971625,
+      "peak": 0.20000000298023224,
+      "rms": 0.03751388192176819
+    },
+    "tail": {
+      "events": [
+        "weapon_car_loopend_1p",
+        "weapon_car_loopend_1p_OLD",
+        "weapon_car_loopend_1p_int",
+        "weapon_car_loopend_3p",
+        "weapon_car_loopend_3p_enemy",
+        "weapon_car_loopend_3p_int",
+        "weapon_car_loopend_3p_int_enemy",
+        "weapon_car_loopend_npc",
+        "weapon_car_loopend_npc_int",
+        "weapon_car_loopsuppressedend_1p",
+        "weapon_car_loopsuppressedend_3p",
+        "weapon_car_loopsuppressedend_3p_enemy"
+      ],
+      "seconds": 4.521708333333334,
+      "peak": 0.1826021671295166,
+      "rms": 0.01229294203221798
+    }
+  }
+}

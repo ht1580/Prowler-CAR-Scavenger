@@ -19,22 +19,33 @@ class ArmFit:
   L=locals_(self.order,self.parent,target)
   for n in self.fixed_body_bones:
    L[n]=self.body[n].copy()
-  originalHip=L['def_c_hip'].copy();forward=target['jx_c_camera'].to_3x3().col[2].normalized()
-  root=target[self.parent['def_c_hip']];localForward=root.to_3x3().inverted()@forward
-  def torso(shift):
-   L['def_c_hip']=Matrix.Translation(localForward*shift)@originalHip
-   return globals_(self.order,self.parent,L)
-  def reach(G):
-   value=0.
-   for side,r in self.constants.items():
-    a=(r['shoulderMid'].translation+r['elbow'].translation).length;b=r['wrist'].translation.length
-    value=max(value,(target[f'def_{side}_wrist'].translation-G[f'def_{side}_shoulder'].translation).length/(a+b))
-   return value
-  shift=0.;G=torso(0.)
-  if reach(G)>.995:
-   # Search the smallest rigid torso displacement; source hands and the held object remain fixed.
-   choices=[(max(0.,reach(torso(i*.1))-.995),i*.1) for i in range(161)]
-   _,shift=min(choices);G=torso(shift)
+  forward=target['jx_c_camera'].to_3x3().col[2].normalized()
+  G=globals_(self.order,self.parent,L)
+  # The support arm's reach must not push the trigger shoulder forward too.
+  # Fit clavicle reach independently, retaining the torso and native wrists.
+  for side,r in self.constants.items():
+   clav=f'def_{side}_clav';baseline=L[clav].copy()
+   direction=G[self.parent[clav]].to_3x3().inverted()@forward
+   length=(r['shoulderMid'].translation+r['elbow'].translation).length+r['wrist'].translation.length
+   preferred=-2.0 if side=='r' else 0.0
+   def reach(shift):
+    L[clav]=Matrix.Translation(direction*shift)@baseline
+    posed=globals_(self.order,self.parent,L)
+    return (target[f'def_{side}_wrist'].translation-posed[f'def_{side}_shoulder'].translation).length/length
+   choices=[]
+   for i in range(181):
+    error=max(0.,reach(preferred+i*.1)-.995);choices.append((error,i*.1))
+    if error==0.:break
+   _,extra=min(choices);reach(preferred+extra)
+   G=globals_(self.order,self.parent,L)
+   shoulder=G[f'def_{side}_shoulder'].translation
+   reachVector=target[f'def_{side}_wrist'].translation-shoulder
+   correction=max(0.,reachVector.length-length*.995)
+   if correction:
+    if correction>4.:raise ValueError(f'{side} sleeve requires excessive lateral reach correction: {correction}')
+    localCorrection=G[self.parent[clav]].to_3x3().inverted()@(reachVector.normalized()*correction)
+    L[clav]=Matrix.Translation(localCorrection)@L[clav]
+    G=globals_(self.order,self.parent,L)
   for side,r in self.constants.items():
    n=lambda x:f'def_{side}_{x}'
    S=G[n('shoulder')].translation;W=target[n('wrist')].translation

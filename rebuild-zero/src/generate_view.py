@@ -4,8 +4,9 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
 from arm_fit import ArmFit
+from screen_mount import supports,box_triangles
 from reload_timing import ReloadTiming,stabilize_native_constants
-from motion_contract import EXTRA_ANIMS,POSE_PARAMETER
+from motion_contract import EXTRA_ANIMS,CROUCH_ANIMS,DRUM_ANIMS,POSE_PARAMETER,DRUM_PARAMETER
 sys.path.insert(0,str(ROOT/'src/tools'))
 from mdl_lib import Mdl
 OUT=BUILD/'view';OUT.mkdir(exist_ok=True);ANIM=OUT/'anims';ANIM.mkdir(exist_ok=True)
@@ -55,7 +56,7 @@ for n in OPTICS:restG[n]=Matrix.Translation(opticShift)@stockG[n]
 # surface contact and fixed-eye projection are checked on the compiled mesh.
 # This accessory seat does not alter gun, hand, camera or motion roots.
 proscreenScale=.65
-proscreenOrigin=Vector((1.047551,47.60,5.00))
+proscreenOrigin=Vector((1.047551,49.60,7.00))
 restG['def_c_proscreen']=Matrix.Translation(proscreenOrigin)@stockG['def_c_proscreen'].to_quaternion().to_matrix().to_4x4()
 restL=locals_(order,parent,restG)
 def mapped(n):
@@ -75,11 +76,12 @@ def native_triangles(m):
    vs.append((Vector(vb[i*3:i*3+3]),Vector(norm[i*3:i*3+3]),tuple(uv[i*2:i*2+2]),w))
   out.append((r'models\Weapons_R2\prowler_zero\scavenger',vs))
  return out
-meshconsumers={n:0 for n in extra}
+meshconsumers={n:0 for n in extra};bodyTriangles=[];screenBrackets=[]
 for m in mesh.Meshes():
  target=next((x for prefix,x in [('body_0','body.smd'),('clip_0','magazine.smd'),('sight_front_1','iron.smd')] if m.Name().startswith(prefix)),None)
  if not target:continue
  tris=native_triangles(m)
+ if target=='body.smd':bodyTriangles=tris
  for _,vs in tris:
   for _,_,_,w in vs:
    for n,v in w:
@@ -89,7 +91,11 @@ for m in mesh.Meshes():
 for name in ('v_holo.smd','v_acgs.smd','v_cro.smd','v_proscreen.smd'):
  _,_,_,tris=smd(STOCK/'view'/name)
  if name!='v_proscreen.smd':tris=[(m,[(p+opticShift,n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
- else:tris=[(m,[(restG['def_c_proscreen']@((stockG['def_c_proscreen'].inverted()@p)*proscreenScale),n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
+ else:
+  tris=[(m,[(restG['def_c_proscreen']@((stockG['def_c_proscreen'].inverted()@p)*proscreenScale),n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
+  screenBrackets=supports(bodyTriangles,tris)
+  material=tris[0][0]
+  tris += [(material,triangle) for box in screenBrackets for triangle in box_triangles(box)]
  write_smd(OUT/name,order,parent,[restL],tris)
 # Absolute source and subtraction reference must share the compiler's coordinate
 # conversion. Altering only this reference rotates every stock movement delta.
@@ -114,8 +120,8 @@ def select(name):
  if n.startswith('lower'):return 'lower'+tail+'_0'
  if n.startswith('sprintdraw'):return 'sprintdraw_0'
  if n.startswith('sprintholster'):return 'sprintholster_0'
- if n.startswith('sprintraise'):return 'sprintraise'+tail+'_0'
- if n.startswith('sprint'):return 'sprint_onehanded_0' if oh else 'sprint_0'
+ if n.startswith('sprintraise'):return 'sprintraise_onehanded_0' if oh else 'sprintraise_althand_seq_0'
+ if n.startswith('sprint'):return 'sprint_onehanded_0' if oh else 'sprint_althand_anim_0'
  if n.startswith('switch_to_onehanded'):return 'switch_to_onehanded_0'
  if n.startswith('switch_to_twohanded'):return 'switch_to_twohanded_0'
  if 'iron' in n or 'idle_check' in n or 'regrip' in n:return 'crouch_to_idle_0'
@@ -167,7 +173,7 @@ def hold_pose(ads=False,crouch=False):
  for n in rotors:out[n]=restL[n].copy()
  return out
 
-holds={'idle_anim':hold_pose(), 'idle_ads_anim':hold_pose(True),EXTRA_ANIMS[0]:hold_pose(False,True),EXTRA_ANIMS[1]:hold_pose(True,True)}
+holds={'idle_anim':hold_pose(), 'idle_ads_anim':hold_pose(True),CROUCH_ANIMS[0]:hold_pose(False,True),CROUCH_ANIMS[1]:hold_pose(True,True)}
 
 reloadTiming=ReloadTiming(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'))
 reloadCache={}
@@ -208,10 +214,10 @@ for row,descriptor in stock['table'](184,92,4):
    # Rebuild shared arm/gun deltas from the native full firing pose after TF2 sleeve adaptation.
    # Mechanism channels remain the exact native local deltas, including each original joint axis.
    for n in extra+['def_c_bolt']:
-    if n in raw:D[n]=raw[n]
+    if n in raw:D[n]=Matrix.Identity(4) if n in rotors else raw[n]
    frames.append(offset_pose(D))
    for n in extra:
-    if n in raw:
+    if n in raw and n not in rotors:
      recovered=frames[-1][n]
      stats['max_reactive_matrix_error']=max(stats['max_reactive_matrix_error'],max(abs(recovered[i][j]-raw[n][i][j]) for i in range(4) for j in range(4)))
      stats['native_reactive_keys']+=1
@@ -243,16 +249,17 @@ for row,descriptor in stock['table'](184,92,4):
    frames=[{n:M.copy() for n,M in fr.items()} for fr in fullFrames[start:start+len(oldframes)]]
    timing=dict(full_sequence=full,full_descriptor=fullDescriptor,offset=start,sample_times=times[start:start+len(oldframes)],**details)
   else:
-   if name=='sprint_seq':
-    # Keep the original normal sprint's lowered pose, rather than selecting a
-    # different handed variant. Reduce the native rigid swing so it stays ahead
-    # of TF2's fixed eye, moving hands, gun and accessories together.
-    initial=original_pose(c,0);gun=initial['def_c_base'];held=original_pose(clip('draw_0'),clip('draw_0').end);heldGun=held['def_c_base'];fit.swivel={}
+   if name in ('sprintdraw_seq','sprintholster_seq'):
+    # Enter/leave the selected alternate-hand cycle coherently for the gun,
+    # both arms and free fingers; do not keep a two-handed static hand target.
+    held=original_pose(clip('draw_0'),clip('draw_0').end);running=original_pose(clip('sprint_althand_anim_0'),0);fit.swivel={}
+    heldL=locals_(order,parent,held);runningL=locals_(order,parent,running)
     for f in range(len(oldframes)):
-     current=original_pose(c,c.end*f/max(1,len(oldframes)-1))['def_c_base']
-     delta=current@gun.inverted();reduced=lerp(Matrix.Identity(4),delta,.2)@gun
-     desired=lerp(heldGun,reduced,.35)
-     target=move_weapon_and_hands(held,desired@heldGun.inverted());frames.append(locals_(order,parent,fit(target)))
+     t=f/max(1,len(oldframes)-1)
+     if name=='sprintholster_seq':t=1-t
+     t=t*t*(3-2*t)
+     target=globals_(order,parent,{n:lerp(heldL[n],runningL[n],t) for n in order})
+     frames.append(locals_(order,parent,fit(target)))
    else:frames=sample_absolute(c,[c.end*f/max(1,len(oldframes)-1) for f in range(len(oldframes))])
   stats['absolute_frames']+=len(frames)
   verification.append(dict(animation=descriptor,source=source,frames=len(frames)))
@@ -267,16 +274,24 @@ for row,descriptor in stock['table'](184,92,4):
    for n in rotors:frame[n]=Matrix.Identity(4) if isdelta else restL[n].copy()
  sourcefile=name+'.smd';write_smd(ANIM/sourcefile,order,parent,frames)
  payload[descriptor]=dict(file=sourcefile,delta=isdelta,noanimation=noanim,frames=len(frames),source=source)
+ if name=='sprint_seq':payload[descriptor]['motion_policy']='full_native_alternate_hand'
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
 
-for name in EXTRA_ANIMS:
+for name in CROUCH_ANIMS:
  baseline=holds['idle_ads_anim' if 'ads' in name else 'idle_anim']
  D=relative_delta(baseline,holds[name])
  for n in rotors:D[n]=Matrix.Identity(4)
  frames=[offset_pose(D),offset_pose(D)]
  write_smd(ANIM/(name+'.smd'),order,parent,frames)
  payload[name]=dict(file=name+'.smd',delta=True,noanimation=False,frames=2,source='controlled_crouch_offset')
+
+for index,name in enumerate(DRUM_ANIMS):
+ D={n:Matrix.Identity(4) for n in order}
+ for n,sign in [('def_c_reactive_spinner_coils',1),('def_c_reactive_spinner_1',-1)]:D[n]=Matrix.Rotation(sign*index*math.pi/3,4,'Z')
+ frames=[offset_pose(D),offset_pose(D)]
+ write_smd(ANIM/(name+'.smd'),order,parent,frames)
+ payload[name]=dict(file=name+'.smd',delta=True,noanimation=False,frames=2,source='shot_index',chamber=index)
 
 qc=(STOCK/'view/ptpov_car101.qc').read_text(encoding='utf-8-sig')
 qc=qc.replace('studio "v_car101.smd"','studio "body.smd"').replace('studio "v_car101_magazine.smd"','studio "magazine.smd"').replace('studio "v_car101_sight_on.smd"','studio "iron.smd"')
@@ -316,13 +331,14 @@ for _,n in stock['table'](184,92,4):
  else:out.append(A[n])
 for n in sequenceorder[len(emitted):]:out.append(S[n])
 out.extend(f'$animation "{name}" "anims\\{name}.smd" {{\n fps 30\n loop\n}}' for name in EXTRA_ANIMS)
+out.append('$sequence "prowler_drum_autoplay" {\n'+'\n'.join(f' "{n}"' for n in DRUM_ANIMS)+f'\n autoplay\n delta\n loop\n blend "{DRUM_PARAMETER}" 0 1\n blendwidth 7\n fps 30\n}}')
 qc=qc[:start]+'\n\n'.join(out)+qc[end:]
 pose_declarations=list(re.finditer(r'^\$poseparameter[^\n]*',qc,re.M))
 insert=pose_declarations[-1].end()
-qc=qc[:insert]+f'\n$poseparameter "{POSE_PARAMETER}" 0 1'+qc[insert:]
+qc=qc[:insert]+f'\n$poseparameter "{POSE_PARAMETER}" 0 1\n$poseparameter "{DRUM_PARAMETER}" 0 1'+qc[insert:]
 qc=qc.replace('$modelname "weapons/car101/ptpov_car101.mdl"','$modelname "weapons/car101/ptpov_car101.mdl"\n$maxverts 65000')
 (OUT/'ptpov_car101.qc').write_text(qc,encoding='ascii',errors='replace')
-(BUILD/'rig.json').write_text(json.dumps(dict(order=order,parent=parent,rest_local={n:[list(r) for r in restL[n]] for n in order},rest_global={n:[list(r) for r in restG[n]] for n in order},extra=extra,mesh_consumers=meshconsumers,optic_shift=list(opticShift),proscreen_scale=proscreenScale,proscreen_mount=list(proscreenOrigin),animations=payload),indent=2))
+(BUILD/'rig.json').write_text(json.dumps(dict(order=order,parent=parent,rest_local={n:[list(r) for r in restL[n]] for n in order},rest_global={n:[list(r) for r in restG[n]] for n in order},extra=extra,mesh_consumers=meshconsumers,optic_shift=list(opticShift),proscreen_scale=proscreenScale,proscreen_mount=list(proscreenOrigin),proscreen_brackets=screenBrackets,animations=payload),indent=2))
 stats['clips']=verification
 (BUILD/'source-verification.json').write_text(json.dumps(stats,indent=2))
 print('VIEW_GENERATION_OK',len(order),stats['absolute_frames'],stats['max_hand_gun_position_error'],stats['max_magazine_hand_position_error'],flush=True)

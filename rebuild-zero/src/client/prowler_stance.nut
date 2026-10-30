@@ -17,7 +17,8 @@ void function ProwlerStance_Think()
 {
  entity previousWeapon = null
  int previousAmmo = -1
- float lastShot = -10.0
+ float drumTarget = 0.0
+ float drumPosition = 0.0
  float amount = 0.0
  for ( ;; )
  {
@@ -43,10 +44,15 @@ void function ProwlerStance_Think()
    amount = 0.0
   }
   if ( ammo < previousAmmo )
-   lastShot = Time()
+   drumTarget += float( previousAmmo - ammo )
   previousAmmo = ammo
+  // Six physical chambers: one ammo decrement advances one sector, then stops.
+  // Reload increases ammo and never advances or rewinds the drum.
+  drumPosition = min( drumTarget, drumPosition + FrameTime() * 24.0 )
+  float phase = ( drumPosition - floor( drumPosition / 6.0 ) * 6.0 ) / 6.0
+  viewmodel.SetPoseParameter( "prowler_drum", phase )
   float target = 0.0
-  if ( player.IsCrouched() && !weapon.IsReloading() && Time() - lastShot > 0.25 && player.GetVelocity().LengthSqr() < 30000 )
+  if ( player.IsCrouched() && !weapon.IsReloading() && player.GetVelocity().LengthSqr() < 30000 )
    target = 1.0
   amount += ( target - amount ) * min( 1.0, FrameTime() * 12.0 )
   if ( amount < 0.001 )

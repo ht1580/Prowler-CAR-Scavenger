@@ -1,0 +1,94 @@
+{
+  "version": "0.2.7",
+  "trial": "C",
+  "zip_sha256": "49d69a9ac2ee8a4ee55dd741acd05e453f1fe5f9ffce6927f5e022239d53a3f1",
+  "model_sha256": "63f3a47e1707251e53b2ae526b318fc5896cca0eea78cb4d335fd655871275a0",
+  "installed_files": 20,
+  "no_extra_files": true,
+  "currently_installed": true,
+  "game_pid": 70464,
+  "game_tested": true,
+  "full_visual_acceptance": false,
+  "profile": "R2Vanilla",
+  "mode": "Windowed960x540 private Attrition on Forwardbase Kodai",
+  "samples": [
+    {
+      "name": "standing",
+      "path": "work/stance-grip-027/c-standing/0012.png",
+      "sha256": "93ae7dec716ebb7d1cce8c2dacbb2bc3cad678398132703419d184c63da368f6",
+      "label": "站立：击杀屏五位可读"
+    },
+    {
+      "name": "crouch",
+      "path": "work/stance-grip-027/c-crouch/0012.png",
+      "sha256": "1f260d76245bde7ff3242a3854593e921f4bc72c9ee805b1a13501b63e55b750",
+      "label": "下蹲斜持，腰射保持"
+    },
+    {
+      "name": "sprint",
+      "path": "work/stance-grip-027/c-sprint/0016.png",
+      "sha256": "aa4c4e756dd584d58753d6dce4c20711a425547810fe7893e8ab16898675117e",
+      "label": "抬枪单手跑步"
+    },
+    {
+      "name": "stop",
+      "path": "work/stance-grip-027/c-stop/0012.png",
+      "sha256": "926af9a305deed831df69814747fae000a15f88e3a9986cb5bab224bb1631380",
+      "label": "停止后恢复持枪"
+    },
+    {
+      "name": "reload",
+      "path": "work/stance-grip-027/c-crouch-fire-reload/0043.png",
+      "sha256": "1a705c598323b70f5b848ba001c6a8a352db7c63bdbd6a2bb778c9be8de384ac",
+      "label": "换弹及蹲姿恢复"
+    },
+    {
+      "name": "ads",
+      "path": "work/stance-grip-027/c-ads/0012.png",
+      "sha256": "290e0aa5b5b048602eec6e06add9070183185a8083447e656bbf36065cf2aee0",
+      "label": "机瞄：屏幕不挡准星"
+    }
+  ],
+  "sequences": {
+    "standing": "work/stance-grip-027/c-standing",
+    "crouch": "work/stance-grip-027/c-crouch",
+    "sprint": "work/stance-grip-027/c-sprint",
+    "stop": "work/stance-grip-027/c-stop",
+    "ads": "work/stance-grip-027/c-ads",
+    "single-1": "work/stance-grip-027/c-single-1",
+    "after-single-1": "work/stance-grip-027/c-after-single-1",
+    "single-2": "work/stance-grip-027/c-single-2",
+    "after-single-2": "work/stance-grip-027/c-after-single-2",
+    "crouch-fire-reload": "work/stance-grip-027/c-crouch-fire-reload",
+    "after-reload": "work/stance-grip-027/c-after-reload"
+  },
+  "weapon_mods": [
+    "pro_screen",
+    "pas_fast_reload",
+    "tactical_cdr_on_kill"
+  ],
+  "static_unit_tests": 42,
+  "conclusion": "最终C轮采样：抬枪单手冲刺与停止恢复可见；下蹲明显斜持，腰射时保持斜持，换弹退出后恢复；外接击杀屏前移并完整显示五位数字，机瞄未遮挡准星；右肩独立求解、握持接触保持；两次短按分别30到29到28，停火后机构保持定位，连续射击/换弹采样未见原先弹鼓飞离。弹鼓相位由每发减弹推进60度的六格混合参数驱动，非弹鼓偏移均为零。",
+  "remaining": [
+    "未直接读取引擎姿态参数或逐帧测量实机角度；60度步距由编译后索引姿态及驱动逻辑核对，实机记录单发和停止行为",
+    "跑步以恶灵/烟妹的抬枪单手风格为参考，使用原生alternate-hand片段；未声称还原两名角色完整第一人称选择状态机",
+    "附加斜持在换弹/快速移动时退出，在ADS时中性；没有穷尽所有单手、攀墙、技能及中断组合",
+    "本轮未重新回录声音；前版音频资源保留，主观爆音听感尚未最终验收",
+    "未进行公共服务器长期共存测试，完整视觉验收未完成"
+  ],
+  "state": "Final C20-file mod installed. Existing CFG/loadout source unchanged. Game gracefully exited after testing; final-state.json confirms process70464 absent.",
+  "capture": "Actual foreground CopyFromScreen982x591 window; desktop had changed to1024x768, so window client960x540 fits without offscreen black padding. Earlier clipped and failed trials excluded.",
+  "single_shot_observation": {
+    "method": "Visual inspection of actual ammo screen and HUD",
+    "ammo": [
+      30,
+      29,
+      28
+    ],
+    "input_wall_ms": [
+      78.0499,
+      62.5976
+    ],
+    "timing_limit": "Input wall time includes dispatch/thread scheduling; single round is established by observed ammo, not an assumed22ms timing."
+  }
+}

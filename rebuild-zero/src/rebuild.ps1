@@ -61,6 +61,7 @@ BlenderStep 'test_compiled_reload.py'
 PythonStep 'audit_animation_order.py'
 PythonStep 'stage_package.py' -Arguments @('--stage-only')
 BlenderStep 'test_motion_policy.py'
+BlenderStep 'test_refinements.py'
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
 if($Render){

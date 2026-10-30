@@ -41,7 +41,9 @@ for i,sample in enumerate(runtime['samples'][:6]):
  p=TASK/sample['path'];assert p.exists();dest=evidence/(sample['name']+'.png');shutil.copy2(p,dest)
  x=(i%2)*960;y=80+(i//2)*370;im=Image.open(p).convert('RGB').resize((960,540));sheet.paste(im.resize((640,360)),(x,y))
  # Beside each complete frame, show the weapon crop at readable resolution.
- crop=Image.open(p).convert('RGB').crop((640,300,1280,720)).resize((320,210));sheet.paste(crop,(x+640,y+30));draw.text((x+648,y+248),sample['label'],font=small,fill='white')
+ original=Image.open(p).convert('RGB');w,h=original.size
+ bounds=(0,round(h*.05),round(w*.48),round(h*.98)) if sample['name']=='sprint' else (round(w*.49),round(h*.39),round(w*.985),round(h*.97))
+ crop=original.crop(bounds).resize((320,210));sheet.paste(crop,(x+640,y+30));draw.text((x+648,y+248),sample['label'],font=small,fill='white')
 sheet.save(OUT/'runtime-check.png')
 for name,relative in runtime.get('sequences',{}).items():
  folder=TASK/relative;fs=sorted(folder.glob('[0-9][0-9][0-9][0-9].png'));assert fs
@@ -55,15 +57,15 @@ for name,relative in runtime.get('sequences',{}).items():
  shutil.copy2(folder/'record.json',evidence/(name+'-record.json'))
 report=f'''# {version} 参考结构修改与实机复测
 
-当前安装包 SHA256：`{package['sha256']}`。B 轮实测前安装目录全部 {package['files']} 个文件逐一核对与 ZIP 相同；发布时该模组目录已被外部移除，未重新安装或干扰后续游戏进程。
+当前安装包 SHA256：`{package['sha256']}`。最终候选实测前安装目录全部 {package['files']} 个文件逐一核对与 ZIP 相同；当前状态以 runtime-verification.json 为准。
 
 本轮参考了 [HK560 马洛里安](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[Creamy CAR](https://thunderstore.io/c/northstar/p/Creamy_jpg/CAR_Pastel_Perfection/) 和 [CNS144 R301](https://thunderstore.io/c/northstar/p/CNS144/Mythic_R301_apex_R201/) 的骨架、序列表、增量动画编码及 bodygroup 结构；未复制其资产。
 
-本版移除常驻进化待机动画，非开火时弹鼓保持固定。普通冲刺使用 sprint_0 的受限摆幅与原生持枪握持；客户端脚本只驱动新增的蹲姿参数，射击/换弹时平滑退出附加侧持姿态。弹药 RUI 使用 Apex 原版显示区域和父骨骼，保留 TF2 数字界面和外接击杀屏。声音修正停止事件分组、恢复原版低弹量提示并保留混音余量。完整说明见 BUILD_README.md。
+本版使用完整 sprint_althand_anim_0 抬枪单手跑步；下蹲斜持在腰射时保持，换弹时平滑退出后恢复。弹鼓每发推进一个60度弹舱，停火保持定位；击杀屏前移2单位并用两个固定枪身支脚支撑。右肩单独求解，持枪右腕弯曲由40.04度降至25.23度，原生握持接触点不变。保留前版弹药 RUI 原始区域与音频事件修正。完整说明见 BUILD_README.md。
 
 实机结论：{runtime['conclusion']}
 
-动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移，合计126/97；第三人称4/4。原97个序列的活动、事件和标志不变；新增一个姿态参数，仅扩展原有 autoplay 混合网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧验证见 compiled-reload-validation.json。
+动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移及七个弹鼓相位，合计133/98；第三人称4/4。原97个序列的活动、事件和标志不变；新增两个姿态参数及一个弹鼓相位序列，扩展原有 crouch autoplay 网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧验证见 compiled-reload-validation.json。
 
 尚未验收的范围：{'; '.join(runtime['remaining'])}
 

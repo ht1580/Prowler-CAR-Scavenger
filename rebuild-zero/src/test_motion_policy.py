@@ -27,7 +27,7 @@ class MotionPolicy(unittest.TestCase):
 
  def test_regular_sprint_uses_the_regular_source_stance(self):
   rig=json.loads((BUILD/'rig.json').read_text())
-  self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_0','normal sprint is still replaced by the onehanded clip')
+  self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_althand_anim_0','normal sprint does not use the requested alternate-hand cycle')
 
  def test_compiled_drum_channels_are_stationary_without_attack(self):
   import hashlib
@@ -44,7 +44,7 @@ class MotionPolicy(unittest.TestCase):
    for index in seq['raw']:consumers.setdefault(index,[]).append((seq,weights))
   checks=0
   for pose in doc['poses']:
-   if pose['name'].startswith('attack_'):continue
+   if pose['name'].startswith(('attack_','prowler_drum_index_')):continue
    for value in pose['locals']:
     name=rig['order'][value['index']]
     if name not in rotors:continue

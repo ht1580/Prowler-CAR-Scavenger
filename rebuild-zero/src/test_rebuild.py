@@ -49,8 +49,8 @@ class RebuildArtifact(unittest.TestCase):
     self.assertEqual(stock.attachments(),built.attachments())
     sys.path.insert(0,str(ROOT/'src'));from motion_contract import validate as validate_motion_contract
     self.assertTrue(validate_motion_contract(stock,built,world=name=='w_car101'))
-    from motion_contract import POSE_PARAMETER
-    self.assertEqual(stock.poseparams()+([POSE_PARAMETER] if name=='ptpov_car101' else []),built.poseparams())
+    from motion_contract import POSE_PARAMETERS
+    self.assertEqual(stock.poseparams()+(POSE_PARAMETERS if name=='ptpov_car101' else []),built.poseparams())
     self.assertEqual(built.i(80),len(built.d))
     def events(m,r):
      count,offset=m.i(r+24,2);out=[]
