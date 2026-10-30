@@ -22,7 +22,8 @@ def supports(body_triangles,screen_triangles):
    if sum(h[0] is not None and h[1].x>.3 for h in feet)<3:continue
    contacts.append((hit[3],y,z,hit[0]))
  chosen=[]
- pairs=[(a,b) for a in contacts for b in contacts if abs(a[1]-b[1])>=.7]
+ # Separate feet along the weapon's forward Z axis, rather than its height Y.
+ pairs=[(a,b) for a in contacts for b in contacts if abs(a[2]-b[2])>=.9]
  selected=min(pairs,key=lambda pair:pair[0][0]+pair[1][0]) if pairs else []
  for _,y,z,point in selected:
   chosen.append(dict(contact=list(point),minimum=[point.x+.02,y-.12,z-.12],maximum=[back+.06,y+.12,z+.12]))
@@ -34,4 +35,4 @@ def box_triangles(box,bone='def_c_proscreen'):
  for quad in ((0,4,6,2),(1,3,7,5),(0,1,5,4),(2,6,7,3),(0,2,3,1),(4,5,7,6)):
   for indices in ((quad[0],quad[1],quad[2]),(quad[0],quad[2],quad[3])):
    a,b,c=[points[i] for i in indices];normal=(b-a).cross(c-a).normalized()
-   yield [(p,normal,(.05,.05),[(bone,1.)]) for p in (a,c,b)]
+   yield [(p,normal,(.05,.05),[(bone,1.)]) for p in (a,b,c)]

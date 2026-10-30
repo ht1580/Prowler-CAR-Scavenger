@@ -1,0 +1,102 @@
+{
+  "version": "0.2.8",
+  "trial": "B final",
+  "zip_sha256": "f25810dc9c8a4c30f96346067c0b1cffba2cf47b6e74cd5b96daa56620f46bec",
+  "model_sha256": "8f08567ec01a29a62f628bc109fac98a131b6e58ce68610d3b39d3e2b22057ec",
+  "installed_files": 20,
+  "no_extra_files": true,
+  "currently_installed": true,
+  "game_pid": 24712,
+  "game_tested": true,
+  "full_visual_acceptance": false,
+  "profile": "R2Vanilla",
+  "mode": "Windowed960x540 private Attrition on Forwardbase Kodai",
+  "samples": [
+    {
+      "name": "standing",
+      "path": "work/dynamics-028/b-standing/0012.png",
+      "sha256": "761f08de133df34df5470715bbc9416a8c5fc381e4e8dcda54d9fb6bf7cc5a54",
+      "label": "侧面低位击杀屏"
+    },
+    {
+      "name": "crouch",
+      "path": "work/dynamics-028/b-crouch/0012.png",
+      "sha256": "75ececd8420fdaaa598829ae9c767329831ab7da0d09e73e048e598c055ee7e3",
+      "label": "下蹲斜持"
+    },
+    {
+      "name": "sprint",
+      "path": "work/dynamics-028/b-sprint/0015.png",
+      "sha256": "2d5dc7809b4a6d5d98e302c2fa1e4e63089286dbf1804ee30860b96f1a271612",
+      "label": "右手侧原生跑步"
+    },
+    {
+      "name": "stop",
+      "path": "work/dynamics-028/b-stop/0012.png",
+      "sha256": "3c3537c546dd780e4590a011eb464860485ccf8abcdbb04c7cc57f5fcfb78e7e",
+      "label": "停止恢复双手握持"
+    },
+    {
+      "name": "reload",
+      "path": "work/dynamics-028/b-empty-reload/0040.png",
+      "sha256": "2109898f2905e03379a51d977f1e5342a42d59d2da9a32e2c86c7eaee865982a",
+      "label": "空仓换弹"
+    },
+    {
+      "name": "ads",
+      "path": "work/dynamics-028/b-ads-crouch-exit/0040.png",
+      "sha256": "084293caf3fcd104240b16087eab199b5ee36ca73bb5ece9b1d727e0d69f7f12",
+      "label": "机瞄蹲起保持准线"
+    }
+  ],
+  "sequences": {
+    "standing": "work/dynamics-028/b-standing",
+    "crouch": "work/dynamics-028/b-crouch",
+    "sprint": "work/dynamics-028/b-sprint",
+    "stop": "work/dynamics-028/b-stop",
+    "crouch-fire-reload": "work/dynamics-028/b-crouch-fire-reload",
+    "ads-crouch-exit": "work/dynamics-028/b-ads-crouch-exit",
+    "empty-reload": "work/dynamics-028/b-empty-reload",
+    "interrupt-reload": "work/dynamics-028/b-interrupt-reload",
+    "resume-manual": "work/dynamics-028/b-resume-manual",
+    "idle-after": "work/dynamics-028/b-idle-after",
+    "run-equip-open": "work/dynamics-028/b-run-equip-open",
+    "stop-open": "work/dynamics-028/b-stop-open",
+    "jump": "work/dynamics-028/b-jump",
+    "tactical": "work/dynamics-028/b-tactical"
+  },
+  "captured_frames": 638,
+  "static_unit_tests": 51,
+  "compiled_absolute_frames": 2476,
+  "compiled_absolute_descriptors": 80,
+  "weapon_mods": [
+    "pro_screen",
+    "pas_fast_reload",
+    "tactical_cdr_on_kill"
+  ],
+  "conclusion": "最终B包重启后窗口实测：右侧抬枪跑步和停止恢复正常；开阔处跑步切枪可见收起、重新入画及恢复右手跑步，片段末尾包含自然翻越栏杆；下蹲斜持并在腰射中保持，换弹退出后恢复；ADS蹲起保持准线。空仓采样30到0再回30；中断换弹后可切回（早取消保留24发），另补录手动换弹至30。击杀屏已下移贴在枪身侧面，所列动作中未见弹鼓飞离、额外整片外壳缺失或贴图闪烁。",
+  "remaining": [
+    "第一人称窗口采样不能证明任意角度和所有动作组合；原模型开放机械结构仍保留",
+    "技能和跳跃仅作输入采样，未穷尽技能选型、单手、攀墙与全部中断节点的实机组合；完整索引、事件和全部绝对帧另行核对",
+    "空场保持记录无击杀，未验证击杀累计变化；屏幕画布、绑定和读数位置已核对",
+    "本轮未重新回录声音，主观爆音听感尚未最终验收",
+    "本轮未重新进行两次实机单发角度测量；六格相位和非开火静止沿用已核对控制逻辑及编译轨道",
+    "没有公共服务器长期共存测试"
+  ],
+  "surface_findings": {
+    "body_faces": 26733,
+    "magazine_faces": 2082,
+    "original_mesh_retained": true,
+    "added_support_faces_corrected": 24,
+    "material_maps": 7,
+    "rgba_preserved": [
+      "col",
+      "ilm"
+    ],
+    "opaque": true,
+    "no_glow": true,
+    "stock_config_source_edited": false
+  },
+  "state": "Final B20-file package remains installed. Actual game24712 gracefully exited after final sampling; final-state.json confirms absent. Existing CFG source/loadout unchanged.",
+  "capture": "Foreground CopyFromScreen982x591 window entirely within1024x768 desktop; PrintWindow output not used as visual evidence. Runtime evidence includes only final B captures. Initial A and obstructed switch attempts retained locally but excluded from release sequences."
+}

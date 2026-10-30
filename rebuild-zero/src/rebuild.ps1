@@ -28,6 +28,7 @@ PythonStep 'test_rui_native.py'
 PythonStep 'test_finish_idempotent.py'
 PythonStep 'test_delta_defaults.py'
 PythonStep 'build_materials.py'
+PythonStep 'test_material_channels.py'
 & $python "$utilities\rpak_segments.py" "$taskRoot\build\materials\paks\prowler_zero.rpak" --fix
 if($LASTEXITCODE -ne 0){throw 'RPAK segment check failed'}
 PythonStep 'build_audio.py' $blenderPython
@@ -51,6 +52,10 @@ foreach($world in @(@{path="$taskRoot\build\compiler_game\models\weapons\car101\
  & $x86 -NoProfile -ExecutionPolicy Bypass -File "$utilities\decode_native_pose.ps1" -ModelPath $world.path -OutputPath "$taskRoot\build\$($world.file)" -Names '*'
  if($LASTEXITCODE -ne 0){throw 'World decoding failed'}
 }
+# Decode every frame of every absolute descriptor, including non-inline transitions.
+& $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot/decode_dynamic.ps1"
+if($LASTEXITCODE -ne 0){throw 'Full dynamic decode failed'}
+BlenderStep 'verify_dynamic.py'
 BlenderStep 'verify_compiled.py'
 BlenderStep 'verify_firing_grip.py'
 BlenderStep 'test_view_placement.py'
@@ -62,6 +67,7 @@ PythonStep 'audit_animation_order.py'
 PythonStep 'stage_package.py' -Arguments @('--stage-only')
 BlenderStep 'test_motion_policy.py'
 BlenderStep 'test_refinements.py'
+BlenderStep 'test_dynamic_integrity.py'
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
 if($Render){

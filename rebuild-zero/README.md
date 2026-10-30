@@ -1,12 +1,14 @@
-# Prowler CAR Scavenger 0.2.7
+# Prowler CAR Scavenger 0.2.8
 
-Independent Prowler Scavenger rebuild for Titanfall 2/R2Vanilla. This candidate addresses user-reported idle jitter, continuous drum rotation, missing crouch stance, sprint posture and harsh audio. Actual observations and unresolved combinations are recorded in the hash-keyed runtime-verification.json; a successful build is not complete visual acceptance.
+Independent Prowler Scavenger rebuild for Titanfall 2/R2Vanilla. This candidate corrects left-handed sprint selection and missing equip/holster trajectories, lowers the external kill counter, fixes reversed support faces and preserves original texture channels. Prior drum/crouch/audio repairs remain. Actual observations and unresolved combinations are recorded in the hash-keyed runtime-verification.json; a successful build is not complete visual acceptance.
 
 ## Motion
 
 The standing/ADS autoplay entries contain exact zero offsets. Base nonattack clips do not spin the drum; a separate shot-index phase holds the last chamber position. Other native reactive animation is confined to attack clips. Native grip and coherent full/late reload timelines are retained.
 
-Sprint uses the full original sprint_althand_anim_0 raised, single-hand cycle, following the user's Wraith/Bangalore reference direction. It includes the free hand motion. Entry/exit blends hierarchy locals so attachments remain rigid. Fixed-eye geometry and actual sprint/stop observations are required. Wraith and Bangalore character settings resolve to pilot_survival_closer and pilot_survival_firesupport; those exported settings do not by themselves prove the complete native first-person animation selection graph.
+Sprint uses the full native RIGHT-hand sprint_onehanded_0 cycle, including free-hand movement. 0.2.7 mistakenly used its LEFT-hand counterpart sprint_althand_anim_0. Native sprint equip/holster clips keep their original hidden endpoints; a fading rigid transform aligns only their sprint ends. Normal sprint raise uses sprintraise_0 or sprintraise_regrip_0 and restores two-handed grip. True one-handed raise remains separate. The original camera and gun/hand contacts stay intact. Wraith/Bangalore settings identify closer/firesupport but do not prove their full animation selection graphs; this is a native right-hand style adaptation.
+
+The two absolute crouch2idle_seq rows retain the native crouch_to_idle_0 transition. The iron/ADS row now uses the ADS anchor instead of the hip anchor. Stock DELTA motions are preserved and correctly labeled stock_delta in the audit. All absolute descriptors, including masked wind layers, author the same rigid screen seat.
 
 R2's original viewmodel code drives only sprintfrac, velocity and ads_blend. A minimal CLIENT controller drives prowler_crouch: canted hip hold persists through firing, and fades out for reload/fast movement; ADS stays neutral. The offset derives from original CAR crouch cant/translation, applied coherently to gun and both hands. Extracted Apex crouch aliases contain breathing with identity endpoints, not a distinct recovered hold.
 
@@ -14,7 +16,13 @@ The original124 descriptor and97 sequence prefixes, activities, events and flags
 
 Each ammo decrement advances one of six drum chambers (60degrees); phase persists after firing and does not rewind on reload. Rotor attack tracks are neutral, replacing native multiple-turn overtravel. Other reactive firing channels remain native. Reload ammo increases do not count as shots. The trigger shoulder is fitted independently of support-arm reach, reducing neutral right-wrist bend from40.04 to25.23degrees while preserving source-native gun/wrist/finger contacts.
 
-External ProScreen moves2units forward on the receiver and uses two small stand-offs anchored to static body geometry, not a rotor. View/world housing and RUI share the same mount. Ray tests require the entire numeric canvas to remain clear of the gun, including the original ammo window.
+External ProScreen is lower and attached to the receiver side with two short supports on static body geometry. Correct native bind axes are X=side, Y=height, Z=forward. The seat changes from (1.047551,49.6,7) to (1.047551,47,11): down2.6 and truly forward4 units. The previous claim that raising Y moved it forward was incorrect. View/world housing and RUI share the same mount. Projection, four corners plus canvas center, receiver contacts and every support triangle winding are checked.
+
+## Surfaces and materials
+
+The full native body26733 and magazine2082 faces are retained. Their converted winding agrees with the original TF2 renderer; reversing the whole body would be wrong. Only the24 added support faces had opposite winding, fixed in view and world. Native open mechanical gaps remain; sampled views are not proof of every possible angle.
+
+All7 maps remain. Base-color RGBA and colored ILM RGBA now survive conversion, rather than forcing base alpha and grayscaling ILM. The R2 material stays opaque and no-glow. Original and converted rasterizer/depth state were compared; sampler flags match. In-game queries show mat_depthtest_force_disabled and mat_bumpmap from the old CFG are unrecognized and mat_fullbright is0; no CFG change was made and those text entries were not assumed to be active causes.
 
 ## RUI
 
@@ -36,8 +44,8 @@ Structural references: HK560 Malorian0.1.0, Creamy CAR1.3.1 and CNS144 Mythic R3
 
 ## Build
 
-Set src/config.json to the original extracted assets and existing tools. Run src/rebuild.ps1 for all assets. src/validate_view.ps1 reuses world/material/audio outputs; after audio changes run src/build_audio.py with Blender's bundled Python first. Required tools include Blender5.2, StudioMDL, MDLShit, x86 PowerShell/Crowbar and workbench readers.
+Set src/config.json to the original extracted assets and existing tools. Run src/rebuild.ps1 for all assets. src/validate_view.ps1 rebuilds view and world, reusing material/audio outputs; after material changes run src/build_materials.py and src/tools/rpak_segments.py --fix, and after audio changes run src/build_audio.py with Blender's bundled Python first. Required tools include Blender5.2, StudioMDL, MDLShit, x86 PowerShell/Crowbar and workbench readers.
 
-Checks cover raw deltas, repeat finishing, native RUI corners/UVs, screen placement, projected sprint geometry, controller/autoplay contracts, active nonattack rotor channels, audio routing, inverse binds/native contacts and968 compiled reload frames. Script-load logs are insufficient: verify visible crouch and movement transitions in game.
+Checks cover raw deltas, repeat finishing, native RUI corners/UVs, screen placement, projected sprint geometry, controller/autoplay contracts, active nonattack rotor channels, audio routing, inverse binds/native contacts and968 compiled reload frames. Every frame of all absolute descriptors is decoded separately:2476 frames across80 absolute descriptors including reference, with hip-relative gun error<0.02, grip error<0.02, gun angle error<0.1degree and screen relative error<0.01. The absolute position compression bound is0.05: Vector48 truncation of fixed hip37.312496 to37.28125 contributes0.031246units, recorded separately from motion/contact error. 51 unit tests plus structural/native checks are required. Script-load logs are insufficient: verify visible crouch and movement transitions in game.
 
 Build scripts do not install or launch the game. The package contains one production client stance controller, with no CFG, DLL, executable or diagnostic script. Existing user configuration/loadouts remain preserved. All work artifacts stay on D:.

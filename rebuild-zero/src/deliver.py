@@ -24,7 +24,7 @@ with (OUT/'bone-audit.csv').open('w',encoding='utf-8-sig',newline='') as f:
  w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
 for name in ('source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
-for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json'):
+for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
 for name in ('rui-layout-validation.json','audio-report.json','proscreen-data.json'):
  if (BUILD/name).exists():shutil.copy2(BUILD/name,OUT/name)
@@ -42,7 +42,7 @@ for i,sample in enumerate(runtime['samples'][:6]):
  x=(i%2)*960;y=80+(i//2)*370;im=Image.open(p).convert('RGB').resize((960,540));sheet.paste(im.resize((640,360)),(x,y))
  # Beside each complete frame, show the weapon crop at readable resolution.
  original=Image.open(p).convert('RGB');w,h=original.size
- bounds=(0,round(h*.05),round(w*.48),round(h*.98)) if sample['name']=='sprint' else (round(w*.49),round(h*.39),round(w*.985),round(h*.97))
+ bounds=(round(w*(.36 if sample['name']=='crouch' else .49)),round(h*.05 if sample['name']=='sprint' else h*.32),round(w*.985),round(h*.97))
  crop=original.crop(bounds).resize((320,210));sheet.paste(crop,(x+640,y+30));draw.text((x+648,y+248),sample['label'],font=small,fill='white')
 sheet.save(OUT/'runtime-check.png')
 for name,relative in runtime.get('sequences',{}).items():
@@ -61,11 +61,15 @@ report=f'''# {version} 参考结构修改与实机复测
 
 本轮参考了 [HK560 马洛里安](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[Creamy CAR](https://thunderstore.io/c/northstar/p/Creamy_jpg/CAR_Pastel_Perfection/) 和 [CNS144 R301](https://thunderstore.io/c/northstar/p/CNS144/Mythic_R301_apex_R201/) 的骨架、序列表、增量动画编码及 bodygroup 结构；未复制其资产。
 
-本版使用完整 sprint_althand_anim_0 抬枪单手跑步；下蹲斜持在腰射时保持，换弹时平滑退出后恢复。弹鼓每发推进一个60度弹舱，停火保持定位；击杀屏前移2单位并用两个固定枪身支脚支撑。右肩单独求解，持枪右腕弯曲由40.04度降至25.23度，原生握持接触点不变。保留前版弹药 RUI 原始区域与音频事件修正。完整说明见 BUILD_README.md。
+本版修正0.2.7误用左手跑步的问题，改用完整原生右手 sprint_onehanded_0。跑步掏枪、收枪保留原生出入画端点，只对跑步端作平滑刚体衔接；普通跑步抬枪以原生双手握持结束，单手分支独立。蹲姿恢复的瞄准分支改用ADS基准，原生增量层的来源标记同步纠正。
+
+外接击杀计数器从(1.047551,49.6,7)改到(1.047551,47,11)：原生Y轴是高度、Z轴是前方，因此实际下移2.6、前移4单位。0.2.7把增加Y误称前移，已更正。两个短支脚连接固定枪身，并修正第一/第三人称24个支脚面的反向绕序。所有绝对动画，包括受遮罩的风动层，均使用相同安装坐标。
+
+完整保留原生26733个枪身面和2082个弹匣面；原枪身绕序与TF2相符，没有整体翻转。恢复基础色RGBA及彩色ILM通道，材质继续不透明、不发光，保留七张贴图。部分机械空隙来自原模型本身；所列窗口采样未见额外整片外壳消失，不代表任意角度均已验收。既有CFG中的depthtest/bumpmap指令经实机查询为未知命令，fullbright实际为0，未修改CFG。
 
 实机结论：{runtime['conclusion']}
 
-动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移及七个弹鼓相位，合计133/98；第三人称4/4。原97个序列的活动、事件和标志不变；新增两个姿态参数及一个弹鼓相位序列，扩展原有 crouch autoplay 网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧验证见 compiled-reload-validation.json。
+动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移及七个弹鼓相位，合计133/98；第三人称4/4。原97个序列的活动、事件和标志不变；新增两个姿态参数及一个弹鼓相位序列，扩展原有 crouch autoplay 网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧换弹验证见 compiled-reload-validation.json。另对全部80个绝对描述符（含参考帧）逐帧解码，共2476帧；姿势轨迹、握持和屏幕相对位置核对见 compiled-dynamic-validation.json。51项单元测试及结构检查通过。
 
 尚未验收的范围：{'; '.join(runtime['remaining'])}
 
@@ -79,7 +83,7 @@ report=f'''# {version} 参考结构修改与实机复测
 include=[ROOT/'README.md',ROOT/'inventory.json',ROOT/'reactive-motion.json',ROOT/'stock-world.json']
 include += [p for p in (ROOT/'src').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']
 include += [p for folder in ('view','world') for p in (BUILD/folder).rglob('*') if p.is_file() and p.suffix in ('.smd','.qc')]
-include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json')]
+include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json')]
 include += [BUILD/'prowler_car101.rui',BUILD/'rui-layout-validation.json',BUILD/'audio-report.json']
 # Local task history remains in the workspace, outside public deliverables.
 manifest=[dict(path=p.relative_to(ROOT).as_posix(),sha256=sha(p)) for p in sorted(set(include)) if p.exists()]
@@ -89,7 +93,7 @@ with zipfile.ZipFile(OUT/f'Prowler-Rebuild-Source-{version}.zip','w',zipfile.ZIP
   if p.exists():z.write(p,'Prowler-Rebuild/'+p.relative_to(ROOT).as_posix())
 with zipfile.ZipFile(OUT/f'Prowler-Evidence-{version}.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(evidence.iterdir()):z.write(p,'evidence/'+p.name)
- for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
+ for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
   z.write(OUT/n,n)
 for p in OUT.glob('*.zip'):
  with zipfile.ZipFile(p) as z:assert z.testzip() is None

@@ -56,7 +56,9 @@ for n in OPTICS:restG[n]=Matrix.Translation(opticShift)@stockG[n]
 # surface contact and fixed-eye projection are checked on the compiled mesh.
 # This accessory seat does not alter gun, hand, camera or motion roots.
 proscreenScale=.65
-proscreenOrigin=Vector((1.047551,49.60,7.00))
+# Native bind axes: X=side, Y=height, Z=forward. Lower the panel and
+# seat it farther along the receiver without changing the held gun or hands.
+proscreenOrigin=Vector((1.047551,47.00,11.00))
 restG['def_c_proscreen']=Matrix.Translation(proscreenOrigin)@stockG['def_c_proscreen'].to_quaternion().to_matrix().to_4x4()
 restL=locals_(order,parent,restG)
 def mapped(n):
@@ -118,10 +120,10 @@ def select(name):
  if n.startswith('holster'):return 'holster'+tail+'_0'
  if n.startswith('raise'):return 'raise'+tail+'_0'
  if n.startswith('lower'):return 'lower'+tail+'_0'
- if n.startswith('sprintdraw'):return 'sprintdraw_0'
- if n.startswith('sprintholster'):return 'sprintholster_0'
- if n.startswith('sprintraise'):return 'sprintraise_onehanded_0' if oh else 'sprintraise_althand_seq_0'
- if n.startswith('sprint'):return 'sprint_onehanded_0' if oh else 'sprint_althand_anim_0'
+ if n.startswith('sprintdraw'):return 'draw_onehanded_0' if oh else 'sprintdraw_0'
+ if n.startswith('sprintholster'):return 'holster_onehanded_0' if oh else 'sprintholster_0'
+ if n.startswith('sprintraise'):return 'sprintraise_onehanded_0' if oh else ('sprintraise_regrip_0' if 'regrip' in n else 'sprintraise_0')
+ if n.startswith('sprint'):return 'sprint_onehanded_0'
  if n.startswith('switch_to_onehanded'):return 'switch_to_onehanded_0'
  if n.startswith('switch_to_twohanded'):return 'switch_to_twohanded_0'
  if 'iron' in n or 'idle_check' in n or 'regrip' in n:return 'crouch_to_idle_0'
@@ -177,10 +179,12 @@ holds={'idle_anim':hold_pose(), 'idle_ads_anim':hold_pose(True),CROUCH_ANIMS[0]:
 
 reloadTiming=ReloadTiming(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'))
 reloadCache={}
-def sample_absolute(c,times):
+def sample_absolute(c,times,anchor_override=None,transform_at=None):
  fit.swivel={};frames=[];checks=[]
  for t in times:
-  target=original_pose(c,t);G=fit(target)
+  target=original_pose(c,t,anchor_override)
+  if transform_at is not None:target=move_weapon_and_hands(target,transform_at(t))
+  G=fit(target)
   for hand in ('def_l_wrist','def_r_wrist'):
    before=target['def_c_base'].inverted()@target[hand];after=G['def_c_base'].inverted()@G[hand]
    stats['max_hand_gun_position_error']=max(stats['max_hand_gun_position_error'],(after.translation-before.translation).length)
@@ -229,6 +233,7 @@ for row,descriptor in stock['table'](184,92,4):
   frames=[offset_pose({n:Matrix.Identity(4) for n in order}) for _ in range(c.end+1)]
   source='neutral_autoplay'
  elif isdelta:
+  source='stock_delta'
   for old in oldframes:
    D={n:old.get(n,Matrix.Identity(4)).copy() for n in order}
    for n in order:
@@ -249,18 +254,22 @@ for row,descriptor in stock['table'](184,92,4):
    frames=[{n:M.copy() for n,M in fr.items()} for fr in fullFrames[start:start+len(oldframes)]]
    timing=dict(full_sequence=full,full_descriptor=fullDescriptor,offset=start,sample_times=times[start:start+len(oldframes)],**details)
   else:
-   if name in ('sprintdraw_seq','sprintholster_seq'):
-    # Enter/leave the selected alternate-hand cycle coherently for the gun,
-    # both arms and free fingers; do not keep a two-handed static hand target.
-    held=original_pose(clip('draw_0'),clip('draw_0').end);running=original_pose(clip('sprint_althand_anim_0'),0);fit.swivel={}
-    heldL=locals_(order,parent,held);runningL=locals_(order,parent,running)
-    for f in range(len(oldframes)):
-     t=f/max(1,len(oldframes)-1)
-     if name=='sprintholster_seq':t=1-t
-     t=t*t*(3-2*t)
-     target=globals_(order,parent,{n:lerp(heldL[n],runningL[n],t) for n in order})
-     frames.append(locals_(order,parent,fit(target)))
-   else:frames=sample_absolute(c,[c.end*f/max(1,len(oldframes)-1) for f in range(len(oldframes))])
+   times=[c.end*f/max(1,len(oldframes)-1) for f in range(len(oldframes))]
+   if name.startswith(('sprintdraw','sprintholster','sprintraise')):
+    # Preserve the native action, including hidden equip/holster endpoints and
+    # two-handed raise endpoints. Only align its sprint end to the right-hand
+    # cycle. One rigid correction keeps magazine, accessories and hands together.
+    entering=name.startswith('sprintdraw');endpoint=c.end if entering else 0
+    running=original_pose(clip('sprint_onehanded_0'),0)['def_c_base']
+    align=running@original_pose(c,endpoint)['def_c_base'].inverted()
+    def correction(t):
+     u=t/max(1,c.end);u=u*u*(3-2*u)
+     return lerp(Matrix.Identity(4),align,u if entering else 1-u)
+    frames=sample_absolute(c,times,transform_at=correction)
+   else:
+    # These absolute descriptors are the two rows of crouch2idle_seq, not
+    # weapon inspection. The ADS row must use the ADS anchor for native deltas.
+    frames=sample_absolute(c,times,anchor_override='ads_in_0' if name=='iron_anim_nod' else None)
   stats['absolute_frames']+=len(frames)
   verification.append(dict(animation=descriptor,source=source,frames=len(frames)))
  else:
@@ -272,9 +281,13 @@ for row,descriptor in stock['table'](184,92,4):
  if not name.startswith('attack_'):
   for frame in frames:
    for n in rotors:frame[n]=Matrix.Identity(4) if isdelta else restL[n].copy()
+   # Even masked stock wind/optic layers must author the new accessory seat.
+   # StudioMDL currently discards those masked channels; retaining the old CAR
+   # coordinates in SMD would break the invariant if that mask ever changes.
+   if not isdelta:frame['def_c_proscreen']=restL['def_c_proscreen'].copy()
  sourcefile=name+'.smd';write_smd(ANIM/sourcefile,order,parent,frames)
  payload[descriptor]=dict(file=sourcefile,delta=isdelta,noanimation=noanim,frames=len(frames),source=source)
- if name=='sprint_seq':payload[descriptor]['motion_policy']='full_native_alternate_hand'
+ if name=='sprint_seq':payload[descriptor]['motion_policy']='full_native_right_hand'
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
 

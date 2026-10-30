@@ -8,10 +8,10 @@ sys.path.insert(0,str(ROOT/'src/tools'))
 from mdl_lib import Mdl
 
 class Refinements(unittest.TestCase):
- def test_sprint_uses_full_alternate_hand_motion(self):
+ def test_sprint_uses_full_right_hand_motion(self):
   rig=json.loads((BUILD/'rig.json').read_text())
-  self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_althand_anim_0')
-  self.assertEqual(rig['animations']['@sprint_seq'].get('motion_policy'),'full_native_alternate_hand')
+  self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_onehanded_0')
+  self.assertEqual(rig['animations']['@sprint_seq'].get('motion_policy'),'full_native_right_hand')
 
  def test_crouch_does_not_straighten_on_every_hip_shot(self):
   code=(ROOT/'src/client/prowler_stance.nut').read_text()
@@ -20,7 +20,7 @@ class Refinements(unittest.TestCase):
 
  def test_counter_is_forward_of_previous_receiver_seat(self):
   rig=json.loads((BUILD/'rig.json').read_text())
-  self.assertGreaterEqual(rig['proscreen_mount'][1],49.6-1e-5) # float32 Vector storage
+  self.assertGreaterEqual(rig['proscreen_mount'][2],11.0-1e-5) # float32 Vector storage
 
  def test_compiled_kill_counter_canvas_is_not_occluded_by_gun(self):
   from mdl_mesh import read_mdl_mesh
