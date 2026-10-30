@@ -68,6 +68,7 @@ PythonStep 'stage_package.py' -Arguments @('--stage-only')
 BlenderStep 'test_motion_policy.py'
 BlenderStep 'test_refinements.py'
 BlenderStep 'test_dynamic_integrity.py'
+BlenderStep 'test_right_forearm.py'
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
 if($Render){

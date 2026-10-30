@@ -1,0 +1,119 @@
+﻿index,name,parent,added,vertex_influences,reason
+0,jx_c_delta,,False,0,original CAR compatibility contract
+1,jx_c_pov,jx_c_delta,False,0,original CAR compatibility contract
+2,jx_c_camera,jx_c_pov,False,0,original CAR compatibility contract
+3,def_c_hip,jx_c_delta,False,0,original CAR compatibility contract
+4,jx_c_start,jx_c_delta,False,0,original CAR compatibility contract
+5,def_c_spineA,def_c_hip,False,0,original CAR compatibility contract
+6,def_c_spineB,def_c_spineA,False,0,original CAR compatibility contract
+7,def_c_spineC,def_c_spineB,False,0,original CAR compatibility contract
+8,ja_c_propGun,def_c_spineC,False,0,original CAR compatibility contract
+9,def_c_neckA,def_c_spineC,False,0,original CAR compatibility contract
+10,jx_c_neckB,def_c_neckA,False,0,original CAR compatibility contract
+11,def_c_neckB,jx_c_neckB,False,0,original CAR compatibility contract
+12,def_c_head,def_c_neckB,False,0,original CAR compatibility contract
+13,def_l_clav,def_c_spineC,False,0,original CAR compatibility contract
+14,def_l_shoulder,def_l_clav,False,0,original CAR compatibility contract
+15,def_l_shoulderTwist,def_l_shoulder,False,0,original CAR compatibility contract
+16,def_l_elbowB,def_l_shoulder,False,0,original CAR compatibility contract
+17,def_l_shoulderMid,def_l_shoulder,False,0,original CAR compatibility contract
+18,def_l_elbow,def_l_shoulderMid,False,0,original CAR compatibility contract
+19,def_l_forearm,def_l_elbow,False,0,original CAR compatibility contract
+20,def_l_wrist,def_l_elbow,False,0,original CAR compatibility contract
+21,def_l_finIndexA,def_l_wrist,False,0,original CAR compatibility contract
+22,def_l_finIndexB,def_l_finIndexA,False,0,original CAR compatibility contract
+23,def_l_finIndexC,def_l_finIndexB,False,0,original CAR compatibility contract
+24,def_l_finMidA,def_l_wrist,False,0,original CAR compatibility contract
+25,def_l_finMidB,def_l_finMidA,False,0,original CAR compatibility contract
+26,def_l_finMidC,def_l_finMidB,False,0,original CAR compatibility contract
+27,def_l_finThumbA,def_l_wrist,False,0,original CAR compatibility contract
+28,def_l_finThumbB,def_l_finThumbA,False,0,original CAR compatibility contract
+29,def_l_finThumbC,def_l_finThumbB,False,0,original CAR compatibility contract
+30,def_l_finRingCarpal,def_l_wrist,False,0,original CAR compatibility contract
+31,def_l_finRingA,def_l_finRingCarpal,False,0,original CAR compatibility contract
+32,def_l_finRingB,def_l_finRingA,False,0,original CAR compatibility contract
+33,def_l_finRingC,def_l_finRingB,False,0,original CAR compatibility contract
+34,def_l_finPinkyA,def_l_finRingCarpal,False,0,original CAR compatibility contract
+35,def_l_finPinkyB,def_l_finPinkyA,False,0,original CAR compatibility contract
+36,def_l_finPinkyC,def_l_finPinkyB,False,0,original CAR compatibility contract
+37,def_r_clav,def_c_spineC,False,0,original CAR compatibility contract
+38,def_r_shoulder,def_r_clav,False,0,original CAR compatibility contract
+39,def_r_shoulderTwist,def_r_shoulder,False,0,original CAR compatibility contract
+40,def_r_elbowB,def_r_shoulder,False,0,original CAR compatibility contract
+41,def_r_shoulderMid,def_r_shoulder,False,0,original CAR compatibility contract
+42,def_r_elbow,def_r_shoulderMid,False,0,original CAR compatibility contract
+43,def_r_forearm,def_r_elbow,False,0,original CAR compatibility contract
+44,def_r_wrist,def_r_elbow,False,0,original CAR compatibility contract
+45,def_r_finIndexA,def_r_wrist,False,0,original CAR compatibility contract
+46,def_r_finIndexB,def_r_finIndexA,False,0,original CAR compatibility contract
+47,def_r_finIndexC,def_r_finIndexB,False,0,original CAR compatibility contract
+48,def_r_finMidA,def_r_wrist,False,0,original CAR compatibility contract
+49,def_r_finMidB,def_r_finMidA,False,0,original CAR compatibility contract
+50,def_r_finMidC,def_r_finMidB,False,0,original CAR compatibility contract
+51,def_r_finThumbA,def_r_wrist,False,0,original CAR compatibility contract
+52,def_r_finThumbB,def_r_finThumbA,False,0,original CAR compatibility contract
+53,def_r_finThumbC,def_r_finThumbB,False,0,original CAR compatibility contract
+54,def_r_finRingCarpal,def_r_wrist,False,0,original CAR compatibility contract
+55,def_r_finRingA,def_r_finRingCarpal,False,0,original CAR compatibility contract
+56,def_r_finRingB,def_r_finRingA,False,0,original CAR compatibility contract
+57,def_r_finRingC,def_r_finRingB,False,0,original CAR compatibility contract
+58,def_r_finPinkyA,def_r_finRingCarpal,False,0,original CAR compatibility contract
+59,def_r_finPinkyB,def_r_finPinkyA,False,0,original CAR compatibility contract
+60,def_r_finPinkyC,def_r_finPinkyB,False,0,original CAR compatibility contract
+61,def_l_thigh,def_c_hip,False,0,original CAR compatibility contract
+62,def_l_knee,def_l_thigh,False,0,original CAR compatibility contract
+63,def_l_ankle,def_l_knee,False,0,original CAR compatibility contract
+64,def_l_ball,def_l_ankle,False,0,original CAR compatibility contract
+65,def_l_kneeB,def_l_thigh,False,0,original CAR compatibility contract
+66,def_r_thigh,def_c_hip,False,0,original CAR compatibility contract
+67,def_r_knee,def_r_thigh,False,0,original CAR compatibility contract
+68,def_r_ankle,def_r_knee,False,0,original CAR compatibility contract
+69,def_r_ball,def_r_ankle,False,0,original CAR compatibility contract
+70,def_r_kneeB,def_r_thigh,False,0,original CAR compatibility contract
+71,ja_l_propHand,def_l_wrist,False,0,original CAR compatibility contract
+72,ja_r_propHand,def_r_wrist,False,0,original CAR compatibility contract
+73,weapon_bone,ja_c_propGun,False,0,original CAR compatibility contract
+74,def_c_proscreen,weapon_bone,False,807,original CAR compatibility contract
+75,ja_ads_attachment,def_c_proscreen,False,1900,original CAR compatibility contract
+76,def_c_acgs,ja_ads_attachment,False,2389,original CAR compatibility contract
+77,def_c_base,weapon_bone,False,16183,original CAR compatibility contract
+78,def_c_cro,ja_ads_attachment,False,3519,original CAR compatibility contract
+79,def_c_bolt,def_c_base,False,0,original CAR compatibility contract
+80,def_c_sight_on,def_c_base,False,0,original CAR compatibility contract
+81,muzzle_flash,def_c_base,False,0,original CAR compatibility contract
+82,def_c_holo,ja_ads_attachment,False,3852,original CAR compatibility contract
+83,def_c_magazine,def_c_base,False,1937,original CAR compatibility contract
+84,def_c_magazine1,def_c_base,False,0,original CAR compatibility contract
+85,def_c_reactive_power_switch,def_c_base,True,52,native weighted mechanism or parent dependency
+86,def_c_reactive_wheel_1,def_c_base,True,124,native weighted mechanism or parent dependency
+87,def_c_reactive_wheel_2,def_c_base,True,124,native weighted mechanism or parent dependency
+88,def_c_reactive_wheel_3,def_c_base,True,124,native weighted mechanism or parent dependency
+89,def_c_reactive_wheel_4,def_c_base,True,124,native weighted mechanism or parent dependency
+90,def_c_reactive_spinner_coils,def_c_base,True,2108,native weighted mechanism or parent dependency
+91,def_c_reactive_tube_top,def_c_base,True,477,native weighted mechanism or parent dependency
+92,def_c_reactive_tank_nut_lower,def_c_base,True,52,native weighted mechanism or parent dependency
+93,def_c_reactive_tank_nut_upper,def_c_base,True,40,native weighted mechanism or parent dependency
+94,def_c_reactive_top_nut,def_c_base,True,52,native weighted mechanism or parent dependency
+95,def_c_reactive_front_nut,def_c_base,True,44,native weighted mechanism or parent dependency
+96,def_c_reactive_wingnut,def_c_base,True,111,native weighted mechanism or parent dependency
+97,def_l_reactive_top_fitting,def_c_base,True,142,native weighted mechanism or parent dependency
+98,def_r_reactive_top_fitting,def_c_base,True,142,native weighted mechanism or parent dependency
+99,def_c_reactive_mag_release,def_c_base,True,223,native weighted mechanism or parent dependency
+100,def_l_reactive_tube_bottom,def_c_base,True,192,native weighted mechanism or parent dependency
+101,def_l_reactive_tube_top,def_c_base,True,252,native weighted mechanism or parent dependency
+102,def_r_reactive_tube_top,def_c_base,True,161,native weighted mechanism or parent dependency
+103,def_r_reactive_tube_bottom,def_c_base,True,96,native weighted mechanism or parent dependency
+104,def_c_reactive_barrel,def_c_base,True,450,native weighted mechanism or parent dependency
+105,def_c_reactive_spinner_1,def_c_base,True,290,native weighted mechanism or parent dependency
+106,def_c_reactive_spinner_2,def_c_base,True,672,native weighted mechanism or parent dependency
+107,def_c_reactive_spring_1,def_c_base,True,277,native weighted mechanism or parent dependency
+108,def_c_reactive_spring_2,def_c_reactive_spring_1,True,413,native weighted mechanism or parent dependency
+109,def_c_reactive_spring_3,def_c_reactive_spring_2,True,517,native weighted mechanism or parent dependency
+110,def_c_reactive_spring_4,def_c_reactive_spring_3,True,415,native weighted mechanism or parent dependency
+111,def_c_reactive_spring_5,def_c_reactive_spring_4,True,413,native weighted mechanism or parent dependency
+112,def_c_reactive_spring_6,def_c_reactive_spring_5,True,406,native weighted mechanism or parent dependency
+113,def_c_reactive_spring_7,def_c_reactive_spring_6,True,401,native weighted mechanism or parent dependency
+114,def_c_reactive_spring_8,def_c_reactive_spring_7,True,448,native weighted mechanism or parent dependency
+115,def_c_reactive_spring_9,def_c_reactive_spring_8,True,314,native weighted mechanism or parent dependency
+116,def_c_reactive_spring_10,def_c_reactive_spring_9,True,181,native weighted mechanism or parent dependency
+117,def_c_bolt_end,def_c_bolt,True,160,native weighted mechanism or parent dependency

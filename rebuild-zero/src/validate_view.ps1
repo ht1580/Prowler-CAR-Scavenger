@@ -40,6 +40,7 @@ BlenderStep 'verify_dynamic.py'
 foreach($script in 'verify_compiled.py','verify_firing_grip.py','test_view_placement.py','test_sprint_visibility.py','test_world_screen.py','test_reload_timing.py','test_compiled_reload.py'){BlenderStep $script}
 BlenderStep 'test_refinements.py'
 BlenderStep 'test_dynamic_integrity.py'
+BlenderStep 'test_right_forearm.py'
 & $python "$PSScriptRoot/test_material_channels.py"
 if($LASTEXITCODE -ne 0){throw 'Original material channels discarded'}
 & $python "$PSScriptRoot\test_audio_policy.py"

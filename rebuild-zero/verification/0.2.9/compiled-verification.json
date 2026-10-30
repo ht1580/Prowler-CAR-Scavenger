@@ -1,0 +1,19 @@
+{
+  "stock_sequences": true,
+  "stock_anim_order": true,
+  "stock_attachment_names": true,
+  "bone_order": true,
+  "explicit_crouch_hold_contract": true,
+  "inverse_bind": true,
+  "bind_error": 3.4332275390625e-05,
+  "inverse_error": 8.079834515228868e-06,
+  "native_spin_samples": true,
+  "native_keys": 5412,
+  "max_native_position_error": 0.0048846854030313675,
+  "max_native_angle_error": 0.00490123627176951,
+  "max_rotor_pivot_translation": 0.0,
+  "vtx_weights": true,
+  "vertex_count": 37719,
+  "bad_vertex_weights": [],
+  "converted_contact_error": 0.012658872650563775
+}

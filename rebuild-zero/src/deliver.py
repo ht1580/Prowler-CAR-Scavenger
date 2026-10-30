@@ -24,7 +24,7 @@ with (OUT/'bone-audit.csv').open('w',encoding='utf-8-sig',newline='') as f:
  w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
 for name in ('source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
-for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json'):
+for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
 for name in ('rui-layout-validation.json','audio-report.json','proscreen-data.json'):
  if (BUILD/name).exists():shutil.copy2(BUILD/name,OUT/name)
@@ -69,7 +69,9 @@ report=f'''# {version} 参考结构修改与实机复测
 
 本轮参考了 [HK560 马洛里安](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[Creamy CAR](https://thunderstore.io/c/northstar/p/Creamy_jpg/CAR_Pastel_Perfection/) 和 [CNS144 R301](https://thunderstore.io/c/northstar/p/CNS144/Mythic_R301_apex_R201/) 的骨架、序列表、增量动画编码及 bodygroup 结构；未复制其资产。
 
-本版修正0.2.7误用左手跑步的问题，改用完整原生右手 sprint_onehanded_0。跑步掏枪、收枪保留原生出入画端点，只对跑步端作平滑刚体衔接；普通跑步抬枪以原生双手握持结束，单手分支独立。蹲姿恢复的瞄准分支改用ADS基准，原生增量层的来源标记同步纠正。
+本版针对0.2.8右手仍不自然的问题重做前臂适配。此前保留手腕接触点，却把右肘向枪身中线拉近、前臂拉直，改变了袖口和手掌附近的实际网格变形。现在保留原生右肘、前臂、手腕和手指的世界目标，仅调整上臂与锁骨，使肩部避开固定镜头；肘部辅助骨同步适配。新增实际TF2袖口/手套网格测试，覆盖持枪、瞄准、跑步、换弹、收枪与单手切换。旧版原始局部手腕角阈值不等于人体工学正确，已改为源动作姿势与实际变形核对。
+
+保留此前右侧原生跑步、原生出入画端点、双手/单手抬枪分支与ADS蹲起基准修正。
 
 外接击杀计数器从(1.047551,49.6,7)改到(1.047551,47,11)：原生Y轴是高度、Z轴是前方，因此实际下移2.6、前移4单位。0.2.7把增加Y误称前移，已更正。两个短支脚连接固定枪身，并修正第一/第三人称24个支脚面的反向绕序。所有绝对动画，包括受遮罩的风动层，均使用相同安装坐标。
 
@@ -77,7 +79,7 @@ report=f'''# {version} 参考结构修改与实机复测
 
 实机结论：{runtime['conclusion']}
 
-动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移及七个弹鼓相位，合计133/98；第三人称4/4。原97个序列的活动、事件和标志不变；新增两个姿态参数及一个弹鼓相位序列，扩展原有 crouch autoplay 网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧换弹验证见 compiled-reload-validation.json。另对全部80个绝对描述符（含参考帧）逐帧解码，共2476帧；姿势轨迹、握持和屏幕相对位置核对见 compiled-dynamic-validation.json。51项单元测试及结构检查通过。
+动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移及七个弹鼓相位，合计133/98；第三人称4/4。原97个序列的活动、事件和标志不变；新增两个姿态参数及一个弹鼓相位序列，扩展原有 crouch autoplay 网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧换弹验证见 compiled-reload-validation.json。另对全部80个绝对描述符（含参考帧）逐帧解码，共2476帧；姿势轨迹、握持和屏幕相对位置核对见 compiled-dynamic-validation.json。54项单元测试及结构检查通过。
 
 尚未验收的范围：{'; '.join(runtime['remaining'])}
 
@@ -91,7 +93,7 @@ report=f'''# {version} 参考结构修改与实机复测
 include=[ROOT/'README.md',ROOT/'inventory.json',ROOT/'reactive-motion.json',ROOT/'stock-world.json']
 include += [p for p in (ROOT/'src').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']
 include += [p for folder in ('view','world') for p in (BUILD/folder).rglob('*') if p.is_file() and p.suffix in ('.smd','.qc')]
-include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json')]
+include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json')]
 include += [BUILD/'prowler_car101.rui',BUILD/'rui-layout-validation.json',BUILD/'audio-report.json']
 # Local task history remains in the workspace, outside public deliverables.
 manifest=[dict(path=p.relative_to(ROOT).as_posix(),sha256=sha(p)) for p in sorted(set(include)) if p.exists()]
@@ -101,7 +103,7 @@ with zipfile.ZipFile(OUT/f'Prowler-Rebuild-Source-{version}.zip','w',zipfile.ZIP
   if p.exists():z.write(p,'Prowler-Rebuild/'+p.relative_to(ROOT).as_posix())
 with zipfile.ZipFile(OUT/f'Prowler-Evidence-{version}.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(evidence.iterdir()):z.write(p,'evidence/'+p.name)
- for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
+ for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
   z.write(OUT/n,n)
 for p in OUT.glob('*.zip'):
  with zipfile.ZipFile(p) as z:assert z.testzip() is None

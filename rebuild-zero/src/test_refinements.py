@@ -35,12 +35,15 @@ class Refinements(unittest.TestCase):
    hit=tree.ray_cast(Vector(),point.normalized(),point.length-.03)
    self.assertIsNone(hit[0],'native ammo housing hides the external counter canvas')
 
- def test_held_right_wrist_is_not_forced_into_a_large_bend(self):
+ def test_held_right_wrist_uses_native_elbow_frame(self):
   rig=json.loads((BUILD/'rig.json').read_text());o=rig['order'];p=rig['parent'];rest={n:Matrix(v) for n,v in rig['rest_local'].items()}
   c=Clip(SOURCE/'apex_animations/animrig/techart/mshop/weapons/class/smg/prowler/anims_prowler_base_v_animRig/draw_0.cast');N=globals_(c.order,c.parent,c.sample(c.end));target={}
   for n in o:target[n]=N[n] if n in N else (target[p[n]] if p[n] else Matrix.Identity(4))@rest[n]
-  fit=ArmFit(o,p);actual=fit(target);local=locals_(o,p,actual);q=local['def_r_wrist'].to_quaternion();axis=fit.constants['r']['wrist'].translation.normalized();twist=Quaternion(axis,2*math.atan2(Vector((q.x,q.y,q.z)).dot(axis),q.w));bend=q@twist.inverted()
-  self.assertLess(math.degrees(bend.angle),32.0,'right wrist bent40deg despite exact gun contact')
+  fit=ArmFit(o,p);actual=fit(target)
+  expected=target['def_r_elbow'].inverted()@target['def_r_wrist'];measured=actual['def_r_elbow'].inverted()@actual['def_r_wrist']
+  q=expected.to_quaternion().rotation_difference(measured.to_quaternion())
+  angle=math.degrees(2*math.atan2(Vector((q.x,q.y,q.z)).length,abs(q.w)))
+  self.assertLess(angle,.01,'native wrist frame changed by sleeve fit')
   for n in ('def_r_wrist','def_l_wrist','def_c_base'):
    self.assertLess((actual[n].translation-target[n].translation).length,.002,'wrist correction moved a native contact')
 

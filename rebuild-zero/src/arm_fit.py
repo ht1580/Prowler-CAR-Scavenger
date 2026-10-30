@@ -13,7 +13,7 @@ class ArmFit:
   for side in 'lr':
    d={n:self.body[f'def_{side}_{n}'] for n in ('shoulderMid','elbow','elbowB','forearm','wrist')}
    self.constants[side]=d
- def __call__(self,target):
+ def _fit_stock_sleeves(self,target):
   # Replacing torso/clavicle locals moves sleeves behind the eye. Solve the arms to the unchanged
   # native wrist targets; do not independently push a wrist or magazine outside the camera frame.
   L=locals_(self.order,self.parent,target)
@@ -91,4 +91,34 @@ class ArmFit:
   L['ja_c_propGun']=G[self.parent['ja_c_propGun']].inverted()@target['ja_c_propGun']
   G=globals_(self.order,self.parent,L)
   # Prop helpers are descendants of the preserved wrists. All source finger locals remain unchanged.
+  return G
+
+ def __call__(self,target):
+  G=self._fit_stock_sleeves(target);L=locals_(self.order,self.parent,G);r=self.constants['r']
+  name=lambda s:'def_r_'+s
+  reference=G[name('shoulder')].translation.copy();nativeElbow=target[name('elbow')]
+  hinge=r['elbow'].to_quaternion().axis.normalized();eq=r['elbow'].to_quaternion()
+  if Vector((eq.x,eq.y,eq.z)).dot(hinge)<0:hinge=-hinge
+  eye=target['jx_c_camera'];forward=eye.to_3x3().col[2].normalized()
+  def candidate(angle):
+   joint=r['shoulderMid']@Matrix.Translation(r['elbow'].translation)@Matrix.Rotation(angle,4,hinge)
+   shoulder=nativeElbow@joint.inverted();S=shoulder.translation
+   depth=(S-eye.translation).dot(forward)
+   cost=(S-reference).length_squared+100*max(0.,depth+1.)**2
+   return cost,angle,shoulder,depth
+  best=min((candidate(math.radians(i)) for i in range(5,171)),key=lambda x:x[0]);best=min((candidate(best[1]+math.radians(i/10)) for i in range(-9,10)),key=lambda x:x[0]);_,angle,shoulder,depth=best
+  clav=name('clav');offset=shoulder.translation-G[name('shoulder')].translation
+  L[clav]=Matrix.Translation(G[self.parent[clav]].to_3x3().inverted()@offset)@L[clav]
+  G=globals_(self.order,self.parent,L);L[name('shoulder')]=G[clav].inverted()@shoulder
+  L[name('shoulderMid')]=r['shoulderMid'].copy();L[name('elbow')]=Matrix.Translation(r['elbow'].translation)@Matrix.Rotation(angle,4,hinge)
+  G=globals_(self.order,self.parent,L)
+  for part in ('wrist','forearm'):L[name(part)]=G[name('elbow')].inverted()@target[name(part)]
+  nativeEl=target[name('shoulderMid')].inverted()@target[name('elbow')]
+  q=nativeEl.to_quaternion();nativeAngle=math.remainder(2*math.atan2(Vector((q.x,q.y,q.z)).dot(hinge),q.w),2*math.pi)
+  helper=target[name('shoulder')].inverted()@target[name('elbowB')]
+  L[name('elbowB')]=Matrix.Translation(r['elbowB'].translation)@Matrix.Rotation((angle-nativeAngle)*.5,4,hinge)@helper.to_quaternion().to_matrix().to_4x4()
+  G=globals_(self.order,self.parent,L)
+  assert (G[name('elbow')].translation-nativeElbow.translation).length<.0001
+  assert (G[name('wrist')].translation-target[name('wrist')].translation).length<.0001
+  self.last_right=dict(angle=math.degrees(angle),shoulder_shift=list(offset),eye_depth=depth)
   return G
