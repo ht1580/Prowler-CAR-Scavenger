@@ -1,5 +1,5 @@
 """Package current source and real-game evidence, keyed to the tested ZIP hash."""
-import json,hashlib,csv,zipfile,collections,shutil,sys
+import json,hashlib,csv,zipfile,collections,shutil,sys,subprocess
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[1];TASK=ROOT.parents[1];BUILD=ROOT/'build'
@@ -47,13 +47,21 @@ for i,sample in enumerate(runtime['samples'][:6]):
 sheet.save(OUT/'runtime-check.png')
 for name,relative in runtime.get('sequences',{}).items():
  folder=TASK/relative;fs=sorted(folder.glob('[0-9][0-9][0-9][0-9].png'));assert fs
- frames=[Image.open(p).convert('RGB').resize((768,432)) for p in fs]
- record=read(folder/'record.json')
- times=record.get('FrameTimes')
- if times and len(times)==len(frames):
-  interval=[max(20,round((b-a)*100)*10) for a,b in zip(times,times[1:]+[record['Seconds']])]
- else:interval=max(20,round(record['Seconds']*100/len(frames))*10)
- frames[0].save(evidence/(name+'.gif'),save_all=True,append_images=frames[1:],duration=interval,loop=0)
+ record=read(folder/'record.json');times=record['FrameTimes'];assert len(times)==len(fs)
+ ffmpeg=shutil.which('ffmpeg');assert ffmpeg,'ffmpeg is required to export gameplay evidence'
+ exportWork=TASK/'work'/('deliver-'+version);exportWork.mkdir(exist_ok=True)
+ lines=[]
+ for p,t,nextTime in zip(fs,times,times[1:]+[record['Seconds']]):
+  assert "'" not in str(p)
+  lines.extend(["file '"+p.resolve().as_posix()+"'",f'duration {max(.001,nextTime-t):.9f}'])
+ lines.append("file '"+fs[-1].resolve().as_posix()+"'")
+ listing=exportWork/(name+'.ffconcat');listing.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+ dest=evidence/(name+'.mp4')
+ run=subprocess.run([ffmpeg,'-v','error','-y','-f','concat','-safe','0','-i',str(listing),'-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-fps_mode','vfr','-an','-c:v','libx264','-preset','veryfast','-crf','21','-pix_fmt','yuv420p','-movflags','+faststart',str(dest)],capture_output=True,text=True)
+ assert run.returncode==0,run.stderr
+ oldGif=evidence/(name+'.gif')
+ if oldGif.exists():
+  assert oldGif.resolve().parent==evidence.resolve();oldGif.unlink()
  shutil.copy2(folder/'record.json',evidence/(name+'-record.json'))
 report=f'''# {version} 参考结构修改与实机复测
 
@@ -75,7 +83,7 @@ report=f'''# {version} 参考结构修改与实机复测
 
 本轮未修改配装和既有 CFG。已有准星模组关闭的原生 UI 保持原状。仅包含一个生产用途 CLIENT 蹲姿控制脚本，没有打包诊断脚本。蹲姿效果以真实站立/下蹲/恢复画面为依据，不以脚本加载日志代替验收。
 
-[实机采样图](runtime-check.png)、[逐骨骼用途](bone-audit.csv)、[运行时报告](runtime-verification.json)、[参考结构](reference-structures.json)。evidence 内 GIF 为真实窗口连续采集。原 CFG 未作源码编辑，安装前的模组及配置备份保留在本地 work 下。
+[实机采样图](runtime-check.png)、[逐骨骼用途](bone-audit.csv)、[运行时报告](runtime-verification.json)、[参考结构](reference-structures.json)。evidence 内 MP4 为真实窗口连续采集，按采集时间戳编码，无音轨；本轮不据此验收声音。原 CFG 未作源码编辑，安装前的模组及配置备份保留在本地 work 下。
 
 本版是经过所列实机采样的测试候选，完整视觉验收尚未完成，不能标为最终通过。
 '''

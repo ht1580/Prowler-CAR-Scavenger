@@ -1,0 +1,114 @@
+[
+  {
+    "name": "standing",
+    "frames": 27,
+    "source_frames": 26,
+    "seconds": 2.0,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "crouch",
+    "frames": 27,
+    "source_frames": 26,
+    "seconds": 2.0,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "sprint",
+    "frames": 40,
+    "source_frames": 39,
+    "seconds": 3.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "stop",
+    "frames": 27,
+    "source_frames": 26,
+    "seconds": 2.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "crouch-fire-reload",
+    "frames": 76,
+    "source_frames": 75,
+    "seconds": 6.12,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "ads-crouch-exit",
+    "frames": 78,
+    "source_frames": 77,
+    "seconds": 6.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "empty-reload",
+    "frames": 90,
+    "source_frames": 89,
+    "seconds": 7.0,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "interrupt-reload",
+    "frames": 84,
+    "source_frames": 83,
+    "seconds": 7.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "resume-manual",
+    "frames": 38,
+    "source_frames": 37,
+    "seconds": 2.84,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "idle-after",
+    "frames": 40,
+    "source_frames": 39,
+    "seconds": 3.12,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "run-equip-open",
+    "frames": 36,
+    "source_frames": 35,
+    "seconds": 3.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "stop-open",
+    "frames": 27,
+    "source_frames": 26,
+    "seconds": 2.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "jump",
+    "frames": 25,
+    "source_frames": 24,
+    "seconds": 1.92,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "tactical",
+    "frames": 37,
+    "source_frames": 36,
+    "seconds": 2.96,
+    "decoded": true,
+    "audio": false
+  }
+]

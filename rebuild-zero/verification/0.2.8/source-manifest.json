@@ -685,7 +685,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "0b4515f249c6f68fe5c6782620c4ddf9ae11e7604c9e74be61c7fb7cd5e03ea6"
+    "sha256": "ccba0c4fc189cc4e50dda0f38917ddd3b50a9f6ed7e50f4846d92270970d9ea4"
   },
   {
     "path": "src/arm_fit.py",
@@ -733,7 +733,7 @@
   },
   {
     "path": "src/deliver.py",
-    "sha256": "8d74bfed409fd6d058ea276015969bf4ed02d5ef18a4ac1d2d345b77c42252ba"
+    "sha256": "54838616e65e8bd95d6a756584e3b2fbdc56ef6157bc0488eb3b68d0f5015a0e"
   },
   {
     "path": "src/export_rui.py",
