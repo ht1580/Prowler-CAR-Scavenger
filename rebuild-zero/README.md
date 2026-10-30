@@ -1,49 +1,34 @@
-# Prowler CAR Scavenger — independent rebuild 0.2.1
+# Prowler CAR Scavenger 0.2.4
 
-这是从原始 Apex CAST 和 TF2 原版资源重新构建的独立工程，不以 0.1.x 生成的 SMD、QC 或模型作为生产输入。旧工程保持原状。现有解包、转换及二进制核查工具予以复用，并保存在 `src/tools/`。
+Independent rebuild from the extracted Apex Scavenger CAST model/native animation clips and original Titanfall 2 CAR contracts. The installed candidate is under real-game validation; passing asset checks is not full visual acceptance.
 
-当前状态：完整离线构建和数据核对通过；尚未完成实机画面验收。不得把日志中的模组/材质加载记录视作游戏视觉效果已通过。
+## Reference work
 
-## 0.2.1：修复整体视角与 ProScreen
+Compared downloaded packages from HK560 (Malorian Arms 3516 0.1.0), Creamy_jpg (CAR Pastel Perfection 1.3.1), and CNS144 (Mythic R301 apex R201 0.1.2). Their model headers, sequence tables, animation flags and bodyparts were inspected. CNS144 ReactiveEvo Volt 1.0.1 was downloaded but its VPK contents have not been inspected. No reference model, texture or audio is redistributed here.
 
-0.2.0 的参考动画根骨被 StudioMDL 额外旋转 +90°，导致 `subtract(ref)` 生成的待机叠加层带有 -90° 根骨旋转。旧检查只比较手/枪相对关系，旧渲染相机也跟随骨骼，因而漏检整体离开固定游戏视野的问题。现在仅对参考动画根骨补偿编译器坐标变换，保留原生绝对动作与网格绑定；逐帧核查参考/绑定一致和待机根骨、相机不被偏移。
+All three inspected ports retain the original weapon sequence interface and only idle_seq_autoplay. Their animation descriptors encode explicit offset poses, with DELTA on the consuming sequence. Bone counts differ (85, 118 and 163), so count alone cannot identify unnecessary bones. HK560 and Creamy's full animation decode fails in the current Crowbar reader; no recovered default poses were accepted as motion evidence.
 
-ProScreen 从后部立管重新安置到原生机匣侧面；按原外壳背面与原始表面 x=0.772 推导安装位置，保留 0.01 单位间隙，外壳和 RUI 共享 0.65 缩放与同一骨骼。4 项新增位置检查和 8 项原有检查通过。固定原版相机、叠加实际解码待机层的对照在 70/90/100° 水平 FOV 下重现旧版枪模完全不可见，并确认新版枪模进入画面。此 FOV 扫描仅用于离线核查，不修改游戏 FOV。
+## Repairs in this candidate
 
-安装更新应完整替换旧同名模组，避免保留旧 MDL。0.2.0 是已知有视角错误的旧版。0.2.1 仍未实机验收。`render_placement.py` 是额外的前后对照工具，需要工作目录中的旧版解码快照；正常生产构建不依赖旧版资产。
+- Fixed MDLShit's omitted-position conversion: v49 delta tracks without position data were being filled with bind positions in v53. Firing wrists consequently contained about +/-10 units and the rotor about 6 units instead of zero. The targeted converter post-pass checks original track flags; intentional animation is retained.
+- Made embedded RUI finishing repeatable: positions are always derived from the unmodified stock template, never re-scaled from already modified data.
+- Fixed the validation reader: strict decode failures are no longer swallowed, and stored RAWPOS values are read literally. Crowbar's RAWPOS+DELTA shortcut otherwise masks the converter defect.
+- Generate explicit offset SMD tracks, preserving the original CAR sequence flags, activities, events, indices and masks. Compensate the absolute root axis conversion. Canonicalize truly constant zero position channels to exact zero without loosening the rotor tolerance.
+- Use the original native right-hand sprint_onehanded_0 for the normal sprint loop. Native sprint_0 places the gun behind the fixed original eye halfway through; the chosen variant keeps the weapon in front while preserving native grip.
+- Seat the external CAR ProScreen on the receiver side, with shared 0.65 housing/RUI scale and a surface-derived backplate clearance. This changes the accessory mount only; it does not move the gun, camera or hands. The external kill counter is separate from the ammo display. The world-model screen uses the same receiver seat and 0.65 scale through the world grip fit. All three world optics use the corresponding viewmodel gun-relative seats. The world iron bodygroup now contains the native Prowler rear sight, replacing the detached stock CAR mesh.
 
-## 构建
+## Skeleton and validation
 
-1. 检查 `src/config.json` 中的原始资源、CAST 解析库和本机工具路径。
-2. 运行 `src/rebuild.ps1 -Render`。它会重新生成视角/世界模型、动画、材质、声音，编译并转换为 MDL v53，反向解码验证，运行回归检查，再打包。
-3. 已生成的 SMD/QC 位于 `build/view/` 和 `build/world/`。只重编译模型可运行 `src/compile_models.ps1`、`src/finish_models.py`；仍需要本机编译器、转换器和原版 RUI。
+Viewmodel: original 85-bone CAR prefix plus 33 source-weighted mechanism bones, 118 total. Parent dependencies, vertex influences, native animation channels and existing attachments are audited rather than deleting unweighted compatibility bones. World model retains 14 bones and original world sequence interface.
 
-需要 Blender 5.2（含 mathutils / numpy）、Source Filmmaker StudioMDL、MDLShit、Crowbar 0.74（由 x86 PowerShell 反射调用）、texconv、RePak 1.2、ffmpeg、Python/Pillow。工具二进制与原始游戏资源不在源码包中；本机已经存在，配置文件记录了路径。
+0.2.4 also aligns full reload magazine cues to CAR milestones, distinguishes insertion from empty-reload bolt filling, and derives all late segments from the same complete timeline using READYTOFIRE offsets (34/55 frames). Restore authoritative constant body channels before Vector48 compression to avoid full/resume quantization seams.
 
-## 主要实现
+Current asset checks: 2 raw-delta tests, 7 placement/screen checks, 1 sprint check, 2 world-accessory/native-iron checks, 9 artifact checks, 1 repeated-finish stability check, plus compiled native-motion/contact/inverse-bind checks. Source sampling covers 2,093 absolute frames; native mechanism comparisons cover 5,412 samples; compiled firing and idle grip checks cover 1,772 hand samples. Reload validation adds 3 source-timeline tests, 2 compiled-timeline tests covering 968 frames, and a model-hash check in the artifact tests (27 unit tests total). These numbers describe offline validation, not every possible game state.
 
-- 保留 CAR 第一人称 85 根骨骼的名称、顺序与父级，追加 33 根有原始权重、独立运动或必要父级用途的机构骨，共 118 根；没有无引用的新增骨骼。
-- 使用原始 CAST 的拔枪、开镜、换弹、冲刺等动作；手、枪身和弹匣使用同一时间采样。TF2 手臂通过双骨 IK 适配，保持原始手腕与道具的世界位置，不再独立将手推离镜头。
-- 开火时公共手臂和枪身也采用原生反应皮动作，经手臂适配后计算增量；不再保留 CAR 公共射击层来替代原生握持运动。
-- 原生反应皮机构运动写入现有开火和待机 autoplay 描述符，不增加自定义开火序列或姿态参数。待机的公共动作曲线重采样到机构循环的周期，两端闭合。
-- CAR 原有 124 个动画描述符、97 个序列、30 个附件、3 个姿态参数保持索引；第三人称保留 14 根原版骨骼、附件、事件和 4 个序列；没有追加独立的世界反应皮机构动画。
-- 原始贴图重新编码为 RPak；不发光。原始 WAV 重新解码并按 CAR 节奏重排，按实际音频库的大小写定义 71 个事件覆盖。
-- 武器 KeyValues 只指定模型路径，不修改 CFG、数值、射速、准星或视场角。
+Real-game observations, unresolved items and the exact installed ZIP hash are recorded separately in runtime-verification.json and the delivery report. Earlier 0.2.0/0.2.1 reference-root explanations were superseded; do not reuse those reports as current evidence. In particular, a reference animation is not required to equal the bind-pose root.
 
-## 验证
+## Build
 
-- 2,093 帧绝对动画验证原生握持关系。
-- 转换后逐帧核对 164 个开火帧、722 个待机帧；共 1,772 次双手相对枪身的原生姿态对照。
-- 检查骨骼逆绑定矩阵、嵌入的 VVD/VTX、硬件骨骼槽映射、三角面绕序、序列与事件、音频事件、ZIP 与暂存目录的一致性。
-- 从原始 VTX 重建世界瞄具时会显式翻转面顺序以适配 SMD 编译约定；回归检查与原版的表面法线及面朝向比较。
-- 实际 TF2 手臂与成品武器网格用于离线渲染。`Visual_Validation.blend` 是烘焙蒙皮检查场景；完整骨架和动画源见生成的 SMD/QC。
+Edit src/config.json to point at the original extracted inputs and installed tools. Run src/rebuild.ps1 for all assets, or src/validate_view.ps1 when reusing the verified world/material/audio build. Blender 5.2, StudioMDL, the local MDLShit build, x86 PowerShell/Crowbar and the workbench RUI/RPAK tools are required. Original Apex assets and reference packages are not bundled in the source archive. All generated intermediates stay in this D: task directory.
 
-## 参考与验证边界
-
-- [HK560 Malorian Arms 3516 0.1.0](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)：活动零件在原有攻击描述符中运动，成品有 118 根骨骼。
-- [NachosChipeados Apex Legends Car 1.0.0](https://thunderstore.io/c/northstar/p/NachosChipeados/Apex_Legends_Car/)：CAR 替换的原有表结构。
-- [Echo_XI Apex Reactive R99 Model 1.0.1](https://thunderstore.io/c/northstar/p/Echo_XI/Apex_Reactive_R99_Model/)：反应皮与原有 autoplay/开火入口。
-
-本轮已用独立 D: profile 启动现有启动器，确认候选资源可以加载；但没有取得可用的实机持枪画面。禁用重建模组的训练关基线遇到 `SaveRecordedAnimation` 未定义的原版脚本错误，本地多人尝试也未进入可验收场景。桌面抓屏出现黑屏、被遮挡或陈旧图像；这些图片不作为实机证明。临时测试进程已停止，用户设置、CFG 与存档的 4 个文件均核对与备份哈希一致。
-
-诊断 profile 和临时 UI/client 脚本仅存在于工作目录，不包含在安装包或生成的生产资产中。实机连射、停火、跨姿态过渡与其他 profile 模组共存仍待确认。
+The build scripts do not install or launch the game. Diagnostic game-input tools are not packaged in the mod. The mod contains no CFG, DLL or production NUT script. Existing user CFG and loadouts must be preserved.

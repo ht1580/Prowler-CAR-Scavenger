@@ -93,6 +93,17 @@ class Clip:
    self.curves.setdefault(c.NodeName(),{})[prop]=(keys,values);self.end=max(self.end,max(keys));self.modes.add(c.Mode())
   assert len(self.modes)==1,self.modes
   self.additive=self.modes=={'additive'};self.fps=self.animation.Framerate()
+  # Some extracted native additive clips carry a constant -90-degree root basis.
+  # It is an import coordinate convention, not an animated turn. Keep raw sampling
+  # intact; normalize only verified constant quarter-turn roots in sample_pose().
+  self.additive_root_basis={}
+  if self.additive:
+   quarter=Quaternion((0,0,1),-math.pi/2)
+   for n in self.order:
+    if self.parent[n] is not None or 'rq' not in self.curves.get(n,{}):continue
+    values=self.curves[n]['rq'][1];firstq=values[0]
+    if abs(firstq.dot(quarter))>1-1e-6 and all(abs(q.dot(firstq))>1-1e-6 for q in values):
+     self.additive_root_basis[n]=matrix((0,0,0),firstq)
  def sample(self,frame):
   frame=max(0.,min(self.end,float(frame)));out={}
   for n in self.order:
@@ -103,6 +114,10 @@ class Clip:
     elif prop in ('tx','ty','tz'):p['xyz'.index(prop[1])]=values[i]+(values[j]-values[i])*t
     elif prop in ('sx','sy','sz'):assert abs(values[i]-1)<.001,'Scale animation needs explicit skinning support'
    out[n]=matrix(p,q)
+  return out
+ def sample_pose(self,frame):
+  out=self.sample(frame)
+  for n,basis in self.additive_root_basis.items():out[n]=basis.inverted()@out[n]
   return out
 
 def model():

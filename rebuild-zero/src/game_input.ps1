@@ -9,7 +9,7 @@ public static class ProwlerGameInput {
  [DllImport("user32.dll")] public static extern uint SendInput(uint count,INPUT[] input,int size);
  [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
  public static void Key(ushort vk){var a=new INPUT[2];a[0].type=a[1].type=1;a[0].data.key.vk=a[1].data.key.vk=vk;a[1].data.key.flags=2;SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));}
- public static void Text(string text){foreach(char c in text){var a=new INPUT[2];a[0].type=a[1].type=1;a[0].data.key.scan=a[1].data.key.scan=c;a[0].data.key.flags=4;a[1].data.key.flags=6;SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));}}
+ public static void Text(string text){foreach(char c in text){var a=new INPUT[2];a[0].type=a[1].type=1;a[0].data.key.scan=a[1].data.key.scan=c;a[0].data.key.flags=4;a[1].data.key.flags=6;SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));System.Threading.Thread.Sleep(25);}}
 }
 '@
 $testPid=[int](Get-Content (Join-Path (Split-Path $PSScriptRoot -Parent) 'current-test-pid.txt'))

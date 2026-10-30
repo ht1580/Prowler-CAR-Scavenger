@@ -21,19 +21,27 @@ rest={n:v.copy() for n,v in G.items()};rig=json.loads((BUILD/'rig.json').read_te
 # named/indexed exactly as stock; the stock l_hand_ik is the grip hand, r_hand_ik the support hand.
 for n in order:
  if n not in ('ja_c_propGun','weapon_bone','def_c_base','l_hand_ik','r_hand_ik'):G[n]=base@T@base.inverted()@G[n]
+# The CAR screen is a separate bodygroup, not part of the native Prowler mesh.
+# Carry the verified viewmodel receiver seat through the same world grip fit.
+viewBase=Matrix(rig['rest_global']['def_c_base'])
+for n in ('def_c_proscreen','def_c_holo','def_c_acgs','def_c_cro'):
+ G[n]=base@T@viewBase.inverted()@Matrix(rig['rest_global'][n])
 lc=stockHeld['def_c_base'].inverted()@stockHeld['ja_l_propHand'];lp=held['def_c_base'].inverted()@held['ja_l_propHand']
 G['r_hand_ik']=base@T@lp@lc.inverted()@base.inverted()@rest['r_hand_ik']
 L=locals_(order,parent,G)
-material=r'models\Weapons_R2\prowler_zero\scavenger';triangles=[]
+material=r'models\Weapons_R2\prowler_zero\scavenger';triangles=[];ironTriangles=[]
 for mesh in native.Meshes():
- if not mesh.Name().startswith(('body_0','clip_0','sight_front_1','sight_on')):continue
+ isIron=mesh.Name().startswith('sight_rear_1')
+ if not isIron and not mesh.Name().startswith(('body_0','clip_0','sight_front_1','sight_on')):continue
  vb=mesh.VertexPositionBuffer();norm=mesh.VertexNormalBuffer();uv=mesh.VertexUVLayerBuffer(0);fb=mesh.FaceBuffer();R=place.to_3x3()
  for k in range(0,len(fb),3):
   vs=[]
   for v in fb[k:k+3]:vs.append((place@Vector(vb[v*3:v*3+3]),(R@Vector(norm[v*3:v*3+3])).normalized(),tuple(uv[v*2:v*2+2]),[('def_c_base',1.)]))
-  triangles.append((material,vs))
+  (ironTriangles if isIron else triangles).append((material,vs))
 assert triangles,'Original world CAST mesh names need explicit mapping'
 write_smd(OUT/'body.smd',order,parent,[L],triangles)
+assert ironTriangles,'Native world rear sight is required for the iron bodygroup'
+write_smd(OUT/'native_iron.smd',order,parent,[L],ironTriangles)
 stockMesh=read_mdl_mesh(original);textures=[name for _,name in table(208,44)];stockParts=table(236,16);groups=[]
 vvd=data.index(b'IDSV');nv=ii(vvd+16);start=vvd+ii(vvd+56);fixcount,fixoff=ii(vvd+48,2);logical=[]
 for k in range(fixcount):
@@ -47,6 +55,7 @@ for bp,(r,name) in enumerate(stockParts):
   part=next((p for p in stockMesh['parts'] if p['bodypart']==bp and p['model']==option),None)
   if bp==0:lines.append(' studio "body.smd"');continue
   if part is None:lines.append(' blank');continue
+  if name=='car101_sight_on':lines.append(' studio "native_iron.smd"');continue
   file=f'attachment_{bp}_{option}.smd';tris=[]
   for face,materialIndex in zip(part['faces'],part['materials']):
    vs=[]
@@ -56,7 +65,10 @@ for bp,(r,name) in enumerate(stockParts):
     w=[(order[i],weight) for i,weight in stockMesh['weights'][v]]
     # Rigidly carry each stock optic by its own joint's changed transform.
     transform=G[w[0][0]]@rest[w[0][0]].inverted()
-    vs.append((transform@Vector(stockMesh['vertices'][v]),(transform.to_3x3()@normals[v]).normalized(),stockMesh['uv'][v],w))
+    if name=='proscreen':
+     position=G['def_c_proscreen']@((rest['def_c_proscreen'].inverted()@Vector(stockMesh['vertices'][v]))*rig['proscreen_scale'])
+    else:position=transform@Vector(stockMesh['vertices'][v])
+    vs.append((position,(transform.to_3x3()@normals[v]).normalized(),stockMesh['uv'][v],w))
    tris.append((textures[materialIndex],vs))
   write_smd(OUT/file,order,parent,[L],tris);lines.append(f' studio "{file}"')
  lines.append('}');groups.extend(lines)

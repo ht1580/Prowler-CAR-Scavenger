@@ -1,0 +1,133 @@
+{
+  "version": "0.2.4",
+  "zip_sha256": "9b4b27efe117b13a13f0d9d44837460f21e20e986ecefe36496d729edda837c8",
+  "viewmodel_sha256": "c9ba19366dc4b2d8007618e313cc3f0424625d1ad7aac5d8462cbc76c91d6430",
+  "game_tested": true,
+  "full_visual_acceptance": false,
+  "game_pid": 51676,
+  "profile": "R2Vanilla",
+  "map": "mp_forwardbase_kodai",
+  "mode": "private Attrition",
+  "window": [
+    1280,
+    720
+  ],
+  "installed_files_equal": true,
+  "loadout_restored": true,
+  "original_mods": [
+    "pro_screen",
+    "pas_fast_reload",
+    "tactical_cdr_on_kill"
+  ],
+  "bodygroup_states": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 1,
+    "5": 1,
+    "6": 0
+  },
+  "conclusion": "在窗口模式私人比赛中采样了普通换弹、真实0发空仓换弹、换弹中切枪与切回恢复、射击、冲刺、蹲姿和机瞄开镜；已检查的恢复动作未见原先的明显跳位，转鼓和双手保持随枪。HCOG Ranger已实际装备，ProScreen关闭/开启状态与配装一致，最终原配装已恢复。",
+  "remaining": [
+    "未逐一录制所有单手、攀墙、战术技能和换弹中断组合",
+    "运行时GetSequenceName探针不可用，具体late分支ID未在实机直接读取；12个恢复段由968帧成品解码验证",
+    "原有准星模组关闭原生UI3/UI4/UI7，未改变该配置或另行验收原生准星",
+    "未进行公共对局的长时间共存测试"
+  ],
+  "samples": [
+    {
+      "name": "holding",
+      "label": "恢复原配装持枪",
+      "path": "work/animation-order-test/original-restored-spawn-check-print.png"
+    },
+    {
+      "name": "normal_reload",
+      "label": "普通换弹",
+      "path": "work/animation-order-test/normal-reload-024/0005.png"
+    },
+    {
+      "name": "normal_resume",
+      "label": "切枪后恢复换弹",
+      "path": "work/animation-order-test/normal-resume-024/0015.png"
+    },
+    {
+      "name": "empty_reload",
+      "label": "空仓拉机柄",
+      "path": "work/animation-order-test/verified-empty-full-024/0032.png"
+    },
+    {
+      "name": "empty_resume",
+      "label": "空仓中断后恢复",
+      "path": "work/animation-order-test/verified-empty-resume-024/0040.png"
+    },
+    {
+      "name": "iron_ads",
+      "label": "机瞄开镜",
+      "path": "work/animation-order-test/verified-iron-024/0010.png"
+    }
+  ],
+  "sequences": {
+    "normal-reload": "work/animation-order-test/normal-reload-024",
+    "normal-switch-resume": "work/animation-order-test/normal-resume-024",
+    "empty-reload": "work/animation-order-test/verified-empty-full-024",
+    "empty-switch-resume": "work/animation-order-test/verified-empty-resume-024",
+    "sprint": "work/animation-order-test/sprint-024",
+    "hcog-ads": "work/animation-order-test/hcog-ads-024",
+    "iron-ads": "work/animation-order-test/verified-iron-024"
+  },
+  "gif_timing": "Frame timestamp intervals when recorded; otherwise mean interval from the original record duration. Input event times are retained in record JSON.",
+  "animation_order": {
+    "ptpov_car101": {
+      "sha256": "c9ba19366dc4b2d8007618e313cc3f0424625d1ad7aac5d8462cbc76c91d6430",
+      "animations": 124,
+      "sequences": 97,
+      "events": 246,
+      "animation_order": true,
+      "sequence_order": true,
+      "animation_references": true,
+      "events_preserved": true,
+      "sequence_flags_and_bbox": true
+    },
+    "w_car101": {
+      "sha256": "d4d8960af80ebf6f1724944c9aa91f09f70d86f3b8c3bc33e1434da8f1165261",
+      "animations": 4,
+      "sequences": 4,
+      "events": 9,
+      "animation_order": true,
+      "sequence_order": true,
+      "animation_references": true,
+      "events_preserved": true,
+      "sequence_flags_and_bbox": true
+    }
+  },
+  "compiled_reload": {
+    "model_sha256": "c9ba19366dc4b2d8007618e313cc3f0424625d1ad7aac5d8462cbc76c91d6430",
+    "frames": 968,
+    "max_resume_position_error": 0.00667667382271313,
+    "max_resume_angle_error": 0.0,
+    "magazine_phases": {
+      "reload_seq": {
+        "pull": 18,
+        "seat": 37
+      },
+      "reload_crouch_seq": {
+        "pull": 18,
+        "seat": 37
+      },
+      "reload_empty_seq": {
+        "pull": 18,
+        "seat": 37
+      },
+      "reload_empty_crouch_seq": {
+        "pull": 18,
+        "seat": 37
+      }
+    }
+  },
+  "unit_tests": 27,
+  "excluded_takes": [
+    "Earlier 0.2.3 folders named verified-redline/true-redline did not establish that optic",
+    "First 0.2.4 empty-full/empty-resume attempts began reload with rounds remaining and are not empty-reload evidence",
+    "SetModel and SetBodygroup overrides were reset by the game and are not valid baselines"
+  ]
+}

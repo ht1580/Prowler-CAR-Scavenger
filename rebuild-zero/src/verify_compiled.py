@@ -18,7 +18,7 @@ result.update(inverse_bind=inverseError<.0001,bind_error=bindError,inverse_error
 decoded=json.loads((BUILD/'native-fire.json').read_text(encoding='utf-8-sig'));maxpos=maxangle=0.;keys=0
 for pose in decoded['poses']:
  use=rig['animations'][pose['name']]['source'];c=Clip(SOURCE/'apex_animations/animrig/techart/mshop/weapons/class/smg/prowler/anims_prowler_react_v21_scavenger_v_animRig'/(use+'.cast'));raw=c.sample(min(pose['frame'],c.end));loc={order[v['index']]:v for v in pose['locals']}
- assert pose['flags']&4
+ assert rig['animations'][pose['name']]['delta']
  for n in rig['extra']:
   if n not in raw:continue
   v=loc.get(n,dict(pos=[0,0,0],rot=[0,0,0]));expected=raw[n];actual=matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion())
@@ -38,7 +38,7 @@ result.update(vtx_weights=not bad,vertex_count=len(mesh['vertices']),bad_vertex_
 # Compare converted absolute wrist/gun/magazine contact to the fresh authored SMD at sampled frames.
 absdoc=json.loads((BUILD/'native-view.json').read_text(encoding='utf-8-sig'));contact=0.
 for pose in absdoc['poses']:
- if pose['flags']&4:continue
+ if rig['animations'][pose['name']]['delta']:continue
  name=pose['name'].removeprefix('@');_,_,frames,_=smd(BUILD/'view/anims'/(name+'.smd'));expected=globals_(order,parent,frames[min(pose['frame'],len(frames)-1)])
  loc={order[v['index']]:matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion()) for v in pose['locals']};actual=globals_(order,parent,{n:loc.get(n,L[n]) for n in order})
  for hand in ('def_l_wrist','def_r_wrist'):

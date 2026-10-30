@@ -4,6 +4,9 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
 from arm_fit import ArmFit
+from reload_timing import ReloadTiming,stabilize_native_constants
+sys.path.insert(0,str(ROOT/'src/tools'))
+from mdl_lib import Mdl
 OUT=BUILD/'view';OUT.mkdir(exist_ok=True);ANIM=OUT/'anims';ANIM.mkdir(exist_ok=True)
 stock=mdldump(STOCK/'models/weapons/car101/ptpov_car101.mdl')
 so,sp,sf,_=smd(STOCK/'view/v_car101.smd');stockG=globals_(so,sp,sf[0])
@@ -28,7 +31,7 @@ def clip(name,reactive=False):
  if key not in cache:cache[key]=Clip((REACT if reactive else BASE)/(name+'.cast'))
  return cache[key]
 def original_pose(c,t,anchor_override=None):
- L=c.sample(t)
+ L=c.sample_pose(t)
  if c.additive:
   anchor=clip(anchor_override or ('draw_onehanded_0' if 'onehanded' in c.path.name else 'draw_0'))
   A=globals_(anchor.order,anchor.parent,anchor.sample(anchor.end));baseline={}
@@ -45,12 +48,13 @@ ads=clip('ads_in_0');ga=globals_(ads.order,ads.parent,ads.sample(ads.end))
 _,_,cf,_=smd(STOCK/'view/ptpov_car101_anims/ads_in_anim.smd');gc=globals_(so,sp,cf[-1])
 opticShift=ag['def_c_base'].to_3x3()@((ga['def_c_base'].inverted()@ga['jx_c_camera']).translation-(gc['def_c_base'].inverted()@gc['jx_c_camera']).translation)
 for n in OPTICS:restG[n]=Matrix.Translation(opticShift)@stockG[n]
-# Mount on the native receiver side (measured source surface x=0.772), not the rear
-# vertical pipe. Derive the bone origin from the original housing's backing plane.
+# Mount the separate CAR kill screen on the Prowler receiver side. Its scaled
+# backplate is at local X=-.165551. The chosen forward receiver patch supports
+# the backing plane and keeps the complete housing inside the held view. Both
+# surface contact and fixed-eye projection are checked on the compiled mesh.
+# This accessory seat does not alter gun, hand, camera or motion roots.
 proscreenScale=.65
-_,_,_,proscreenTriangles=smd(STOCK/'view/v_proscreen.smd')
-proscreenOffsets=[stockG['def_c_proscreen'].inverted()@v[0] for _,vs in proscreenTriangles for v in vs]
-proscreenOrigin=Vector((.772+.010-proscreenScale*min(v.x for v in proscreenOffsets),46.10,4.50))
+proscreenOrigin=Vector((1.047551,47.60,5.00))
 restG['def_c_proscreen']=Matrix.Translation(proscreenOrigin)@stockG['def_c_proscreen'].to_quaternion().to_matrix().to_4x4()
 restL=locals_(order,parent,restG)
 def mapped(n):
@@ -86,12 +90,9 @@ for name in ('v_holo.smd','v_acgs.smd','v_cro.smd','v_proscreen.smd'):
  if name!='v_proscreen.smd':tris=[(m,[(p+opticShift,n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
  else:tris=[(m,[(restG['def_c_proscreen']@((stockG['def_c_proscreen'].inverted()@p)*proscreenScale),n,uv,w) for p,n,uv,w in vs]) for m,vs in tris]
  write_smd(OUT/name,order,parent,[restL],tris)
-# StudioMDL adds +90 degrees about world Z to absolute animation roots. The compiled
-# subtract reference must match the explicit $definebone bind, not acquire that rotation.
-# Mesh bind SMDs above stay in model space; compensate only the reference animation root.
+# Absolute source and subtraction reference must share the compiler's coordinate
+# conversion. Altering only this reference rotates every stock movement delta.
 referenceL={n:M.copy() for n,M in restL.items()}
-for n in order:
- if parent[n] is None:referenceL[n]=Matrix.Rotation(-math.pi/2,4,'Z')@referenceL[n]
 write_smd(OUT/'ref.smd',order,parent,[referenceL]);write_smd(ANIM/'ref.smd',order,parent,[referenceL])
 fit=ArmFit(order,parent)
 stats=dict(source_kind='native Apex CAST',absolute_frames=0,max_hand_gun_position_error=0.,max_magazine_hand_position_error=0.,native_reactive_keys=0,max_reactive_matrix_error=0.,unused_added_bones=[n for n,c in meshconsumers.items() if not c],independent_offscreen_push=False,clips=[],extra_bones=extra)
@@ -113,15 +114,19 @@ def select(name):
  if n.startswith('sprintdraw'):return 'sprintdraw_0'
  if n.startswith('sprintholster'):return 'sprintholster_0'
  if n.startswith('sprintraise'):return 'sprintraise'+tail+'_0'
- if n.startswith('sprint'):return 'sprint'+tail+'_0'
+ # The ordinary Apex sprint swing puts the weapon behind the view eye mid-cycle.
+ # TF2's sprint state uses the original visible right-hand sprint variant instead.
+ if n.startswith('sprint'):return 'sprint_onehanded_0'
  if n.startswith('switch_to_onehanded'):return 'switch_to_onehanded_0'
  if n.startswith('switch_to_twohanded'):return 'switch_to_twohanded_0'
  if 'iron' in n or 'idle_check' in n or 'regrip' in n:return 'crouch_to_idle_0'
  return None
 
-def delta_absolute(delta):
- # SFM needs absolute local source poses and an explicit subtract(ref,0) to write actual DELTA data.
- return {n:matrix(restL[n].translation+delta[n].translation,restL[n].to_quaternion()@delta[n].to_quaternion()) for n in order}
+def offset_pose(delta):
+ # Reference ports author explicit offset poses, then mark only the consuming
+ # sequence as DELTA. Encoding these through subtract(ref) lets StudioMDL omit
+ # constant tracks and exposes incompatible defaults in the converter/runtime.
+ return {n:(Matrix.Rotation(-math.pi/2,4,'Z')@delta[n] if parent[n] is None else delta[n].copy()) for n in order}
 
 def relative_delta(base,pose):
  return {n:matrix(pose[n].translation-base[n].translation,base[n].to_quaternion().inverted()@pose[n].to_quaternion()) for n in order}
@@ -134,11 +139,35 @@ for native,car in [('draw_0','draw_seq'),('draw_onehanded_0','draw_onehanded_seq
  for f in range(len(old)):G=fit(original_pose(c,c.end*f/max(1,len(old)-1)))
  anchors[native]=locals_(order,parent,G)
 
+reloadTiming=ReloadTiming(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'))
+reloadCache={}
+def sample_absolute(c,times):
+ fit.swivel={};frames=[];checks=[]
+ for t in times:
+  target=original_pose(c,t);G=fit(target)
+  for hand in ('def_l_wrist','def_r_wrist'):
+   before=target['def_c_base'].inverted()@target[hand];after=G['def_c_base'].inverted()@G[hand]
+   stats['max_hand_gun_position_error']=max(stats['max_hand_gun_position_error'],(after.translation-before.translation).length)
+  before=target['def_l_wrist'].inverted()@target['def_c_magazine'];after=G['def_l_wrist'].inverted()@G['def_c_magazine']
+  stats['max_magazine_hand_position_error']=max(stats['max_magazine_hand_position_error'],(after.translation-before.translation).length)
+  checks.append(([target['def_c_base'].inverted()@target[h] for h in ('def_l_wrist','def_r_wrist')],before))
+  frames.append(locals_(order,parent,G))
+ if c.path.stem.startswith('reload'):
+  stabilize_native_constants(frames,c,parent,{n:fit.body[n] for n in fit.fixed_body_bones})
+  for fr,(hands,mag) in zip(frames,checks):
+   G=globals_(order,parent,fr)
+   for h,before in zip(('def_l_wrist','def_r_wrist'),hands):
+    after=G['def_c_base'].inverted()@G[h]
+    stats['max_hand_gun_position_error']=max(stats['max_hand_gun_position_error'],(after.translation-before.translation).length)
+   after=G['def_l_wrist'].inverted()@G['def_c_magazine']
+   stats['max_magazine_hand_position_error']=max(stats['max_magazine_hand_position_error'],(after.translation-mag.translation).length)
+ return frames
+
 payload={};verification=[]
 for row,descriptor in stock['table'](184,92,4):
  fit.swivel={}
  name=descriptor.removeprefix('@');_,_,oldframes,_=smd(STOCK/'view/ptpov_car101_anims'/(name+'.smd'))
- flags=stock['i'](row+12);isdelta=bool(flags&4);noanim=bool(flags&0x20);frames=[];source=select(descriptor)
+ flags=stock['i'](row+12);isdelta=bool(flags&4);noanim=bool(flags&0x20);frames=[];source=select(descriptor);timing=None
  if name=='ref':frames=[referenceL]
  elif name.startswith('attack_'):
   oh='onehanded' in name;ads='ads' in name
@@ -150,10 +179,10 @@ for row,descriptor in stock['table'](184,92,4):
    # Mechanism channels remain the exact native local deltas, including each original joint axis.
    for n in extra+['def_c_bolt']:
     if n in raw:D[n]=raw[n]
-   frames.append(delta_absolute(D))
+   frames.append(offset_pose(D))
    for n in extra:
     if n in raw:
-     actual=frames[-1][n];r=restL[n];recovered=matrix(actual.translation-r.translation,r.to_quaternion().inverted()@actual.to_quaternion())
+     recovered=frames[-1][n]
      stats['max_reactive_matrix_error']=max(stats['max_reactive_matrix_error'],max(abs(recovered[i][j]-raw[n][i][j]) for i in range(4) for j in range(4)))
      stats['native_reactive_keys']+=1
   source=use
@@ -165,25 +194,31 @@ for row,descriptor in stock['table'](184,92,4):
    raw=c.sample(f);target=original_pose(body,f*body.end/max(1,c.end),anchorName);D=relative_delta(baseline,locals_(order,parent,fit(target)))
    for n in extra:
     if n in raw:D[n]=raw[n]
-   frames.append(delta_absolute(D))
+   frames.append(offset_pose(D))
   source='idle_reactive_layer_3'
  elif isdelta:
   for old in oldframes:
    D={n:old.get(n,Matrix.Identity(4)).copy() for n in order}
    for n in order:
     if parent[n] is None:D[n]=Matrix.Rotation(math.pi/2,4,'Z')@D[n]
-   frames.append(delta_absolute(D))
+   frames.append(offset_pose(D))
  elif source and (BASE/(source+'.cast')).exists():
   c=clip(source)
-  # Preserve stock timing, use a single shared sampling time for hands, magazine and the whole gun.
-  for f in range(len(oldframes)):
-   t=c.end*f/max(1,len(oldframes)-1);target=original_pose(c,t);G=fit(target)
-   for hand in ('def_l_wrist','def_r_wrist'):
-    before=target['def_c_base'].inverted()@target[hand];after=G['def_c_base'].inverted()@G[hand]
-    stats['max_hand_gun_position_error']=max(stats['max_hand_gun_position_error'],(after.translation-before.translation).length)
-   before=target['def_l_wrist'].inverted()@target['def_c_magazine'];after=G['def_l_wrist'].inverted()@G['def_c_magazine']
-   stats['max_magazine_hand_position_error']=max(stats['max_magazine_hand_position_error'],(after.translation-before.translation).length)
-   frames.append(locals_(order,parent,G));stats['absolute_frames']+=1
+  if name.startswith('reload'):
+   sequence=reloadTiming.sequence_for(descriptor);full=reloadTiming.full_sequence(sequence)
+   fullDescriptor=reloadTiming.sequences[full]['anims'][0]
+   if fullDescriptor not in reloadCache:
+    fullSource=select(fullDescriptor);fullClip=clip(fullSource)
+    times,details=reloadTiming.full_times(full,fullClip)
+    reloadCache[fullDescriptor]=(sample_absolute(fullClip,times),times,fullSource,details)
+   fullFrames,times,source,details=reloadCache[fullDescriptor]
+   start=reloadTiming.resume_offset(sequence)
+   assert start>=0 and start+len(oldframes)==len(fullFrames),(sequence,start,len(oldframes),len(fullFrames))
+   frames=[{n:M.copy() for n,M in fr.items()} for fr in fullFrames[start:start+len(oldframes)]]
+   timing=dict(full_sequence=full,full_descriptor=fullDescriptor,offset=start,sample_times=times[start:start+len(oldframes)],**details)
+  else:
+   frames=sample_absolute(c,[c.end*f/max(1,len(oldframes)-1) for f in range(len(oldframes))])
+  stats['absolute_frames']+=len(frames)
   verification.append(dict(animation=descriptor,source=source,frames=len(frames)))
  else:
   # Unmapped stock-only transitions retain the stock local motions, re-expressed on the new rest rig.
@@ -192,7 +227,8 @@ for row,descriptor in stock['table'](184,92,4):
    for n in order:G[n]=(G[parent[n]] if parent[n] else Matrix.Identity(4))@(old.get(n,restL[n]))
    frames.append(locals_(order,parent,G))
  sourcefile=name+'.smd';write_smd(ANIM/sourcefile,order,parent,frames)
- payload[descriptor]=dict(file=sourcefile,delta=isdelta and not noanim,noanimation=noanim,frames=len(frames),source=source)
+ payload[descriptor]=dict(file=sourcefile,delta=isdelta,noanimation=noanim,frames=len(frames),source=source)
+ if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
 
 qc=(STOCK/'view/ptpov_car101.qc').read_text(encoding='utf-8-sig')
@@ -218,9 +254,8 @@ if 'shell' in ag:
 # original binary animation table; inline sequence animations must appear at their original point.
 ab=blocks(qc,'animation');sb=blocks(qc,'sequence');start=min(x[1] for x in ab+sb);end=max(x[2] for x in ab+sb)
 A={n:t for n,_,_,t in ab};S={n:t for n,_,_,t in sb};sequenceorder=[n for n,_,_,_ in sb]
-for n in A:
- if payload[n]['delta']:
-  p=A[n].index('{')+1;A[n]=A[n][:p]+'\n subtract "ref" 0'+A[n][p:]
+# Keep $animation absolute, containing explicit offset values. DELTA belongs to
+# the stock sequence contract, as in the reference models.
 out=[];emitted=[]
 for _,n in stock['table'](184,92,4):
  if n.startswith('@'):

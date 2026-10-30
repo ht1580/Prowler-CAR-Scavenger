@@ -4,6 +4,18 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 class RebuildArtifact(unittest.TestCase):
+ def test_reload_timing_report_matches_the_packaged_model(self):
+  import hashlib
+  report=ROOT/'build/compiled-reload-validation.json'
+  self.assertTrue(report.exists(),'Compiled reload milestones and late segments have not been verified')
+  if not report.exists():return
+  d=json.loads(report.read_text())
+  model=ROOT/'build/compiler_game/models/weapons/car101/ptpov_car101_conv.mdl'
+  self.assertEqual(d['model_sha256'],hashlib.sha256(model.read_bytes()).hexdigest())
+  self.assertGreaterEqual(d['frames'],968)
+  self.assertLess(d['max_resume_position_error'],.025)
+  self.assertLess(d['max_resume_angle_error'],.15)
+
  def test_source_motion_and_grip_have_a_verified_rebuild(self):
   path=ROOT/'build/source-verification.json'
   self.assertTrue(path.exists(),'From-zero generator has not produced source animation checks')

@@ -1,53 +1,29 @@
 # Prowler.CAR.Scavenger
 
-Titanfall 2 / Northstar 模组：将 Apex Legends 猎兽进化皮 Scavenger 移植到 CAR，包含模型、原生第一人称动作、机构运动、贴图与声音。
+将 Apex 猎兽进化皮 Scavenger 移植到 Titanfall 2 / R2Vanilla 的 CAR。当前为 **0.2.4 预发布候选**，已经进行窗口模式私人比赛采样；完整视觉验收仍有覆盖边界。
 
-当前版本：**0.2.1 预发布版，从原始资源独立重建。离线检查通过，实机视觉验收尚未完成。**
+- [下载安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.4/Prowler.CAR.Scavenger-0.2.4.zip)
+- [源码与生成的 SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.4/Prowler-Rebuild-Source-0.2.4.zip)
+- [实机片段与验证数据](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.4/Prowler-Evidence-0.2.4.zip)
+- [动画顺序核对](rebuild-zero/verification/0.2.4/动画顺序核对.md) · [逐索引映射](rebuild-zero/verification/0.2.4/animation-order-map.csv) · [实机范围](rebuild-zero/verification/0.2.4/runtime-verification.json)
 
-- [下载安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.1/Prowler.CAR.Scavenger-0.2.1.zip)
-- [下载完整源码与生成的 SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.1/Prowler-Rebuild-Source-0.2.1.zip)
-- [发布页及全部附件](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/tag/v0.2.1)
-- [重建记录与验收边界](rebuild-zero/verification/重建记录.md)
+![0.2.4 私人比赛实机采样](rebuild-zero/verification/0.2.4/runtime-check.png)
 
-![离线握持预览，非实机截图](rebuild-zero/verification/visual-check.png)
+## 本轮修正
 
-## 安装
+- 参考 [HK560 马洛里安](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[Creamy CAR](https://thunderstore.io/c/northstar/p/Creamy_jpg/CAR_Pastel_Perfection/) 和 [CNS144 R301](https://thunderstore.io/c/northstar/p/CNS144/Mythic_R301_apex_R201/) 的动画编码、序列表、骨架和 bodygroup 结构，未复制参考作品资产。
+- 修正转换器为省略位移的增量轨道填入绑定位置的问题，以及验证工具掩盖 RAWPOS 的问题；显式编码偏移姿态、保持原版序列 DELTA 语义，转鼓枢轴零位移不靠放宽容差。
+- 普通冲刺采用源原生右手动画，避免原先摆动轨迹把枪带到镜头后方。
+- 外接 ProScreen 与 RUI 使用同一安装座和缩放；第一、第三人称安装位置统一。世界瞄具重新对齐，机瞄 bodygroup 换为猎兽原生后照门。
+- 重新核对动画顺序：第一人称124个动画描述符、97个序列，第三人称4/4；索引、引用、activity、255条事件、flags和bbox保持原版。
+- 修正换弹内容时序：整套手、枪、弹匣共同重采样；空仓插匣与后续枪机补弹阶段分别对齐。late1从完整段第34帧、空仓late2从第55帧恢复，避免直接套用语义不同的原生 late 片段。
 
-1. 下载 `Prowler.CAR.Scavenger-0.2.1.zip`。
-2. 退出游戏，备份已有同名模组，再将压缩包内的 `Prowler.CAR.Scavenger` 文件夹放入当前启动 profile 的 `mods` 目录。例如 `Titanfall2/R2Vanilla/mods/Prowler.CAR.Scavenger/mod.json`。
-3. 避免同时启用其他替换 CAR 模型、材质或相同声音事件的模组。
+27项回归检查及原生握持、机构/接触检查通过；最终MDL解码了968帧换弹，恢复段位置最大差0.00668模型单位。实机采样包含普通换弹、0发空仓换弹、切枪与切回恢复、持枪、射击、冲刺、蹲姿及开镜。未逐一录制所有单手/攀墙/战术组合，也没有公共对局的长时间共存测试；运行时具体late序列ID未直接读取。原有准星模组关闭原生UI3/UI4/UI7的设置保留。
 
-本包只替换资源与武器模型路径，不修改用户 CFG、存档、武器数值或 FOV。Northstar/R2Vanilla 的实际兼容性与画面效果仍须在所用环境中确认。
+## 安装与构建
 
-## 0.2.1 视角修正
+退出游戏、备份旧同名模组，将安装包内 `Prowler.CAR.Scavenger` 文件夹完整替换到实际启动 profile 的 `mods` 目录。资源路径为原版 CAR 路径；避免同时启用另一套 CAR 模型替换。
 
-0.2.0 有已确认的参考姿态错误：编译器 +90° 根骨转换进入 `subtract(ref)`，导致待机层带有 -90° 根骨旋转，枪模整体离开固定游戏视野。现已修正参考根骨基准，固定原版相机并叠加解码待机层重现和核对；不靠修改游戏 FOV 或单独前推手腕解决。
+本包不带CFG、DLL或生产NUT脚本，不改武器数值。骨架保留85根原版兼容骨，追加33根具有网格/父级用途的原生机构骨，世界模型14根。构建入口与工具/原始资产要求见 [rebuild-zero/README.md](rebuild-zero/README.md)。
 
-ProScreen 从后部立管移到原生机匣侧面，外壳与 RUI 共用安装骨骼和缩放。新增 4 项位置检查，加原有 8 项检查，共 12 项通过。0.2.0 请更新到 0.2.1；新版仍待实机复测。
-
-![固定游戏视角的旧版/新版对照，非实机截图](rebuild-zero/verification/placement-comparison.png)
-
-## 0.2.1 重建内容
-
-- 生产入口为 [`rebuild-zero/src/rebuild.ps1`](rebuild-zero/src/rebuild.ps1)，配置与工具要求见 [构建说明](rebuild-zero/README.md)。原始游戏资源及工具二进制需自行准备；本机路径需按环境修改。
-- 第一人称保留原版 CAR 的 85 根兼容骨，追加 33 根有实际权重或必要父级用途的原生机构骨，共 118 根；转鼓使用独立原生枢轴。
-- 重新适配原生拔枪、开镜、换弹、开火与待机动作；手、枪和弹匣共享原生时间采样。没有独立推移手腕来隐藏问题。
-- 机构运动写入原有开火与待机描述符，不新增 `fire_layer`、姿态参数或生产客户端脚本。保留原版序列、事件与附件角色。
-- 第三人称保留原版 14 根骨骼及 4 个序列，修正重建瞄具的三角面朝向；没有追加独立世界反应皮机构动画。
-- 重新构建材质和音频；不发光。声音事件按实际音频库匹配。
-
-12 项离线回归检查通过（8 项原有检查与 4 项位置检查）；成品开火与待机共 1,772 次原生双手/枪身姿态对照，最大位置误差约 0.006605 单位。详见 [验证数据](rebuild-zero/verification)。离线预览使用真实 TF2 手臂几何，**不是游戏截图**。
-
-## 实机验证状态
-
-初始候选资源曾在隔离 profile 中加载，但未取得可信持枪画面。禁用本模组的训练关基线也出现原版脚本 `SaveRecordedAnimation` 未定义错误，本地多人尝试未进入可验收场景。最终候选的连射、停火、跨姿态过渡与其他模组共存仍待实机确认。不能将资源加载日志或离线检查等同于实机通过。
-
-## 仓库结构
-
-`rebuild-zero/` 是 0.2.1 独立工程与核查资料。完整生成的 SMD/QC 随 Release 源码附件提供。根目录原有 `scripts/`、`mod_src/`、`tests/`、`docs/` 等保留为 0.1.x 历史工程，不是 0.2.1 构建入口。
-
-## 致谢
-
-模型、贴图及音效来自 Apex Legends 与 Titanfall 2，版权归 Respawn Entertainment / Electronic Arts 所有。本项目为非商业粉丝模组。
-
-机制对照参考 [HK560 Malorian Arms 3516](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[NachosChipeados Apex Legends Car](https://thunderstore.io/c/northstar/p/NachosChipeados/Apex_Legends_Car/)、[Echo_XI Apex Reactive R99 Model](https://thunderstore.io/c/northstar/p/Echo_XI/Apex_Reactive_R99_Model/)。未复制这些参考作品的模型、材质或音频。
+0.2.0/0.2.1 的旧参考根骨解释已经被后续核对推翻，不应作为当前版本的修正依据；旧验证材料仅用于追溯。

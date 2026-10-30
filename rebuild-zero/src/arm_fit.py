@@ -4,6 +4,7 @@ from mathutils import Matrix,Vector,Quaternion
 from core import smd,globals_,locals_,STOCK
 
 class ArmFit:
+ fixed_body_bones=('def_c_hip','def_c_spineA','def_c_spineB','def_c_spineC','def_c_neckA','jx_c_neckB','def_c_neckB','def_c_head','def_l_clav','def_r_clav')
  def __init__(self,order,parent):
   self.order,self.parent=order,parent
   self.swivel={}
@@ -16,7 +17,7 @@ class ArmFit:
   # Replacing torso/clavicle locals moves sleeves behind the eye. Solve the arms to the unchanged
   # native wrist targets; do not independently push a wrist or magazine outside the camera frame.
   L=locals_(self.order,self.parent,target)
-  for n in ('def_c_hip','def_c_spineA','def_c_spineB','def_c_spineC','def_c_neckA','jx_c_neckB','def_c_neckB','def_c_head','def_l_clav','def_r_clav'):
+  for n in self.fixed_body_bones:
    L[n]=self.body[n].copy()
   originalHip=L['def_c_hip'].copy();forward=target['jx_c_camera'].to_3x3().col[2].normalized()
   root=target[self.parent['def_c_hip']];localForward=root.to_3x3().inverted()@forward

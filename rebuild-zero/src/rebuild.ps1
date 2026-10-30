@@ -24,6 +24,8 @@ BlenderStep 'generate_view.py'
 BlenderStep 'generate_world.py'
 & "$PSScriptRoot\compile_models.ps1"
 PythonStep 'finish_models.py'
+PythonStep 'test_finish_idempotent.py'
+PythonStep 'test_delta_defaults.py'
 PythonStep 'build_materials.py'
 & $python "$utilities\rpak_segments.py" "$taskRoot\build\materials\paks\prowler_zero.rpak" --fix
 if($LASTEXITCODE -ne 0){throw 'RPAK segment check failed'}
@@ -37,6 +39,12 @@ if($LASTEXITCODE -ne 0){throw 'Native decoding failed'}
 if($LASTEXITCODE -ne 0){throw 'Firing decoding failed'}
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$utilities\decode_native_pose.ps1" -ModelPath $view -OutputPath "$taskRoot\build\native-idle.json" -Names '*_autoplay' -AllFrames
 if($LASTEXITCODE -ne 0){throw 'Idle decoding failed'}
+& $x86 -NoProfile -ExecutionPolicy Bypass -File "$utilities\decode_native_pose.ps1" -ModelPath $view -OutputPath "$taskRoot\build\native-reload.json" -Names '*reload*' -AllFrames
+if($LASTEXITCODE -ne 0){throw 'Reload decoding failed'}
+foreach($job in @(@{path=$view;file='native-all.json'},@{path="$($settings.stock_root)\models\weapons\car101\ptpov_car101.mdl";file='native-stock-all.json'})){
+ & $x86 -NoProfile -ExecutionPolicy Bypass -File "$utilities\decode_native_pose.ps1" -ModelPath $job.path -OutputPath "$taskRoot\build\$($job.file)" -Names '*'
+ if($LASTEXITCODE -ne 0){throw 'All-layer decoding failed'}
+}
 foreach($world in @(@{path="$taskRoot\build\compiler_game\models\weapons\car101\w_car101_conv.mdl";file='native-world.json'},@{path="$($settings.stock_root)\models\weapons\car101\w_car101.mdl";file='native-world-original.json'})){
  & $x86 -NoProfile -ExecutionPolicy Bypass -File "$utilities\decode_native_pose.ps1" -ModelPath $world.path -OutputPath "$taskRoot\build\$($world.file)" -Names '*'
  if($LASTEXITCODE -ne 0){throw 'World decoding failed'}
@@ -44,6 +52,11 @@ foreach($world in @(@{path="$taskRoot\build\compiler_game\models\weapons\car101\
 BlenderStep 'verify_compiled.py'
 BlenderStep 'verify_firing_grip.py'
 BlenderStep 'test_view_placement.py'
+BlenderStep 'test_sprint_visibility.py'
+BlenderStep 'test_world_screen.py'
+BlenderStep 'test_reload_timing.py'
+BlenderStep 'test_compiled_reload.py'
+PythonStep 'audit_animation_order.py'
 PythonStep 'stage_package.py' -Arguments @('--stage-only')
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
