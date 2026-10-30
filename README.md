@@ -2,6 +2,7 @@
 
 Apex 猎兽 Scavenger 替换 Titanfall 2 / R2Vanilla CAR。当前为 **0.2.8 测试候选**，最终包已重启加载，完成窗口模式私人比赛采样。
 
+- [多视角原图、旋转GIF及14段实机视频](previews/0.2.8/README.md)
 - [下载安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.8/Prowler.CAR.Scavenger-0.2.8.zip)
 - [源码与 SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.8/Prowler-Rebuild-Source-0.2.8.zip)
 - [连续实机片段与验证数据](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.8/Prowler-Evidence-0.2.8.zip)

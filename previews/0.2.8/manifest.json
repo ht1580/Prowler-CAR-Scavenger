@@ -1,0 +1,387 @@
+{
+  "version": "0.2.8",
+  "source_model_sha256": "8f08567ec01a29a62f628bc109fac98a131b6e58ce68610d3b39d3e2b22057ec",
+  "offline_images": 11,
+  "game_images": 10,
+  "game_videos": 14,
+  "turntable_video": 1,
+  "gifs": 3,
+  "images": [
+    {
+      "name": "model-counter-side",
+      "label": "计数器侧",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-counter-side.png",
+      "source": "work\\preview-gallery-028\\renders\\model-counter-side.png",
+      "sha256": "27b6cdd67acf39651fba1cdc77efac22155d671ab184137f298289dbeda763d5"
+    },
+    {
+      "name": "model-other-side",
+      "label": "另一侧",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-other-side.png",
+      "source": "work\\preview-gallery-028\\renders\\model-other-side.png",
+      "sha256": "132f730eb2cf88898c9e623235c7d280e35e00d055fb821c58826765e58426cd"
+    },
+    {
+      "name": "model-front",
+      "label": "枪口方向",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-front.png",
+      "source": "work\\preview-gallery-028\\renders\\model-front.png",
+      "sha256": "7d662389a5041e5753b832434353d1bb7fff44e7a76349799eea0a58c873edea"
+    },
+    {
+      "name": "model-rear",
+      "label": "枪托方向",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-rear.png",
+      "source": "work\\preview-gallery-028\\renders\\model-rear.png",
+      "sha256": "40b95aefa04495679e049bf2f36091a96bdc3836fce4c57811317f39e2c9ef7e"
+    },
+    {
+      "name": "model-top",
+      "label": "俯视",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-top.png",
+      "source": "work\\preview-gallery-028\\renders\\model-top.png",
+      "sha256": "76604ef281efb341e1f211739debbdbb805e044fed59ca6530f91464dc3c12e1"
+    },
+    {
+      "name": "model-bottom",
+      "label": "仰视",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-bottom.png",
+      "source": "work\\preview-gallery-028\\renders\\model-bottom.png",
+      "sha256": "e0d2ead437b7e74bc7d901313a5ed6212af273a16f1ec2752b961b29767a7cf8"
+    },
+    {
+      "name": "model-front-quarter",
+      "label": "前侧斜视",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-front-quarter.png",
+      "source": "work\\preview-gallery-028\\renders\\model-front-quarter.png",
+      "sha256": "50e6b778196aa22caf4ff5611ae0ae3d0ddb6e7c6c2ef433e78b19ae6f00235c"
+    },
+    {
+      "name": "model-rear-quarter",
+      "label": "后侧斜视",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-model-rear-quarter.png",
+      "source": "work\\preview-gallery-028\\renders\\model-rear-quarter.png",
+      "sha256": "e3e2bc28b43840fb67121a2bc858d08690b92f43443405cba3b04f5a0800cf4f"
+    },
+    {
+      "name": "hand-right-side",
+      "label": "右手侧面",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-hand-right-side.png",
+      "source": "work\\preview-gallery-028\\renders\\hand-right-side.png",
+      "sha256": "2f9743f7038e8132500268c2bc5e6717f90721688ac5a0a3d207b017670a0dd0"
+    },
+    {
+      "name": "hand-right-back",
+      "label": "右手背面",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-hand-right-back.png",
+      "source": "work\\preview-gallery-028\\renders\\hand-right-back.png",
+      "sha256": "476ea13b024aaba9829dcf4b72dd237e931358047a4e2affa7d31e67f1b91bf7"
+    },
+    {
+      "name": "hand-right-inside",
+      "label": "右手内侧",
+      "kind": "offline_basecolour_geometry",
+      "path": "preview-hand-right-inside.png",
+      "source": "work\\preview-gallery-028\\renders\\hand-right-inside.png",
+      "sha256": "c59f59ee4510b631063f2e7da755999836b25091e3de416ba21ff78d74d42503"
+    },
+    {
+      "name": "game-standing",
+      "label": "普通持枪",
+      "kind": "actual_window_capture",
+      "path": "preview-game-standing.png",
+      "source": "outputs\\prowler-zero-0.2.8\\evidence\\standing.png",
+      "sha256": "761f08de133df34df5470715bbc9416a8c5fc381e4e8dcda54d9fb6bf7cc5a54"
+    },
+    {
+      "name": "game-crouch",
+      "label": "下蹲斜持",
+      "kind": "actual_window_capture",
+      "path": "preview-game-crouch.png",
+      "source": "outputs\\prowler-zero-0.2.8\\evidence\\crouch.png",
+      "sha256": "75ececd8420fdaaa598829ae9c767329831ab7da0d09e73e048e598c055ee7e3"
+    },
+    {
+      "name": "game-sprint",
+      "label": "右侧跑步",
+      "kind": "actual_window_capture",
+      "path": "preview-game-sprint.png",
+      "source": "outputs\\prowler-zero-0.2.8\\evidence\\sprint.png",
+      "sha256": "2d5dc7809b4a6d5d98e302c2fa1e4e63089286dbf1804ee30860b96f1a271612"
+    },
+    {
+      "name": "game-stop",
+      "label": "停止恢复",
+      "kind": "actual_window_capture",
+      "path": "preview-game-stop.png",
+      "source": "outputs\\prowler-zero-0.2.8\\evidence\\stop.png",
+      "sha256": "3c3537c546dd780e4590a011eb464860485ccf8abcdbb04c7cc57f5fcfb78e7e"
+    },
+    {
+      "name": "game-ads",
+      "label": "机瞄",
+      "kind": "actual_window_capture",
+      "path": "preview-game-ads.png",
+      "source": "outputs\\prowler-zero-0.2.8\\evidence\\ads.png",
+      "sha256": "084293caf3fcd104240b16087eab199b5ee36ca73bb5ece9b1d727e0d69f7f12"
+    },
+    {
+      "name": "game-reload",
+      "label": "空仓换弹",
+      "kind": "actual_window_capture",
+      "path": "preview-game-reload.png",
+      "source": "outputs\\prowler-zero-0.2.8\\evidence\\reload.png",
+      "sha256": "2109898f2905e03379a51d977f1e5342a42d59d2da9a32e2c86c7eaee865982a"
+    },
+    {
+      "name": "game-empty",
+      "label": "空仓读数",
+      "kind": "actual_window_capture",
+      "path": "preview-game-empty.png",
+      "source": "work\\dynamics-028\\b-empty-reload\\0032.png",
+      "sha256": "7148e42831322126fe507aab224d0ca759cc9adb491a2ea0aff120167e359ff7"
+    },
+    {
+      "name": "game-reload-interrupt",
+      "label": "换弹动作近景",
+      "kind": "actual_window_capture",
+      "path": "preview-game-reload-interrupt.png",
+      "source": "work\\dynamics-028\\b-interrupt-reload\\0015.png",
+      "sha256": "19795f829d8eeac9cf5ba09b0c90b4815261774b8588da5aa4c381c54ae289d8"
+    },
+    {
+      "name": "game-run-equip",
+      "label": "跑步重新掏枪",
+      "kind": "actual_window_capture",
+      "path": "preview-game-run-equip.png",
+      "source": "work\\dynamics-028\\b-run-equip-open\\0022.png",
+      "sha256": "6433396968c258d251b637d6e665e4cdbfbd214ff40a538cc2780bb7f6903915"
+    },
+    {
+      "name": "game-recovered",
+      "label": "连续动作后恢复",
+      "kind": "actual_window_capture",
+      "path": "preview-game-recovered.png",
+      "source": "work\\dynamics-028\\b-stop-open\\0012.png",
+      "sha256": "c04921cba549b9ac8743e477c7daa9c6a5b7b981f06199a080c6ba36acebd6db"
+    }
+  ],
+  "notes": "Offline structure previews use base colour, neutral grey TF2 sleeves and untextured screen housing. No game lighting/RUI simulated. Actual gameplay clips are original final-B window recordings without audio.",
+  "files": [
+    {
+      "name": "preview-game-ads-crouch-exit.mp4",
+      "sha256": "b9d1e25b69ad198a0a4bc050e49c6cbd2245d33d19098a3541f4fa6cee286887",
+      "bytes": 488300
+    },
+    {
+      "name": "preview-game-ads.png",
+      "sha256": "084293caf3fcd104240b16087eab199b5ee36ca73bb5ece9b1d727e0d69f7f12",
+      "bytes": 726866
+    },
+    {
+      "name": "preview-game-crouch-fire-reload.mp4",
+      "sha256": "86a517703bcf07f9e854b07501c2089463dd987dcc34e25308e24df8bda3c507",
+      "bytes": 1128288
+    },
+    {
+      "name": "preview-game-crouch.mp4",
+      "sha256": "efbaeb975f975dafd9f5e4752cbd1fc55a0d1741e97c2df796ef2b4f87424522",
+      "bytes": 325037
+    },
+    {
+      "name": "preview-game-crouch.png",
+      "sha256": "75ececd8420fdaaa598829ae9c767329831ab7da0d09e73e048e598c055ee7e3",
+      "bytes": 812887
+    },
+    {
+      "name": "preview-game-empty-reload.mp4",
+      "sha256": "522f82828cfa5060dc5aaa2dcd9caa37f34d9ce5dbd6fcbfc388c965996fdfd6",
+      "bytes": 1511430
+    },
+    {
+      "name": "preview-game-empty.png",
+      "sha256": "7148e42831322126fe507aab224d0ca759cc9adb491a2ea0aff120167e359ff7",
+      "bytes": 861911
+    },
+    {
+      "name": "preview-game-idle-after.mp4",
+      "sha256": "f5e132c1dc0892bb33294da3b6b5b7d2dabf2d40ebb71d659fe8aae5c7925702",
+      "bytes": 640623
+    },
+    {
+      "name": "preview-game-interrupt-reload.mp4",
+      "sha256": "78386c87a5b42cd177ab21d2d1099148a393fb1ec2e1e14f3aad87955c7049a0",
+      "bytes": 856423
+    },
+    {
+      "name": "preview-game-jump.mp4",
+      "sha256": "29ca841309c34ac96e6bcba0c638badb086c0497b859692fb274bc29043938b8",
+      "bytes": 757292
+    },
+    {
+      "name": "preview-game-recovered.png",
+      "sha256": "c04921cba549b9ac8743e477c7daa9c6a5b7b981f06199a080c6ba36acebd6db",
+      "bytes": 950796
+    },
+    {
+      "name": "preview-game-reload-interrupt.png",
+      "sha256": "19795f829d8eeac9cf5ba09b0c90b4815261774b8588da5aa4c381c54ae289d8",
+      "bytes": 975448
+    },
+    {
+      "name": "preview-game-reload.png",
+      "sha256": "2109898f2905e03379a51d977f1e5342a42d59d2da9a32e2c86c7eaee865982a",
+      "bytes": 979535
+    },
+    {
+      "name": "preview-game-resume-manual.mp4",
+      "sha256": "37b1a10a1d6e3a6325e6e885292a486c4a14706839e3ccaca5a8b543a1847a17",
+      "bytes": 649724
+    },
+    {
+      "name": "preview-game-run-equip-open.gif",
+      "sha256": "c70ea1a17d057433af2d0cd946c1e930136cd7e0f664b34c010e1e3721b798c2",
+      "bytes": 3448234
+    },
+    {
+      "name": "preview-game-run-equip-open.mp4",
+      "sha256": "78e22041a9ace77b1166ede280b0e6c66cbf1a8504f3fbba852d5f4a20ef26c7",
+      "bytes": 1972578
+    },
+    {
+      "name": "preview-game-run-equip.png",
+      "sha256": "6433396968c258d251b637d6e665e4cdbfbd214ff40a538cc2780bb7f6903915",
+      "bytes": 1214283
+    },
+    {
+      "name": "preview-game-sprint.gif",
+      "sha256": "bc8aa66cc0ddab6a47183203015f3ad6b56548b1622c17e4bf9f5601aa468c2c",
+      "bytes": 3759037
+    },
+    {
+      "name": "preview-game-sprint.mp4",
+      "sha256": "99cfb15a6fc660a814eed06938a5c42d8d7348405524bc79ec4c07745ff3303b",
+      "bytes": 1850545
+    },
+    {
+      "name": "preview-game-sprint.png",
+      "sha256": "2d5dc7809b4a6d5d98e302c2fa1e4e63089286dbf1804ee30860b96f1a271612",
+      "bytes": 1196382
+    },
+    {
+      "name": "preview-game-standing.mp4",
+      "sha256": "f5990139383e6b647bc3b8180baa472d482b2004a052e3829c2c5a4d76997316",
+      "bytes": 216896
+    },
+    {
+      "name": "preview-game-standing.png",
+      "sha256": "761f08de133df34df5470715bbc9416a8c5fc381e4e8dcda54d9fb6bf7cc5a54",
+      "bytes": 1165830
+    },
+    {
+      "name": "preview-game-stop-open.mp4",
+      "sha256": "6868196a2174fc81a0132cf8c8588337bb628419f973a153641562f1956d58bf",
+      "bytes": 266839
+    },
+    {
+      "name": "preview-game-stop.mp4",
+      "sha256": "e795d4d0091389f612bdf486d86e4f244112abb21c849ff85159de2c135f53c4",
+      "bytes": 206722
+    },
+    {
+      "name": "preview-game-stop.png",
+      "sha256": "3c3537c546dd780e4590a011eb464860485ccf8abcdbb04c7cc57f5fcfb78e7e",
+      "bytes": 842982
+    },
+    {
+      "name": "preview-game-tactical.mp4",
+      "sha256": "68ff239b2a94d2d8932807ddd81e9e64ba9819ce7fedbb3cf8e4325c50a8ced7",
+      "bytes": 719999
+    },
+    {
+      "name": "preview-game-views.jpg",
+      "sha256": "b17c2eb4414e8df012e7f82901564c262ed84d8ed8815b66948771d7877ea494",
+      "bytes": 694350
+    },
+    {
+      "name": "preview-hand-right-back.png",
+      "sha256": "476ea13b024aaba9829dcf4b72dd237e931358047a4e2affa7d31e67f1b91bf7",
+      "bytes": 1390565
+    },
+    {
+      "name": "preview-hand-right-inside.png",
+      "sha256": "c59f59ee4510b631063f2e7da755999836b25091e3de416ba21ff78d74d42503",
+      "bytes": 1279823
+    },
+    {
+      "name": "preview-hand-right-side.png",
+      "sha256": "2f9743f7038e8132500268c2bc5e6717f90721688ac5a0a3d207b017670a0dd0",
+      "bytes": 1390746
+    },
+    {
+      "name": "preview-model-bottom.png",
+      "sha256": "e0d2ead437b7e74bc7d901313a5ed6212af273a16f1ec2752b961b29767a7cf8",
+      "bytes": 936296
+    },
+    {
+      "name": "preview-model-counter-side.png",
+      "sha256": "27b6cdd67acf39651fba1cdc77efac22155d671ab184137f298289dbeda763d5",
+      "bytes": 1000433
+    },
+    {
+      "name": "preview-model-front-quarter.png",
+      "sha256": "50e6b778196aa22caf4ff5611ae0ae3d0ddb6e7c6c2ef433e78b19ae6f00235c",
+      "bytes": 982493
+    },
+    {
+      "name": "preview-model-front.png",
+      "sha256": "7d662389a5041e5753b832434353d1bb7fff44e7a76349799eea0a58c873edea",
+      "bytes": 882689
+    },
+    {
+      "name": "preview-model-other-side.png",
+      "sha256": "132f730eb2cf88898c9e623235c7d280e35e00d055fb821c58826765e58426cd",
+      "bytes": 979679
+    },
+    {
+      "name": "preview-model-rear-quarter.png",
+      "sha256": "e3e2bc28b43840fb67121a2bc858d08690b92f43443405cba3b04f5a0800cf4f",
+      "bytes": 978826
+    },
+    {
+      "name": "preview-model-rear.png",
+      "sha256": "40b95aefa04495679e049bf2f36091a96bdc3836fce4c57811317f39e2c9ef7e",
+      "bytes": 880341
+    },
+    {
+      "name": "preview-model-top.png",
+      "sha256": "76604ef281efb341e1f211739debbdbb805e044fed59ca6530f91464dc3c12e1",
+      "bytes": 942691
+    },
+    {
+      "name": "preview-model-turntable.gif",
+      "sha256": "fb5bc72bac1f52ff9422b823b54f0f6fcb8a8a8a5bf0284e5547694bac454b97",
+      "bytes": 1581923
+    },
+    {
+      "name": "preview-model-turntable.mp4",
+      "sha256": "544cdc02eeca78fb671dc93fda500c296ef93836e1ee9dc7bff6c97c52aed037",
+      "bytes": 390271
+    },
+    {
+      "name": "preview-model-views.jpg",
+      "sha256": "932b77d0ed7cfdc2c54a538e17bb0081a5e5be3c00783331a48babb023fe9c4d",
+      "bytes": 117801
+    }
+  ]
+}
