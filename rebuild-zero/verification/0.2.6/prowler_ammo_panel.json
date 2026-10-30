@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "source_model": "mdl/techart/mshop/weapons/class/smg/prowler/prowler_react_v21_scavenger_v.rmdl",
+  "source_package": "common(01).rpak",
+  "source_package_sha256": "ece5400f7c41a5b94b37e89c1bbdd90286de8c75bbb7d1e6da7e1572a838ce65",
+  "rmdl_sha256": "9617aa9d9ed49b92e7e773218c696a48e2b6a1526abbf0f1f6f823337472024b",
+  "source_panel": "models/weapons/attachments/prowler_smg_reticle",
+  "source_faces": [
+    19,
+    20
+  ],
+  "source_vertex_indices": [
+    27,
+    15,
+    21,
+    7
+  ],
+  "parent": "def_c_base",
+  "positions": [
+    [
+      -0.30999159812927246,
+      6.439262390136719,
+      -3.3947930335998535
+    ],
+    [
+      0.30999159812927246,
+      6.439262390136719,
+      -3.3947930335998535
+    ],
+    [
+      -0.30999159812927246,
+      7.0572509765625,
+      -3.0547685623168945
+    ],
+    [
+      0.30999159812927246,
+      7.0572509765625,
+      -3.0547685623168945
+    ]
+  ],
+  "canvas": "Original TF2 CAR ammo UI and UV; native central display surface only",
+  "proscreen": "Independent TF2 accessory; not an Apex Prowler screen"
+}

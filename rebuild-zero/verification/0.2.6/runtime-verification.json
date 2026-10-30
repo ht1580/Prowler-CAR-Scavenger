@@ -1,0 +1,85 @@
+{
+  "version": "0.2.6",
+  "zip_sha256": "ee4967ee988257cf0f4de1488feb5db9a9ffcae8ece3dc3b938dddfad5fb716a",
+  "model_sha256": "bdfb6a8b162ebe7c87710c832baa2142ac46a030325f954ac9666f0e8842994e",
+  "installed_files": 20,
+  "no_extra_files": true,
+  "installation_check": "At trial B capture; receipt retained",
+  "currently_installed": false,
+  "game_pid": 67020,
+  "game_tested": true,
+  "full_visual_acceptance": false,
+  "profile": "R2Vanilla",
+  "mode": "Windowed private Attrition on Forwardbase Kodai",
+  "samples": [
+    {
+      "name": "standing",
+      "path": "work/motion-audio-repair/b-standing/0010.png",
+      "sha256": "0ec3375039806aa5823b8fae4bb20bb0aa1e31770c266b889117d40b78aac629",
+      "label": "站立：无进化待机自转"
+    },
+    {
+      "name": "crouch",
+      "path": "work/motion-audio-repair/b-crouch/0015.png",
+      "sha256": "d9933189fe66d31ee240fe411e4fc29d805be5d6bd273f2faf9f65ffe11013b7",
+      "label": "下蹲：实际侧持姿态"
+    },
+    {
+      "name": "sprint",
+      "path": "work/motion-audio-repair/b-sprint/0010.png",
+      "sha256": "b9ac75cefc62db41221d11ac8674a0d182f58884065aa62c047e057342ae67b5",
+      "label": "23 KPH 冲刺保持可见"
+    },
+    {
+      "name": "stop",
+      "path": "work/motion-audio-repair/b-stop/0010.png",
+      "sha256": "46031a8b0587e0c1b0af138c7ec27e84236af4884f89202fab7eed8bfed74b1e",
+      "label": "停下后恢复持枪"
+    },
+    {
+      "name": "reload",
+      "path": "work/motion-audio-repair/b-crouch-fire-reload/0036.png",
+      "sha256": "c0366f89fb50688154da465311b553adbc12d8827fc07210bdde9222cd74e359",
+      "label": "蹲姿射击与换弹"
+    },
+    {
+      "name": "ads",
+      "path": "work/motion-audio-repair/b-ads/0008.png",
+      "sha256": "85e9805d7a2e20466988c750e4cf1c996c3dd0f2f91519f0e66de7a1aa2ee039",
+      "label": "机瞄与原版弹药显示窗"
+    }
+  ],
+  "sequences": {
+    "standing": "work/motion-audio-repair/b-standing",
+    "crouch": "work/motion-audio-repair/b-crouch",
+    "sprint": "work/motion-audio-repair/b-sprint",
+    "stop": "work/motion-audio-repair/b-stop",
+    "crouch-fire-reload": "work/motion-audio-repair/b-crouch-fire-reload",
+    "ads": "work/motion-audio-repair/b-ads",
+    "audio-fire": "work/motion-audio-repair/b-audio-fire",
+    "audio-release": "work/motion-audio-repair/b-audio-release"
+  },
+  "audio": {
+    "seconds": 18.0,
+    "peak": 0.0313117541372776,
+    "clipped_samples": 0,
+    "output_loopback": true,
+    "microphone": false
+  },
+  "weapon_mods": [
+    "pro_screen",
+    "pas_fast_reload",
+    "tactical_cdr_on_kill"
+  ],
+  "conclusion": "最终候选实机采样中：站立待机保持稳定，弹鼓不再受常驻进化层驱动；蹲下出现独立侧持姿态，起身恢复；23KPH冲刺枪体保持可见，停止后恢复；蹲姿射击、正常换弹及机瞄采样未见原先弹鼓飞离。射击/换弹时附加蹲姿会平滑退出，随后恢复。原版区域弹药数字与外接ProScreen分开显示。18秒系统输出回录无削波。",
+  "remaining": [
+    "未逐一验收单手、攀墙、技能与全部换弹中断组合",
+    "蹲姿侧持只在非射击/换弹的安静状态启用，动作时恢复普通握持",
+    "18秒无削波不等于主观枪声听感最终通过；地图原版背景战斗音仍保留",
+    "客户端GetPoseParameter探针返回SQRESULT_ERROR，未宣称直接读得0/1；效果由实际蹲下/起身连续画面证明",
+    "未进行公共服务器长时间共存测试，完整视觉验收尚未完成"
+  ],
+  "state": "Existing CFG/loadout source unchanged. Trial B matched20 installed files to ZIP. At publication the mod directory had been removed externally and the test process67020 had exited; later process53104 observed at multiplayer main menu. No reinstall or gameplay input sent to the later process.",
+  "capture": "Actual foreground CopyFromScreen windows1302x771; PrintWindow white captures excluded",
+  "static_unit_tests": 36
+}

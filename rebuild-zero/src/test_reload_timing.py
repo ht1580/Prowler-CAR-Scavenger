@@ -22,8 +22,8 @@ def event_frame(name,event):return next(f for n,f in events(name) if n==event)
 class ReloadTiming(unittest.TestCase):
  def test_binary_sequence_and_animation_reference_order(self):
   built=Mdl(BUILD/'compiler_game/models/weapons/car101/ptpov_car101_conv.mdl')
-  self.assertEqual(stock.anims(),built.anims())
-  self.assertEqual(stock.sequences(),built.sequences())
+  from motion_contract import validate as validate_motion_contract
+  self.assertTrue(validate_motion_contract(stock,built))
 
  def test_magazine_milestones_match_normal_and_empty_reload_phases(self):
   for name in ('reload_seq','reload_crouch_seq','reload_empty_seq','reload_empty_crouch_seq'):

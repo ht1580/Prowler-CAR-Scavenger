@@ -3,12 +3,16 @@ import sys,json,math,struct
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
+from motion_contract import EXTRA_ANIMS,validate as validate_motion_contract
 sys.path.insert(0,str(ROOT/'src/tools'))
 from mdl_mesh import read_mdl_mesh
 rig=json.loads((BUILD/'rig.json').read_text());order=rig['order'];parent=rig['parent'];rest={n:Matrix(v) for n,v in rig['rest_global'].items()}
 modelpath=BUILD/'compiler_game/models/weapons/car101/ptpov_car101_conv.mdl';m=mdldump(modelpath);stock=mdldump(STOCK/'models/weapons/car101/ptpov_car101.mdl')
 def names(model,off,stride,rel=0):return [n for _,n in model['table'](off,stride,rel)]
-result=dict(stock_sequences=names(m,192,232,4)==names(stock,192,232,4),stock_anim_order=names(m,184,92,4)==names(stock,184,92,4),stock_attachment_names=names(m,244,92)==names(stock,244,92),bone_order=names(m,160,244)==order)
+result=dict(stock_sequences=names(m,192,232,4)==names(stock,192,232,4),stock_anim_order=names(m,184,92,4)==names(stock,184,92,4)+list(EXTRA_ANIMS),stock_attachment_names=names(m,244,92)==names(stock,244,92),bone_order=names(m,160,244)==order)
+from mdl_lib import Mdl
+validate_motion_contract(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'),Mdl(modelpath))
+result['explicit_crouch_hold_contract']=True
 eng=json.loads((BUILD/'engine-view.json').read_text(encoding='utf-8-sig'));bs=eng['bones'];L={b['name']:matrix(b['pos'],quat(b['quat'])) for b in bs};G=globals_(order,parent,L);inverseError=bindError=0.
 for n,b in zip(order,bs):
  c=b['p2b'];inv=Matrix(((c[0][0],c[1][0],c[2][0],c[3][0]),(c[0][1],c[1][1],c[2][1],c[3][1]),(c[0][2],c[1][2],c[2][2],c[3][2]),(0,0,0,1)))

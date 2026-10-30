@@ -24,12 +24,14 @@ BlenderStep 'generate_view.py'
 BlenderStep 'generate_world.py'
 & "$PSScriptRoot\compile_models.ps1"
 PythonStep 'finish_models.py'
+PythonStep 'test_rui_native.py'
 PythonStep 'test_finish_idempotent.py'
 PythonStep 'test_delta_defaults.py'
 PythonStep 'build_materials.py'
 & $python "$utilities\rpak_segments.py" "$taskRoot\build\materials\paks\prowler_zero.rpak" --fix
 if($LASTEXITCODE -ne 0){throw 'RPAK segment check failed'}
 PythonStep 'build_audio.py' $blenderPython
+PythonStep 'test_audio_policy.py'
 $view="$taskRoot\build\compiler_game\models\weapons\car101\ptpov_car101_conv.mdl"
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$utilities\mdl_engine_dump.ps1" -ModelPath $view -OutputPath "$taskRoot\build\engine-view.json"
 if($LASTEXITCODE -ne 0){throw 'Bone dump failed'}
@@ -58,6 +60,7 @@ BlenderStep 'test_reload_timing.py'
 BlenderStep 'test_compiled_reload.py'
 PythonStep 'audit_animation_order.py'
 PythonStep 'stage_package.py' -Arguments @('--stage-only')
+BlenderStep 'test_motion_policy.py'
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
 if($Render){

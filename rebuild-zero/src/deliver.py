@@ -26,6 +26,10 @@ for name in ('source-verification.json','compiled-verification.json','native-fir
  shutil.copy2(BUILD/name,OUT/name)
 for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
+for name in ('rui-layout-validation.json','audio-report.json','proscreen-data.json'):
+ if (BUILD/name).exists():shutil.copy2(BUILD/name,OUT/name)
+shutil.copy2(BUILD/'prowler_car101.rui',OUT/'prowler_car101.rui')
+shutil.copy2(ROOT/'src/assets/prowler_ammo_panel.json',OUT/'prowler_ammo_panel.json')
 shutil.copy2(ROOT/'README.md',OUT/'BUILD_README.md')
 shutil.copy2(ROOT/'reference-structure/structure-comparison.json',OUT/'reference-structures.json')
 evidence=OUT/'evidence';evidence.mkdir(exist_ok=True)
@@ -51,19 +55,19 @@ for name,relative in runtime.get('sequences',{}).items():
  shutil.copy2(folder/'record.json',evidence/(name+'-record.json'))
 report=f'''# {version} 参考结构修改与实机复测
 
-当前安装包 SHA256：`{package['sha256']}`。安装目录全部 {package['files']} 个文件逐一核对与 ZIP 相同。
+当前安装包 SHA256：`{package['sha256']}`。B 轮实测前安装目录全部 {package['files']} 个文件逐一核对与 ZIP 相同；发布时该模组目录已被外部移除，未重新安装或干扰后续游戏进程。
 
 本轮参考了 [HK560 马洛里安](https://thunderstore.io/c/northstar/p/HK560/Malorian_Arms_3516/)、[Creamy CAR](https://thunderstore.io/c/northstar/p/Creamy_jpg/CAR_Pastel_Perfection/) 和 [CNS144 R301](https://thunderstore.io/c/northstar/p/CNS144/Mythic_R301_apex_R201/) 的骨架、序列表、增量动画编码及 bodygroup 结构；未复制其资产。
 
-已修正转换器给省略位移的增量轨道填入绑定位置的问题，以及 Crowbar 验证时掩盖 RAWPOS 的问题。改用显式位移姿态和原版序列 DELTA 标记，精确保留零位移轨道；普通冲刺选用源原生右手动画。外接击杀屏依据实际机匣表面安装，第一、第三人称安装座一致。完整技术说明见 BUILD_README.md。
+本版移除常驻进化待机动画，非开火时弹鼓保持固定。普通冲刺使用 sprint_0 的受限摆幅与原生持枪握持；客户端脚本只驱动新增的蹲姿参数，射击/换弹时平滑退出附加侧持姿态。弹药 RUI 使用 Apex 原版显示区域和父骨骼，保留 TF2 数字界面和外接击杀屏。声音修正停止事件分组、恢复原版低弹量提示并保留混音余量。完整说明见 BUILD_README.md。
 
 实机结论：{runtime['conclusion']}
 
-0.2.4 动画核对：动画描述符/序列索引分别为第一人称124/97、第三人称4/4，255条原版事件及引用保持不变。修复了完整换弹的里程碑重采样及 late 段恢复：普通/空仓late1从完整段第34帧开始，空仓late2从第55帧开始。空仓插匣使用MILESTONE_2，后续FILLAMMO属于枪机/补弹阶段。编译后968帧验证与逐序列映射见 animation-order-map.csv 和 compiled-reload-validation.json。
+动画核对：第一人称保留原124个描述符索引，末尾追加两个蹲姿偏移，合计126/97；第三人称4/4。原97个序列的活动、事件和标志不变；新增一个姿态参数，仅扩展原有 autoplay 混合网格。255条原版事件保留。换弹 late1/late2 继续从完整段第34/55帧恢复；编译后968帧验证见 compiled-reload-validation.json。
 
 尚未验收的范围：{'; '.join(runtime['remaining'])}
 
-初始配装经运行时 GetMods 确认是机瞄、快速换弹、击杀减冷却及 ProScreen；附件测试和恢复结果单独列在运行时报告。客户端临时 SetBodygroup 会被游戏重新覆盖，其返回成功不证明已完成附件切换，相关尝试不计入验收。已有准星模组关闭原生瞄具 UI3/UI4/UI7；保留该配置，不将未显示原生准星误记为改模错误。
+本轮未修改配装和既有 CFG。已有准星模组关闭的原生 UI 保持原状。仅包含一个生产用途 CLIENT 蹲姿控制脚本，没有打包诊断脚本。蹲姿效果以真实站立/下蹲/恢复画面为依据，不以脚本加载日志代替验收。
 
 [实机采样图](runtime-check.png)、[逐骨骼用途](bone-audit.csv)、[运行时报告](runtime-verification.json)、[参考结构](reference-structures.json)。evidence 内 GIF 为真实窗口连续采集。原 CFG 未作源码编辑，安装前的模组及配置备份保留在本地 work 下。
 
@@ -74,6 +78,7 @@ include=[ROOT/'README.md',ROOT/'inventory.json',ROOT/'reactive-motion.json',ROOT
 include += [p for p in (ROOT/'src').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']
 include += [p for folder in ('view','world') for p in (BUILD/folder).rglob('*') if p.is_file() and p.suffix in ('.smd','.qc')]
 include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json')]
+include += [BUILD/'prowler_car101.rui',BUILD/'rui-layout-validation.json',BUILD/'audio-report.json']
 # Local task history remains in the workspace, outside public deliverables.
 manifest=[dict(path=p.relative_to(ROOT).as_posix(),sha256=sha(p)) for p in sorted(set(include)) if p.exists()]
 (OUT/'source-manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
@@ -82,7 +87,7 @@ with zipfile.ZipFile(OUT/f'Prowler-Rebuild-Source-{version}.zip','w',zipfile.ZIP
   if p.exists():z.write(p,'Prowler-Rebuild/'+p.relative_to(ROOT).as_posix())
 with zipfile.ZipFile(OUT/f'Prowler-Evidence-{version}.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(evidence.iterdir()):z.write(p,'evidence/'+p.name)
- for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','重建记录.md'):
+ for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
   z.write(OUT/n,n)
 for p in OUT.glob('*.zip'):
  with zipfile.ZipFile(p) as z:assert z.testzip() is None

@@ -1,34 +1,39 @@
-# Prowler CAR Scavenger 0.2.4
+# Prowler CAR Scavenger 0.2.6
 
-Independent rebuild from the extracted Apex Scavenger CAST model/native animation clips and original Titanfall 2 CAR contracts. The installed candidate is under real-game validation; passing asset checks is not full visual acceptance.
+Independent Prowler Scavenger rebuild for Titanfall 2/R2Vanilla. This candidate addresses user-reported idle jitter, continuous drum rotation, missing crouch stance, sprint posture and harsh audio. Actual observations and unresolved combinations are recorded in the hash-keyed runtime-verification.json; a successful build is not complete visual acceptance.
 
-## Reference work
+## Motion
 
-Compared downloaded packages from HK560 (Malorian Arms 3516 0.1.0), Creamy_jpg (CAR Pastel Perfection 1.3.1), and CNS144 (Mythic R301 apex R201 0.1.2). Their model headers, sequence tables, animation flags and bodyparts were inspected. CNS144 ReactiveEvo Volt 1.0.1 was downloaded but its VPK contents have not been inspected. No reference model, texture or audio is redistributed here.
+The standing/ADS autoplay entries contain exact zero offsets. Every effective nonattack rotor channel retains its local pivot/orientation; source-native reactive animation is confined to attack clips. Native grip and coherent full/late reload timelines are retained.
 
-All three inspected ports retain the original weapon sequence interface and only idle_seq_autoplay. Their animation descriptors encode explicit offset poses, with DELTA on the consuming sequence. Bone counts differ (85, 118 and 163), so count alone cannot identify unnecessary bones. HK560 and Creamy's full animation decode fails in the current Crowbar reader; no recovered default poses were accepted as motion evidence.
+Normal sprint uses regular Apex sprint_0 gun motion with a restrained cycle swing, blended from native held grip. The complete weapon/accessory/hand target set moves together before sleeve IK. It no longer substitutes sprint_onehanded_0. Visibility checks project actual gun body geometry as well as checking gun-origin depth. Actual sprint/stop samples are required because origin checks previously missed a below-viewport weapon.
 
-## Repairs in this candidate
+R2's original viewmodel code drives only sprintfrac, velocity and ads_blend. A minimal CLIENT controller drives the new prowler_crouch parameter while quietly crouched and fades it out for firing/reloading/fast movement; the ADS row stays neutral. The fixed crouch offset derives from original CAR crouch cant/offset applied coherently to native gun and both hands. Extracted Apex crouch aliases contain breathing with identity endpoints; they are not falsely described as a recovered distinct crouch hold.
 
-- Fixed MDLShit's omitted-position conversion: v49 delta tracks without position data were being filled with bind positions in v53. Firing wrists consequently contained about +/-10 units and the rotor about 6 units instead of zero. The targeted converter post-pass checks original track flags; intentional animation is retained.
-- Made embedded RUI finishing repeatable: positions are always derived from the unmodified stock template, never re-scaled from already modified data.
-- Fixed the validation reader: strict decode failures are no longer swallowed, and stored RAWPOS values are read literally. Crowbar's RAWPOS+DELTA shortcut otherwise masks the converter defect.
-- Generate explicit offset SMD tracks, preserving the original CAR sequence flags, activities, events, indices and masks. Compensate the absolute root axis conversion. Canonicalize truly constant zero position channels to exact zero without loosening the rotor tolerance.
-- Use the original native right-hand sprint_onehanded_0 for the normal sprint loop. Native sprint_0 places the gun behind the fixed original eye halfway through; the chosen variant keeps the weapon in front while preserving native grip.
-- Seat the external CAR ProScreen on the receiver side, with shared 0.65 housing/RUI scale and a surface-derived backplate clearance. This changes the accessory mount only; it does not move the gun, camera or hands. The external kill counter is separate from the ammo display. The world-model screen uses the same receiver seat and 0.65 scale through the world grip fit. All three world optics use the corresponding viewmodel gun-relative seats. The world iron bodygroup now contains the native Prowler rear sight, replacing the detached stock CAR mesh.
+The original124 animation-descriptor prefix and all97 sequence IDs, activities, events and flags remain. Two crouch offsets append at124/125 and one pose parameter appends after the original three. Only idle_seq_autoplay expands to a2x2 ads/crouch grid. motion_contract.py checks exactly these intentional differences. The controller never forces sequences, changes bodygroups, emits sounds or sends console/CFG commands.
 
-## Skeleton and validation
+## RUI
 
-Viewmodel: original 85-bone CAR prefix plus 33 source-weighted mechanism bones, 118 total. Parent dependencies, vertex influences, native animation channels and existing attachments are audited rather than deleting unweighted compatibility bones. World model retains 14 bones and original world sequence interface.
+The original Scavenger RMDL was exported in native format and its22 UI panels decoded independently of CAST. The central ammo display in prowler_smg_reticle is parented to def_c_base. CAR's numeric canvas now uses the exact native central display corners, retaining TF2 UI/UV/ammo binding. The external CAR ProScreen remains a separate accessory and kill counter.
 
-0.2.4 also aligns full reload magazine cues to CAR milestones, distinguishes insertion from empty-reload bolt filling, and derives all late segments from the same complete timeline using READYTOFIRE offsets (34/55 frames). Restore authoritative constant body channels before Vector48 compression to avoid full/resume quantization seams.
+Edit src/assets/prowler_ammo_panel.json and run src/finish_models.py. It writes build/prowler_car101.rui, an editable standalone geometry RUI accepted by MDLShit. Immutable original stock templates make repeated finishing idempotent. The separate Apex compiled UI drawing program was not decompiled or blindly transplanted. Source RMDL/package provenance is in the preset.
 
-Current asset checks: 2 raw-delta tests, 7 placement/screen checks, 1 sprint check, 2 world-accessory/native-iron checks, 9 artifact checks, 1 repeated-finish stability check, plus compiled native-motion/contact/inverse-bind checks. Source sampling covers 2,093 absolute frames; native mechanism comparisons cover 5,412 samples; compiled firing and idle grip checks cover 1,772 hand samples. Reload validation adds 3 source-timeline tests, 2 compiled-timeline tests covering 968 frames, and a model-hash check in the artifact tests (27 unit tests total). These numbers describe offline validation, not every possible game state.
+## Audio
 
-Real-game observations, unresolved items and the exact installed ZIP hash are recorded separately in runtime-verification.json and the delivery report. Earlier 0.2.0/0.2.1 reference-root explanations were superseded; do not reuse those reports as current evidence. In particular, a reference animation is not required to equal the bind-pose root.
+Stop events, including suppressed-end variants, use tails rather than restarting the full firing loop. Original low-ammo warning behavior is preserved instead of substituting a two-second third-person gun report. PCM endpoints are faded, with overlap headroom. Runtime output is checked with bounded speaker-loopback capture, never a physical microphone. Zero clipping does not prove subjective timbre quality or remove normal map battle ambience.
+
+## Existing repairs and references
+
+The omitted-position DELTA conversion defect and Crowbar RAWPOS masking are corrected using original track provenance and strict decoding. Constant zero translations remain exact; rotor tolerances are not loosened. Reload cues align to CAR milestones, and late segments slice the same full timeline at34/55 frames. Empty insertion is distinct from later bolt/ammo filling.
+
+View rig: original85-bone prefix plus33 weighted mechanism/dependency bones. World model: original14 bones and4 animations/sequences. World optics and ProScreen share corresponding gun-relative mounts. All255 original view/world events remain.
+
+Structural references: HK560 Malorian0.1.0, Creamy CAR1.3.1 and CNS144 Mythic R3010.1.2. HK/Creamy full animation decode fails in the current reader; fallback poses were not accepted as recovered motion. No reference assets are redistributed. CNS Volt was downloaded but its VPK animation content was not inspected.
 
 ## Build
 
-Edit src/config.json to point at the original extracted inputs and installed tools. Run src/rebuild.ps1 for all assets, or src/validate_view.ps1 when reusing the verified world/material/audio build. Blender 5.2, StudioMDL, the local MDLShit build, x86 PowerShell/Crowbar and the workbench RUI/RPAK tools are required. Original Apex assets and reference packages are not bundled in the source archive. All generated intermediates stay in this D: task directory.
+Set src/config.json to the original extracted assets and existing tools. Run src/rebuild.ps1 for all assets. src/validate_view.ps1 reuses world/material/audio outputs; after audio changes run src/build_audio.py with Blender's bundled Python first. Required tools include Blender5.2, StudioMDL, MDLShit, x86 PowerShell/Crowbar and workbench readers.
 
-The build scripts do not install or launch the game. Diagnostic game-input tools are not packaged in the mod. The mod contains no CFG, DLL or production NUT script. Existing user CFG and loadouts must be preserved.
+Checks cover raw deltas, repeat finishing, native RUI corners/UVs, screen placement, projected sprint geometry, controller/autoplay contracts, active nonattack rotor channels, audio routing, inverse binds/native contacts and968 compiled reload frames. Script-load logs are insufficient: verify visible crouch and movement transitions in game.
+
+Build scripts do not install or launch the game. The package contains one production client stance controller, with no CFG, DLL, executable or diagnostic script. Existing user configuration/loadouts remain preserved. All work artifacts stay on D:.

@@ -5,6 +5,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
 from arm_fit import ArmFit
 from reload_timing import ReloadTiming,stabilize_native_constants
+from motion_contract import EXTRA_ANIMS,POSE_PARAMETER
 sys.path.insert(0,str(ROOT/'src/tools'))
 from mdl_lib import Mdl
 OUT=BUILD/'view';OUT.mkdir(exist_ok=True);ANIM=OUT/'anims';ANIM.mkdir(exist_ok=True)
@@ -114,9 +115,7 @@ def select(name):
  if n.startswith('sprintdraw'):return 'sprintdraw_0'
  if n.startswith('sprintholster'):return 'sprintholster_0'
  if n.startswith('sprintraise'):return 'sprintraise'+tail+'_0'
- # The ordinary Apex sprint swing puts the weapon behind the view eye mid-cycle.
- # TF2's sprint state uses the original visible right-hand sprint variant instead.
- if n.startswith('sprint'):return 'sprint_onehanded_0'
+ if n.startswith('sprint'):return 'sprint_onehanded_0' if oh else 'sprint_0'
  if n.startswith('switch_to_onehanded'):return 'switch_to_onehanded_0'
  if n.startswith('switch_to_twohanded'):return 'switch_to_twohanded_0'
  if 'iron' in n or 'idle_check' in n or 'regrip' in n:return 'crouch_to_idle_0'
@@ -138,6 +137,37 @@ for native,car in [('draw_0','draw_seq'),('draw_onehanded_0','draw_onehanded_seq
  c=clip(native);_,_,old,_=smd(STOCK/'view/ptpov_car101_anims'/(car+'.smd'));fit.swivel={}
  for f in range(len(old)):G=fit(original_pose(c,c.end*f/max(1,len(old)-1)))
  anchors[native]=locals_(order,parent,G)
+
+rotors=('def_c_reactive_spinner_coils','def_c_reactive_spinner_1','def_c_reactive_spinner_2')
+def below(name,ancestor):
+ while name:
+  if name==ancestor:return True
+  name=parent[name]
+ return False
+
+def move_weapon_and_hands(target,transform):
+ # One rigid transform for both hands and the entire weapon/accessory subtree.
+ # Sleeve IK is solved afterward; fingers and magazine stay with their targets.
+ return {n:(transform@M if below(n,'ja_c_propGun') or n.startswith(('def_l_','def_r_','ja_l_','ja_r_')) else M.copy()) for n,M in target.items()}
+
+def hold_pose(ads=False,crouch=False):
+ anchor=clip('ads_in_0' if ads else 'draw_0')
+ target=original_pose(anchor,anchor.end)
+ if crouch and not ads:
+  # Exported Apex crouch aliases contain only breathing and return to identity.
+  # Use the actual TF2 crouch cant/offset, applied coherently about the native gun.
+  _,_,crouchFrames,_=smd(STOCK/'view/ptpov_car101_anims/draw_crouch_seq.smd')
+  stockCrouch=globals_(so,sp,crouchFrames[-1])['def_c_base']
+  _,_,standFrames,_=smd(STOCK/'view/ptpov_car101_anims/draw_seq.smd')
+  stockStand=globals_(so,sp,standFrames[-1])['def_c_base']
+  gun=target['def_c_base'];rotation=stockCrouch.to_quaternion()@stockStand.to_quaternion().inverted()
+  transform=Matrix.Translation(gun.translation+stockCrouch.translation-stockStand.translation)@rotation.to_matrix().to_4x4()@Matrix.Translation(-gun.translation)
+  target=move_weapon_and_hands(target,transform)
+ fit.swivel={};out=locals_(order,parent,fit(target))
+ for n in rotors:out[n]=restL[n].copy()
+ return out
+
+holds={'idle_anim':hold_pose(), 'idle_ads_anim':hold_pose(True),EXTRA_ANIMS[0]:hold_pose(False,True),EXTRA_ANIMS[1]:hold_pose(True,True)}
 
 reloadTiming=ReloadTiming(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'))
 reloadCache={}
@@ -187,15 +217,11 @@ for row,descriptor in stock['table'](184,92,4):
      stats['native_reactive_keys']+=1
   source=use
  elif name in ('idle_anim_autoplay','idle_ads_anim_autoplay'):
-  # Bake the native reactive idle into the existing autoplay entry point; no added sequence/poseparam.
-  c=clip('idle_reactive_layer_3',True);body=clip('idle_1' if 'ads' in name else 'idle_0');anchorName='ads_in_0' if 'ads' in name else 'draw_0';baseline=anchors[anchorName]
-  for f in range(c.end+1):
-   # Retiming closes both native cycles on the same existing autoplay sequence boundary.
-   raw=c.sample(f);target=original_pose(body,f*body.end/max(1,c.end),anchorName);D=relative_delta(baseline,locals_(order,parent,fit(target)))
-   for n in extra:
-    if n in raw:D[n]=raw[n]
-   frames.append(offset_pose(D))
-  source='idle_reactive_layer_3'
+  # Autoplay runs during every action, including reload/sprint. It must not
+  # inject idle arm IK or advance the reactive drum without a shot.
+  c=clip('idle_reactive_layer_3',True)
+  frames=[offset_pose({n:Matrix.Identity(4) for n in order}) for _ in range(c.end+1)]
+  source='neutral_autoplay'
  elif isdelta:
   for old in oldframes:
    D={n:old.get(n,Matrix.Identity(4)).copy() for n in order}
@@ -217,7 +243,17 @@ for row,descriptor in stock['table'](184,92,4):
    frames=[{n:M.copy() for n,M in fr.items()} for fr in fullFrames[start:start+len(oldframes)]]
    timing=dict(full_sequence=full,full_descriptor=fullDescriptor,offset=start,sample_times=times[start:start+len(oldframes)],**details)
   else:
-   frames=sample_absolute(c,[c.end*f/max(1,len(oldframes)-1) for f in range(len(oldframes))])
+   if name=='sprint_seq':
+    # Keep the original normal sprint's lowered pose, rather than selecting a
+    # different handed variant. Reduce the native rigid swing so it stays ahead
+    # of TF2's fixed eye, moving hands, gun and accessories together.
+    initial=original_pose(c,0);gun=initial['def_c_base'];held=original_pose(clip('draw_0'),clip('draw_0').end);heldGun=held['def_c_base'];fit.swivel={}
+    for f in range(len(oldframes)):
+     current=original_pose(c,c.end*f/max(1,len(oldframes)-1))['def_c_base']
+     delta=current@gun.inverted();reduced=lerp(Matrix.Identity(4),delta,.2)@gun
+     desired=lerp(heldGun,reduced,.35)
+     target=move_weapon_and_hands(held,desired@heldGun.inverted());frames.append(locals_(order,parent,fit(target)))
+   else:frames=sample_absolute(c,[c.end*f/max(1,len(oldframes)-1) for f in range(len(oldframes))])
   stats['absolute_frames']+=len(frames)
   verification.append(dict(animation=descriptor,source=source,frames=len(frames)))
  else:
@@ -226,10 +262,21 @@ for row,descriptor in stock['table'](184,92,4):
    G={}
    for n in order:G[n]=(G[parent[n]] if parent[n] else Matrix.Identity(4))@(old.get(n,restL[n]))
    frames.append(locals_(order,parent,G))
+ if not name.startswith('attack_'):
+  for frame in frames:
+   for n in rotors:frame[n]=Matrix.Identity(4) if isdelta else restL[n].copy()
  sourcefile=name+'.smd';write_smd(ANIM/sourcefile,order,parent,frames)
  payload[descriptor]=dict(file=sourcefile,delta=isdelta,noanimation=noanim,frames=len(frames),source=source)
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
+
+for name in EXTRA_ANIMS:
+ baseline=holds['idle_ads_anim' if 'ads' in name else 'idle_anim']
+ D=relative_delta(baseline,holds[name])
+ for n in rotors:D[n]=Matrix.Identity(4)
+ frames=[offset_pose(D),offset_pose(D)]
+ write_smd(ANIM/(name+'.smd'),order,parent,frames)
+ payload[name]=dict(file=name+'.smd',delta=True,noanimation=False,frames=2,source='controlled_crouch_offset')
 
 qc=(STOCK/'view/ptpov_car101.qc').read_text(encoding='utf-8-sig')
 qc=qc.replace('studio "v_car101.smd"','studio "body.smd"').replace('studio "v_car101_magazine.smd"','studio "magazine.smd"').replace('studio "v_car101_sight_on.smd"','studio "iron.smd"')
@@ -254,6 +301,10 @@ if 'shell' in ag:
 # original binary animation table; inline sequence animations must appear at their original point.
 ab=blocks(qc,'animation');sb=blocks(qc,'sequence');start=min(x[1] for x in ab+sb);end=max(x[2] for x in ab+sb)
 A={n:t for n,_,_,t in ab};S={n:t for n,_,_,t in sb};sequenceorder=[n for n,_,_,_ in sb]
+# Expand only the existing always-on grid. Default row is completely neutral;
+# the new row is driven only while quietly crouched by a client pose controller.
+S['idle_seq_autoplay']=S['idle_seq_autoplay'].replace('"idle_ads_anim_autoplay"','"idle_ads_anim_autoplay"\n "idle_anim_autoplay"\n "idle_ads_anim_autoplay"',1)
+S['idle_seq_autoplay']=S['idle_seq_autoplay'].replace('blendwidth 2',f'blend "{POSE_PARAMETER}" 0 1\n blendwidth 2',1)
 # Keep $animation absolute, containing explicit offset values. DELTA belongs to
 # the stock sequence contract, as in the reference models.
 out=[];emitted=[]
@@ -264,7 +315,11 @@ for _,n in stock['table'](184,92,4):
    nxt=sequenceorder[len(emitted)];out.append(S[nxt]);emitted.append(nxt)
  else:out.append(A[n])
 for n in sequenceorder[len(emitted):]:out.append(S[n])
+out.extend(f'$animation "{name}" "anims\\{name}.smd" {{\n fps 30\n loop\n}}' for name in EXTRA_ANIMS)
 qc=qc[:start]+'\n\n'.join(out)+qc[end:]
+pose_declarations=list(re.finditer(r'^\$poseparameter[^\n]*',qc,re.M))
+insert=pose_declarations[-1].end()
+qc=qc[:insert]+f'\n$poseparameter "{POSE_PARAMETER}" 0 1'+qc[insert:]
 qc=qc.replace('$modelname "weapons/car101/ptpov_car101.mdl"','$modelname "weapons/car101/ptpov_car101.mdl"\n$maxverts 65000')
 (OUT/'ptpov_car101.qc').write_text(qc,encoding='ascii',errors='replace')
 (BUILD/'rig.json').write_text(json.dumps(dict(order=order,parent=parent,rest_local={n:[list(r) for r in restL[n]] for n in order},rest_global={n:[list(r) for r in restG[n]] for n in order},extra=extra,mesh_consumers=meshconsumers,optic_shift=list(opticShift),proscreen_scale=proscreenScale,proscreen_mount=list(proscreenOrigin),animations=payload),indent=2))

@@ -47,8 +47,10 @@ class RebuildArtifact(unittest.TestCase):
    with self.subTest(model=name):
     self.assertEqual(stock.bones(),built.bones()[:len(stock.bones())])
     self.assertEqual(stock.attachments(),built.attachments())
-    self.assertEqual(stock.sequences(),built.sequences())
-    self.assertEqual(stock.poseparams(),built.poseparams())
+    sys.path.insert(0,str(ROOT/'src'));from motion_contract import validate as validate_motion_contract
+    self.assertTrue(validate_motion_contract(stock,built,world=name=='w_car101'))
+    from motion_contract import POSE_PARAMETER
+    self.assertEqual(stock.poseparams()+([POSE_PARAMETER] if name=='ptpov_car101' else []),built.poseparams())
     self.assertEqual(built.i(80),len(built.d))
     def events(m,r):
      count,offset=m.i(r+24,2);out=[]
@@ -66,10 +68,14 @@ class RebuildArtifact(unittest.TestCase):
    with wave.open(str(audio/p.stem/'1.wav')) as w:self.assertEqual((w.getnchannels(),w.getsampwidth(),w.getframerate()),(2,2,48000));self.assertGreater(w.getnframes(),1000)
   self.assertEqual(len(seen),len(set(seen)));self.assertGreater(len(seen),50)
 
- def test_no_runtime_diagnostic_script_is_packaged(self):
+ def test_only_the_production_pose_controller_is_packaged(self):
   stage=ROOT/'build/stage/Prowler.CAR.Scavenger';manifest=json.loads((stage/'mod.json').read_text())
-  self.assertNotIn('Scripts',manifest)
-  self.assertEqual([],list(stage.rglob('*.nut')))
+  self.assertEqual(manifest.get('Scripts'),[dict(Path='prowler_stance.nut',RunOn='CLIENT',ClientCallback=dict(After='ProwlerStance_Init'))])
+  scripts=list(stage.rglob('*.nut'));self.assertEqual(len(scripts),1)
+  self.assertEqual(scripts[0].relative_to(stage).as_posix(),'mod/scripts/vscripts/prowler_stance.nut')
+  code=scripts[0].read_text()
+  for forbidden in ('ClientCommand','SetBodygroup','Anim_Play','SetSequence','EmitSound','print('):self.assertNotIn(forbidden,code)
+  self.assertIn('SetPoseParameter( "prowler_crouch", amount )',code)
   self.assertEqual([],list(stage.rglob('*.cfg')))
 
  def test_world_root_matches_original_animation(self):

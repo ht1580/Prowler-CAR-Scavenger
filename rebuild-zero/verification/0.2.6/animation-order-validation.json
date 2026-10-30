@@ -1,0 +1,28 @@
+{
+  "ptpov_car101": {
+    "sha256": "bdfb6a8b162ebe7c87710c832baa2142ac46a030325f954ac9666f0e8842994e",
+    "animations": 126,
+    "sequences": 97,
+    "events": 246,
+    "original_animation_prefix": true,
+    "explicit_crouch_append": true,
+    "animation_order": true,
+    "sequence_order": true,
+    "animation_references": true,
+    "events_preserved": true,
+    "sequence_flags_and_bbox": true
+  },
+  "w_car101": {
+    "sha256": "d4d8960af80ebf6f1724944c9aa91f09f70d86f3b8c3bc33e1434da8f1165261",
+    "animations": 4,
+    "sequences": 4,
+    "events": 9,
+    "original_animation_prefix": true,
+    "explicit_crouch_append": false,
+    "animation_order": true,
+    "sequence_order": true,
+    "animation_references": true,
+    "events_preserved": true,
+    "sequence_flags_and_bbox": true
+  }
+}

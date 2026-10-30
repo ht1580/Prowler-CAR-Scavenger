@@ -20,7 +20,8 @@ for p,isIdle in jobs:
  for n in c.order:
   baseline=(AG[c.parent[n]].inverted()@AG[n] if c.parent[n] else AG[n]) if n in AG and (not c.parent[n] or c.parent[n] in AG) else c.rest[n]
   SL[n]=matrix(baseline.translation+delta[n].translation,baseline.to_quaternion()@delta[n].to_quaternion())
- expected=globals_(c.order,c.parent,SL);dl={order[v['index']]:v for v in p['locals']};ML={}
+ expected=AG if isIdle and rig['animations'][name]['source']=='neutral_autoplay' else globals_(c.order,c.parent,SL)
+ dl={order[v['index']]:v for v in p['locals']};ML={}
  for n in order:
   v=dl.get(n,dict(pos=(0,0,0),rot=(0,0,0)));ML[n]=matrix(held[n].translation+Vector(v['pos']),held[n].to_quaternion()@Euler(v['rot'],'XYZ').to_quaternion())
  actual=globals_(order,parent,ML)
