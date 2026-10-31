@@ -1,0 +1,18 @@
+{
+  "stage": "authoring before MDL compression",
+  "poses": 36,
+  "meshes": [
+    {
+      "name": "pov_pilot_medium_stalker_m.mdl",
+      "vertices": 1396,
+      "max_skin_position_error": 1.3436320117574092e-05
+    },
+    {
+      "name": "pov_pilot_light_jester_f.mdl",
+      "vertices": 5670,
+      "max_skin_position_error": 1.4504395651106958e-05
+    }
+  ],
+  "source_native_distal_motion": true,
+  "threshold": 0.002
+}

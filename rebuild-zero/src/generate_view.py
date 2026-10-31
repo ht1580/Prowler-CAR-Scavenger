@@ -211,10 +211,16 @@ for row,descriptor in stock['table'](184,92,4):
  if name=='ref':frames=[referenceL]
  elif name.startswith('attack_'):
   oh='onehanded' in name;ads='ads' in name
-  use=('fire_onehanded_1' if ads else 'fire_onehanded_0') if oh else ('fire_optic_reactive_3' if ads else 'fire_reactive_3');c=clip(use,True)
+  # The extracted _1/_3 variants carry an unrelated resting forearm twist
+  # (40--47 degrees in reactive _3). A DELTA sequence replays that offset on
+  # every shot. The _0 recoil starts/ends at the held arm frame instead.
+  use='fire_onehanded_0' if oh else ('fire_optic_reactive_0' if ads else 'fire_reactive_0');c=clip(use,True)
   anchorName='ads_in_onehanded_0' if oh and ads else ('draw_onehanded_0' if oh else ('ads_in_0' if ads else 'draw_0'));baseline=anchors[anchorName]
   for f in range(len(oldframes)):
-   raw=c.sample(min(f,c.end));target=original_pose(c,min(f,c.end),anchorName);posed=locals_(order,parent,fit(target));D=relative_delta(baseline,posed)
+   # Short ADS descriptors must include recoil recovery, rather than cutting
+   # the source timeline before its neutral endpoint.
+   time=c.end*f/max(1,len(oldframes)-1)
+   raw=c.sample(time);target=original_pose(c,time,anchorName);posed=locals_(order,parent,fit(target));D=relative_delta(baseline,posed)
    # Rebuild shared arm/gun deltas from the native full firing pose after TF2 sleeve adaptation.
    # Mechanism channels remain the exact native local deltas, including each original joint axis.
    for n in extra+['def_c_bolt']:
@@ -287,13 +293,25 @@ for row,descriptor in stock['table'](184,92,4):
    if not isdelta:frame['def_c_proscreen']=restL['def_c_proscreen'].copy()
  sourcefile=name+'.smd';write_smd(ANIM/sourcefile,order,parent,frames)
  payload[descriptor]=dict(file=sourcefile,delta=isdelta,noanimation=noanim,frames=len(frames),source=source)
+ if name.startswith('attack_'):payload[descriptor]['sampling']='complete_native_timeline'
  if name=='sprint_seq':payload[descriptor]['motion_policy']='full_native_right_hand'
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
 
 for name in CROUCH_ANIMS:
  baseline=holds['idle_ads_anim' if 'ads' in name else 'idle_anim']
- D=relative_delta(baseline,holds[name])
+ # A stance autoplay is applied on top of recoil. Independent fitted arm and
+ # prop deltas do not commute and lose contact during fractional blends.
+ # SpineC is the existing common ancestor of both arms and the weapon; it
+ # excludes the camera. Cant that one branch rigidly so every descendant
+ # retains the firing pose's exact grip throughout the transition.
+ G=globals_(order,parent,baseline);goal=globals_(order,parent,holds[name])
+ transform=goal['def_c_base']@G['def_c_base'].inverted()
+ joint='def_c_spineC'
+ posed={n:M.copy() for n,M in baseline.items()}
+ posed[joint]=G[parent[joint]].inverted()@transform@G[joint]
+ D={n:Matrix.Identity(4) for n in order}
+ D[joint]=relative_delta(baseline,posed)[joint]
  for n in rotors:D[n]=Matrix.Identity(4)
  frames=[offset_pose(D),offset_pose(D)]
  write_smd(ANIM/(name+'.smd'),order,parent,frames)

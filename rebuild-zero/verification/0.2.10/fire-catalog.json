@@ -1,0 +1,834 @@
+{
+  "anims_prowler_base_v_animRig/fire_0": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.42,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.28,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.64,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.96,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_02_0": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.42,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        2.44,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        2.8,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.99,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_02_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.23,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.34,
+        21.17,
+        21.34
+      ],
+      "def_r_wrist": [
+        0.0,
+        0.34,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_02_2": {
+    "frames": 29,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.64,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.13,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.11,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.89,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_02_3": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.24,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.34,
+        21.17,
+        21.34
+      ],
+      "def_r_wrist": [
+        0.02,
+        0.34,
+        0.02
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.23,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.34,
+        21.17,
+        21.34
+      ],
+      "def_r_wrist": [
+        0.0,
+        0.34,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_2": {
+    "frames": 29,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.64,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.13,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.11,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.89,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_3": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.24,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.34,
+        21.17,
+        21.34
+      ],
+      "def_r_wrist": [
+        0.02,
+        0.34,
+        0.02
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_onehanded_0": {
+    "frames": 15,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.31,
+        0.37,
+        0.31
+      ],
+      "def_r_forearm": [
+        0.02,
+        0.11,
+        0.02
+      ],
+      "def_r_wrist": [
+        0.33,
+        0.32,
+        0.33
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.45,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_onehanded_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.24,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.33,
+        21.17,
+        21.33
+      ],
+      "def_r_wrist": [
+        0.0,
+        0.34,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_regrip_0": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.42,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.28,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.64,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.96,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_regrip_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.23,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.34,
+        21.17,
+        21.34
+      ],
+      "def_r_wrist": [
+        0.0,
+        0.34,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_regrip_2": {
+    "frames": 29,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.64,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.13,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.11,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.89,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_regrip_3": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.24,
+        0.0
+      ],
+      "def_r_forearm": [
+        21.34,
+        21.17,
+        21.34
+      ],
+      "def_r_wrist": [
+        0.02,
+        0.34,
+        0.02
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_off_0": {
+    "frames": 22,
+    "delta": false,
+    "bones": {
+      "def_r_shoulder": [
+        79.98,
+        79.84,
+        79.98
+      ],
+      "def_r_forearm": [
+        16.86,
+        14.52,
+        16.86
+      ],
+      "def_r_wrist": [
+        67.84,
+        62.13,
+        67.84
+      ],
+      "ja_c_propGun": [
+        8.03,
+        11.23,
+        8.03
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_off_1": {
+    "frames": 22,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        1.12,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        6.67,
+        0.79
+      ],
+      "def_r_wrist": [
+        0.0,
+        7.06,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.08,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_off_2": {
+    "frames": 22,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        4.6,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        3.43,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        11.38,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        4.27,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_off_3": {
+    "frames": 22,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        1.12,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        6.67,
+        0.79
+      ],
+      "def_r_wrist": [
+        0.0,
+        7.06,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.08,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_on_0": {
+    "frames": 22,
+    "delta": false,
+    "bones": {
+      "def_r_shoulder": [
+        79.98,
+        82.44,
+        79.98
+      ],
+      "def_r_forearm": [
+        16.86,
+        7.16,
+        16.86
+      ],
+      "def_r_wrist": [
+        67.84,
+        64.54,
+        67.84
+      ],
+      "ja_c_propGun": [
+        8.03,
+        8.41,
+        8.03
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_on_1": {
+    "frames": 22,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        1.36,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        11.78,
+        0.8
+      ],
+      "def_r_wrist": [
+        0.0,
+        12.06,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.35,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_on_2": {
+    "frames": 22,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        2.92,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        7.97,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        12.22,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.38,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_base_v_animRig/fire_select_on_3": {
+    "frames": 22,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        1.36,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        11.78,
+        0.8
+      ],
+      "def_r_wrist": [
+        0.0,
+        12.06,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.35,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_onehanded_0": {
+    "frames": 15,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.31,
+        0.37,
+        0.31
+      ],
+      "def_r_forearm": [
+        0.02,
+        0.11,
+        0.02
+      ],
+      "def_r_wrist": [
+        0.33,
+        0.32,
+        0.33
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.45,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_onehanded_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        17.91,
+        20.95,
+        23.8
+      ],
+      "def_r_forearm": [
+        39.99,
+        43.18,
+        46.63
+      ],
+      "def_r_wrist": [
+        17.92,
+        20.89,
+        23.8
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_optic_reactive_0": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.49,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.13,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.47,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.84,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_optic_reactive_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        17.91,
+        20.94,
+        23.8
+      ],
+      "def_r_forearm": [
+        39.99,
+        43.18,
+        46.62
+      ],
+      "def_r_wrist": [
+        17.92,
+        20.89,
+        23.8
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_optic_reactive_2": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.66,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.35,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.28,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.95,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_optic_reactive_3": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        17.91,
+        20.95,
+        23.8
+      ],
+      "def_r_forearm": [
+        39.99,
+        43.18,
+        46.63
+      ],
+      "def_r_wrist": [
+        17.92,
+        20.89,
+        23.8
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_reactive_0": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.49,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.13,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.47,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.84,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_reactive_1": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        17.91,
+        20.94,
+        23.8
+      ],
+      "def_r_forearm": [
+        39.99,
+        43.18,
+        46.62
+      ],
+      "def_r_wrist": [
+        17.92,
+        20.89,
+        23.8
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_reactive_2": {
+    "frames": 28,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        0.0,
+        0.66,
+        0.0
+      ],
+      "def_r_forearm": [
+        0.0,
+        1.35,
+        0.0
+      ],
+      "def_r_wrist": [
+        0.0,
+        1.28,
+        0.0
+      ],
+      "ja_c_propGun": [
+        0.0,
+        1.95,
+        0.0
+      ]
+    }
+  },
+  "anims_prowler_react_v21_scavenger_v_animRig/fire_reactive_3": {
+    "frames": 13,
+    "delta": true,
+    "bones": {
+      "def_r_shoulder": [
+        17.91,
+        20.95,
+        23.8
+      ],
+      "def_r_forearm": [
+        39.99,
+        43.18,
+        46.63
+      ],
+      "def_r_wrist": [
+        17.92,
+        20.89,
+        23.8
+      ],
+      "ja_c_propGun": [
+        0.0,
+        0.12,
+        0.0
+      ]
+    }
+  }
+}

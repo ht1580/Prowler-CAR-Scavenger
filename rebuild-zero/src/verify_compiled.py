@@ -21,7 +21,9 @@ for n,b in zip(order,bs):
 result.update(inverse_bind=inverseError<.0001,bind_error=bindError,inverse_error=inverseError)
 decoded=json.loads((BUILD/'native-fire.json').read_text(encoding='utf-8-sig'));maxpos=maxangle=0.;keys=0
 for pose in decoded['poses']:
- use=rig['animations'][pose['name']]['source'];c=Clip(SOURCE/'apex_animations/animrig/techart/mshop/weapons/class/smg/prowler/anims_prowler_react_v21_scavenger_v_animRig'/(use+'.cast'));raw=c.sample(min(pose['frame'],c.end));loc={order[v['index']]:v for v in pose['locals']}
+ meta=rig['animations'][pose['name']];use=meta['source'];c=Clip(SOURCE/'apex_animations/animrig/techart/mshop/weapons/class/smg/prowler/anims_prowler_react_v21_scavenger_v_animRig'/(use+'.cast'))
+ time=c.end*pose['frame']/max(1,pose['frames']-1) if meta.get('sampling')=='complete_native_timeline' else min(pose['frame'],c.end)
+ raw=c.sample(time);loc={order[v['index']]:v for v in pose['locals']}
  assert rig['animations'][pose['name']]['delta']
  for n in rig['extra']:
   if n not in raw:continue

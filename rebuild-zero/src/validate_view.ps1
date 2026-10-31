@@ -41,6 +41,7 @@ foreach($script in 'verify_compiled.py','verify_firing_grip.py','test_view_place
 BlenderStep 'test_refinements.py'
 BlenderStep 'test_dynamic_integrity.py'
 BlenderStep 'test_right_forearm.py'
+BlenderStep 'test_attack_blending.py'
 & $python "$PSScriptRoot/test_material_channels.py"
 if($LASTEXITCODE -ne 0){throw 'Original material channels discarded'}
 & $python "$PSScriptRoot\test_audio_policy.py"

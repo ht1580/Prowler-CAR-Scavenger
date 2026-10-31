@@ -1,6 +1,6 @@
-# Prowler CAR Scavenger 0.2.9
+# Prowler CAR Scavenger 0.2.10
 
-Independent Prowler Scavenger rebuild for Titanfall 2/R2Vanilla. This candidate replaces the incorrect right forearm/sleeve adaptation in0.2.8. It preserves native elbow, forearm, wrist and finger world targets, adapting only the upper arm to TF2 sleeves and the fixed eye. Prior sprint/counter/surface/drum repairs remain. Visual acceptance remains open until reviewed in game. Actual observations and unresolved combinations are recorded in the hash-keyed runtime-verification.json; a successful build is not complete visual acceptance.
+Independent Prowler Scavenger rebuild for Titanfall 2/R2Vanilla. Candidate0.2.10 fixes two identified additive-animation defects: a large resting forearm twist in the previously selected firing variant, and contact loss when independently authored crouch arm/prop offsets combine with recoil. Fire now uses neutral-ended native _0 clips, sampled through their complete timelines. Crouch cants the existing common spineC branch containing arms and weapon, leaving the camera branch unchanged. No bone or gameplay contract is added. Fresh runtime observations and limitations belong to the hash-keyed runtime-verification.json; offline tests alone are not visual acceptance.
 
 ## Motion
 
@@ -55,3 +55,7 @@ Evidence export additionally uses existing ffmpeg to encode original timed windo
 The old wrist/gun-only checks did not establish visible correctness. New regression tests first failed against0.2.8: draw-start elbow displacement7.807 units and distal sleeve shape deviation9.985 units despite preserved grip. The new candidate restores native elbow and forearm targets while fitting upper arm only. Existing right-hand closeups from0.2.8 were partly obscured by the left hand; new diagnostic views isolate the actual right arm. Neither offline geometry nor script-load logs replace runtime visual review.
 
 Validation uses both stock medium_stalker_m and the Jester_f arm mesh corresponding to the observed world player model. The actual predicted first-person proxy was read in game23868 and confirms models/weapons/arms/pov_pilot_light_jester_f.mdl. Config validation_arms points to original extracted meshes and bone JSON. Jester source is models/weapons/arms/pov_pilot_light_jester_f.mdl from englishclient_mp_common.bsp.pak000_dir.vpk, extracted with existing Harmony and CRC verified; use tools/decode_native_pose.ps1 with Names not-an-animation to export its bone data. Those original arm assets are not included in source archives.
+
+## Additive blend checks in0.2.10
+
+`test_attack_blending.py` rejects non-neutral right-arm attack endpoints and large distal sleeve reposing, then checks25 fractional crouch/fire weight combinations across28 hip attack frames. Both source SMD and decoded compiled v53 locals are checked, including actual autoplay mask weight on spineC. The _1/_3 native variants are retained as research inputs, not used as repeated recoil overlays. Original attack descriptor lengths, sequence activities/events and drum policy remain stable. This investigation does not establish legend-specific animation graphs from clip names alone.

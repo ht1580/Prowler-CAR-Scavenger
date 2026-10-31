@@ -1,0 +1,11 @@
+{
+  "version": "0.2.10",
+  "sha256": "56a93ac7bb7e7e897fadf81b47745b3dff21c491fcbb9ae03aed1d39a3a5410f",
+  "bytes": 23558960,
+  "files": 20,
+  "zip_crc": true,
+  "stage_bytes_equal": true,
+  "game_tested": true,
+  "full_visual_acceptance": false,
+  "runtime_report": "runtime-verification.json"
+}

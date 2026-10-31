@@ -1,0 +1,114 @@
+[
+  {
+    "name": "standing",
+    "frames": 25,
+    "source_frames": 24,
+    "seconds": 2.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "standing-fire",
+    "frames": 74,
+    "source_frames": 73,
+    "seconds": 6.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "reload",
+    "frames": 31,
+    "source_frames": 30,
+    "seconds": 3.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "crouch",
+    "frames": 27,
+    "source_frames": 26,
+    "seconds": 2.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "crouch-fire",
+    "frames": 74,
+    "source_frames": 73,
+    "seconds": 6.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "stand-recover",
+    "frames": 31,
+    "source_frames": 30,
+    "seconds": 3.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "ads-fire",
+    "frames": 74,
+    "source_frames": 73,
+    "seconds": 6.0,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "ads-crouch-fire",
+    "frames": 73,
+    "source_frames": 72,
+    "seconds": 6.0,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "reload-before-run",
+    "frames": 19,
+    "source_frames": 18,
+    "seconds": 3.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "step-right",
+    "frames": 19,
+    "source_frames": 18,
+    "seconds": 3.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "sprint",
+    "frames": 85,
+    "source_frames": 84,
+    "seconds": 7.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "stop",
+    "frames": 37,
+    "source_frames": 36,
+    "seconds": 3.04,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "crouch-exit",
+    "frames": 73,
+    "source_frames": 72,
+    "seconds": 6.08,
+    "decoded": true,
+    "audio": false
+  },
+  {
+    "name": "final-idle",
+    "frames": 25,
+    "source_frames": 24,
+    "seconds": 2.08,
+    "decoded": true,
+    "audio": false
+  }
+]

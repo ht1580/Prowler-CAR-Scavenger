@@ -16,7 +16,7 @@ for p,isIdle in jobs:
  anchor,AG=cache[anchorName];_,_,frames,_=smd(BUILD/'view/anims'/((anchorName.replace('ads_in_onehanded_0','ads_in_onehanded_anim').replace('ads_in_0','ads_in_anim').replace('draw_onehanded_0','draw_onehanded_seq').replace('draw_0','draw_seq'))+'.smd'));held=frames[-1]
  source=('idle_1' if ads else 'idle_0') if isIdle else rig['animations'][name]['source']
  if source not in cache:cache[source]=Clip((BASE if isIdle else REACT)/(source+'.cast'))
- c=cache[source];time=p['frame']*c.end/max(1,p['frames']-1) if isIdle else min(p['frame'],c.end);delta=c.sample(time);SL={}
+ c=cache[source];time=p['frame']*c.end/max(1,p['frames']-1) if isIdle or rig['animations'][name].get('sampling')=='complete_native_timeline' else min(p['frame'],c.end);delta=c.sample(time);SL={}
  for n in c.order:
   baseline=(AG[c.parent[n]].inverted()@AG[n] if c.parent[n] else AG[n]) if n in AG and (not c.parent[n] or c.parent[n] in AG) else c.rest[n]
   SL[n]=matrix(baseline.translation+delta[n].translation,baseline.to_quaternion()@delta[n].to_quaternion())
