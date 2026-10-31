@@ -27,7 +27,7 @@ class MotionPolicy(unittest.TestCase):
 
  def test_regular_sprint_uses_the_regular_source_stance(self):
   rig=json.loads((BUILD/'rig.json').read_text())
-  self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_onehanded_0','normal sprint does not use the right-hand cycle')
+  self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_0','normal sprint must use the native low cycle')
 
  def test_compiled_drum_channels_are_stationary_without_attack(self):
   import hashlib

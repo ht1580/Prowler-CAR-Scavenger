@@ -1,12 +1,16 @@
-# Prowler CAR Scavenger 0.2.11
+# 0.2.12 普通跑步改为右侧低持摆动
 
-Independent Prowler Scavenger rebuild for Titanfall2/R2Vanilla. Candidate0.2.11 addresses quiet fire, absent reload feedback, airborne cant, sideways shot roll, grip drift and the external counter seat. Fifteen stock movement/air/regrip additive entries and visual recoil now use one existing shared arm/weapon branch. Source and compiled tests include fractional weights. Real output-only audio and windowed game recordings remain required; user visual/audio acceptance stays open.
+按用户明确选择，普通sprint_seq使用原生sprint_0节奏，经固定镜头适配保留20%位移、25%旋转摆幅，整体前移6单位。进入/退出跑步对齐枪和双手，保留隐藏收放端及两手举枪完成端。特殊onehanded分支保留原单手循环。新增3项检查覆盖低姿、摆动、过渡端点及编译后完整循环可见性；其余声音/斜持/屏幕与游戏数值延续0.2.11。实机范围见本版runtime-verification.json。
+
+# Prowler CAR Scavenger 0.2.12
+
+Independent Prowler Scavenger rebuild for Titanfall2/R2Vanilla. Candidate0.2.12 addresses quiet fire, absent reload feedback, airborne cant, sideways shot roll, grip drift and the external counter seat. Fifteen stock movement/air/regrip additive entries and visual recoil now use one existing shared arm/weapon branch. Source and compiled tests include fractional weights. Real output-only audio and windowed game recordings remain required; user visual/audio acceptance stays open.
 
 ## Motion
 
 The standing/ADS autoplay entries contain exact zero offsets. Base nonattack clips do not spin the drum; a separate shot-index phase holds the last chamber position. Other native reactive animation is confined to attack clips. Native grip and coherent full/late reload timelines are retained.
 
-Sprint uses the full native RIGHT-hand sprint_onehanded_0 cycle, including free-hand movement. 0.2.7 mistakenly used its LEFT-hand counterpart sprint_althand_anim_0. Native sprint equip/holster clips keep their original hidden endpoints; a fading rigid transform aligns only their sprint ends. Normal sprint raise uses sprintraise_0 or sprintraise_regrip_0 and restores two-handed grip. True one-handed raise remains separate. The original camera and gun/hand contacts stay intact. Wraith/Bangalore settings identify closer/firesupport but do not prove their full animation selection graphs; this is a native right-hand style adaptation.
+Normal sprint uses the native RIGHT-hand low sprint_0 cycle, retaining its phase with20% positional and25% rotational excursion, moved6units forward to fit TF2's fixed eye. Both hands carry the first native low grip coherently; the original free-hand excursion exceeded the adapted sleeve reach and is not copied independently. The special onehanded branch retains sprint_onehanded_0. Equip/holster/raise sprint endpoints match the low loop in gun and wrist transforms, while hidden and held endpoints remain native. Cyclic sleeve fitting is deterministic so the left elbow closes without a seam. Wraith/Bangalore settings identify closer/firesupport but do not prove their full selection graphs; this is a native low style adaptation.
 
 The two absolute crouch2idle_seq rows retain the native crouch_to_idle_0 transition. The iron/ADS row now uses the ADS anchor instead of the hip anchor. Stock roots/camera tracks are preserved. Fifteen active held-motion additive entries are retargeted as coherent_stock_motion; other masked/neutral stock deltas remain stock_delta. All absolute descriptors, including masked wind layers, author the same rigid screen seat.
 
@@ -60,7 +64,7 @@ Validation uses both stock medium_stalker_m and the Jester_f arm mesh correspond
 
 `test_attack_blending.py` rejects non-neutral right-arm attack endpoints and large distal sleeve reposing, then checks25 fractional crouch/fire weight combinations across28 hip attack frames. Both source SMD and decoded compiled v53 locals are checked, including actual autoplay mask weight on spineC. The _1/_3 native variants are retained as research inputs, not used as repeated recoil overlays. Original attack descriptor lengths, sequence activities/events and drum policy remain stable. This investigation does not establish legend-specific animation graphs from clip names alone.
 
-## 0.2.11 visual and audio policy
+## 0.2.12 visual and audio policy
 
 visual_motion.py retains native held grip while applying cosmetic kick on existing spineC. View-forward roll is zero, pitch/translation scale35%,yaw15%; ballistic recoil unchanged. Fifteen walk/run,jump/land and regrip descriptors share this policy, preserving stock roots/camera and table contracts. decode_motion.ps1 decodes all362 motion frames; test_feedback_motion.py checks those plus164 attack frames on two held anchors at four weights,16,832 contact samples. Prior source-matching checks alone missed CAR additive overlays.
 

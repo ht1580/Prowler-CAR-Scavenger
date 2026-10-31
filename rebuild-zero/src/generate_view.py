@@ -5,6 +5,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
 from arm_fit import ArmFit
 import visual_motion
+import sprint_motion
 from screen_mount import supports,box_triangles
 from reload_timing import ReloadTiming,stabilize_native_constants
 from motion_contract import EXTRA_ANIMS,CROUCH_ANIMS,DRUM_ANIMS,POSE_PARAMETER,DRUM_PARAMETER
@@ -124,7 +125,7 @@ def select(name):
  if n.startswith('sprintdraw'):return 'draw_onehanded_0' if oh else 'sprintdraw_0'
  if n.startswith('sprintholster'):return 'holster_onehanded_0' if oh else 'sprintholster_0'
  if n.startswith('sprintraise'):return 'sprintraise_onehanded_0' if oh else ('sprintraise_regrip_0' if 'regrip' in n else 'sprintraise_0')
- if n.startswith('sprint'):return 'sprint_onehanded_0'
+ if n.startswith('sprint'):return 'sprint_onehanded_0' if oh else 'sprint_0'
  if n.startswith('switch_to_onehanded'):return 'switch_to_onehanded_0'
  if n.startswith('switch_to_twohanded'):return 'switch_to_twohanded_0'
  if 'iron' in n or 'idle_check' in n or 'regrip' in n:return 'crouch_to_idle_0'
@@ -177,11 +178,13 @@ holds={'idle_anim':hold_pose(), 'idle_ads_anim':hold_pose(True),CROUCH_ANIMS[0]:
 
 reloadTiming=ReloadTiming(Mdl(STOCK/'models/weapons/car101/ptpov_car101.mdl'))
 reloadCache={}
-def sample_absolute(c,times,anchor_override=None,transform_at=None):
+def sample_absolute(c,times,anchor_override=None,transform_at=None,target_at=None,cyclic=False):
  fit.swivel={};frames=[];checks=[]
  for t in times:
   target=original_pose(c,t,anchor_override)
   if transform_at is not None:target=move_weapon_and_hands(target,transform_at(t))
+  if target_at is not None:target=target_at(target,t)
+  if cyclic:fit.swivel={}
   G=fit(target)
   for hand in ('def_l_wrist','def_r_wrist'):
    before=target['def_c_base'].inverted()@target[hand];after=G['def_c_base'].inverted()@G[hand]
@@ -273,12 +276,26 @@ for row,descriptor in stock['table'](184,92,4):
     # two-handed raise endpoints. Only align its sprint end to the right-hand
     # cycle. One rigid correction keeps magazine, accessories and hands together.
     entering=name.startswith('sprintdraw');endpoint=c.end if entering else 0
-    running=original_pose(clip('sprint_onehanded_0'),0)['def_c_base']
-    align=running@original_pose(c,endpoint)['def_c_base'].inverted()
+    cycle=clip('sprint_onehanded_0' if 'onehanded' in name else 'sprint_0')
+    runningPose=original_pose(cycle,0)
+    if 'onehanded' not in name:runningPose=move_weapon_and_hands(runningPose,sprint_motion.low_transform(runningPose['def_c_base'],runningPose['def_c_base']))
+    running=runningPose['def_c_base'];align=running@original_pose(c,endpoint)['def_c_base'].inverted()
     def correction(t):
      u=t/max(1,c.end);u=u*u*(3-2*u)
      return lerp(Matrix.Identity(4),align,u if entering else 1-u)
-    frames=sample_absolute(c,times,transform_at=correction)
+    def cycle_end(target,t):
+     u=t/max(1,c.end);u=u*u*(3-2*u)
+     return sprint_motion.meet_cycle(target,runningPose,u if entering else 1-u)
+    frames=sample_absolute(c,times,transform_at=correction,target_at=cycle_end)
+   elif name.startswith('sprint') and 'onehanded' not in name:
+    firstPose=original_pose(c,0);first=firstPose['def_c_base']
+    def low_cycle(target,t):
+     gun=target['def_c_base'];goal=sprint_motion.low_transform(gun,first)@gun
+     # The native free support-hand excursion exceeds the TF2 sleeve reach
+     # after the gun path is shortened. Carry the first low grip coherently,
+     # driven by the actual native gun swing rather than an independent hand.
+     return move_weapon_and_hands(firstPose,goal@first.inverted())
+    frames=sample_absolute(c,times,target_at=low_cycle,cyclic=True)
    else:
     # These absolute descriptors are the two rows of crouch2idle_seq, not
     # weapon inspection. The ADS row must use the ADS anchor for native deltas.
@@ -303,7 +320,7 @@ for row,descriptor in stock['table'](184,92,4):
  if name.startswith('attack_'):
   payload[descriptor]['sampling']='complete_native_timeline'
   payload[descriptor]['fire_policy']='coherent_reduced_recoil'
- if name=='sprint_seq':payload[descriptor]['motion_policy']='full_native_right_hand'
+ if name=='sprint_seq':payload[descriptor]['motion_policy']='native_low_right_carry_fixed_eye'
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
 

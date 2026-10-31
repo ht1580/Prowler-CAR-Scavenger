@@ -73,6 +73,7 @@ BlenderStep 'test_dynamic_integrity.py'
 BlenderStep 'test_right_forearm.py'
 BlenderStep 'test_attack_blending.py'
 BlenderStep 'test_feedback_motion.py'
+BlenderStep 'test_low_sprint.py'
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
 if($Render){

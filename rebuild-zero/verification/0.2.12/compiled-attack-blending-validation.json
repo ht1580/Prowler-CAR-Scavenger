@@ -1,0 +1,6 @@
+{
+  "model_sha256": "1b9fd6425de086441be886302c1930c3a4f830feef10b92680f3464a4a8fad04",
+  "contact_samples": 2100,
+  "max_crouch_contact_error": 7.326099489090963e-06,
+  "stage": "decoded v53 additive local transforms; stance after attack"
+}

@@ -1,0 +1,432 @@
+{
+  "source_kind": "native Apex CAST",
+  "absolute_frames": 2093,
+  "max_hand_gun_position_error": 2.79827144084048e-05,
+  "max_magazine_hand_position_error": 2.3301680989972335e-05,
+  "native_reactive_keys": 4920,
+  "max_reactive_matrix_error": 0.0,
+  "unused_added_bones": [],
+  "independent_offscreen_push": false,
+  "clips": [
+    {
+      "animation": "ads_in_anim",
+      "source": "ads_in_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_anim",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_anim_alt1",
+      "source": "ads_in_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_anim_alt1",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_anim_alt2",
+      "source": "ads_in_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_anim_alt2",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_anim_alt3",
+      "source": "ads_in_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_anim_alt3",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_slide_anim",
+      "source": "ads_in_0",
+      "frames": 12
+    },
+    {
+      "animation": "ads_out_slide_anim",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_slide_hcog_anim",
+      "source": "ads_in_0",
+      "frames": 12
+    },
+    {
+      "animation": "ads_out_slide_hcog_anim",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_slide_holo_anim",
+      "source": "ads_in_0",
+      "frames": 12
+    },
+    {
+      "animation": "ads_out_slide_holo_anim",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_slide_aog_anim",
+      "source": "ads_in_0",
+      "frames": 12
+    },
+    {
+      "animation": "ads_out_slide_aog_anim",
+      "source": "ads_out_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_onehanded_anim",
+      "source": "ads_in_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_onehanded_anim",
+      "source": "ads_out_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_onehanded_anim_alt1",
+      "source": "ads_in_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_onehanded_anim_alt1",
+      "source": "ads_out_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_onehanded_anim_alt2",
+      "source": "ads_in_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_onehanded_anim_alt2",
+      "source": "ads_out_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_in_onehanded_anim_alt3",
+      "source": "ads_in_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "ads_out_onehanded_anim_alt3",
+      "source": "ads_out_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "idle_check_anim_nod",
+      "source": "crouch_to_idle_0",
+      "frames": 29
+    },
+    {
+      "animation": "@reload_seq",
+      "source": "reload_0",
+      "frames": 61
+    },
+    {
+      "animation": "reload_late1_anim",
+      "source": "reload_0",
+      "frames": 27
+    },
+    {
+      "animation": "@reload_empty_seq",
+      "source": "reload_empty_0",
+      "frames": 81
+    },
+    {
+      "animation": "reload_empty_late1_anim",
+      "source": "reload_empty_0",
+      "frames": 47
+    },
+    {
+      "animation": "reload_empty_late2_anim",
+      "source": "reload_empty_0",
+      "frames": 26
+    },
+    {
+      "animation": "@reload_onehanded_seq",
+      "source": "reload_onehanded_0",
+      "frames": 61
+    },
+    {
+      "animation": "reload_onehanded_late1_anim",
+      "source": "reload_onehanded_0",
+      "frames": 27
+    },
+    {
+      "animation": "@reload_empty_onehanded_seq",
+      "source": "reload_empty_onehanded_0",
+      "frames": 81
+    },
+    {
+      "animation": "reload_empty_onehanded_late1_anim",
+      "source": "reload_empty_onehanded_0",
+      "frames": 47
+    },
+    {
+      "animation": "reload_empty_onehanded_late2_anim",
+      "source": "reload_empty_onehanded_0",
+      "frames": 26
+    },
+    {
+      "animation": "@reload_crouch_seq",
+      "source": "reload_1",
+      "frames": 61
+    },
+    {
+      "animation": "reload_late1_crouch_anim",
+      "source": "reload_1",
+      "frames": 27
+    },
+    {
+      "animation": "@reload_empty_crouch_seq",
+      "source": "reload_empty_1",
+      "frames": 81
+    },
+    {
+      "animation": "reload_empty_late1_crouch_anim",
+      "source": "reload_empty_1",
+      "frames": 47
+    },
+    {
+      "animation": "reload_empty_late2_crouch_anim",
+      "source": "reload_empty_1",
+      "frames": 26
+    },
+    {
+      "animation": "@reload_onehanded_crouch_seq",
+      "source": "reload_onehanded_0",
+      "frames": 61
+    },
+    {
+      "animation": "reload_onehanded_late1_crouch_anim",
+      "source": "reload_onehanded_0",
+      "frames": 27
+    },
+    {
+      "animation": "@reload_empty_onehanded_crouch_seq",
+      "source": "reload_empty_onehanded_0",
+      "frames": 81
+    },
+    {
+      "animation": "reload_empty_onehanded_late1_crouch_anim",
+      "source": "reload_empty_onehanded_0",
+      "frames": 47
+    },
+    {
+      "animation": "reload_empty_onehanded_late2_crouch_anim",
+      "source": "reload_empty_onehanded_0",
+      "frames": 26
+    },
+    {
+      "animation": "switch_to_onehanded_anim",
+      "source": "switch_to_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "switch_to_twohanded_anim",
+      "source": "switch_to_twohanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "iron_anim_nod",
+      "source": "crouch_to_idle_0",
+      "frames": 191
+    },
+    {
+      "animation": "@drawfirst_seq",
+      "source": "drawfirst_0",
+      "frames": 35
+    },
+    {
+      "animation": "@drawfirst_crouch_seq",
+      "source": "drawfirst_0",
+      "frames": 35
+    },
+    {
+      "animation": "@draw_seq",
+      "source": "draw_0",
+      "frames": 26
+    },
+    {
+      "animation": "@drawfirst_onehanded_seq",
+      "source": "drawfirst_onehanded_0",
+      "frames": 45
+    },
+    {
+      "animation": "@draw_onehanded_seq",
+      "source": "draw_onehanded_0",
+      "frames": 26
+    },
+    {
+      "animation": "@draw_crouch_seq",
+      "source": "draw_0",
+      "frames": 26
+    },
+    {
+      "animation": "@draw_onehanded_crouch_seq",
+      "source": "draw_onehanded_0",
+      "frames": 26
+    },
+    {
+      "animation": "@holster_seq",
+      "source": "holster_0",
+      "frames": 16
+    },
+    {
+      "animation": "@holster_onehanded_seq",
+      "source": "holster_onehanded_0",
+      "frames": 16
+    },
+    {
+      "animation": "@raise_seq",
+      "source": "raise_0",
+      "frames": 11
+    },
+    {
+      "animation": "@raise_onehanded_seq",
+      "source": "raise_onehanded_0",
+      "frames": 11
+    },
+    {
+      "animation": "@raise_frommelee_seq",
+      "source": "raise_0",
+      "frames": 11
+    },
+    {
+      "animation": "@raise_crouch_seq",
+      "source": "raise_0",
+      "frames": 11
+    },
+    {
+      "animation": "@raise_onehanded_crouch_seq",
+      "source": "raise_onehanded_0",
+      "frames": 11
+    },
+    {
+      "animation": "@raise_frommelee_crouch_seq",
+      "source": "raise_0",
+      "frames": 11
+    },
+    {
+      "animation": "@raise_frommelee_sliding_seq",
+      "source": "raise_0",
+      "frames": 11
+    },
+    {
+      "animation": "@lower_seq",
+      "source": "lower_0",
+      "frames": 11
+    },
+    {
+      "animation": "@lower_onehanded_seq",
+      "source": "lower_onehanded_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprint_seq",
+      "source": "sprint_0",
+      "frames": 21
+    },
+    {
+      "animation": "@sprintraise_seq",
+      "source": "sprintraise_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprintraise_seq_regrip",
+      "source": "sprintraise_regrip_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprintraise_seq_air",
+      "source": "sprintraise_0",
+      "frames": 22
+    },
+    {
+      "animation": "@sprintdraw_seq",
+      "source": "sprintdraw_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprintholster_seq",
+      "source": "sprintholster_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprint_onehanded_seq",
+      "source": "sprint_onehanded_0",
+      "frames": 21
+    },
+    {
+      "animation": "@sprintraise_onehanded_seq",
+      "source": "sprintraise_onehanded_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprintdraw_onehanded_seq",
+      "source": "draw_onehanded_0",
+      "frames": 11
+    },
+    {
+      "animation": "@sprintholster_onehanded_seq",
+      "source": "holster_onehanded_0",
+      "frames": 11
+    },
+    {
+      "animation": "sprintraise_onehanded_slide_anim",
+      "source": "sprintraise_onehanded_0",
+      "frames": 14
+    }
+  ],
+  "extra_bones": [
+    "def_c_reactive_power_switch",
+    "def_c_reactive_wheel_1",
+    "def_c_reactive_wheel_2",
+    "def_c_reactive_wheel_3",
+    "def_c_reactive_wheel_4",
+    "def_c_reactive_spinner_coils",
+    "def_c_reactive_tube_top",
+    "def_c_reactive_tank_nut_lower",
+    "def_c_reactive_tank_nut_upper",
+    "def_c_reactive_top_nut",
+    "def_c_reactive_front_nut",
+    "def_c_reactive_wingnut",
+    "def_l_reactive_top_fitting",
+    "def_r_reactive_top_fitting",
+    "def_c_reactive_mag_release",
+    "def_l_reactive_tube_bottom",
+    "def_l_reactive_tube_top",
+    "def_r_reactive_tube_top",
+    "def_r_reactive_tube_bottom",
+    "def_c_reactive_barrel",
+    "def_c_reactive_spinner_1",
+    "def_c_reactive_spinner_2",
+    "def_c_reactive_spring_1",
+    "def_c_reactive_spring_2",
+    "def_c_reactive_spring_3",
+    "def_c_reactive_spring_4",
+    "def_c_reactive_spring_5",
+    "def_c_reactive_spring_6",
+    "def_c_reactive_spring_7",
+    "def_c_reactive_spring_8",
+    "def_c_reactive_spring_9",
+    "def_c_reactive_spring_10",
+    "def_c_bolt_end"
+  ]
+}
