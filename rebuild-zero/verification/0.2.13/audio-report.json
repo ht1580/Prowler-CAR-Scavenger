@@ -1,0 +1,256 @@
+{
+  "periods_seconds": {
+    "close": 0.083,
+    "centre": 0.083,
+    "mechanical": 0.091,
+    "mid": 0.083
+  },
+  "rate": 14.1,
+  "original_low_ammo_warning": true,
+  "stop_events_use_tail": true,
+  "reload_events_follow_animation": true,
+  "source_assets": {
+    "Wpn_ProwlerPDW_3p_WpnFire_Loop_Close_2ch_v1_01": "067118010ead389e9dc612449dd4fd683ff5ff4c3153ca97d48fa725f8c90bf2",
+    "Wpn_ProwlerPDW_1p_WpnFire_Loop_Close_C_v1_01": "bb7d52a27b8d568925689bc8f50365d80d6bf26ed8298442478e1ac7042ccc09",
+    "Wpn_ProwlerPDW_1p_WpnFire_Loop_Mech_2ch_v1_01": "c3f7a8989a70c354e9ee6810ee2aedcf9613c727b4b8998034a3d0fd8aa9403d",
+    "Wpn_ProwlerPDW_3p_WpnFire_Loop_Mid_2ch_v1_01": "c59501233250cc8edd10b33a3bf1ac201268b1197c8a48117b11e12434223567",
+    "Wpn_ProwlerPDW_3p_WpnFire_Tail_Mid_2ch_v1_01": "dcfa5c9bcefd30e605850523d7024c050a65f61ab2fb3b257b0d064d6e11e8e7",
+    "Wpn_ProwlerPDW_1p_WpnFire_FirstShot_Close_2ch_v1_01": "7e8d2d5bc805e948aabbf54077c83d5180f6a8c990cba8801f9f29b4c99347ea",
+    "Wpn_ProwlerPDW_1p_reload_foley_ArmToMag_2frames_1": "e1b8b39de29d44176498891648c0d32e5c54a504f4c97b65b42f068420d94b55",
+    "Wpn_ProwlerPDW_1p_reload_mech_reload_MagOut_16frames_1": "e4a7c0c72f3f47c2c6d71ffbd85530fd4925cd2a87579d7dad3e1424a700f851",
+    "Wpn_ProwlerPDW_1p_reload_mech_reload_MagIn_43frames_1": "8f9d40ffb3cd286c32636d40b5ed2b8f4fb5a9a302b98cc3d1c48d238531dd5c",
+    "Wpn_ProwlerPDW_1p_reload_mech_reload_grab_66frames_1": "6611a9458cfdaf306453fc1a7381d0e2aafc3ebde59a2178c17e7cb0c2ef0e26",
+    "Wpn_ProwlerPDW_1p_reload_empty_foley_ArmMagGrab_2frames_1": "3ea90ca72471ad12f59b8d23c74da2493271c1609fc50e285666b6c97e8b518b",
+    "Wpn_ProwlerPDW_1p_reload_mech_empty_MagOut_13frames_1": "03663341d35ab52e80e4717c432618b4be6df472887a000bda2eff05309dc198",
+    "Wpn_ProwlerPDW_1p_reload_mech_empty_MagIn_45frames_1a": "51584a96d4beebb9cb0d01950aa706c3dafacdef2ccb2c4b1d39ee600e4783d3",
+    "Wpn_ProwlerPDW_1p_reload_mech_empty_grab_88frames_1": "e40f18ec92dd7fb545e2465fc4ecdfea31c3ed8a1b15462c45cc0c32a57c28db",
+    "Wpn_ProwlerPDW_1p_reload_mech_empty_bolt_pull_68frames_1": "4fd562fa2d2d5baeba4a80ca40c4468db0abc789e8eb1f5cdce2e87a4f48d336",
+    "Wpn_ProwlerPDW_1p_reload_mech_empty_bolt_release_76frames_1": "65e34c74c86f7647c6bd5f600aa9dd8f907009656c5da294969a8669d226271a"
+  },
+  "overrides": {
+    "first": {
+      "events": [
+        "weapon_car_firstshot_1p",
+        "weapon_car_firstshot_1p_int"
+      ],
+      "seconds": 1.4445416666666666,
+      "peak": 0.6500000357627869,
+      "rms": 0.045652661472558975,
+      "gain": 0.5200441397938173,
+      "source": null
+    },
+    "silent": {
+      "events": [
+        "weapon_car_firstshot_3p_BU1",
+        "weapon_car_firstshot_3p_enemy",
+        "weapon_car_firstshot_npc_BU1",
+        "weapon_car_firstshotsuppressed_1p",
+        "weapon_car_firstshotsuppressed_3p",
+        "weapon_car_firstshotsuppressed_3p_enemy",
+        "weapon_car_secondshot1_npc",
+        "weapon_car_secondshot_1p",
+        "weapon_car_secondshot_1p_BU",
+        "weapon_car_secondshot_1p_intlg",
+        "weapon_car_secondshot_1p_intlg_BU",
+        "weapon_car_secondshot_1p_intmed",
+        "weapon_car_secondshot_1p_intmed_BU",
+        "weapon_car_secondshot_1p_intsm",
+        "weapon_car_secondshot_1p_intsm_BU",
+        "weapon_car_secondshot_3p",
+        "weapon_car_secondshot_3p_BU1",
+        "weapon_car_secondshot_3p_OLD2",
+        "weapon_car_secondshot_3p_enemy",
+        "weapon_car_secondshot_3p_enemy_BU",
+        "weapon_car_secondshot_3p_enemy_BU1",
+        "weapon_car_secondshot_3p_enemy_OLD2",
+        "weapon_car_secondshot_3p_enemy_intlg",
+        "weapon_car_secondshot_3p_enemy_intlg_BU1",
+        "weapon_car_secondshot_3p_enemy_intlg_OLD2",
+        "weapon_car_secondshot_3p_enemy_intmed",
+        "weapon_car_secondshot_3p_enemy_intmed_BU1",
+        "weapon_car_secondshot_3p_enemy_intmed_OLD2",
+        "weapon_car_secondshot_3p_enemy_intsm",
+        "weapon_car_secondshot_3p_enemy_intsm_BU1",
+        "weapon_car_secondshot_3p_enemy_intsm_OLD2",
+        "weapon_car_secondshot_3p_int",
+        "weapon_car_secondshot_3p_int_enemy",
+        "weapon_car_secondshot_3p_intlg",
+        "weapon_car_secondshot_3p_intlg_OLD2",
+        "weapon_car_secondshot_3p_intmed",
+        "weapon_car_secondshot_3p_intmed_OLD2",
+        "weapon_car_secondshot_3p_intsm",
+        "weapon_car_secondshot_3p_intsm_OLD2",
+        "weapon_car_secondshot_npc",
+        "weapon_car_secondshot_npc_intlg",
+        "weapon_car_secondshot_npc_intmed",
+        "weapon_car_secondshot_npc_intsm"
+      ],
+      "seconds": 0.05,
+      "peak": 0.0,
+      "rms": 0.0,
+      "gain": 1.0,
+      "source": null
+    },
+    "loop1p": {
+      "events": [
+        "weapon_car_loop_1p",
+        "weapon_car_loopsuppressed_1p"
+      ],
+      "seconds": 3.971625,
+      "peak": 0.550000011920929,
+      "rms": 0.12714922428131104,
+      "gain": 0.315111762862221,
+      "source": null
+    },
+    "loop3p": {
+      "events": [
+        "weapon_car_loop_3p",
+        "weapon_car_loop_3p_BU1",
+        "weapon_car_loop_3p_OLD2",
+        "weapon_car_loop_3p_enemy",
+        "weapon_car_loop_3p_enemy_BU",
+        "weapon_car_loop_3p_enemy_BU1",
+        "weapon_car_loopsuppressed_3p",
+        "weapon_car_loopsuppressed_3p_enemy"
+      ],
+      "seconds": 3.971625,
+      "peak": 0.20000000298023224,
+      "rms": 0.04577561467885971,
+      "gain": 0.11366033739552421,
+      "source": null
+    },
+    "loopnpc": {
+      "events": [
+        "weapon_car_loop_3p_npc",
+        "weapon_car_loop_3p_npc_a",
+        "weapon_car_loop_npc"
+      ],
+      "seconds": 3.971625,
+      "peak": 0.20000000298023224,
+      "rms": 0.03751388192176819,
+      "gain": 0.20128672112627932,
+      "source": null
+    },
+    "tail": {
+      "events": [
+        "weapon_car_loopend_1p",
+        "weapon_car_loopend_1p_OLD",
+        "weapon_car_loopend_1p_int",
+        "weapon_car_loopend_3p",
+        "weapon_car_loopend_3p_enemy",
+        "weapon_car_loopend_3p_int",
+        "weapon_car_loopend_3p_int_enemy",
+        "weapon_car_loopend_npc",
+        "weapon_car_loopend_npc_int",
+        "weapon_car_loopsuppressedend_1p",
+        "weapon_car_loopsuppressedend_3p",
+        "weapon_car_loopsuppressedend_3p_enemy"
+      ],
+      "seconds": 4.521708333333334,
+      "peak": 0.20000000298023224,
+      "rms": 0.013464180752635002,
+      "gain": 1.095277252970078,
+      "source": null
+    },
+    "reload_grab": {
+      "events": [
+        "weapon_car_reload_maggrab"
+      ],
+      "seconds": 0.6665,
+      "peak": 0.30000001192092896,
+      "rms": 0.02768874540925026,
+      "gain": 3.998370913816896,
+      "source": "Wpn_ProwlerPDW_1p_reload_foley_ArmToMag_2frames_1"
+    },
+    "reload_magout": {
+      "events": [
+        "weapon_car_reload_magpull"
+      ],
+      "seconds": 0.23333333333333334,
+      "peak": 0.44999998807907104,
+      "rms": 0.055842913687229156,
+      "gain": 0.42703175503145097,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_reload_MagOut_16frames_1"
+    },
+    "reload_magin": {
+      "events": [
+        "weapon_car_reload_maginsert"
+      ],
+      "seconds": 0.48075,
+      "peak": 0.5,
+      "rms": 0.06392082571983337,
+      "gain": 0.5212669971182015,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_reload_MagIn_43frames_1"
+    },
+    "reload_settle": {
+      "events": [
+        "weapon_car_reload_maghandrest"
+      ],
+      "seconds": 0.16666666666666666,
+      "peak": 0.3199999928474426,
+      "rms": 0.04261535778641701,
+      "gain": 0.802329724721284,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_reload_grab_66frames_1"
+    },
+    "empty_grab": {
+      "events": [
+        "weapon_car_emptyreload_maggrab"
+      ],
+      "seconds": 0.6572708333333334,
+      "peak": 0.29999998211860657,
+      "rms": 0.02923494763672352,
+      "gain": 9.466804002617252,
+      "source": "Wpn_ProwlerPDW_1p_reload_empty_foley_ArmMagGrab_2frames_1"
+    },
+    "empty_magout": {
+      "events": [
+        "weapon_car_emptyreload_magpull"
+      ],
+      "seconds": 0.43333333333333335,
+      "peak": 0.45000001788139343,
+      "rms": 0.036329980939626694,
+      "gain": 0.36654033952773263,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_empty_MagOut_13frames_1"
+    },
+    "empty_magin": {
+      "events": [
+        "weapon_car_emptyreload_maginsert"
+      ],
+      "seconds": 0.7,
+      "peak": 0.5,
+      "rms": 0.043123915791511536,
+      "gain": 0.45099795689292455,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_empty_MagIn_45frames_1a"
+    },
+    "empty_settle": {
+      "events": [
+        "weapon_car_emptyreload_handrest"
+      ],
+      "seconds": 0.2529166666666667,
+      "peak": 0.3199999928474426,
+      "rms": 0.03716696798801422,
+      "gain": 0.7160418837176471,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_empty_grab_88frames_1"
+    },
+    "empty_boltback": {
+      "events": [
+        "weapon_car_emptyreload_boltback"
+      ],
+      "seconds": 0.26666666666666666,
+      "peak": 0.44999998807907104,
+      "rms": 0.059473033994436264,
+      "gain": 0.5039917954063915,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_empty_bolt_pull_68frames_1"
+    },
+    "empty_boltfront": {
+      "events": [
+        "weapon_car_emptyreload_boltfront"
+      ],
+      "seconds": 0.40947916666666667,
+      "peak": 0.45000001788139343,
+      "rms": 0.04422855004668236,
+      "gain": 0.4904887601549191,
+      "source": "Wpn_ProwlerPDW_1p_reload_mech_empty_bolt_release_76frames_1"
+    }
+  }
+}

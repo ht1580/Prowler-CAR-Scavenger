@@ -1,0 +1,86 @@
+[
+  {
+    "name": "ads-fire.mp4",
+    "frames": 65,
+    "seconds": 4.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "air-duck.mp4",
+    "frames": 82,
+    "seconds": 5.28,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "crouch-fire.mp4",
+    "frames": 65,
+    "seconds": 4.0,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "field-sprint.mp4",
+    "frames": 98,
+    "seconds": 6.08,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "field-stop.mp4",
+    "frames": 32,
+    "seconds": 2.08,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "final-idle.mp4",
+    "frames": 33,
+    "seconds": 2.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "reload-after-ads.mp4",
+    "frames": 52,
+    "seconds": 3.12,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "reload.mp4",
+    "frames": 53,
+    "seconds": 3.12,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "run-fire.mp4",
+    "frames": 126,
+    "seconds": 8.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "run-stop.mp4",
+    "frames": 114,
+    "seconds": 8.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "standing.mp4",
+    "frames": 32,
+    "seconds": 2.0,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "stop.mp4",
+    "frames": 33,
+    "seconds": 2.04,
+    "audio": false,
+    "decoded": true
+  }
+]

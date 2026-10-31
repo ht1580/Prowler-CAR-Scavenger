@@ -1,10 +1,12 @@
-# 0.2.12 普通跑步改为右侧低持摆动
+# 0.2.13 普通跑步改为右侧低持摆动
 
-按用户明确选择，普通sprint_seq使用原生sprint_0节奏，经固定镜头适配保留20%位移、25%旋转摆幅，整体前移6单位。进入/退出跑步对齐枪和双手，保留隐藏收放端及两手举枪完成端。特殊onehanded分支保留原单手循环。新增3项检查覆盖低姿、摆动、过渡端点及编译后完整循环可见性；其余声音/斜持/屏幕与游戏数值延续0.2.11。实机范围见本版runtime-verification.json。
+0.2.12最终复核发现过渡端点混合误改根/镜头轨迹，该版已撤回为草稿。0.2.13限制混合范围为手臂及武器分支，并逐帧检查原生根/镜头轨迹。
 
-# Prowler CAR Scavenger 0.2.12
+按用户明确选择，普通sprint_seq使用原生sprint_0节奏，经固定镜头适配保留20%位移、25%旋转摆幅，整体前移6单位。进入/退出跑步对齐枪和双手，保留隐藏收放端及两手举枪完成端。特殊onehanded分支保留原单手循环。新增4项检查覆盖低姿、摆动、过渡端点及编译后完整循环可见性；其余声音/斜持/屏幕与游戏数值延续0.2.11。实机范围见本版runtime-verification.json。
 
-Independent Prowler Scavenger rebuild for Titanfall2/R2Vanilla. Candidate0.2.12 addresses quiet fire, absent reload feedback, airborne cant, sideways shot roll, grip drift and the external counter seat. Fifteen stock movement/air/regrip additive entries and visual recoil now use one existing shared arm/weapon branch. Source and compiled tests include fractional weights. Real output-only audio and windowed game recordings remain required; user visual/audio acceptance stays open.
+# Prowler CAR Scavenger 0.2.13
+
+Independent Prowler Scavenger rebuild for Titanfall2/R2Vanilla. Candidate0.2.13 addresses quiet fire, absent reload feedback, airborne cant, sideways shot roll, grip drift and the external counter seat. Fifteen stock movement/air/regrip additive entries and visual recoil now use one existing shared arm/weapon branch. Source and compiled tests include fractional weights. Real output-only audio and windowed game recordings remain required; user visual/audio acceptance stays open.
 
 ## Motion
 
@@ -64,7 +66,7 @@ Validation uses both stock medium_stalker_m and the Jester_f arm mesh correspond
 
 `test_attack_blending.py` rejects non-neutral right-arm attack endpoints and large distal sleeve reposing, then checks25 fractional crouch/fire weight combinations across28 hip attack frames. Both source SMD and decoded compiled v53 locals are checked, including actual autoplay mask weight on spineC. The _1/_3 native variants are retained as research inputs, not used as repeated recoil overlays. Original attack descriptor lengths, sequence activities/events and drum policy remain stable. This investigation does not establish legend-specific animation graphs from clip names alone.
 
-## 0.2.12 visual and audio policy
+## 0.2.13 visual and audio policy
 
 visual_motion.py retains native held grip while applying cosmetic kick on existing spineC. View-forward roll is zero, pitch/translation scale35%,yaw15%; ballistic recoil unchanged. Fifteen walk/run,jump/land and regrip descriptors share this policy, preserving stock roots/camera and table contracts. decode_motion.ps1 decodes all362 motion frames; test_feedback_motion.py checks those plus164 attack frames on two held anchors at four weights,16,832 contact samples. Prior source-matching checks alone missed CAR additive overlays.
 

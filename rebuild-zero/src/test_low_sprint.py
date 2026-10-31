@@ -41,6 +41,26 @@ class LowSprint(unittest.TestCase):
    ratio=visible/len(ids);self.assertGreater(ratio,.25,f'frame{pose["frame"]}: low carry leaves viewport');rows.append(dict(frame=pose['frame'],gun_position=list(gun.translation),visible_body_ratio=ratio))
   self.assertEqual(len(rows),self.r['animations']['@sprint_seq']['frames'])
   (BUILD/'compiled-low-sprint-validation.json').write_text(json.dumps(dict(model_sha256=digest,all_loop_frames=len(rows),minimum_visible_body_ratio=min(r['visible_body_ratio'] for r in rows),samples=rows),indent=2))
+ def test_matching_sprint_ends_preserves_native_root_and_camera_tracks(self):
+  base=SOURCE/'apex_animations/animrig/techart/mshop/weapons/class/smg/prowler/anims_prowler_base_v_animRig'
+  original={}
+  for name,source in [('sprintdraw_seq','sprintdraw_0'),('sprintholster_seq','sprintholster_0'),('sprintraise_seq','sprintraise_0'),('sprintraise_seq_air','sprintraise_0'),('sprintraise_seq_regrip','sprintraise_regrip_0')]:
+   c=Clip(base/(source+'.cast'));frames=self.poses(name)
+   original['@'+name]=[globals_(c.order,c.parent,c.sample_pose(c.end*i/max(1,len(frames)-1))) for i in range(len(frames))]
+   for i,G in enumerate(frames):
+    expected=globals_(c.order,c.parent,c.sample_pose(c.end*i/max(1,len(frames)-1)))
+    for n in ('jx_c_delta','jx_c_pov','jx_c_camera'):
+     self.assertLess((G[n].translation-expected[n].translation).length,.002,f'{name}/{i}/{n}: matching grip moves eye/root')
+     self.assertLess(math.degrees(G[n].to_quaternion().rotation_difference(expected[n].to_quaternion()).angle),.01,f'{name}/{i}/{n}: matching grip rotates eye/root')
+  doc=json.loads((BUILD/'native-dynamic.json').read_text(encoding='utf-8-sig'));conversion=Matrix.Rotation(math.pi/2,4,'Z');samples=0;worst=0.
+  for pose in doc['poses']:
+   if pose['name'] not in original:continue
+   G=globals_(self.o,self.p,{self.o[v['index']]:matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion()) for v in pose['locals']})
+   for n in ('jx_c_delta','jx_c_pov','jx_c_camera'):
+    expected=conversion@original[pose['name']][pose['frame']][n];error=(G[n].translation-expected.translation).length;worst=max(worst,error);samples+=1
+    self.assertLess(error,.002,f'{pose["name"]}/{pose["frame"]}/{n}: compiled root/eye drift')
+    self.assertLess(math.degrees(G[n].to_quaternion().rotation_difference(expected.to_quaternion()).angle),.01)
+  report=BUILD/'compiled-low-sprint-validation.json';data=json.loads(report.read_text());data.update(native_root_camera_samples=samples,max_native_root_camera_position_error=worst);report.write_text(json.dumps(data,indent=2))
 
 if __name__=='__main__':
  r=unittest.main(argv=['low_sprint'],exit=False)

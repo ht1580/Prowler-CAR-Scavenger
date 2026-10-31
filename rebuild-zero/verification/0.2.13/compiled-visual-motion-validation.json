@@ -1,0 +1,10 @@
+{
+  "model_sha256": "ee965d72c8c8d9b2324a52ff9875d10ad84de0558e34da6fe58309b7f0865bb2",
+  "decoded_movement_frames": 362,
+  "decoded_attack_frames": 164,
+  "contact_samples": 16832,
+  "max_position_error": 9.423002333346889e-06,
+  "max_angle_error": 3.654309915075916e-05,
+  "max_shot_roll_degrees": 7.171699931268587e-05,
+  "max_shot_rotation_degrees": 0.3252009330438874
+}

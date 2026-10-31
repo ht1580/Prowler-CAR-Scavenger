@@ -285,7 +285,7 @@ for row,descriptor in stock['table'](184,92,4):
      return lerp(Matrix.Identity(4),align,u if entering else 1-u)
     def cycle_end(target,t):
      u=t/max(1,c.end);u=u*u*(3-2*u)
-     return sprint_motion.meet_cycle(target,runningPose,u if entering else 1-u)
+     return sprint_motion.meet_cycle(target,runningPose,u if entering else 1-u,parent)
     frames=sample_absolute(c,times,transform_at=correction,target_at=cycle_end)
    elif name.startswith('sprint') and 'onehanded' not in name:
     firstPose=original_pose(c,0);first=firstPose['def_c_base']

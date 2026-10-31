@@ -1,0 +1,285 @@
+{
+  "version": "0.2.13",
+  "trial": "A low carry",
+  "zip_sha256": "d2df975a8eeda6547eac7e0cef529cc3519a4c73dec55fa8159c5673686a720a",
+  "model_sha256": "ee965d72c8c8d9b2324a52ff9875d10ad84de0558e34da6fe58309b7f0865bb2",
+  "installed_files": 40,
+  "no_extra_files": true,
+  "currently_installed": true,
+  "game_pid": 70828,
+  "game_tested": true,
+  "full_visual_acceptance": false,
+  "profile": "R2Vanilla",
+  "mode": "Windowed960x540 private Attrition on Homestead",
+  "samples": [
+    {
+      "name": "standing",
+      "path": "work/low-sprint-0213/a-standing/0016.png",
+      "sha256": "f6ed1af045f8b2f305a5ae497071d88382818813aec53d8edf163c4e4d616110",
+      "label": "普通握持"
+    },
+    {
+      "name": "sprint",
+      "path": "work/low-sprint-0213/a-field-sprint/0034.png",
+      "sha256": "c3589e54d58a77392d0d23e32c0e537cdfaebbc3079a8f95f94998dc41a181a4",
+      "label": "右侧低持跑步"
+    },
+    {
+      "name": "stop",
+      "path": "work/low-sprint-0213/a-stop/0016.png",
+      "sha256": "2fb1dce9f4b0e8a982328ffa331b23c83cfd7656971d90a13a878b5c82d1c5a7",
+      "label": "停步恢复"
+    },
+    {
+      "name": "ads",
+      "path": "work/low-sprint-0213/a-ads-fire/0027.png",
+      "sha256": "6fe3f4598a8a59c8e32b404dff1b5189881785e16ebe334c7f02f65db6f058c1",
+      "label": "ADS开火"
+    },
+    {
+      "name": "crouch",
+      "path": "work/low-sprint-0213/a-crouch-fire/0027.png",
+      "sha256": "f6cca816cd5a5c775de0ccbff71151a1ac6abebe371a6ed160f1b751eb4f2ece",
+      "label": "蹲姿开火"
+    },
+    {
+      "name": "reload",
+      "path": "work/low-sprint-0213/a-run-fire/0076.png",
+      "sha256": "9a7830cb4f488eb4ecf734ed46bf896c28e363d0ff53bb0036d7e53f613ddbad",
+      "label": "跑步到开火换弹"
+    }
+  ],
+  "sequences": {
+    "ads-fire": "work/low-sprint-0213/a-ads-fire",
+    "air-duck": "work/low-sprint-0213/a-air-duck",
+    "crouch-fire": "work/low-sprint-0213/a-crouch-fire",
+    "field-sprint": "work/low-sprint-0213/a-field-sprint",
+    "field-stop": "work/low-sprint-0213/a-field-stop",
+    "final-idle": "work/low-sprint-0213/a-final-idle",
+    "reload": "work/low-sprint-0213/a-reload",
+    "reload-after-ads": "work/low-sprint-0213/a-reload-after-ads",
+    "run-fire": "work/low-sprint-0213/a-run-fire",
+    "run-stop": "work/low-sprint-0213/a-run-stop",
+    "standing": "work/low-sprint-0213/a-standing",
+    "stop": "work/low-sprint-0213/a-stop"
+  },
+  "captured_frames": 773,
+  "static_unit_tests": 69,
+  "compiled_low_sprint": {
+    "model_sha256": "ee965d72c8c8d9b2324a52ff9875d10ad84de0558e34da6fe58309b7f0865bb2",
+    "all_loop_frames": 21,
+    "minimum_visible_body_ratio": 0.3295732361140896,
+    "samples": [
+      {
+        "frame": 0,
+        "gun_position": [
+          21.47928810119629,
+          -7.66805362701416,
+          -10.312511444091797
+        ],
+        "visible_body_ratio": 0.6198155693759383
+      },
+      {
+        "frame": 1,
+        "gun_position": [
+          21.580854415893555,
+          -7.668054580688477,
+          -10.480484962463379
+        ],
+        "visible_body_ratio": 0.6141110872828651
+      },
+      {
+        "frame": 2,
+        "gun_position": [
+          21.565229415893555,
+          -7.793059825897217,
+          -10.816431999206543
+        ],
+        "visible_body_ratio": 0.5925369933519193
+      },
+      {
+        "frame": 3,
+        "gun_position": [
+          21.186311721801758,
+          -8.148539543151855,
+          -11.222694396972656
+        ],
+        "visible_body_ratio": 0.5406819644006005
+      },
+      {
+        "frame": 4,
+        "gun_position": [
+          20.55738639831543,
+          -8.652460098266602,
+          -11.656302452087402
+        ],
+        "visible_body_ratio": 0.4871113017370791
+      },
+      {
+        "frame": 5,
+        "gun_position": [
+          19.381567001342773,
+          -9.429823875427246,
+          -12.000064849853516
+        ],
+        "visible_body_ratio": 0.42753592108084926
+      },
+      {
+        "frame": 6,
+        "gun_position": [
+          18.729202270507812,
+          -9.593888282775879,
+          -11.8945951461792
+        ],
+        "visible_body_ratio": 0.41153763671456145
+      },
+      {
+        "frame": 7,
+        "gun_position": [
+          18.08465003967285,
+          -9.695448875427246,
+          -11.72271728515625
+        ],
+        "visible_body_ratio": 0.4027021230967189
+      },
+      {
+        "frame": 8,
+        "gun_position": [
+          17.498693466186523,
+          -9.76185417175293,
+          -11.531307220458984
+        ],
+        "visible_body_ratio": 0.3976838944885267
+      },
+      {
+        "frame": 9,
+        "gun_position": [
+          17.033836364746094,
+          -9.812634468078613,
+          -11.382867813110352
+        ],
+        "visible_body_ratio": 0.3926656658803345
+      },
+      {
+        "frame": 10,
+        "gun_position": [
+          16.744762420654297,
+          -9.863415718078613,
+          -11.320366859436035
+        ],
+        "visible_body_ratio": 0.38524555007505895
+      },
+      {
+        "frame": 11,
+        "gun_position": [
+          16.697885513305664,
+          -9.953261375427246,
+          -11.437557220458984
+        ],
+        "visible_body_ratio": 0.3665880334548574
+      },
+      {
+        "frame": 12,
+        "gun_position": [
+          16.885393142700195,
+          -10.047017097473145,
+          -11.6875638961792
+        ],
+        "visible_body_ratio": 0.34102509114304097
+      },
+      {
+        "frame": 13,
+        "gun_position": [
+          17.252592086791992,
+          -10.078269958496094,
+          -11.921944618225098
+        ],
+        "visible_body_ratio": 0.3295732361140896
+      },
+      {
+        "frame": 14,
+        "gun_position": [
+          17.740890502929688,
+          -9.976707458496094,
+          -11.980538368225098
+        ],
+        "visible_body_ratio": 0.3489598970619773
+      },
+      {
+        "frame": 15,
+        "gun_position": [
+          18.42059898376465,
+          -9.691544532775879,
+          -11.789124488830566
+        ],
+        "visible_body_ratio": 0.40600471799270854
+      },
+      {
+        "frame": 16,
+        "gun_position": [
+          19.299531936645508,
+          -9.261846542358398,
+          -11.441454887390137
+        ],
+        "visible_body_ratio": 0.475101865751662
+      },
+      {
+        "frame": 17,
+        "gun_position": [
+          20.205808639526367,
+          -8.781366348266602,
+          -11.043004035949707
+        ],
+        "visible_body_ratio": 0.5349345914647223
+      },
+      {
+        "frame": 18,
+        "gun_position": [
+          20.95583152770996,
+          -8.347761154174805,
+          -10.703147888183594
+        ],
+        "visible_body_ratio": 0.5926227750375295
+      },
+      {
+        "frame": 19,
+        "gun_position": [
+          21.373815536499023,
+          -7.914154529571533,
+          -10.437515258789062
+        ],
+        "visible_body_ratio": 0.613339052112374
+      },
+      {
+        "frame": 20,
+        "gun_position": [
+          21.47928810119629,
+          -7.66805362701416,
+          -10.312511444091797
+        ],
+        "visible_body_ratio": 0.6198155693759383
+      }
+    ],
+    "native_root_camera_samples": 198,
+    "max_native_root_camera_position_error": 0.00034193631439944044
+  },
+  "unchanged_from_0211": [
+    "audio",
+    "materials",
+    "world model",
+    "stance controller",
+    "weapon gameplay",
+    "CFG source",
+    "loadout"
+  ],
+  "conclusion": "按用户确认改成右侧低持并随步伐摆动。冷启窗口私人比赛采集连续跑步、两次起停、跑步后开火换弹、站立与蹲姿/ADS开火、空中按蹲及停止恢复。编译后完整21帧低持循环检查通过；枪与双手过渡端点及循环接缝检查通过。保留原生根/镜头轨迹，编译后198个采样通过。只改变第一人称模型与版本号，0.2.11的声音、斜持及计数器安装完整保留。游戏正常退出；具体观感以最终录像为准。",
+  "remaining": [
+    "主观摆幅、握持和听感仍待用户观看试听",
+    "未宣称还原恶灵/烟妹完整角色动画选择图，特殊onehanded动作仍用单手分支",
+    "未穷尽全部手套、瞄具、技能及快速中断组合",
+    "声音文件与0.2.11逐字节相同，本轮视频无音轨；试听见0.2.11有声实机",
+    "未重新累计击杀验收外接屏数字增长；未做公共服务器长期测试"
+  ],
+  "capture": "Foreground CopyFromScreen982x591; timestamps preserved in VFR MP4, audio absent.",
+  "state": "40file candidate remains installed; game quit through console."
+}
