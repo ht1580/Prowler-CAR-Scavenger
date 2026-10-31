@@ -52,7 +52,9 @@ void function ProwlerStance_Think()
   float phase = ( drumPosition - floor( drumPosition / 6.0 ) * 6.0 ) / 6.0
   viewmodel.SetPoseParameter( "prowler_drum", phase )
   float target = 0.0
-  if ( player.IsCrouched() && !weapon.IsReloading() && player.GetVelocity().LengthSqr() < 30000 )
+  // Airborne duck does not immediately change the grounded crouch hull.
+  // Read the actual duck command too; vertical jump speed must not cancel it.
+  if ( ( player.IsCrouched() || player.IsInputCommandHeld( IN_DUCK ) ) && !weapon.IsReloading() )
    target = 1.0
   amount += ( target - amount ) * min( 1.0, FrameTime() * 12.0 )
   if ( amount < 0.001 )

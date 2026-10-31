@@ -1,0 +1,135 @@
+[
+  {
+    "name": "ads-strafe-fire.mp4",
+    "frames": 74,
+    "seconds": 6.0,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "air-duck.mp4",
+    "frames": 61,
+    "seconds": 5.2,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "baseline-0.2.10-fire-reload.mp4",
+    "frames": 145,
+    "seconds": 12.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "baseline-0.2.10-with-audio.mp4",
+    "frames": 145,
+    "seconds": 12.08,
+    "audio": true,
+    "decoded": true
+  },
+  {
+    "name": "before-ads-reload.mp4",
+    "frames": 25,
+    "seconds": 3.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "crouch-ads-fire.mp4",
+    "frames": 73,
+    "seconds": 6.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "crouch-fire.mp4",
+    "frames": 74,
+    "seconds": 6.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "crouch-reload.mp4",
+    "frames": 31,
+    "seconds": 3.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "empty-reload-with-audio.mp4",
+    "frames": 109,
+    "seconds": 9.04,
+    "audio": true,
+    "decoded": true
+  },
+  {
+    "name": "empty-reload.mp4",
+    "frames": 109,
+    "seconds": 9.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "final-idle.mp4",
+    "frames": 25,
+    "seconds": 2.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "fire-reload-with-audio.mp4",
+    "frames": 145,
+    "seconds": 12.04,
+    "audio": true,
+    "decoded": true
+  },
+  {
+    "name": "fire-reload.mp4",
+    "frames": 145,
+    "seconds": 12.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "post-ads-reload.mp4",
+    "frames": 25,
+    "seconds": 3.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "side-step.mp4",
+    "frames": 25,
+    "seconds": 3.04,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "sprint.mp4",
+    "frames": 61,
+    "seconds": 5.08,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "standing.mp4",
+    "frames": 25,
+    "seconds": 2.08,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "stop.mp4",
+    "frames": 25,
+    "seconds": 2.08,
+    "audio": false,
+    "decoded": true
+  },
+  {
+    "name": "strafe-fire.mp4",
+    "frames": 75,
+    "seconds": 6.12,
+    "audio": false,
+    "decoded": true
+  }
+]

@@ -34,6 +34,8 @@ foreach($job in @(@{file='native-all.json';names='*';all=$false},@{file='native-
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot\tools\decode_native_pose.ps1" -ModelPath "$root\build\compiler_game\models\weapons\car101\ptpov_car101_conv.mdl" -OutputPath "$root\build\native-reload.json" -Names '*reload*' -AllFrames
 if($LASTEXITCODE -ne 0){throw 'Reload decoding failed'}
 # Decode every frame of every absolute descriptor, including non-inline transitions.
+& $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot/decode_motion.ps1"
+if($LASTEXITCODE -ne 0){throw 'Movement decode failed'}
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot/decode_dynamic.ps1"
 if($LASTEXITCODE -ne 0){throw 'Full dynamic decode failed'}
 BlenderStep 'verify_dynamic.py'
@@ -42,6 +44,7 @@ BlenderStep 'test_refinements.py'
 BlenderStep 'test_dynamic_integrity.py'
 BlenderStep 'test_right_forearm.py'
 BlenderStep 'test_attack_blending.py'
+BlenderStep 'test_feedback_motion.py'
 & $python "$PSScriptRoot/test_material_channels.py"
 if($LASTEXITCODE -ne 0){throw 'Original material channels discarded'}
 & $python "$PSScriptRoot\test_audio_policy.py"

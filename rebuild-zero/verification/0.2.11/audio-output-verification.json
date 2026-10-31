@@ -1,0 +1,53 @@
+{
+  "records": {
+    "a-audio": {
+      "pid": 28860,
+      "seconds": 15.0,
+      "peak": 0.0129622807726264,
+      "clipped_samples": 0,
+      "loopback": true,
+      "physical_microphone": false,
+      "interrupted": false,
+      "wav_sha256": "60b72845ada106d47fe537c54472887933da13cc97562462ba58a5bee6ba617a"
+    },
+    "d-audio": {
+      "pid": 74592,
+      "seconds": 15.0,
+      "peak": 0.03751585632562637,
+      "clipped_samples": 0,
+      "loopback": true,
+      "physical_microphone": false,
+      "interrupted": false,
+      "wav_sha256": "d066259517df9d62a751bf95db8131dd9de177ce8578de4719f612adbb1680b4"
+    },
+    "d-empty-audio": {
+      "pid": 74592,
+      "seconds": 11.0,
+      "peak": 0.037075694650411606,
+      "clipped_samples": 0,
+      "loopback": true,
+      "physical_microphone": false,
+      "interrupted": false,
+      "wav_sha256": "af0a355ccb892cd593e4a880b7ed57f194f5b91a6ec23e0fa165ad7283eea758"
+    }
+  },
+  "output_peak_gain_db": 9.23066879228532,
+  "source_gain_db": {
+    "first": 10.237667219577487,
+    "loop1p": 8.786653876605254
+  },
+  "reload_event_ids_played": [
+    "weapon_car_emptyreload_boltback",
+    "weapon_car_emptyreload_boltfront",
+    "weapon_car_emptyreload_handrest",
+    "weapon_car_reload_maggrab",
+    "weapon_car_reload_maghandrest",
+    "weapon_car_reload_maginsert",
+    "weapon_car_reload_magpull"
+  ],
+  "reload_routes_registered": 10,
+  "normal_and_empty_share_magazine_events": true,
+  "physical_microphone": false,
+  "postproduction_gain": false,
+  "comparison_limit": "Same input schedule and game settings; map ambience is not a controlled sound-pressure measurement."
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fire-reload-with-audio.mp4",
+    "video_pid": 74592,
+    "audio_pid": 74592,
+    "audio_loopback": true,
+    "microphone": false,
+    "alignment": "shared Windows monotonic clock; driver latency not calibrated",
+    "trim_seconds": 0.9864662000327371,
+    "postproduction_gain": false
+  },
+  {
+    "name": "empty-reload-with-audio.mp4",
+    "video_pid": 74592,
+    "audio_pid": 74592,
+    "audio_loopback": true,
+    "microphone": false,
+    "alignment": "shared Windows monotonic clock; driver latency not calibrated",
+    "trim_seconds": 0.9527946000162046,
+    "postproduction_gain": false
+  },
+  {
+    "name": "baseline-0.2.10-with-audio.mp4",
+    "video_pid": 28860,
+    "audio_pid": 28860,
+    "audio_loopback": true,
+    "microphone": false,
+    "alignment": "shared Windows monotonic clock; driver latency not calibrated",
+    "trim_seconds": 0.7370621000009123,
+    "postproduction_gain": false
+  }
+]

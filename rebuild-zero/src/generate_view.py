@@ -4,6 +4,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
 from arm_fit import ArmFit
+import visual_motion
 from screen_mount import supports,box_triangles
 from reload_timing import ReloadTiming,stabilize_native_constants
 from motion_contract import EXTRA_ANIMS,CROUCH_ANIMS,DRUM_ANIMS,POSE_PARAMETER,DRUM_PARAMETER
@@ -56,9 +57,9 @@ for n in OPTICS:restG[n]=Matrix.Translation(opticShift)@stockG[n]
 # surface contact and fixed-eye projection are checked on the compiled mesh.
 # This accessory seat does not alter gun, hand, camera or motion roots.
 proscreenScale=.65
-# Native bind axes: X=side, Y=height, Z=forward. Lower the panel and
-# seat it farther along the receiver without changing the held gun or hands.
-proscreenOrigin=Vector((1.047551,47.00,11.00))
+# Native bind axes: X=side, Y=height, Z=forward. Raise the panel,
+# move it forward and tuck it closer to the barrel-side body.
+proscreenOrigin=Vector((.65,48.50,14.00))
 restG['def_c_proscreen']=Matrix.Translation(proscreenOrigin)@stockG['def_c_proscreen'].to_quaternion().to_matrix().to_4x4()
 restL=locals_(order,parent,restG)
 def mapped(n):
@@ -162,14 +163,11 @@ def hold_pose(ads=False,crouch=False):
  anchor=clip('ads_in_0' if ads else 'draw_0')
  target=original_pose(anchor,anchor.end)
  if crouch and not ads:
-  # Exported Apex crouch aliases contain only breathing and return to identity.
-  # Use the actual TF2 crouch cant/offset, applied coherently about the native gun.
-  _,_,crouchFrames,_=smd(STOCK/'view/ptpov_car101_anims/draw_crouch_seq.smd')
-  stockCrouch=globals_(so,sp,crouchFrames[-1])['def_c_base']
-  _,_,standFrames,_=smd(STOCK/'view/ptpov_car101_anims/draw_seq.smd')
-  stockStand=globals_(so,sp,standFrames[-1])['def_c_base']
-  gun=target['def_c_base'];rotation=stockCrouch.to_quaternion()@stockStand.to_quaternion().inverted()
-  transform=Matrix.Translation(gun.translation+stockCrouch.translation-stockStand.translation)@rotation.to_matrix().to_4x4()@Matrix.Translation(-gun.translation)
+  # The Prowler's long rear housing crosses the eye when the CAR crouch
+  # pitch/yaw is reused. A view-axis cant preserves depth at every blend
+  # weight, keeping that housing behind the near plane through the transition.
+  gun=target['def_c_base'];rotation=Quaternion((0,1,0),math.radians(25.))
+  transform=Matrix.Translation(gun.translation+Vector((.5,0.,-.75)))@rotation.to_matrix().to_4x4()@Matrix.Translation(-gun.translation)
   target=move_weapon_and_hands(target,transform)
  fit.swivel={};out=locals_(order,parent,fit(target))
  for n in rotors:out[n]=restL[n].copy()
@@ -220,8 +218,9 @@ for row,descriptor in stock['table'](184,92,4):
    # Short ADS descriptors must include recoil recovery, rather than cutting
    # the source timeline before its neutral endpoint.
    time=c.end*f/max(1,len(oldframes)-1)
-   raw=c.sample(time);target=original_pose(c,time,anchorName);posed=locals_(order,parent,fit(target));D=relative_delta(baseline,posed)
-   # Rebuild shared arm/gun deltas from the native full firing pose after TF2 sleeve adaptation.
+   raw=c.sample(time);target=original_pose(c,time,anchorName)
+   D=visual_motion.recoil(order,parent,baseline,target['def_c_base'])
+   # Arms and gun share the reduced kick, preserving their held contact.
    # Mechanism channels remain the exact native local deltas, including each original joint axis.
    for n in extra+['def_c_bolt']:
     if n in raw:D[n]=Matrix.Identity(4) if n in rotors else raw[n]
@@ -238,6 +237,14 @@ for row,descriptor in stock['table'](184,92,4):
   c=clip('idle_reactive_layer_3',True)
   frames=[offset_pose({n:Matrix.Identity(4) for n in order}) for _ in range(c.end+1)]
   source='neutral_autoplay'
+ elif name in visual_motion.MOVEMENT:
+  source='coherent_stock_motion'
+  _,_,stockHeld,_=smd(STOCK/'view/ptpov_car101_anims/draw_seq.smd')
+  for old in oldframes:
+   D={n:old[n].copy() for n in so}
+   for n in so:
+    if sp[n] is None:D[n]=Matrix.Rotation(math.pi/2,4,'Z')@D[n]
+   frames.append(offset_pose(visual_motion.movement(order,parent,anchors['draw_0'],so,sp,stockHeld[-1],D)))
  elif isdelta:
   source='stock_delta'
   for old in oldframes:
@@ -293,7 +300,9 @@ for row,descriptor in stock['table'](184,92,4):
    if not isdelta:frame['def_c_proscreen']=restL['def_c_proscreen'].copy()
  sourcefile=name+'.smd';write_smd(ANIM/sourcefile,order,parent,frames)
  payload[descriptor]=dict(file=sourcefile,delta=isdelta,noanimation=noanim,frames=len(frames),source=source)
- if name.startswith('attack_'):payload[descriptor]['sampling']='complete_native_timeline'
+ if name.startswith('attack_'):
+  payload[descriptor]['sampling']='complete_native_timeline'
+  payload[descriptor]['fire_policy']='coherent_reduced_recoil'
  if name=='sprint_seq':payload[descriptor]['motion_policy']='full_native_right_hand'
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)

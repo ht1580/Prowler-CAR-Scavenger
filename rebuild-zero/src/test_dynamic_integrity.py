@@ -45,12 +45,12 @@ class DynamicIntegrity(unittest.TestCase):
     a=G['def_c_base'].inverted()@G[hand];b=held['def_c_base'].inverted()@held[hand]
     self.assertLess((a.translation-b.translation).length,.025,f'{name}/{hand}: wrong handed exit')
 
- def test_counter_is_lower_in_held_view_not_only_changed_model_z(self):
+ def test_counter_is_higher_than_0210_in_held_view(self):
   rig=json.loads((BUILD/'rig.json').read_text(encoding='utf-8'));G=self.authored('draw_seq')[-1];camera=Euler((math.pi/2,0,math.pi/2),'XYZ').to_matrix().to_4x4()@Matrix.Rotation(math.pi,4,'Y');compiler=Matrix.Rotation(math.pi/2,4,'Z')
-  old=Matrix(rig['rest_global']['def_c_proscreen']);old.translation=Vector((1.047551,49.6,7.0));body=G['def_c_base']@Matrix(rig['rest_global']['def_c_base']).inverted();new=G['def_c_proscreen'].translation
+  old=Matrix(rig['rest_global']['def_c_proscreen']);old.translation=Vector((1.047551,47.0,11.0));body=G['def_c_base']@Matrix(rig['rest_global']['def_c_base']).inverted();new=G['def_c_proscreen'].translation
   def vertical(point):
    p=camera.inverted()@compiler@point;return -p.y/-p.z
-  self.assertGreater(vertical(new)-vertical((body@old).translation),.04,'screen was not moved down in first-person view')
+  self.assertLess(vertical(new)-vertical((body@old).translation),-.015,'latest feedback requests the screen higher than0.2.10')
 
  def test_all_counter_standoff_faces_follow_stock_renderer_winding(self):
   for filename in ('ptpov_car101','w_car101'):

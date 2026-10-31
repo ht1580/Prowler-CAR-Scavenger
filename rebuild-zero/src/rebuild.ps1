@@ -53,6 +53,8 @@ foreach($world in @(@{path="$taskRoot\build\compiler_game\models\weapons\car101\
  if($LASTEXITCODE -ne 0){throw 'World decoding failed'}
 }
 # Decode every frame of every absolute descriptor, including non-inline transitions.
+& $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot/decode_motion.ps1"
+if($LASTEXITCODE -ne 0){throw 'Movement decode failed'}
 & $x86 -NoProfile -ExecutionPolicy Bypass -File "$PSScriptRoot/decode_dynamic.ps1"
 if($LASTEXITCODE -ne 0){throw 'Full dynamic decode failed'}
 BlenderStep 'verify_dynamic.py'
@@ -69,6 +71,8 @@ BlenderStep 'test_motion_policy.py'
 BlenderStep 'test_refinements.py'
 BlenderStep 'test_dynamic_integrity.py'
 BlenderStep 'test_right_forearm.py'
+BlenderStep 'test_attack_blending.py'
+BlenderStep 'test_feedback_motion.py'
 PythonStep 'test_rebuild.py'
 PythonStep 'stage_package.py'
 if($Render){
