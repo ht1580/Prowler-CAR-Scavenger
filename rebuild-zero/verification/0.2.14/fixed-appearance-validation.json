@@ -1,0 +1,26 @@
+{
+  "models": {
+    "ptpov_car101": {
+      "families": 9,
+      "all_families_equal": true,
+      "body_material": "models\\Weapons_R2\\prowler_zero\\scavenger",
+      "model_sha256": "af8fdd4ac38990a79ea764f9f0e5733a18c6d69b594e5098811f498f614f7fd9"
+    },
+    "w_car101": {
+      "families": 9,
+      "all_families_equal": true,
+      "body_material": "models\\Weapons_R2\\prowler_zero\\scavenger",
+      "model_sha256": "08903625cca5e8910a64da622b4b2728d9c13b3b82db0e1edcc0c94f24b91753"
+    }
+  },
+  "client_guard_sha256": "bdc3c009c39266eec77483e1093cb242eda4207ba24b0801cd3c0fffc7b50806",
+  "render_entities": [
+    "active local CAR weapon",
+    "first-person viewmodel"
+  ],
+  "forced_skin": 0,
+  "forced_camo": 0,
+  "saved_loadout_changed": false,
+  "source_texture_package_changed": false,
+  "runtime_effect_verified": false
+}

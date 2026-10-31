@@ -24,7 +24,7 @@ with (OUT/'bone-audit.csv').open('w',encoding='utf-8-sig',newline='') as f:
  w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
 for name in ('source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
-for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','attack-blending-validation.json','compiled-attack-blending-validation.json','compiled-visual-motion-validation.json','compiled-low-sprint-validation.json'):
+for name in ('animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','attack-blending-validation.json','compiled-attack-blending-validation.json','compiled-visual-motion-validation.json','compiled-low-sprint-validation.json','native-sprint-validation.json'):
  shutil.copy2(BUILD/name,OUT/name)
 for name in ('rui-layout-validation.json','audio-report.json','proscreen-data.json'):
  if (BUILD/name).exists():shutil.copy2(BUILD/name,OUT/name)
@@ -35,7 +35,8 @@ shutil.copy2(ROOT/'reference-structure/structure-comparison.json',OUT/'reference
 evidence=OUT/'evidence';evidence.mkdir(exist_ok=True)
 font=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',23);small=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',18)
 sheet=Image.new('RGB',(1920,1200),(18,22,28));draw=ImageDraw.Draw(sheet)
-draw.text((22,12),f'{version} 私人比赛实机采集（非 Blender 渲染）',font=font,fill='white')
+kind='私人比赛实机采集（非 Blender 渲染）' if runtime['game_tested'] else '编译模型离线预览（未通过实机视觉验收）'
+draw.text((22,12),f'{version} {kind}',font=font,fill='white')
 draw.text((22,45),'仅证明下列采样动作；完整验收范围见 runtime-verification.json。',font=small,fill=(185,196,210))
 for i,sample in enumerate(runtime['samples'][:6]):
  p=TASK/sample['path'];assert p.exists();dest=evidence/(sample['name']+'.png');shutil.copy2(p,dest)
@@ -68,7 +69,7 @@ report=(ROOT/'src/release_report.md.in').read_text(encoding='utf-8').format(vers
 include=[ROOT/'README.md',ROOT/'inventory.json',ROOT/'reactive-motion.json',ROOT/'stock-world.json']
 include += [p for p in (ROOT/'src').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']
 include += [p for folder in ('view','world') for p in (BUILD/folder).rglob('*') if p.is_file() and p.suffix in ('.smd','.qc')]
-include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','attack-blending-validation.json','compiled-attack-blending-validation.json','compiled-visual-motion-validation.json','compiled-low-sprint-validation.json')]
+include += [BUILD/n for n in ('rig.json','world-rig.json','source-verification.json','compiled-verification.json','native-firing-grip.json','world-validation.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','attack-blending-validation.json','compiled-attack-blending-validation.json','compiled-visual-motion-validation.json','compiled-low-sprint-validation.json','native-sprint-validation.json')]
 include += [BUILD/'prowler_car101.rui',BUILD/'rui-layout-validation.json',BUILD/'audio-report.json']
 # Local task history remains in the workspace, outside public deliverables.
 manifest=[dict(path=p.relative_to(ROOT).as_posix(),sha256=sha(p)) for p in sorted(set(include)) if p.exists()]
@@ -78,7 +79,7 @@ with zipfile.ZipFile(OUT/f'Prowler-Rebuild-Source-{version}.zip','w',zipfile.ZIP
   if p.exists():z.write(p,'Prowler-Rebuild/'+p.relative_to(ROOT).as_posix())
 with zipfile.ZipFile(OUT/f'Prowler-Evidence-{version}.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(evidence.iterdir()):z.write(p,'evidence/'+p.name)
- for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','attack-blending-validation.json','compiled-attack-blending-validation.json','compiled-visual-motion-validation.json','compiled-low-sprint-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
+ for n in ('runtime-check.png','runtime-verification.json','package-verification.json','bone-audit.csv','reference-structures.json','compiled-verification.json','native-firing-grip.json','animation-order-validation.json','animation-order-map.csv','compiled-reload-validation.json','compiled-dynamic-validation.json','right-forearm-validation.json','attack-blending-validation.json','compiled-attack-blending-validation.json','compiled-visual-motion-validation.json','compiled-low-sprint-validation.json','native-sprint-validation.json','重建记录.md','rui-layout-validation.json','audio-report.json','prowler_car101.rui','prowler_ammo_panel.json'):
   z.write(OUT/n,n)
 for p in OUT.glob('*.zip'):
  with zipfile.ZipFile(p) as z:assert z.testzip() is None

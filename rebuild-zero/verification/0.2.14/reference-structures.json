@@ -1,0 +1,8821 @@
+[
+  {
+    "label": "Creamy CAR",
+    "path": "work\\rebuild-zero\\references\\Creamy_jpg-CAR_Pastel_Perfection-1.3.1\\mods\\creamy.CAR_PP\\mod\\models\\weapons\\car101\\ptpov_car101.mdl",
+    "sha256": "37826626997fa314a698ca93adf7264c05e29a1ae1b0a9d60bec53da93c4f4d7",
+    "bones": 85,
+    "bodyparts": [
+      {
+        "name": "car101_body",
+        "options": 1,
+        "base": 1
+      },
+      {
+        "name": "sight_holo",
+        "options": 2,
+        "base": 1
+      },
+      {
+        "name": "sight_acgs",
+        "options": 2,
+        "base": 2
+      },
+      {
+        "name": "sight_cro",
+        "options": 2,
+        "base": 4
+      },
+      {
+        "name": "proscreen",
+        "options": 2,
+        "base": 8
+      },
+      {
+        "name": "car101_sight_on",
+        "options": 2,
+        "base": 16
+      },
+      {
+        "name": "car101_magazine",
+        "options": 2,
+        "base": 32
+      }
+    ],
+    "pose_parameters": [
+      "sprintfrac",
+      "velocity",
+      "ads_blend"
+    ],
+    "autoplay": [
+      "idle_seq_autoplay"
+    ],
+    "sequences": [
+      {
+        "name": "ref",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          87
+        ],
+        "anims": [
+          "@ref"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          27,
+          28,
+          27,
+          29
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq_nocam",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          27,
+          30,
+          27,
+          29
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim_nocam",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          47
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          47
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq_alt1",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq_alt1",
+        "activity": "ACT_VM_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "reload_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          88
+        ],
+        "anims": [
+          "@reload_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          57
+        ],
+        "anims": [
+          "reload_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          89
+        ],
+        "anims": [
+          "@reload_empty_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          58
+        ],
+        "anims": [
+          "reload_empty_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          59
+        ],
+        "anims": [
+          "reload_empty_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          90
+        ],
+        "anims": [
+          "@reload_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          60
+        ],
+        "anims": [
+          "reload_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          91
+        ],
+        "anims": [
+          "@reload_empty_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          61
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          62
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_crouch_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          92
+        ],
+        "anims": [
+          "@reload_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_crouch_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          63
+        ],
+        "anims": [
+          "reload_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          93
+        ],
+        "anims": [
+          "@reload_empty_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          64
+        ],
+        "anims": [
+          "reload_empty_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          65
+        ],
+        "anims": [
+          "reload_empty_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          94
+        ],
+        "anims": [
+          "@reload_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          66
+        ],
+        "anims": [
+          "reload_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          95
+        ],
+        "anims": [
+          "@reload_empty_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          67
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          68
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          96
+        ],
+        "anims": [
+          "@drawfirst_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_crouch_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          97
+        ],
+        "anims": [
+          "@drawfirst_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          98
+        ],
+        "anims": [
+          "@draw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          99
+        ],
+        "anims": [
+          "@drawfirst_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          100
+        ],
+        "anims": [
+          "@draw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_crouch_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          101
+        ],
+        "anims": [
+          "@draw_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          102
+        ],
+        "anims": [
+          "@draw_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_seq",
+        "activity": "ACT_VM_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          103
+        ],
+        "anims": [
+          "@holster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          104
+        ],
+        "anims": [
+          "@holster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          105
+        ],
+        "anims": [
+          "@raise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          106
+        ],
+        "anims": [
+          "@raise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          107
+        ],
+        "anims": [
+          "@raise_frommelee_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_crouch_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          108
+        ],
+        "anims": [
+          "@raise_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          109
+        ],
+        "anims": [
+          "@raise_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_crouch_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          110
+        ],
+        "anims": [
+          "@raise_frommelee_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_sliding_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          111
+        ],
+        "anims": [
+          "@raise_frommelee_sliding_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_seq",
+        "activity": "ACT_VM_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          112
+        ],
+        "anims": [
+          "@lower_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          113
+        ],
+        "anims": [
+          "@lower_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_seq",
+        "activity": "ACT_VM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          114
+        ],
+        "anims": [
+          "@sprint_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          115
+        ],
+        "anims": [
+          "@sprintraise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_regrip",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          116
+        ],
+        "anims": [
+          "@sprintraise_seq_regrip"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_air",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          117
+        ],
+        "anims": [
+          "@sprintraise_seq_air"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_seq",
+        "activity": "ACT_VM_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          118
+        ],
+        "anims": [
+          "@sprintdraw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_seq",
+        "activity": "ACT_VM_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          119
+        ],
+        "anims": [
+          "@sprintholster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          120
+        ],
+        "anims": [
+          "@sprint_onehanded_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          121
+        ],
+        "anims": [
+          "@sprintraise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          122
+        ],
+        "anims": [
+          "@sprintdraw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          123
+        ],
+        "anims": [
+          "@sprintholster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq_slide",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          82
+        ],
+        "anims": [
+          "sprintraise_onehanded_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_crouch_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          8
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq_air",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_crouch_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          9
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq_air",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          16
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          8
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          16
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          9
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_wallrun",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          24,
+          25
+        ],
+        "anims": [
+          "run_anim_static",
+          "run_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer_reload",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          26
+        ],
+        "anims": [
+          "run_anim_layer"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "optic_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          83,
+          84
+        ],
+        "anims": [
+          "optic_anim_layer",
+          "optic_anim_layer_ads"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          85
+        ],
+        "anims": [
+          "wind_loop_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_ads_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          86
+        ],
+        "anims": [
+          "wind_loop_ads_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_autoplay",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          31,
+          32
+        ],
+        "anims": [
+          "idle_anim_autoplay",
+          "idle_ads_anim_autoplay"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": true
+      },
+      {
+        "name": "idle_seq",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          38,
+          39
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          38,
+          39
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          47
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq_regrip",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          47
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          53
+        ],
+        "anims": [
+          "attack_onehanded_anim",
+          "attack_onehanded_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          47
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          43,
+          77
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "crouch2idle_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          45,
+          81
+        ],
+        "anims": [
+          "idle_check_anim_nod",
+          "iron_anim_nod"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "regrip",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          43,
+          77
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "regrip_02",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          43,
+          44
+        ],
+        "anims": [
+          "idle_check_anim",
+          "idle_check_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          71,
+          75
+        ],
+        "anims": [
+          "switch_to_jump_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          72,
+          76
+        ],
+        "anims": [
+          "switch_to_land_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_crouch_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          43,
+          77
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          73,
+          75
+        ],
+        "anims": [
+          "switch_to_jump_crouch_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          74,
+          76
+        ],
+        "anims": [
+          "switch_to_land_crouch_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_twohanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          70
+        ],
+        "anims": [
+          "switch_to_twohanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_jump",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_land",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "label": "HK560 Malorian",
+    "path": "work\\rebuild-zero\\references\\HK560-Malorian_Arms_3516-0.1.0\\mods\\HK560.MalorianArms3516\\mod\\models\\weapons\\wingman_elite\\ptpov_wingman_elite.mdl",
+    "sha256": "66eb3ff067bc0cc23bc881e4347dd05f72e8dc3a19bd4cce275bd50c870de719",
+    "bones": 118,
+    "bodyparts": [
+      {
+        "name": "v_wingman_elite",
+        "options": 1,
+        "base": 1
+      },
+      {
+        "name": "suppressor_cyl_sm",
+        "options": 2,
+        "base": 1
+      },
+      {
+        "name": "suppressor_sq_sm",
+        "options": 2,
+        "base": 2
+      },
+      {
+        "name": "sight_cqh",
+        "options": 2,
+        "base": 4
+      },
+      {
+        "name": "sight_acgs",
+        "options": 2,
+        "base": 8
+      },
+      {
+        "name": "sight_cro",
+        "options": 2,
+        "base": 16
+      },
+      {
+        "name": "proscreen",
+        "options": 2,
+        "base": 32
+      },
+      {
+        "name": "wingman_elite_magazine",
+        "options": 2,
+        "base": 64
+      }
+    ],
+    "pose_parameters": [
+      "sprintfrac",
+      "velocity",
+      "ads_blend"
+    ],
+    "autoplay": [
+      "idle_seq_autoplay"
+    ],
+    "sequences": [
+      {
+        "name": "ref",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          59
+        ],
+        "anims": [
+          "@ref"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          9,
+          10,
+          9,
+          11
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq_nocam",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          9,
+          12,
+          9,
+          11
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim_nocam",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          24,
+          23
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          24,
+          23
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "reload_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          60
+        ],
+        "anims": [
+          "@reload_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          61
+        ],
+        "anims": [
+          "@reload_late1_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late2_seq",
+        "activity": "ACT_VM_RELOAD_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          62
+        ],
+        "anims": [
+          "@reload_late2_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          63
+        ],
+        "anims": [
+          "@reload_empty_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          64
+        ],
+        "anims": [
+          "@reload_empty_late1_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          65
+        ],
+        "anims": [
+          "@reload_empty_late2_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          66
+        ],
+        "anims": [
+          "@reload_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          67
+        ],
+        "anims": [
+          "@reload_onehanded_late1_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late2_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          68
+        ],
+        "anims": [
+          "@reload_onehanded_late2_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "@reload_empty_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          70
+        ],
+        "anims": [
+          "@reload_empty_onehanded_late1_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          71
+        ],
+        "anims": [
+          "@reload_empty_onehanded_late2_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_crouch_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          72
+        ],
+        "anims": [
+          "@reload_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_crouch_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          73
+        ],
+        "anims": [
+          "@reload_late1_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late2_crouch_seq",
+        "activity": "ACT_VM_RELOAD_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          74
+        ],
+        "anims": [
+          "@reload_late2_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          75
+        ],
+        "anims": [
+          "@reload_empty_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          76
+        ],
+        "anims": [
+          "@reload_empty_late1_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          77
+        ],
+        "anims": [
+          "@reload_empty_late2_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "@reload_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          79
+        ],
+        "anims": [
+          "@reload_onehanded_late1_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late2_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          80
+        ],
+        "anims": [
+          "@reload_onehanded_late2_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          81
+        ],
+        "anims": [
+          "@reload_empty_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          82
+        ],
+        "anims": [
+          "@reload_empty_onehanded_late1_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          83
+        ],
+        "anims": [
+          "@reload_empty_onehanded_late2_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          84
+        ],
+        "anims": [
+          "@draw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          85
+        ],
+        "anims": [
+          "@draw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_crouch_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          86
+        ],
+        "anims": [
+          "@draw_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          87
+        ],
+        "anims": [
+          "@draw_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          88
+        ],
+        "anims": [
+          "@raise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          89
+        ],
+        "anims": [
+          "@raise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          90
+        ],
+        "anims": [
+          "@raise_frommelee_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_crouch_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          91
+        ],
+        "anims": [
+          "@raise_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          92
+        ],
+        "anims": [
+          "@raise_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_crouch_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          93
+        ],
+        "anims": [
+          "@raise_frommelee_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_sliding_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          94
+        ],
+        "anims": [
+          "@raise_frommelee_sliding_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_seq",
+        "activity": "ACT_VM_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          95
+        ],
+        "anims": [
+          "@holster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          96
+        ],
+        "anims": [
+          "@holster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_seq",
+        "activity": "ACT_VM_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          97
+        ],
+        "anims": [
+          "@lower_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          98
+        ],
+        "anims": [
+          "@lower_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_seq",
+        "activity": "ACT_VM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          99
+        ],
+        "anims": [
+          "@sprint_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          100
+        ],
+        "anims": [
+          "@sprintraise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_regrip",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          101
+        ],
+        "anims": [
+          "@sprintraise_seq_regrip"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_air",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          102
+        ],
+        "anims": [
+          "@sprintraise_seq_air"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_seq",
+        "activity": "ACT_VM_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          103
+        ],
+        "anims": [
+          "@sprintdraw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_seq",
+        "activity": "ACT_VM_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          104
+        ],
+        "anims": [
+          "@sprintholster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          105
+        ],
+        "anims": [
+          "@sprint_onehanded_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          106
+        ],
+        "anims": [
+          "@sprintraise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          107
+        ],
+        "anims": [
+          "@sprintdraw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          108
+        ],
+        "anims": [
+          "@sprintholster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq_slide",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          54
+        ],
+        "anims": [
+          "sprintraise_onehanded_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_crouch_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq_air",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_crouch_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          3
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq_air",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          4
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          4
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          5
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          3
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_wallrun",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          5
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          6,
+          7
+        ],
+        "anims": [
+          "run_anim_static",
+          "run_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer_reload",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          8
+        ],
+        "anims": [
+          "run_anim_layer"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "optic_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          55,
+          56
+        ],
+        "anims": [
+          "optic_anim_layer",
+          "optic_anim_layer_ads"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          57
+        ],
+        "anims": [
+          "wind_loop_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_ads_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          58
+        ],
+        "anims": [
+          "wind_loop_ads_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_autoplay",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          13,
+          14
+        ],
+        "anims": [
+          "idle_anim_autoplay",
+          "idle_ads_anim_autoplay"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": true
+      },
+      {
+        "name": "idle_seq",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          15,
+          16
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          15,
+          16
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          15,
+          16
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          15,
+          16
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          17,
+          18
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          17,
+          18
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          22,
+          23
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq_regrip",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          22,
+          23
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          25,
+          26
+        ],
+        "anims": [
+          "attack_onehanded_anim",
+          "attack_onehanded_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          22,
+          23
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          19,
+          51
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "crouch2idle_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          21,
+          53
+        ],
+        "anims": [
+          "idle_check_anim_nod",
+          "iron_anim_nod"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "regrip",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          19,
+          51
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "regrip_02",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          19,
+          20
+        ],
+        "anims": [
+          "idle_check_anim",
+          "idle_check_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          45,
+          49
+        ],
+        "anims": [
+          "switch_to_jump_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          50
+        ],
+        "anims": [
+          "switch_to_land_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_crouch_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          19,
+          51
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          49
+        ],
+        "anims": [
+          "switch_to_jump_crouch_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          48,
+          50
+        ],
+        "anims": [
+          "switch_to_land_crouch_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          43
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_twohanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          44
+        ],
+        "anims": [
+          "switch_to_twohanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_jump",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          43
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_land",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          43
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "label": "CNS144 Mythic R301",
+    "path": "work\\rebuild-zero\\references\\CNS144-Mythic_R301_apex_R201-0.1.2\\mods\\CS.301RE\\mod\\models\\weapons\\rspn101\\ptpov_rspn101.mdl",
+    "sha256": "60ee7ca846fdf2e3f49d00a87c86eb485781f0cfcafc6dbeb13252e35b9dcdf9",
+    "bones": 163,
+    "bodyparts": [
+      {
+        "name": "r101",
+        "options": 1,
+        "base": 1
+      },
+      {
+        "name": "sight_hcog",
+        "options": 2,
+        "base": 1
+      },
+      {
+        "name": "sight_acgs",
+        "options": 2,
+        "base": 2
+      },
+      {
+        "name": "sight_cro",
+        "options": 2,
+        "base": 4
+      },
+      {
+        "name": "proscreen",
+        "options": 2,
+        "base": 8
+      },
+      {
+        "name": "r101_sight_on",
+        "options": 2,
+        "base": 16
+      },
+      {
+        "name": "r101_magazine",
+        "options": 2,
+        "base": 32
+      },
+      {
+        "name": "r101",
+        "options": 1,
+        "base": 64
+      }
+    ],
+    "pose_parameters": [
+      "sprintfrac",
+      "velocity",
+      "ads_blend"
+    ],
+    "autoplay": [
+      "idle_seq_autoplay"
+    ],
+    "sequences": [
+      {
+        "name": "ref",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          89
+        ],
+        "anims": [
+          "@ref"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          27,
+          28,
+          27,
+          29
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq_nocam",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          27,
+          30,
+          27,
+          29
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim_nocam",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          47
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          47
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq_alt1",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq_alt1",
+        "activity": "ACT_VM_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          51,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "reload_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          90
+        ],
+        "anims": [
+          "@reload_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          57
+        ],
+        "anims": [
+          "reload_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          91
+        ],
+        "anims": [
+          "@reload_empty_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          58
+        ],
+        "anims": [
+          "reload_empty_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          59
+        ],
+        "anims": [
+          "reload_empty_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_seq_02",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          92
+        ],
+        "anims": [
+          "@reload_onehanded_seq_02"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          60
+        ],
+        "anims": [
+          "reload_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          93
+        ],
+        "anims": [
+          "@reload_empty_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          61
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          62
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_crouch_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          94
+        ],
+        "anims": [
+          "@reload_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_crouch_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          63
+        ],
+        "anims": [
+          "reload_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          95
+        ],
+        "anims": [
+          "@reload_empty_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          64
+        ],
+        "anims": [
+          "reload_empty_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_crohch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          65
+        ],
+        "anims": [
+          "reload_empty_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          96
+        ],
+        "anims": [
+          "@reload_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          66
+        ],
+        "anims": [
+          "reload_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          97
+        ],
+        "anims": [
+          "@reload_empty_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          67
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          68
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          98
+        ],
+        "anims": [
+          "@drawfirst_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_crouch_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          99
+        ],
+        "anims": [
+          "@drawfirst_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          100
+        ],
+        "anims": [
+          "@drawfirst_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          101
+        ],
+        "anims": [
+          "@draw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          102
+        ],
+        "anims": [
+          "@draw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_crouch_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          103
+        ],
+        "anims": [
+          "@draw_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          104
+        ],
+        "anims": [
+          "@draw_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_seq",
+        "activity": "ACT_VM_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          105
+        ],
+        "anims": [
+          "@holster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          106
+        ],
+        "anims": [
+          "@holster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          107
+        ],
+        "anims": [
+          "@raise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          108
+        ],
+        "anims": [
+          "@raise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          109
+        ],
+        "anims": [
+          "@raise_frommelee_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_crouch_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          110
+        ],
+        "anims": [
+          "@raise_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          111
+        ],
+        "anims": [
+          "@raise_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_crouch_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          112
+        ],
+        "anims": [
+          "@raise_frommelee_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_sliding_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          113
+        ],
+        "anims": [
+          "@raise_frommelee_sliding_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_seq",
+        "activity": "ACT_VM_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          114
+        ],
+        "anims": [
+          "@lower_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          115
+        ],
+        "anims": [
+          "@lower_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_seq",
+        "activity": "ACT_VM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          116
+        ],
+        "anims": [
+          "@sprint_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          117
+        ],
+        "anims": [
+          "@sprintraise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_regrip",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          118
+        ],
+        "anims": [
+          "@sprintraise_seq_regrip"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_air",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          119
+        ],
+        "anims": [
+          "@sprintraise_seq_air"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_seq",
+        "activity": "ACT_VM_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          120
+        ],
+        "anims": [
+          "@sprintdraw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_seq",
+        "activity": "ACT_VM_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          121
+        ],
+        "anims": [
+          "@sprintholster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          122
+        ],
+        "anims": [
+          "@sprint_onehanded_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          123
+        ],
+        "anims": [
+          "@sprintraise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          124
+        ],
+        "anims": [
+          "@sprintdraw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          125
+        ],
+        "anims": [
+          "@sprintholster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq_slide",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          82
+        ],
+        "anims": [
+          "sprintraise_onehanded_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_crouch_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq_air",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_crouch_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          3
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq_air",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          16
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          16
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          3
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_wallrun",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          24,
+          25
+        ],
+        "anims": [
+          "run_anim_static",
+          "run_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer_reload",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          26
+        ],
+        "anims": [
+          "run_anim_layer"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "optic_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          83,
+          84
+        ],
+        "anims": [
+          "optic_anim_layer",
+          "optic_anim_layer_ads"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          85
+        ],
+        "anims": [
+          "wind_loop_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_ads_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          86
+        ],
+        "anims": [
+          "wind_loop_ads_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_autoplay",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          31,
+          32
+        ],
+        "anims": [
+          "idle_anim_autoplay",
+          "idle_ads_anim_autoplay"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": true
+      },
+      {
+        "name": "idle_seq",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          33,
+          34
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          38,
+          39
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          38,
+          39
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          47
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq_regrip",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          47
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          53
+        ],
+        "anims": [
+          "attack_onehanded_anim",
+          "attack_onehanded_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          47
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          43,
+          77
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "crouch2idle_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          45,
+          81
+        ],
+        "anims": [
+          "idle_check_anim_nod",
+          "iron_anim_nod"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "regrip",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          87,
+          77
+        ],
+        "anims": [
+          "idle_check_anim_auto",
+          "iron_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "regrip_02",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          88,
+          44
+        ],
+        "anims": [
+          "idle_check_anim_duck",
+          "idle_check_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          71,
+          75
+        ],
+        "anims": [
+          "switch_to_jump_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          72,
+          76
+        ],
+        "anims": [
+          "switch_to_land_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_crouch_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          43,
+          77
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          73,
+          75
+        ],
+        "anims": [
+          "switch_to_jump_crouch_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          74,
+          76
+        ],
+        "anims": [
+          "switch_to_land_crouch_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_twohanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          70
+        ],
+        "anims": [
+          "switch_to_twohanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_jump",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_land",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "label": "Prowler before",
+    "path": "work\\rebuild-zero\\reference-structure\\before-delta-defaults.mdl",
+    "sha256": "03c271591c89be4f415f9895121cca0ec0a4d7d71dc6bd93695e5593d5f53a8f",
+    "bones": 118,
+    "bodyparts": [
+      {
+        "name": "car101_body",
+        "options": 1,
+        "base": 1
+      },
+      {
+        "name": "sight_holo",
+        "options": 2,
+        "base": 1
+      },
+      {
+        "name": "sight_acgs",
+        "options": 2,
+        "base": 2
+      },
+      {
+        "name": "sight_cro",
+        "options": 2,
+        "base": 4
+      },
+      {
+        "name": "proscreen",
+        "options": 2,
+        "base": 8
+      },
+      {
+        "name": "car101_sight_on",
+        "options": 2,
+        "base": 16
+      },
+      {
+        "name": "car101_magazine",
+        "options": 2,
+        "base": 32
+      }
+    ],
+    "pose_parameters": [
+      "sprintfrac",
+      "velocity",
+      "ads_blend"
+    ],
+    "autoplay": [
+      "idle_seq_autoplay"
+    ],
+    "sequences": [
+      {
+        "name": "ref",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "@ref"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          28,
+          29,
+          28,
+          30
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq_nocam",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          28,
+          31,
+          28,
+          30
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim_nocam",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq_alt1",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          49
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq_alt1",
+        "activity": "ACT_VM_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          49
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "reload_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          58
+        ],
+        "anims": [
+          "@reload_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          59
+        ],
+        "anims": [
+          "reload_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          60
+        ],
+        "anims": [
+          "@reload_empty_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          61
+        ],
+        "anims": [
+          "reload_empty_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          62
+        ],
+        "anims": [
+          "reload_empty_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          63
+        ],
+        "anims": [
+          "@reload_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          64
+        ],
+        "anims": [
+          "reload_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          65
+        ],
+        "anims": [
+          "@reload_empty_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          66
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          67
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_crouch_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          68
+        ],
+        "anims": [
+          "@reload_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_crouch_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "reload_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          70
+        ],
+        "anims": [
+          "@reload_empty_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          71
+        ],
+        "anims": [
+          "reload_empty_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          72
+        ],
+        "anims": [
+          "reload_empty_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          73
+        ],
+        "anims": [
+          "@reload_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          74
+        ],
+        "anims": [
+          "reload_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          75
+        ],
+        "anims": [
+          "@reload_empty_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          76
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          77
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          91
+        ],
+        "anims": [
+          "@drawfirst_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_crouch_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          92
+        ],
+        "anims": [
+          "@drawfirst_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          93
+        ],
+        "anims": [
+          "@draw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          94
+        ],
+        "anims": [
+          "@drawfirst_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          95
+        ],
+        "anims": [
+          "@draw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_crouch_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          96
+        ],
+        "anims": [
+          "@draw_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          97
+        ],
+        "anims": [
+          "@draw_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_seq",
+        "activity": "ACT_VM_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          98
+        ],
+        "anims": [
+          "@holster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          99
+        ],
+        "anims": [
+          "@holster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          100
+        ],
+        "anims": [
+          "@raise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          101
+        ],
+        "anims": [
+          "@raise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          102
+        ],
+        "anims": [
+          "@raise_frommelee_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_crouch_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          103
+        ],
+        "anims": [
+          "@raise_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          104
+        ],
+        "anims": [
+          "@raise_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_crouch_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          105
+        ],
+        "anims": [
+          "@raise_frommelee_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_sliding_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          106
+        ],
+        "anims": [
+          "@raise_frommelee_sliding_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_seq",
+        "activity": "ACT_VM_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          107
+        ],
+        "anims": [
+          "@lower_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          108
+        ],
+        "anims": [
+          "@lower_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_seq",
+        "activity": "ACT_VM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          109
+        ],
+        "anims": [
+          "@sprint_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          110
+        ],
+        "anims": [
+          "@sprintraise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_regrip",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          111
+        ],
+        "anims": [
+          "@sprintraise_seq_regrip"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_air",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          112
+        ],
+        "anims": [
+          "@sprintraise_seq_air"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_seq",
+        "activity": "ACT_VM_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          113
+        ],
+        "anims": [
+          "@sprintdraw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_seq",
+        "activity": "ACT_VM_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          114
+        ],
+        "anims": [
+          "@sprintholster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          115
+        ],
+        "anims": [
+          "@sprint_onehanded_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          116
+        ],
+        "anims": [
+          "@sprintraise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          117
+        ],
+        "anims": [
+          "@sprintdraw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          118
+        ],
+        "anims": [
+          "@sprintholster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq_slide",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          119
+        ],
+        "anims": [
+          "sprintraise_onehanded_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_crouch_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          9
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq_air",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_crouch_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          10
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq_air",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          9
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          18
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          10
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_wallrun",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          18
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          25,
+          26
+        ],
+        "anims": [
+          "run_anim_static",
+          "run_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer_reload",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          27
+        ],
+        "anims": [
+          "run_anim_layer"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "optic_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          120,
+          121
+        ],
+        "anims": [
+          "optic_anim_layer",
+          "optic_anim_layer_ads"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          122
+        ],
+        "anims": [
+          "wind_loop_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_ads_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          123
+        ],
+        "anims": [
+          "wind_loop_ads_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_autoplay",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          32,
+          33
+        ],
+        "anims": [
+          "idle_anim_autoplay",
+          "idle_ads_anim_autoplay"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": true
+      },
+      {
+        "name": "idle_seq",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          39,
+          40
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          39,
+          40
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          48
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq_regrip",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          48
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          53,
+          54
+        ],
+        "anims": [
+          "attack_onehanded_anim",
+          "attack_onehanded_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          48
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          86
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "crouch2idle_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          90
+        ],
+        "anims": [
+          "idle_check_anim_nod",
+          "iron_anim_nod"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "regrip",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          86
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "regrip_02",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          45
+        ],
+        "anims": [
+          "idle_check_anim",
+          "idle_check_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          80,
+          84
+        ],
+        "anims": [
+          "switch_to_jump_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          81,
+          85
+        ],
+        "anims": [
+          "switch_to_land_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_crouch_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          86
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          82,
+          84
+        ],
+        "anims": [
+          "switch_to_jump_crouch_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          83,
+          85
+        ],
+        "anims": [
+          "switch_to_land_crouch_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_twohanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          79
+        ],
+        "anims": [
+          "switch_to_twohanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_jump",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_land",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      }
+    ]
+  },
+  {
+    "label": "Prowler after",
+    "path": "work\\rebuild-zero\\build\\compiler_game\\models\\weapons\\car101\\ptpov_car101_conv.mdl",
+    "sha256": "a39c61593c7ed6f083905b0455cc178165a9b326540e13fab863c05382224218",
+    "bones": 118,
+    "bodyparts": [
+      {
+        "name": "car101_body",
+        "options": 1,
+        "base": 1
+      },
+      {
+        "name": "sight_holo",
+        "options": 2,
+        "base": 1
+      },
+      {
+        "name": "sight_acgs",
+        "options": 2,
+        "base": 2
+      },
+      {
+        "name": "sight_cro",
+        "options": 2,
+        "base": 4
+      },
+      {
+        "name": "proscreen",
+        "options": 2,
+        "base": 8
+      },
+      {
+        "name": "car101_sight_on",
+        "options": 2,
+        "base": 16
+      },
+      {
+        "name": "car101_magazine",
+        "options": 2,
+        "base": 32
+      }
+    ],
+    "pose_parameters": [
+      "sprintfrac",
+      "velocity",
+      "ads_blend"
+    ],
+    "autoplay": [
+      "idle_seq_autoplay"
+    ],
+    "sequences": [
+      {
+        "name": "ref",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          0
+        ],
+        "anims": [
+          "@ref"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          28,
+          29,
+          28,
+          30
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "walk_seq_nocam",
+        "activity": "",
+        "blend": [
+          2,
+          2
+        ],
+        "raw": [
+          28,
+          31,
+          28,
+          30
+        ],
+        "anims": [
+          "walk_anim_static",
+          "walk_anim_nocam",
+          "walk_anim_static",
+          "walk_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          48
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_manual_seq_alt1",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          49
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_crouch_manual_seq_alt1",
+        "activity": "ACT_VM_PRIMARYATTACK_ALT1",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          52,
+          49
+        ],
+        "anims": [
+          "attack_slide_anim",
+          "attack_ads_anim_alt1"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "reload_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          58
+        ],
+        "anims": [
+          "@reload_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          59
+        ],
+        "anims": [
+          "reload_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          60
+        ],
+        "anims": [
+          "@reload_empty_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          61
+        ],
+        "anims": [
+          "reload_empty_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          62
+        ],
+        "anims": [
+          "reload_empty_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          63
+        ],
+        "anims": [
+          "@reload_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          64
+        ],
+        "anims": [
+          "reload_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          65
+        ],
+        "anims": [
+          "@reload_empty_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          66
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          67
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_crouch_seq",
+        "activity": "ACT_VM_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          68
+        ],
+        "anims": [
+          "@reload_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_late1_crouch_seq",
+        "activity": "ACT_VM_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          69
+        ],
+        "anims": [
+          "reload_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          70
+        ],
+        "anims": [
+          "@reload_empty_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late1_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          71
+        ],
+        "anims": [
+          "reload_empty_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_late2_crouch_seq",
+        "activity": "ACT_VM_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          72
+        ],
+        "anims": [
+          "reload_empty_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          73
+        ],
+        "anims": [
+          "@reload_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOAD_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          74
+        ],
+        "anims": [
+          "reload_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          75
+        ],
+        "anims": [
+          "@reload_empty_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late1_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE1",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          76
+        ],
+        "anims": [
+          "reload_empty_onehanded_late1_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "reload_empty_onehanded_late2_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RELOADEMPTY_LATE2",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          77
+        ],
+        "anims": [
+          "reload_empty_onehanded_late2_crouch_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          91
+        ],
+        "anims": [
+          "@drawfirst_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_crouch_seq",
+        "activity": "ACT_VM_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          92
+        ],
+        "anims": [
+          "@drawfirst_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          93
+        ],
+        "anims": [
+          "@draw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "drawfirst_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAWFIRST",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          94
+        ],
+        "anims": [
+          "@drawfirst_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          95
+        ],
+        "anims": [
+          "@draw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_crouch_seq",
+        "activity": "ACT_VM_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          96
+        ],
+        "anims": [
+          "@draw_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "draw_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          97
+        ],
+        "anims": [
+          "@draw_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_seq",
+        "activity": "ACT_VM_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          98
+        ],
+        "anims": [
+          "@holster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "holster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          99
+        ],
+        "anims": [
+          "@holster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          100
+        ],
+        "anims": [
+          "@raise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          101
+        ],
+        "anims": [
+          "@raise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          102
+        ],
+        "anims": [
+          "@raise_frommelee_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_crouch_seq",
+        "activity": "ACT_VM_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          103
+        ],
+        "anims": [
+          "@raise_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_onehanded_crouch_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          104
+        ],
+        "anims": [
+          "@raise_onehanded_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_crouch_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          105
+        ],
+        "anims": [
+          "@raise_frommelee_crouch_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "raise_frommelee_sliding_seq",
+        "activity": "ACT_VM_RAISE_FROM_MELEE",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          106
+        ],
+        "anims": [
+          "@raise_frommelee_sliding_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_seq",
+        "activity": "ACT_VM_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          107
+        ],
+        "anims": [
+          "@lower_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "lower_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_LOWER",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          108
+        ],
+        "anims": [
+          "@lower_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_seq",
+        "activity": "ACT_VM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          109
+        ],
+        "anims": [
+          "@sprint_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          110
+        ],
+        "anims": [
+          "@sprintraise_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_regrip",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          111
+        ],
+        "anims": [
+          "@sprintraise_seq_regrip"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_seq_air",
+        "activity": "ACT_VM_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          112
+        ],
+        "anims": [
+          "@sprintraise_seq_air"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_seq",
+        "activity": "ACT_VM_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          113
+        ],
+        "anims": [
+          "@sprintdraw_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_seq",
+        "activity": "ACT_VM_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          114
+        ],
+        "anims": [
+          "@sprintholster_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprint_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          115
+        ],
+        "anims": [
+          "@sprint_onehanded_seq"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          116
+        ],
+        "anims": [
+          "@sprintraise_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintdraw_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_DRAW_TO_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          117
+        ],
+        "anims": [
+          "@sprintdraw_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintholster_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_HOLSTER_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          118
+        ],
+        "anims": [
+          "@sprintholster_onehanded_seq"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "sprintraise_onehanded_seq_slide",
+        "activity": "ACT_VM_ONEHANDED_RAISE_FROM_SPRINT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          119
+        ],
+        "anims": [
+          "sprintraise_onehanded_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_crouch_seq",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          9
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_seq_air",
+        "activity": "ACT_VM_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          1
+        ],
+        "anims": [
+          "ads_in_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_crouch_seq",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          10
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_seq_air",
+        "activity": "ACT_VM_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          2
+        ],
+        "anims": [
+          "ads_out_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          9
+        ],
+        "anims": [
+          "ads_in_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_in_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_ADS_IN",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          17
+        ],
+        "anims": [
+          "ads_in_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          18
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_sliding",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          10
+        ],
+        "anims": [
+          "ads_out_slide_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "ads_out_onehanded_seq_wallrun",
+        "activity": "ACT_VM_ONEHANDED_ADS_OUT",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          18
+        ],
+        "anims": [
+          "ads_out_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          25,
+          26
+        ],
+        "anims": [
+          "run_anim_static",
+          "run_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "run_layer_reload",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          27
+        ],
+        "anims": [
+          "run_anim_layer"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "optic_layer",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          120,
+          121
+        ],
+        "anims": [
+          "optic_anim_layer",
+          "optic_anim_layer_ads"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          122
+        ],
+        "anims": [
+          "wind_loop_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "wind_loop_ads_layer",
+        "activity": "",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          123
+        ],
+        "anims": [
+          "wind_loop_ads_anim_layer"
+        ],
+        "looping": true,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_autoplay",
+        "activity": "",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          32,
+          33
+        ],
+        "anims": [
+          "idle_anim_autoplay",
+          "idle_ads_anim_autoplay"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": true
+      },
+      {
+        "name": "idle_seq",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch_air",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_seq_crouch",
+        "activity": "ACT_VM_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          34,
+          35
+        ],
+        "anims": [
+          "idle_anim",
+          "idle_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          39,
+          40
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_onehanded_seq_air",
+        "activity": "ACT_VM_ONEHANDED_IDLE",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          39,
+          40
+        ],
+        "anims": [
+          "idle_onehanded_anim",
+          "idle_onehanded_ads_anim"
+        ],
+        "looping": true,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          48
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_seq_regrip",
+        "activity": "ACT_VM_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          48
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          53,
+          54
+        ],
+        "anims": [
+          "attack_onehanded_anim",
+          "attack_onehanded_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "attack_onehanded_slide_seq",
+        "activity": "ACT_VM_ONEHANDED_PRIMARYATTACK",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          47,
+          48
+        ],
+        "anims": [
+          "attack_anim",
+          "attack_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          86
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "crouch2idle_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          46,
+          90
+        ],
+        "anims": [
+          "idle_check_anim_nod",
+          "iron_anim_nod"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "regrip",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          86
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "regrip_02",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          45
+        ],
+        "anims": [
+          "idle_check_anim",
+          "idle_check_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          80,
+          84
+        ],
+        "anims": [
+          "switch_to_jump_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          81,
+          85
+        ],
+        "anims": [
+          "switch_to_land_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "idle_check_crouch_seq",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          44,
+          86
+        ],
+        "anims": [
+          "idle_check_anim",
+          "iron_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_jump_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          82,
+          84
+        ],
+        "anims": [
+          "switch_to_jump_crouch_anim",
+          "switch_to_jump_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_land_iron_crouch",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          2,
+          1
+        ],
+        "raw": [
+          83,
+          85
+        ],
+        "anims": [
+          "switch_to_land_crouch_anim",
+          "switch_to_land_ads_anim"
+        ],
+        "looping": false,
+        "delta": true,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_twohanded",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          79
+        ],
+        "anims": [
+          "switch_to_twohanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_jump",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      },
+      {
+        "name": "switch_to_onehanded_land",
+        "activity": "ACT_TRANSITION",
+        "blend": [
+          1,
+          1
+        ],
+        "raw": [
+          78
+        ],
+        "anims": [
+          "switch_to_onehanded_anim"
+        ],
+        "looping": false,
+        "delta": false,
+        "autoplay": false
+      }
+    ]
+  }
+]

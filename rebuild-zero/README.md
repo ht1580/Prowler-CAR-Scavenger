@@ -1,4 +1,10 @@
-# 0.2.13 普通跑步改为右侧低持摆动
+# 0.2.14 完整Apex跑步与固定猎兽外观
+
+原始21帧、36FPS的sprint_0循环完整保留，枪和双手轨迹不缩减、握点不冻结，包括原生退出视野下沿的阶段。普通持枪和ADS位置延续此前版本。当前所有9个MDL皮肤档位已指向相同的猎兽材质；新增本地CAR武器和第一人称实体的Skin/Camo归零保护，隔离游戏内皮肤与迷彩选择，保留游戏中保存的配装选择。原始猎兽贴图内容及其他武器/手臂材质不改。
+
+72项源/编译检查通过。实机状态必须查看本版runtime-verification.json；白屏、离线渲染和仅有加载日志均不算视觉验收。
+
+# 历史0.2.13适配说明（已由上面的完整循环取代）
 
 0.2.12最终复核发现过渡端点混合误改根/镜头轨迹，该版已撤回为草稿。0.2.13限制混合范围为手臂及武器分支，并逐帧检查原生根/镜头轨迹。
 
@@ -12,7 +18,7 @@ Independent Prowler Scavenger rebuild for Titanfall2/R2Vanilla. Candidate0.2.13 
 
 The standing/ADS autoplay entries contain exact zero offsets. Base nonattack clips do not spin the drum; a separate shot-index phase holds the last chamber position. Other native reactive animation is confined to attack clips. Native grip and coherent full/late reload timelines are retained.
 
-Normal sprint uses the native RIGHT-hand low sprint_0 cycle, retaining its phase with20% positional and25% rotational excursion, moved6units forward to fit TF2's fixed eye. Both hands carry the first native low grip coherently; the original free-hand excursion exceeded the adapted sleeve reach and is not copied independently. The special onehanded branch retains sprint_onehanded_0. Equip/holster/raise sprint endpoints match the low loop in gun and wrist transforms, while hidden and held endpoints remain native. Cyclic sleeve fitting is deterministic so the left elbow closes without a seam. Wraith/Bangalore settings identify closer/firesupport but do not prove their full selection graphs; this is a native low style adaptation.
+Normal sprint now preserves the complete native sprint_0 gun and hand trajectories. All21frames are sampled without positional/rotational attenuation or a frozen first-frame grip. Native offscreen phases remain part of the reference; visibility checks compare with that native trajectory instead of demanding an artificial25percent visible body at every frame. The special onehanded branch remains independent. Sprint transition endpoints match the full native loop while original root/camera tracks and hidden/held endpoints remain preserved.
 
 The two absolute crouch2idle_seq rows retain the native crouch_to_idle_0 transition. The iron/ADS row now uses the ADS anchor instead of the hip anchor. Stock roots/camera tracks are preserved. Fifteen active held-motion additive entries are retargeted as coherent_stock_motion; other masked/neutral stock deltas remain stock_delta. All absolute descriptors, including masked wind layers, author the same rigid screen seat.
 

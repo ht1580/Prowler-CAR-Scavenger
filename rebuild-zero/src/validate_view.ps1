@@ -46,6 +46,7 @@ BlenderStep 'test_right_forearm.py'
 BlenderStep 'test_attack_blending.py'
 BlenderStep 'test_feedback_motion.py'
 BlenderStep 'test_low_sprint.py'
+BlenderStep 'test_native_sprint.py'
 & $python "$PSScriptRoot/test_material_channels.py"
 if($LASTEXITCODE -ne 0){throw 'Original material channels discarded'}
 & $python "$PSScriptRoot\test_audio_policy.py"

@@ -1,0 +1,11 @@
+{
+  "compiled_preview": true,
+  "game_capture": false,
+  "frames": 80,
+  "fps": 36,
+  "audio": false,
+  "decoded": true,
+  "gif_source_frames": 20,
+  "gif_encoded_frames": 16,
+  "gif_loop_milliseconds": 560
+}

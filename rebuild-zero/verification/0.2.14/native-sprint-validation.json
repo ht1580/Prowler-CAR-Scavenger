@@ -1,0 +1,10 @@
+{
+  "source": "original Apex sprint_0.cast",
+  "frames": 21,
+  "fps": 36.0,
+  "position_rotation_attenuation": false,
+  "frozen_hand_grip": false,
+  "source_contact_samples": 105,
+  "max_native_position_error": 2.2467077235011572e-05,
+  "visibility_policy": "Preserve original offscreen phases; do not force constant viewport occupancy."
+}

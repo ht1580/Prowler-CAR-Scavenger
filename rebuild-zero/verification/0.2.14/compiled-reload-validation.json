@@ -1,0 +1,24 @@
+{
+  "model_sha256": "af8fdd4ac38990a79ea764f9f0e5733a18c6d69b594e5098811f498f614f7fd9",
+  "frames": 968,
+  "max_resume_position_error": 0.006676673839740597,
+  "max_resume_angle_error": 0.0,
+  "magazine_phases": {
+    "reload_seq": {
+      "pull": 18,
+      "seat": 37
+    },
+    "reload_crouch_seq": {
+      "pull": 18,
+      "seat": 37
+    },
+    "reload_empty_seq": {
+      "pull": 18,
+      "seat": 37
+    },
+    "reload_empty_crouch_seq": {
+      "pull": 18,
+      "seat": 37
+    }
+  }
+}

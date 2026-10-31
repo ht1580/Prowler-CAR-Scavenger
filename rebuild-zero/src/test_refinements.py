@@ -11,7 +11,7 @@ class Refinements(unittest.TestCase):
  def test_sprint_uses_full_right_hand_motion(self):
   rig=json.loads((BUILD/'rig.json').read_text())
   self.assertEqual(rig['animations']['@sprint_seq']['source'],'sprint_0')
-  self.assertEqual(rig['animations']['@sprint_seq'].get('motion_policy'),'native_low_right_carry_fixed_eye')
+  self.assertEqual(rig['animations']['@sprint_seq'].get('motion_policy'),'complete_native_apex_cycle')
 
  def test_crouch_does_not_straighten_on_every_hip_shot(self):
   code=(ROOT/'src/client/prowler_stance.nut').read_text()

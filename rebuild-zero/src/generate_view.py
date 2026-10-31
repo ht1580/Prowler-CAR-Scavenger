@@ -278,7 +278,6 @@ for row,descriptor in stock['table'](184,92,4):
     entering=name.startswith('sprintdraw');endpoint=c.end if entering else 0
     cycle=clip('sprint_onehanded_0' if 'onehanded' in name else 'sprint_0')
     runningPose=original_pose(cycle,0)
-    if 'onehanded' not in name:runningPose=move_weapon_and_hands(runningPose,sprint_motion.low_transform(runningPose['def_c_base'],runningPose['def_c_base']))
     running=runningPose['def_c_base'];align=running@original_pose(c,endpoint)['def_c_base'].inverted()
     def correction(t):
      u=t/max(1,c.end);u=u*u*(3-2*u)
@@ -288,14 +287,10 @@ for row,descriptor in stock['table'](184,92,4):
      return sprint_motion.meet_cycle(target,runningPose,u if entering else 1-u,parent)
     frames=sample_absolute(c,times,transform_at=correction,target_at=cycle_end)
    elif name.startswith('sprint') and 'onehanded' not in name:
-    firstPose=original_pose(c,0);first=firstPose['def_c_base']
-    def low_cycle(target,t):
-     gun=target['def_c_base'];goal=sprint_motion.low_transform(gun,first)@gun
-     # The native free support-hand excursion exceeds the TF2 sleeve reach
-     # after the gun path is shortened. Carry the first low grip coherently,
-     # driven by the actual native gun swing rather than an independent hand.
-     return move_weapon_and_hands(firstPose,goal@first.inverted())
-    frames=sample_absolute(c,times,target_at=low_cycle,cyclic=True)
+    # Preserve every native gun/hand target. The original full cycle lowers
+    # the weapon outside the viewport for part of the stride; do not shrink
+    # that trajectory or freeze either hand to manufacture constant visibility.
+    frames=sample_absolute(c,times,cyclic=True)
    else:
     # These absolute descriptors are the two rows of crouch2idle_seq, not
     # weapon inspection. The ADS row must use the ADS anchor for native deltas.
@@ -320,7 +315,7 @@ for row,descriptor in stock['table'](184,92,4):
  if name.startswith('attack_'):
   payload[descriptor]['sampling']='complete_native_timeline'
   payload[descriptor]['fire_policy']='coherent_reduced_recoil'
- if name=='sprint_seq':payload[descriptor]['motion_policy']='native_low_right_carry_fixed_eye'
+ if name=='sprint_seq':payload[descriptor]['motion_policy']='complete_native_apex_cycle'
  if timing:payload[descriptor]['timing']=timing
  print('ANIMATION',descriptor,len(frames),source,flush=True)
 
@@ -373,6 +368,9 @@ if 'shell' in ag:
 # original binary animation table; inline sequence animations must appear at their original point.
 ab=blocks(qc,'animation');sb=blocks(qc,'sequence');start=min(x[1] for x in ab+sb);end=max(x[2] for x in ab+sb)
 A={n:t for n,_,_,t in ab};S={n:t for n,_,_,t in sb};sequenceorder=[n for n,_,_,_ in sb]
+# The event-free sprint loop keeps the original Apex cadence. Transition
+# event timing remains on the CAR contract; only the visual loop changes FPS.
+S['sprint_seq']=re.sub(r'\bfps\s+[\d.]+',f'fps {clip("sprint_0").fps:g}',S['sprint_seq'])
 # Expand only the existing always-on grid. Default row is completely neutral;
 # the new row is driven only while quietly crouched by a client pose controller.
 S['idle_seq_autoplay']=S['idle_seq_autoplay'].replace('"idle_ads_anim_autoplay"','"idle_ads_anim_autoplay"\n "idle_anim_autoplay"\n "idle_ads_anim_autoplay"',1)

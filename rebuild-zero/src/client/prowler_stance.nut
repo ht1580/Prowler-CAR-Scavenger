@@ -36,6 +36,17 @@ void function ProwlerStance_Think()
    amount = 0.0
    continue
   }
+  // Cosmetic state is separate from the MDL skin-family table. Keep both
+  // local render entities on the authored Scavenger surface, without changing
+  // the saved loadout or the pilot's arms/other weapons.
+  if ( weapon.GetCamo() != 0 )
+   weapon.SetCamo( 0 )
+  if ( weapon.GetSkin() != 0 )
+   weapon.SetSkin( 0 )
+  if ( viewmodel.GetCamo() != 0 )
+   viewmodel.SetCamo( 0 )
+  if ( viewmodel.GetSkin() != 0 )
+   viewmodel.SetSkin( 0 )
   int ammo = weapon.GetWeaponPrimaryClipCount()
   if ( weapon != previousWeapon )
   {

@@ -1,0 +1,99 @@
+{
+  "version": "0.2.14",
+  "zip_sha256": "6ec4b1b6734f41e7ae0a33a265b7c94d31ac25783f156f58da5ab165c4a9ad9d",
+  "model_sha256": "af8fdd4ac38990a79ea764f9f0e5733a18c6d69b594e5098811f498f614f7fd9",
+  "installed_files": 40,
+  "currently_installed": true,
+  "game_tested": false,
+  "runtime_logic_verified": false,
+  "full_visual_acceptance": false,
+  "static_unit_tests": 72,
+  "samples": [
+    {
+      "name": "native-0",
+      "path": "outputs/prowler-zero-0.2.14/offline-preview/0000.png",
+      "sha256": "2e3f2cdd3dda7f893afe227b7a5b99dfc39d3ef5223d6aafebdf9ed7eca942bb",
+      "label": "原生循环第0帧（离线）"
+    },
+    {
+      "name": "native-4",
+      "path": "outputs/prowler-zero-0.2.14/offline-preview/0004.png",
+      "sha256": "77cfc0604b917979828fd3293417a1c6c8a89f23848f5f752844e44e87b8dded",
+      "label": "原生循环第4帧（离线）"
+    },
+    {
+      "name": "native-8",
+      "path": "outputs/prowler-zero-0.2.14/offline-preview/0008.png",
+      "sha256": "03d155af4dd321fdf4b273bac46807785d8ae21b4349ff5066b01610fd774fe2",
+      "label": "原生循环第8帧（离线）"
+    },
+    {
+      "name": "native-12",
+      "path": "outputs/prowler-zero-0.2.14/offline-preview/0012.png",
+      "sha256": "b70745a7e93ee1981966f1a53a12b99961ec7912ad8aa329009ce57f4f620cdc",
+      "label": "原生循环第12帧（离线）"
+    },
+    {
+      "name": "native-16",
+      "path": "outputs/prowler-zero-0.2.14/offline-preview/0016.png",
+      "sha256": "6af6d85eef996f2f3de477e4f6357790555de0d5e9944f4259fdec972a2b7269",
+      "label": "原生循环第16帧（离线）"
+    },
+    {
+      "name": "native-20",
+      "path": "outputs/prowler-zero-0.2.14/offline-preview/0020.png",
+      "sha256": "b93dd155fb2558b1e5d220349c3119a54d68086ef9edb5462a62886085ae49e5",
+      "label": "原生循环第20帧（离线）"
+    }
+  ],
+  "sequences": {},
+  "captured_frames": 0,
+  "capture_kind": "compiled_model_offline_preview_only",
+  "native_sprint": {
+    "source": "original Apex sprint_0.cast",
+    "frames": 21,
+    "fps": 36.0,
+    "position_rotation_attenuation": false,
+    "frozen_hand_grip": false,
+    "source_contact_samples": 105,
+    "max_native_position_error": 2.2467077235011572e-05,
+    "visibility_policy": "Preserve original offscreen phases; do not force constant viewport occupancy."
+  },
+  "cosmetic": {
+    "models": {
+      "ptpov_car101": {
+        "families": 9,
+        "all_families_equal": true,
+        "body_material": "models\\Weapons_R2\\prowler_zero\\scavenger",
+        "model_sha256": "af8fdd4ac38990a79ea764f9f0e5733a18c6d69b594e5098811f498f614f7fd9"
+      },
+      "w_car101": {
+        "families": 9,
+        "all_families_equal": true,
+        "body_material": "models\\Weapons_R2\\prowler_zero\\scavenger",
+        "model_sha256": "08903625cca5e8910a64da622b4b2728d9c13b3b82db0e1edcc0c94f24b91753"
+      }
+    },
+    "client_guard_sha256": "bdc3c009c39266eec77483e1093cb242eda4207ba24b0801cd3c0fffc7b50806",
+    "render_entities": [
+      "active local CAR weapon",
+      "first-person viewmodel"
+    ],
+    "forced_skin": 0,
+    "forced_camo": 0,
+    "saved_loadout_changed": false,
+    "source_texture_package_changed": false,
+    "runtime_effect_verified": false
+  },
+  "conclusion": "已完成完整21帧、36FPS原生跑步轨迹和本地CAR皮肤/迷彩归零保护，源及编译检查通过。实际游戏在原R2Vanilla、独立profile和独立启动目录均只显示白屏，未获得有效实机画面。未确认新皮肤/迷彩保护的运行时效果，不能标为实机通过。离线预览仅说明已编译模型的动作与基础色；没有用旧版录像或白屏采样冒充本版验收。",
+  "remaining": [
+    "本轮未完成实机视觉验收，Skin/Camo切换后的实际外观仍未验证",
+    "原生完整循环含退出视野下沿的阶段，需用户对照游戏效果",
+    "未穷尽手套、瞄具、技能和快速中断组合；未做公共服务器长期测试",
+    "一次白屏下跳图诊断发生engine.dll崩溃，原因未定位"
+  ],
+  "state": "40file candidate installed and byte-verified; test game processes closed. Original CFG files were not edited. QA observer and raw dump are excluded from shipping artifacts.",
+  "diagnostic_map_crash": true,
+  "diagnostic_crash_module": "engine.dll",
+  "crash_cause_identified": false
+}

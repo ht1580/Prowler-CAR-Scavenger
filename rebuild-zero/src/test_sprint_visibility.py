@@ -1,42 +1,27 @@
-"""Reject native variants which place the held gun behind the fixed original engine eye."""
-import json,sys,unittest
+"""Verify native eye-space trajectory, including its authored offscreen phases."""
+import sys,json,math,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from core import *
-
 class SprintVisibility(unittest.TestCase):
- def test_regular_sprint_has_visible_body_geometry_not_only_a_forward_origin(self):
-  sys.path.insert(0,str(ROOT/'src/tools'));from mdl_mesh import read_mdl_mesh
-  doc=json.loads((BUILD/'native-all.json').read_text(encoding='utf-8-sig'))
-  order=[b['name'] for b in doc['bones']]
-  parent={b['name']:order[b['parent']] if b['parent']>=0 else None for b in doc['bones']}
-  bind=globals_(order,parent,{b['name']:matrix(b['pos'],Euler(b['rot'],'XYZ').to_quaternion()) for b in doc['bones']})
-  mesh=read_mdl_mesh(BUILD/'compiler_game/models/weapons/car101/ptpov_car101_conv.mdl',include={(0,0)})
-  ids={i for part in mesh['parts'] for face in part['faces'] for i in face}
-  camera=Euler((math.pi/2,0,math.pi/2),'XYZ').to_matrix().to_4x4()@Matrix.Rotation(math.pi,4,'Y')
-  focal=640/math.tan(math.radians(70)/2)
+ def test_compiled_cycle_does_not_push_the_gun_away_from_the_original_path(self):
+  doc=json.loads((BUILD/'native-dynamic.json').read_text(encoding='utf-8-sig'));o=[b['name'] for b in doc['bones']];p={b['name']:o[b['parent']] if b['parent']>=0 else None for b in doc['bones']}
+  c=Clip(SOURCE/'apex_animations/animrig/techart/mshop/weapons/class/smg/prowler/anims_prowler_base_v_animRig/sprint_0.cast');checks=0
   for pose in doc['poses']:
    if pose['name']!='@sprint_seq':continue
-   local={order[v['index']]:matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion()) for v in pose['locals']}
-   gun=globals_(order,parent,local)['def_c_base'];transform=camera.inverted()@gun@bind['def_c_base'].inverted();visible=0
-   for i in ids:
-    point=transform@Vector(mesh['vertices'][i]);depth=-point.z
-    visible+=depth>.05 and 0<640+point.x/depth*focal<1280 and 0<360-point.y/depth*focal<720
-   self.assertGreater(visible/len(ids),.25,f'sprint frame{pose["frame"]}: gun body below/outside viewport')
-
- def test_regular_sprint_keeps_weapon_in_front_of_fixed_engine_eye(self):
-  doc=json.loads((BUILD/'native-all.json').read_text(encoding='utf-8-sig'))
-  order=[b['name'] for b in doc['bones']]
-  parent={b['name']:order[b['parent']] if b['parent']>=0 else None for b in doc['bones']}
-  poses=[p for p in doc['poses'] if p['name']=='@sprint_seq']
-  self.assertGreaterEqual(len(poses),3)
-  # Stock v53 view eye is at the origin, looking along +X (Rx90,Rz90).
-  for p in poses:
-   local={order[v['index']]:matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion()) for v in p['locals']}
-   gun=globals_(order,parent,local)['def_c_base'].translation
-   with self.subTest(frame=p['frame']):
-    self.assertGreater(gun.x,1.0,f'sprint gun origin behind original eye: {list(gun)}')
-
+   G=globals_(o,p,{o[v['index']]:matrix(v['pos'],Euler(v['rot'],'XYZ').to_quaternion()) for v in pose['locals']});N=globals_(c.order,c.parent,c.sample_pose(c.end*pose['frame']/max(1,pose['frames']-1)))
+   for n in ('def_c_base','def_r_wrist','def_l_wrist'):
+    expected=Matrix.Rotation(math.pi/2,4,'Z')@N[n]
+    self.assertLess((G[n].translation-expected.translation).length,.05)
+    self.assertLess(math.degrees(G[n].to_quaternion().rotation_difference(expected.to_quaternion()).angle),.1);checks+=1
+  self.assertEqual(checks,63)
+ def test_all_skin_families_keep_the_same_scavenger_surface(self):
+  sys.path.insert(0,str(ROOT/'src/tools'));from mdl_lib import Mdl
+  for name in ('ptpov_car101','w_car101'):
+   m=Mdl(BUILD/'compiler_game/models/weapons/car101'/(name+'_conv.mdl'));families=m.skins()
+   self.assertGreater(len(families),1)
+   self.assertIn('prowler_zero',families[0][0])
+   self.assertTrue(all(f==families[0] for f in families),'a game skin redirects to another material')
 if __name__=='__main__':
- result=unittest.main(argv=['test_sprint_visibility'],exit=False)
- if not result.result.wasSuccessful():raise RuntimeError('SPRINT_VISIBILITY_FAILED')
+ r=unittest.main(argv=['native_visibility'],exit=False)
+ if not r.result.wasSuccessful():raise RuntimeError('SPRINT_VISIBILITY_FAILED')

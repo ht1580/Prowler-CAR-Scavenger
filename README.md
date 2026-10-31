@@ -1,22 +1,20 @@
 # Prowler.CAR.Scavenger
 
-Apex猎兽Scavenger替换Titanfall2 / R2Vanilla CAR。当前 **0.2.13 右侧低持跑步修正候选**，已安装并在窗口模式私人比赛复测。
+Apex猎兽Scavenger替换Titanfall2 / R2Vanilla CAR。当前 **0.2.14 完整原生跑步与固定外观候选，未完成本轮实机视觉验收**。
 
-- [下载安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.13/Prowler.CAR.Scavenger-0.2.13.zip)
-- [源码和SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.13/Prowler-Rebuild-Source-0.2.13.zip)
-- [完整实机证据](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.13/Prowler-Evidence-0.2.13.zip)
-- [新旧跑姿GIF与视频](previews/0.2.13/README.md)
+- [下载候选安装包](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.14/Prowler.CAR.Scavenger-0.2.14.zip)
+- [源码及SMD/QC](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.14/Prowler-Rebuild-Source-0.2.14.zip)
+- [离线预览与检查记录](https://github.com/ht1580/Prowler-CAR-Scavenger/releases/download/v0.2.14/Prowler-Evidence-0.2.14.zip)
+- [已编译模型离线GIF和视频](previews/0.2.14/README.md)
 
-按用户明确选择，普通跑步由始终举枪的sprint_onehanded_0改为原生sprint_0低持节奏。为适配TF2固定镜头，保留20%位移和25%旋转摆幅并整体前移6单位；双手随同一低持握点摆动。进入/退出跑步对齐枪和双手端点，隐藏收放和两手举枪完成端保留，修正左肘循环接缝。特殊onehanded分支仍用独立单手动作，没有强制所有移动状态都冲刺。
+普通跑步完整使用原始sprint_0的21帧、36FPS枪和双手轨迹，保留原生退出视野下沿阶段。去掉此前20%/25%摆幅压缩和固定初始握点。出入跑步仍匹配端点，原始根/镜头轨迹和CAR事件时序保留。
 
-69项检查通过；完整21帧低持循环、2476帧绝对动作和968帧换弹恢复继续核对。原动画顺序、255条事件、骨骼数量保持。12段773帧私人比赛覆盖跑步、起停、跑步后开火换弹、蹲姿/ADS开火与空中按蹲，游戏正常退出。
+两个MDL的9档皮肤表原本已经统一为猎兽材质。新增只作用于本地CAR武器和第一人称实体的Skin/Camo归零保护，隔离游戏内皮肤和迷彩覆盖；原始猎兽贴图、保存的配装、手套和其他武器材质保持。既有枪声、换弹声音、斜持、弱视觉后座和计数器安装保留。
 
-40个已安装文件与ZIP完全相同，相对0.2.11仅第一人称模型和mod.json版本号变化。0.2.11的增强枪声、换弹声音、空中斜持、弱化视觉左滚和外接屏安装保持。CFG源码、配装、武器数值未改。
+72项源/编译检查通过，40个安装文件与ZIP一致。本轮原配置及独立测试配置均白屏，未确认新外观保护的运行时效果；一次白屏下跳图诊断出现engine.dll崩溃，原因未定位。离线基础色预览不能替代实机验收，没有使用旧版录像冒充新版本通过。
 
-退出游戏，备份旧同名模组后，将ZIP内Prowler.CAR.Scavenger完整替换到实际profile的mods目录。安装包不含CFG、DLL、EXE或诊断脚本。本版视频无音轨；[0.2.11有声实机](previews/0.2.11/README.md)可供试听相同音频。
+退出游戏并备份旧同名模组后，将ZIP内Prowler.CAR.Scavenger完整替换到实际profile的mods目录。候选安装包无CFG、DLL、EXE或QA诊断脚本，含一个生产CLIENT脚本。源码与安装包均明确保留未实测状态。
 
-完整视觉和手感仍待用户复核；未宣称还原恶灵/烟妹完整角色动画图，未穷尽全部手套、瞄具、技能和中断组合，未重新验收外接屏击杀数字增长或公共服务器长期共存。
+[本轮验证边界](rebuild-zero/verification/0.2.14/runtime-verification.json) · [固定外观检查](rebuild-zero/verification/0.2.14/fixed-appearance-validation.json) · [重建记录](rebuild-zero/verification/0.2.14/重建记录.md) · [构建说明](rebuild-zero/README.md)
 
-[修正记录](rebuild-zero/verification/0.2.13/重建记录.md) · [运行时范围](rebuild-zero/verification/0.2.13/runtime-verification.json) · [完整低持循环检查](rebuild-zero/verification/0.2.13/compiled-low-sprint-validation.json) · [构建说明](rebuild-zero/README.md)
-
-0.2.12端点混合误改根/镜头轨迹，复核后已撤回为草稿。0.2.13限制影响范围并新增逐帧原生根/镜头轨迹检查。
+[此前0.2.13实机记录](previews/0.2.13/README.md)保留作历史对照，其跑步仍为压缩摆幅版本。
